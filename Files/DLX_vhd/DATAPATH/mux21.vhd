@@ -1,10 +1,9 @@
 library IEEE;
 use IEEE.std_logic_1164.all; --  libreria IEEE con definizione tipi standard logic
-use WORK.constants.all; -- libreria WORK user-defined
 
 entity MUX21_GENERIC is
-	generic(NBIT: integer := numBit;
-		   DELAY_MUX: time := tp_mux);
+	generic(NBIT: integer := 32;
+		   DELAY_MUX: time := 0.1 ns);
 	Port (	A:	In	std_logic_vector(NBIT-1 downto 0);
 		B:	In	std_logic_vector(NBIT-1 downto 0);
 		SEL:	In	std_logic;

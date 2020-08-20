@@ -1,6 +1,5 @@
 library IEEE;
 use IEEE.std_logic_1164.all; --  libreria IEEE con definizione tipi standard logic
-use WORK.constants.all; -- libreria WORK user-defined
 
 entity IV is
 	Port (	A:	In	std_logic;
