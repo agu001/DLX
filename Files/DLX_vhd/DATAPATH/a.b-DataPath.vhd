@@ -74,36 +74,38 @@ architecture Struct of DATAPATH is
 	signal RFOUT1, RFOUT2, S3_OUT, A_OUT, B_OUT, S1_OUT, S2_OUT, ALU_OP_OUT, ALU_OUT_REG, MEMORY_OUT, ME_OUT, OUT_REG_OUT, INP1_R_OUT, INP2_R_OUT: std_logic_vector(D_SIZE-1 downto 0);
 	signal IN1_OUT, IN2_OUT: std_logic_vector(D_SIZE-1 downto 0);
 	signal RF1, RF2, EN1, S1, S2, ALU1, ALU2, EN2, RM, WM, EN3, S3, WF1: std_logic;
-	signal RD1_OUT, RD2_OUT, RS1_R_OUT, RS2_R_OUT: std_logic_vector(4 downto 0);
+	signal RD1_OUT, RD2_OUT, RS1_R_OUT, RS2_R_OUT, control_2_out, control_3_out: std_logic_vector(4 downto 0);
 	signal FUNC_OP: std_logic_vector(1 downto 0);
+	signal control_1_out: std_logic_vector(2 downto 0);
 	signal type_alu: TYPE_OP;
 	
 begin
 
 	--control signals
 	-- FIRST PIPE STAGE OUTPUTS             
-	RF1 <= controls(CONTROL-1);              
-	RF2 <= controls(CONTROL-2);            
-	EN1 <= controls(CONTROL-3); 
+	RF1 <= control_1_out(2);              
+	RF2 <= control_1_out(1);            
+	EN1 <= control_1_out(0); 
 	-- SECOND PIPE STAGE OUTPUTS              
-	S1  <= controls(CONTROL-4);              
-	S2  <= controls(CONTROL-5);     
-	EN2 <= controls(CONTROL-8);         
-	ALU1 <= controls(CONTROL-6);             
-	ALU2 <= controls(CONTROL-7);
+	S1  <= control_2_out(4);              
+	S2  <= control_2_out(3);     
+	EN2 <= control_2_out(2);         
+	ALU1 <= control_2_out(1);             
+	ALU2 <= control_2_out(0);
 	FUNC_OP <= ALU2 & ALU1;
 	type_alu <= ADD when (FUNC_OP = "00") else
-				SUB when (FUNC_OP = "00") else
-				BITAND when (FUNC_OP = "00") else
+				SUB when (FUNC_OP = "01") else
+				BITAND when (FUNC_OP = "10") else
 				BITOR;
 
 	-- THIRD PIPE STAGE OUTPUTS          
-	RM  <= controls(CONTROL-9);             
-	WM  <= controls(CONTROL-10); 
-	EN3 <= controls(CONTROL-11);              
-	S3  <= controls(CONTROL-12);  
-	WF1 <= controls(CONTROL-13); 
+	RM  <= control_3_out(4);             
+	WM  <= control_3_out(3); 
+	EN3 <= control_3_out(2);              
+	S3  <= control_3_out(1);  
+	WF1 <= control_3_out(0); 
 	--STAGE 1
+	control_1: Register_generic generic map(3) port map(controls(12 downto 10), Clk, Rst, '1', control_1_out); 
 	inp1_r: Register_generic port map(INP1, Clk, Rst, '1', INP1_R_OUT);
 	inp2_r: Register_generic port map(INP1, Clk, Rst, '1', INP2_R_OUT);
 	rs1_r: Register_generic generic map(5) port map(RS1, Clk, Rst, '1', RS1_R_OUT);
@@ -115,6 +117,7 @@ begin
 	B: Register_generic port map (RFOUT2, Clk, Rst, EN1, B_OUT);
 	rd1: Register_generic generic map(5) port map (RD, Clk, Rst, EN1, RD1_OUT);
 	--STAGE 2	
+	control_2: Register_generic generic map(5) port map(controls(9 downto 5), Clk, Rst, '1', control_2_out);
 	mux_s1: MUX21_GENERIC port map (IN1_OUT, A_OUT, S1, S1_OUT);
 	mux_s2: MUX21_GENERIC port map (B_OUT, IN2_OUT, S2, S2_OUT);
 	alu_op: ALU port map (type_alu, S1_OUT, S2_OUT, ALU_OP_OUT);
@@ -122,6 +125,7 @@ begin
 	me: Register_generic port map (B_OUT, Clk, Rst, EN2, ME_OUT);
 	rd2: Register_generic generic map(5) port map (RD1_OUT, Clk, Rst, EN2, RD2_OUT);
 	--STAGE 3
+	control_3: Register_generic generic map(5) port map(controls(4 downto 0), Clk, Rst, '1', control_3_out);
 	dram_out <= ME_OUT;
 	dram_addr <= ALU_OUT_REG;
 	MEMORY_OUT <= dram_in;
