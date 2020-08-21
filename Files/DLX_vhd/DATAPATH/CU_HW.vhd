@@ -71,41 +71,41 @@ begin
       RF2 <= cw1(CW_SIZE -2);            
       EN1 <= cw1(CW_SIZE -3); 
       -- SECOND PIPE STAGE OUTPUTS              
-      S1  <= cw2(CW_SIZE -4);              
-      S2  <= cw2(CW_SIZE -5);     
-	  EN2 <= cw2(CW_SIZE -8);         
+      S1  <= cw1(CW_SIZE -4);              
+      S2  <= cw1(CW_SIZE -5);     
+	  EN2 <= cw1(CW_SIZE -8);         
       --ALU1 <= cw2(CW_SIZE -6);             
       --ALU2 <= cw2(CW_SIZE -7);               
       -- THIRD PIPE STAGE OUTPUTS          
-      RM  <= cw3(CW_SIZE -9);             
-      WM  <= cw3(CW_SIZE -10); 
-      EN3 <= cw3(CW_SIZE -11);              
-      S3  <= cw3(CW_SIZE -12);  
-	  WF1 <= cw3(CW_SIZE -13); 
+      RM  <= cw1(CW_SIZE -9);             
+      WM  <= cw1(CW_SIZE -10); 
+      EN3 <= cw1(CW_SIZE -11);              
+      S3  <= cw1(CW_SIZE -12);  
+	  WF1 <= cw1(CW_SIZE -13); 
 
 	-- process to pipeline control words
 	  CW_PIPE: process (Clk, Rst)
 	  begin  -- process Clk
 		if Rst = '1' then                   -- asynchronous reset (active low)
 		  cw1 <= (others => '0');
-		  cw2 <= (others => '0');
-		  cw3 <= (others => '0');
+		  --cw2 <= (others => '0');
+		  --cw3 <= (others => '0');
 		  aluOpcode1 <= DEFAULT;
 		  aluOpcode2 <= DEFAULT;
 
 		elsif Clk'event and Clk = '1' then  -- rising clock edge
 		  cw1 <= cw;										--here the cw is passed from cw to cw1 to cw2 to cw3, in order to assign the signals with the correct timing
-		  cw2 <= cw1(CW_SIZE -1 -3 downto 0);				--cw2 and cw3 are smaller than the original cw
-		  cw3 <= cw2(CW_SIZE -1 -3 -5 downto 0);
+		  --cw2 <= cw1(CW_SIZE -1 -3 downto 0);				--cw2 and cw3 are smaller than the original cw
+		  --cw3 <= cw2(CW_SIZE -1 -3 -5 downto 0);
 
 		  aluOpcode1 <= aluOpcode_i;						--here che aluOpcode_i, whose value is set in ALU_OP_CODE_P process, is passed in aluOpcode1, 
-		  aluOpcode2 <= aluOpcode1;							--then aluOpcode2, to ensure that ALU1 and ALU2 control signals are assigned only in the second stage
+		  --aluOpcode2 <= aluOpcode1;							--then aluOpcode2, to ensure that ALU1 and ALU2 control signals are assigned only in the second stage
 
 		end if;
 	  end process CW_PIPE; 
 
-	ALU1 <= aluOpcode2(0);
-	ALU2 <= aluOpcode2(1);
+	ALU1 <= aluOpcode1(0);
+	ALU2 <= aluOpcode1(1);
 
    ALU_OP_CODE_P : process (OPCODE, FUNC)
    begin  -- process ALU_OP_CODE_P

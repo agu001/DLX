@@ -77,44 +77,66 @@ architecture Struct of DATAPATH is
 	signal RD1_OUT, RD2_OUT, RS1_R_OUT, RS2_R_OUT: std_logic_vector(4 downto 0);
 	signal FUNC_OP: std_logic_vector(1 downto 0);
 	signal type_alu: TYPE_OP;
+	signal CWregEX: std_logic_vector(9 downto 0);
+	signal CWregMW: std_logic_vector(4 downto 0);
+	--signal CWregID: std_logic_vector(12 downto 0);
 	
 begin
+
 
 	--control signals
 	-- FIRST PIPE STAGE OUTPUTS             
 	RF1 <= controls(CONTROL-1);              
 	RF2 <= controls(CONTROL-2);            
 	EN1 <= controls(CONTROL-3); 
-	-- SECOND PIPE STAGE OUTPUTS              
-	S1  <= controls(CONTROL-4);              
-	S2  <= controls(CONTROL-5);     
-	EN2 <= controls(CONTROL-8);         
-	ALU1 <= controls(CONTROL-6);             
-	ALU2 <= controls(CONTROL-7);
+	-- SECOND PIPE STAGE OUTPUTS 
+	--CWregEX <= controls(9 downto 0);
+	S1 <= CWregEX(9);
+	S2 <= CWregEX(8);
+	EN2 <= CWregEX(7);
+	ALU1 <= CWregEX(6);
+	ALU2 <= CWregEX(5);
 	FUNC_OP <= ALU2 & ALU1;
+
+  
+	--S1  <= controls(CONTROL-4);              
+	--S2  <= controls(CONTROL-5);     
+	--EN2 <= controls(CONTROL-8);         
+	--ALU1 <= controls(CONTROL-6);             
+	--ALU2 <= controls(CONTROL-7);
+	--FUNC_OP <= ALU2 & ALU1;
 	type_alu <= ADD when (FUNC_OP = "00") else
 				SUB when (FUNC_OP = "00") else
 				BITAND when (FUNC_OP = "00") else
 				BITOR;
 
-	-- THIRD PIPE STAGE OUTPUTS          
-	RM  <= controls(CONTROL-9);             
-	WM  <= controls(CONTROL-10); 
-	EN3 <= controls(CONTROL-11);              
-	S3  <= controls(CONTROL-12);  
-	WF1 <= controls(CONTROL-13); 
+	-- THIRD PIPE STAGE OUTPUTS
+	--CWregMW <= controls(4 downto 0);
+	RM <= CWregMW(4);  
+	WM <= CWregMW(3);  
+	EN3 <= CWregMW(2);  
+	S3 <= CWregMW(1);  
+	WF1 <= CWregMW(0);          
+
+	--RM  <= controls(CONTROL-9);             
+	--WM  <= controls(CONTROL-10); 
+	--EN3 <= controls(CONTROL-11);              
+	--S3  <= controls(CONTROL-12);  
+	--WF1 <= controls(CONTROL-13); 
 	--STAGE 1
+	--reg_stage_1: Register_generic generic map(13) port map(controls(12 downto 0), Clk, Rst, '1', CWregID);
 	inp1_r: Register_generic port map(INP1, Clk, Rst, '1', INP1_R_OUT);
 	inp2_r: Register_generic port map(INP1, Clk, Rst, '1', INP2_R_OUT);
-	rs1_r: Register_generic generic map(5) port map(RS1, Clk, Rst, '1', RS1_R_OUT);
-	rs2_r: Register_generic generic map(5) port map(RS2, Clk, Rst, '1', RS2_R_OUT);
-	RF: register_file port map (Clk, Rst, '1', RF1, RF2, EN1, RD2_OUT, RS1_R_OUT, RS2_R_OUT, S3_OUT, RFOUT1, RFOUT2);
+	--rs1_r: Register_generic generic map(5) port map(RS1, Clk, Rst, '1', RS1_R_OUT);
+	--rs2_r: Register_generic generic map(5) port map(RS2, Clk, Rst, '1', RS2_R_OUT);
+	RF: register_file port map (Clk, Rst, '1', '1', '1', '1', RD2_OUT, RS1, RS2, S3_OUT, RFOUT1, RFOUT2);
 	in1: Register_generic port map (INP1_R_OUT, Clk, Rst, EN1, IN1_OUT);
 	in2: Register_generic port map (INP2_R_OUT, Clk, Rst, EN1, IN2_OUT);
 	A: Register_generic port map (RFOUT1, Clk, Rst, EN1, A_OUT);
 	B: Register_generic port map (RFOUT2, Clk, Rst, EN1, B_OUT);
 	rd1: Register_generic generic map(5) port map (RD, Clk, Rst, EN1, RD1_OUT);
 	--STAGE 2	
+	reg_stage_2: Register_generic generic map(10) port map(controls(9 downto 0), Clk, Rst, '1', CWregEX);
 	mux_s1: MUX21_GENERIC port map (IN1_OUT, A_OUT, S1, S1_OUT);
 	mux_s2: MUX21_GENERIC port map (B_OUT, IN2_OUT, S2, S2_OUT);
 	alu_op: ALU port map (type_alu, S1_OUT, S2_OUT, ALU_OP_OUT);
@@ -122,6 +144,7 @@ begin
 	me: Register_generic port map (B_OUT, Clk, Rst, EN2, ME_OUT);
 	rd2: Register_generic generic map(5) port map (RD1_OUT, Clk, Rst, EN2, RD2_OUT);
 	--STAGE 3
+	reg_stage_3: Register_generic generic map(5) port map(CWregEX(4 downto 0), Clk, Rst, '1', CWregMW);
 	dram_out <= ME_OUT;
 	dram_addr <= ALU_OUT_REG;
 	MEMORY_OUT <= dram_in;
