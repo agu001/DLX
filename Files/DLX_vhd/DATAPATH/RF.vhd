@@ -34,6 +34,8 @@ begin
 		if(CLK = '1' AND CLK'event) then
 			if(RESET ='1') then
 				REGISTERS <= (others => ( others =>'0')) after 0.2 ns;
+				REGISTERS(1) <= std_logic_vector(to_unsigned(5, DATABIT)) after 0.2 ns;	
+				REGISTERS(2) <= std_logic_vector(to_unsigned(8, DATABIT)) after 0.2 ns;	
 				OUT1 <= ( others =>'0') after 0.2 ns;
 			    OUT2 <= ( others =>'0') after 0.2 ns;
 			elsif( ENABLE = '1') then

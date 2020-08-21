@@ -12,9 +12,9 @@ end DLX;
 architecture Struct of DLX is
 
 	component DRAM is
-		generic (	n: natural := 16; 
+		generic (	n: natural := 32; 
 					p: natural := 256;
-					k: natural := 8;
+					k: natural := 32;
 					Td: time := 40 ns
 				);
 		port ( X: in std_logic_vector(n-1 downto 0);
@@ -29,7 +29,7 @@ architecture Struct of DLX is
 				  D_SIZE: natural := 32;
 				  IRAM_DEPTH: natural := 8;
 				  I_SIZE: natural := 32;
-				  DRAM_DEPTH: natural := 12
+				  DRAM_DEPTH: natural := 32
 				);
 		port (	controls: in std_logic_vector(CONTROL-1 downto 0);
 				--DRAM
@@ -77,18 +77,22 @@ architecture Struct of DLX is
 	signal RF1, RF2, EN1, S1, S2, ALU1, ALU2, EN2, RM, WM, EN3, S3, WF1: std_logic;
 	signal Z: std_logic_vector(I_SIZE-1 downto 0);
 	signal dram_out: std_logic_vector(I_SIZE-1 downto 0);
-	signal dram_addr: std_logic_vector(11 downto 0);
+	signal dram_addr: std_logic_vector(31 downto 0);
 	signal iram_out: std_logic_vector(I_SIZE-1 downto 0);
-	signal iram_addr: std_logic_vector(11 downto 0);
+	signal iram_addr: std_logic_vector(7 downto 0);
 	signal controls_s: std_logic_vector(12 downto 0);
+	signal INP1_S, INP2_S: std_logic_vector(31 downto 0);
 	
 begin
 	
+	INP1_S <= X"0000" & IR(15 downto 0);
+	INP2_S <= X"0000" & IR(15 downto 0);
+
 	controls_s <= RF1 & RF2 & EN1 & S1 & S2 & ALU1 & ALU2 & EN2 & RM & WM & EN3 & S3 & WF1;
 
-	CONTROL_UNIT: cu port map (RF1, RF2, WF1, EN1, S1, S2, ALU1, ALU2, EN2, RM, WM, EN3, S3, IR(I_SIZE-1 downto I_SIZE-7), IR(10 downto 0), Clk, Rst);
+	CONTROL_UNIT: cu port map (RF1, RF2, WF1, EN1, S1, S2, ALU1, ALU2, EN2, RM, WM, EN3, S3, IR(I_SIZE-1 downto I_SIZE-6), IR(10 downto 0), Clk, Rst);
 	DATA_PATH: DATAPATH port map 
-						(controls_s, dram_out, dram_addr, Z, iram_out, iram_addr, (others => '0'), IR(15 downto 0), IR(15 downto 0), IR(25 downto 21), IR(20 downto 16), IR(15 downto 11), Clk, Rst);
+						(controls_s, dram_out, dram_addr, Z, iram_out, iram_addr, (others => '0'), INP1_S, INP2_S, IR(25 downto 21), IR(20 downto 16), IR(15 downto 11), Clk, Rst);
 	Memory: DRAM port map (dram_out, dram_addr, Z, Rst, RM, WM, Clk, Rst);	
 
 end Struct;

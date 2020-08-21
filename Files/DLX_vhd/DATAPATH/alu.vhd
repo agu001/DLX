@@ -24,11 +24,11 @@ P_ALU: process (FUNC, DATA1, DATA2, INTD2)
 
   begin
     case FUNC is
-	when ADD 	=> OUTALU <= DATA1+DATA2; 
-	when SUB 	=> OUTALU <= DATA1-DATA2;
+	when ADD 	=> OUTALU <= DATA1+DATA2 after 1 ns; 
+	when SUB 	=> OUTALU <= DATA1-DATA2 after 1 ns;
 	--when MULT 	=> OUTALU <= DATA1(N/2-1 downto 0)*DATA2(N/2-1 downto 0);
-	when BITAND 	=> OUTALU <= DATA1 and DATA2; -- bitwise operations
-	when BITOR 	=> OUTALU <= DATA1 OR DATA2;
+	when BITAND 	=> OUTALU <= DATA1 and DATA2 after 1 ns; -- bitwise operations
+	when BITOR 	=> OUTALU <= DATA1 OR DATA2 after 1 ns;
 	--when BITXOR 	=> OUTALU <= DATA1 XOR DATA2;
 	--when FUNCLSL 	=> OUTALU <= std_logic_vector(signed(DATA1) SLL intd2);
 		--OUTALU <= DATA1(N-1-intd2 downto 0)&zero(N-1 downto N-intd2); -- logical shift left, HELP: use the concatenation operator &  

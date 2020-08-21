@@ -8,7 +8,7 @@ entity DATAPATH is
 			  D_SIZE: natural := 32;
 			  IRAM_DEPTH: natural := 8;
 			  I_SIZE: natural := 32;
-			  DRAM_DEPTH: natural := 12
+			  DRAM_DEPTH: natural := 32
 			);
 	port (	controls: in std_logic_vector(CONTROL-1 downto 0);
 			--DRAM
@@ -71,9 +71,10 @@ architecture Struct of DATAPATH is
 	--signal INP1, INP2: std_logic_vector(D_SIZE-1 downto 0);
 	--signal RS1, RS2, RD: std_logic_vector(4 downto 0);
 	--REGISTER_FILE
-	signal RFOUT1, RFOUT2, S3_OUT, IN1_OUT, A_OUT, B_OUT, IN2_OUT, S1_OUT, S2_OUT, ALU_OP_OUT, ALU_OUT_REG, MEMORY_OUT, ME_OUT, OUT_REG_OUT: std_logic_vector(D_SIZE-1 downto 0);
+	signal RFOUT1, RFOUT2, S3_OUT, A_OUT, B_OUT, S1_OUT, S2_OUT, ALU_OP_OUT, ALU_OUT_REG, MEMORY_OUT, ME_OUT, OUT_REG_OUT, INP1_R_OUT, INP2_R_OUT: std_logic_vector(D_SIZE-1 downto 0);
+	signal IN1_OUT, IN2_OUT: std_logic_vector(D_SIZE-1 downto 0);
 	signal RF1, RF2, EN1, S1, S2, ALU1, ALU2, EN2, RM, WM, EN3, S3, WF1: std_logic;
-	signal RD1_OUT, RD2_OUT: std_logic_vector(4 downto 0);
+	signal RD1_OUT, RD2_OUT, RS1_R_OUT, RS2_R_OUT: std_logic_vector(4 downto 0);
 	signal FUNC_OP: std_logic_vector(1 downto 0);
 	signal type_alu: TYPE_OP;
 	
@@ -103,19 +104,23 @@ begin
 	S3  <= controls(CONTROL-12);  
 	WF1 <= controls(CONTROL-13); 
 	--STAGE 1
-	RF: register_file port map (Clk, Rst, '1', RF1, RF2, EN1, RD2_OUT, RS1, RS2, S3_OUT, RFOUT1, RFOUT2);
-	in1: Register_generic port map (INP1, Clk, Rst, EN1, IN1_OUT);
-	in2: Register_generic port map (INP2, Clk, Rst, EN1, IN2_OUT);
+	inp1_r: Register_generic port map(INP1, Clk, Rst, '1', INP1_R_OUT);
+	inp2_r: Register_generic port map(INP1, Clk, Rst, '1', INP2_R_OUT);
+	rs1_r: Register_generic generic map(5) port map(RS1, Clk, Rst, '1', RS1_R_OUT);
+	rs2_r: Register_generic generic map(5) port map(RS2, Clk, Rst, '1', RS2_R_OUT);
+	RF: register_file port map (Clk, Rst, '1', RF1, RF2, EN1, RD2_OUT, RS1_R_OUT, RS2_R_OUT, S3_OUT, RFOUT1, RFOUT2);
+	in1: Register_generic port map (INP1_R_OUT, Clk, Rst, EN1, IN1_OUT);
+	in2: Register_generic port map (INP2_R_OUT, Clk, Rst, EN1, IN2_OUT);
 	A: Register_generic port map (RFOUT1, Clk, Rst, EN1, A_OUT);
 	B: Register_generic port map (RFOUT2, Clk, Rst, EN1, B_OUT);
-	rd1: Register_generic port map (RD, Clk, Rst, EN1, RD1_OUT);
+	rd1: Register_generic generic map(5) port map (RD, Clk, Rst, EN1, RD1_OUT);
 	--STAGE 2	
 	mux_s1: MUX21_GENERIC port map (IN1_OUT, A_OUT, S1, S1_OUT);
 	mux_s2: MUX21_GENERIC port map (B_OUT, IN2_OUT, S2, S2_OUT);
 	alu_op: ALU port map (type_alu, S1_OUT, S2_OUT, ALU_OP_OUT);
 	alu_out_reg1: Register_generic port map (ALU_OP_OUT, Clk, Rst, EN2, ALU_OUT_REG);
 	me: Register_generic port map (B_OUT, Clk, Rst, EN2, ME_OUT);
-	rd2: Register_generic port map (RD1_OUT, Clk, Rst, EN2, RD2_OUT);
+	rd2: Register_generic generic map(5) port map (RD1_OUT, Clk, Rst, EN2, RD2_OUT);
 	--STAGE 3
 	dram_out <= ME_OUT;
 	dram_addr <= ALU_OUT_REG;

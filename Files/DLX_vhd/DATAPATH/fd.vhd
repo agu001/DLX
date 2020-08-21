@@ -16,9 +16,9 @@ begin
 	begin
 	  if CK'event and CK='1' then -- positive edge triggered:
 	    if RESET='1' then -- active high reset 
-	      Q <= '0'; 
+	      Q <= '0' after 0.2 ns; 
 	    else
-	      Q <= D; -- input is written on output
+	      Q <= D after 0.2 ns; -- input is written on output
 	    end if;
 	  end if;
 	end process;
