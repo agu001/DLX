@@ -15,7 +15,7 @@ architecture Struct of DLX is
 		generic (	n: natural := 32; 
 					p: natural := 256;
 					k: natural := 32;
-					Td: time := 40 ns
+					Td: time := 0.5 ns
 				);
 		port ( X: in std_logic_vector(n-1 downto 0);
 			   A: in std_logic_vector(k-1 downto 0);
@@ -36,6 +36,7 @@ architecture Struct of DLX is
 				dram_out: out std_logic_vector(D_SIZE-1 downto 0);
 				dram_addr: out std_logic_vector(DRAM_DEPTH-1 downto 0);
 				dram_in: in std_logic_vector(D_SIZE-1 downto 0);
+				RD_MEM, WR_MEM, EN_MEM: out std_logic;
 				--IRAM
 				iram_out: out std_logic_vector(I_SIZE-1 downto 0);
 				iram_addr: out std_logic_vector(IRAM_DEPTH-1 downto 0);
@@ -75,13 +76,14 @@ architecture Struct of DLX is
     end component;
 
 	signal RF1, RF2, EN1, S1, S2, ALU1, ALU2, EN2, RM, WM, EN3, S3, WF1: std_logic;
-	signal Z: std_logic_vector(I_SIZE-1 downto 0);
+	signal Z_OUT: std_logic_vector(I_SIZE-1 downto 0);
 	signal dram_out: std_logic_vector(I_SIZE-1 downto 0);
 	signal dram_addr: std_logic_vector(31 downto 0);
 	signal iram_out: std_logic_vector(I_SIZE-1 downto 0);
 	signal iram_addr: std_logic_vector(7 downto 0);
 	signal controls_s: std_logic_vector(12 downto 0);
 	signal INP1_S, INP2_S: std_logic_vector(31 downto 0);
+	signal RD_MEM, WR_MEM, EN_MEM: std_logic;
 	
 begin
 	
@@ -92,7 +94,7 @@ begin
 
 	CONTROL_UNIT: cu port map (RF1, RF2, WF1, EN1, S1, S2, ALU1, ALU2, EN2, RM, WM, EN3, S3, IR(I_SIZE-1 downto I_SIZE-6), IR(10 downto 0), Clk, Rst);
 	DATA_PATH: DATAPATH port map 
-						(controls_s, dram_out, dram_addr, Z, iram_out, iram_addr, (others => '0'), INP1_S, INP2_S, IR(25 downto 21), IR(20 downto 16), IR(15 downto 11), Clk, Rst);
-	Memory: DRAM port map (dram_out, dram_addr, Z, Rst, RM, WM, Clk, Rst);	
+						(controls_s, dram_out, dram_addr, Z_OUT, RD_MEM, WR_MEM, EN_MEM, iram_out, iram_addr, (others => '0'), INP1_S, INP2_S, IR(15 downto 11), IR(25 downto 21), IR(20 downto 16), Clk, Rst);
+	Memory: DRAM port map (dram_out, dram_addr, Z_OUT, Rst, RD_MEM, WR_MEM, Clk, EN_MEM);	
 
 end Struct;

@@ -35,7 +35,14 @@ add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/s3_out
 add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/out_reg_out
 add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/func_op
 add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/type_alu
-add wave -noupdate -format Literal -radix unsigned -expand /cu_test/dut/data_path/rf/registers
+add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/rf/registers
+add wave -noupdate -format Literal -radix unsigned /cu_test/dut/memory/x
+add wave -noupdate -format Literal -radix unsigned /cu_test/dut/memory/a
+add wave -noupdate -format Literal -radix unsigned /cu_test/dut/memory/z
+add wave -noupdate -format Literal -radix unsigned /cu_test/dut/memory/memory
+add wave -noupdate -format Logic -radix unsigned /cu_test/dut/memory/en
+add wave -noupdate -format Logic -radix unsigned /cu_test/dut/memory/wm
+add wave -noupdate -format Logic -radix unsigned /cu_test/dut/memory/rm
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {1370 ps} 0}
 configure wave -namecolwidth 286

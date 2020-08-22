@@ -11,7 +11,7 @@ entity DRAM is
 	port ( X: in std_logic_vector(n-1 downto 0);
 		   A: in std_logic_vector(k-1 downto 0);
 		   Z: out std_logic_vector(n-1 downto 0);
-		   Rst, RM, WM, Clk, En: std_logic
+		   Rst, RM, WM, Clk, En: in std_logic
   		 );
 end DRAM;
 
@@ -25,12 +25,12 @@ begin
 	
 	WrProc: process(Clk)
 			begin
-				if (Clk'event and Clk='1') then
-					if (En = '1') then					
-						if (Rst = '1') then
-							Memory <= (others => (others => '0'));
-						elsif (WM = '1') then
-							Memory(to_integer(unsigned(A))) <= X;
+				if (Clk'event and Clk='0') then
+					if (Rst = '1') then
+							Memory <= (others => (others => '0'));					
+					elsif (En = '1') then					
+						if (WM = '1') then
+							Memory(to_integer(unsigned(A))) <= X after Td;
 						end if;
 					end if;				
 				end if;
@@ -38,7 +38,7 @@ begin
 
 	RdProc: process(RM, A, Memory)
 			begin
-				if (RM = '1' and En = '1') then
+				if (RM = '1' and En = '1') then				
 					Z <= Memory(to_integer(unsigned(A))) after Td;
 				end if;
 			end process;

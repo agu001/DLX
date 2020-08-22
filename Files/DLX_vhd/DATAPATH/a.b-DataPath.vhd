@@ -15,6 +15,7 @@ entity DATAPATH is
 			dram_out: out std_logic_vector(D_SIZE-1 downto 0);
 			dram_addr: out std_logic_vector(DRAM_DEPTH-1 downto 0);
 			dram_in: in std_logic_vector(D_SIZE- 1 downto 0);
+			RD_MEM, WR_MEM, EN_MEM: out std_logic;
 			--IRAM
 			iram_out: out std_logic_vector(I_SIZE-1 downto 0);
 			iram_addr: out std_logic_vector(IRAM_DEPTH-1 downto 0);
@@ -146,6 +147,9 @@ begin
 	rd2: Register_generic generic map(5) port map (RD1_OUT, Clk, Rst, EN2, RD2_OUT);
 	--STAGE 3
 	reg_stage_3: Register_generic generic map(5) port map(CWregEX(4 downto 0), Clk, Rst, '1', CWregMW);
+	RD_MEM <= RM;
+	WR_MEM <= WM;
+	EN_MEM <= EN3;
 	dram_out <= ME_OUT;
 	dram_addr <= ALU_OUT_REG;
 	MEMORY_OUT <= dram_in;

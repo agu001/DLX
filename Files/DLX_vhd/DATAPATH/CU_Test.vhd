@@ -36,16 +36,16 @@ begin
         wait for 3.5 ns;  ----- be careful! the wait statement is ok in test
                         ----- benches, but do not use it in normal processes!
 		--wait until Clk='0' and Clk'event;
-        IR <= X"00221800";
-		wait for 1 ns;		
+        --IR <= X"00221800";
+		--wait for 1 ns;		
 		--wait until Clk='0' and Clk'event;		
-		IR <= X"04050080";
+		--IR <= X"04050080";
+		--wait until Clk='1' and Clk'event;
+		--wait for 1 ns;
+		IR <= X"30630010"; --S_MEM
 		wait until Clk='1' and Clk'event;
 		wait for 1 ns;
-		IR <= X"30030010"; --S_MEM
-		wait until Clk='1' and Clk'event;
-		wait for 1 ns;
-		IR <= X"34060010"; --L_MEM
+		IR <= X"34070010"; --L_MEM
         wait;
         end process;
 
