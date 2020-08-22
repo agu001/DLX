@@ -51,11 +51,13 @@ begin  -- IRam_Bhe
     end if;
   end process FILL_MEM_P;
 
-	RdProc: process(Addr, IRAM_mem)
-			begin
-				if (Rst = '0') then				
-					Dout <= IRAM_mem(to_integer(unsigned(Addr))) after Td;
-				end if;
-			end process;
+--	RdProc: process(Addr, IRAM_mem)
+--			variable index: integer := 0;
+--			begin
+--				if (Rst = '0') then		
+--					index := conv_integer(unsigned(Addr));		
+--					Dout <= IRAM_mem(index) after 0.3 ns;
+--				end if;
+--			end process;
 
 end IRam_Bhe;
