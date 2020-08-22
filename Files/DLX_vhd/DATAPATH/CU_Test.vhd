@@ -40,7 +40,12 @@ begin
 		wait for 1 ns;		
 		--wait until Clk='0' and Clk'event;		
 		IR <= X"04050080";
-
+		wait until Clk='1' and Clk'event;
+		wait for 1 ns;
+		IR <= X"30030010"; --S_MEM
+		wait until Clk='1' and Clk'event;
+		wait for 1 ns;
+		IR <= X"34060010"; --L_MEM
         wait;
         end process;
 

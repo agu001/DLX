@@ -6,7 +6,7 @@ entity DRAM is
 	generic (	n: natural := 16; 
 				p: natural := 256;
 				k: natural := 8;
-				Td: time := 40 ns
+				Td: time := 0.5 ns
 			);
 	port ( X: in std_logic_vector(n-1 downto 0);
 		   A: in std_logic_vector(k-1 downto 0);

@@ -78,7 +78,7 @@ architecture Struct of DATAPATH is
 	signal FUNC_OP: std_logic_vector(1 downto 0);
 	signal type_alu: TYPE_OP;
 	signal CWregEX: std_logic_vector(9 downto 0);
-	signal CWregMW: std_logic_vector(4 downto 0);
+	signal CWregMW, RD_R_OUT: std_logic_vector(4 downto 0);
 	--signal CWregID: std_logic_vector(12 downto 0);
 	
 begin
@@ -93,9 +93,9 @@ begin
 	--CWregEX <= controls(9 downto 0);
 	S1 <= CWregEX(9);
 	S2 <= CWregEX(8);
-	EN2 <= CWregEX(7);
-	ALU1 <= CWregEX(6);
-	ALU2 <= CWregEX(5);
+	ALU1 <= CWregEX(7);
+	ALU2 <= CWregEX(6);
+	EN2 <= CWregEX(5);
 	FUNC_OP <= ALU2 & ALU1;
 
   
@@ -106,8 +106,8 @@ begin
 	--ALU2 <= controls(CONTROL-7);
 	--FUNC_OP <= ALU2 & ALU1;
 	type_alu <= ADD when (FUNC_OP = "00") else
-				SUB when (FUNC_OP = "00") else
-				BITAND when (FUNC_OP = "00") else
+				SUB when (FUNC_OP = "01") else
+				BITAND when (FUNC_OP = "10") else
 				BITOR;
 
 	-- THIRD PIPE STAGE OUTPUTS
@@ -130,11 +130,12 @@ begin
 	--rs1_r: Register_generic generic map(5) port map(RS1, Clk, Rst, '1', RS1_R_OUT);
 	--rs2_r: Register_generic generic map(5) port map(RS2, Clk, Rst, '1', RS2_R_OUT);
 	RF: register_file port map (Clk, Rst, '1', '1', '1', '1', RD2_OUT, RS1, RS2, S3_OUT, RFOUT1, RFOUT2);
-	in1: Register_generic port map (INP1_R_OUT, Clk, Rst, EN1, IN1_OUT);
-	in2: Register_generic port map (INP2_R_OUT, Clk, Rst, EN1, IN2_OUT);
-	A: Register_generic port map (RFOUT1, Clk, Rst, EN1, A_OUT);
-	B: Register_generic port map (RFOUT2, Clk, Rst, EN1, B_OUT);
-	rd1: Register_generic generic map(5) port map (RD, Clk, Rst, EN1, RD1_OUT);
+	in1: Register_generic port map (INP1_R_OUT, Clk, Rst, '1', IN1_OUT);
+	in2: Register_generic port map (INP2_R_OUT, Clk, Rst, '1', IN2_OUT);
+	A: Register_generic port map (RFOUT1, Clk, Rst, '1', A_OUT);
+	B: Register_generic port map (RFOUT2, Clk, Rst, '1', B_OUT);
+	rd_reg: Register_generic generic map(5) port map(RD, Clk, Rst, '1', RD_R_OUT);
+	rd1: Register_generic generic map(5) port map (RD_R_OUT, Clk, Rst, '1', RD1_OUT);
 	--STAGE 2	
 	reg_stage_2: Register_generic generic map(10) port map(controls(9 downto 0), Clk, Rst, '1', CWregEX);
 	mux_s1: MUX21_GENERIC port map (IN1_OUT, A_OUT, S1, S1_OUT);
