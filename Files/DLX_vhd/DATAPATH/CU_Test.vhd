@@ -9,12 +9,12 @@ end cu_test;
 
 architecture TEST of cu_test is
 
-	component DLX is
+	component DLX_wrapper is
 		generic ( I_SIZE: natural := 32 );
 		port ( IR: in std_logic_vector(I_SIZE-1 downto 0);
 			   Clk, Rst: in std_logic
 			 );
-	end component DLX;
+	end component DLX_wrapper;
 
     signal Clk: std_logic := '1';
     signal Rst: std_logic := '1';
@@ -24,7 +24,7 @@ architecture TEST of cu_test is
 begin
 
         -- instance of DLX
-		dut: DLX port map (IR, Clk, Rst);
+		dut: DLX_wrapper port map (IR, Clk, Rst);
 
         Clk <= not Clk after 1 ns;
 		Rst <= '1', '0' after 3 ns;

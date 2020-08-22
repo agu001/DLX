@@ -17,7 +17,7 @@ entity DATAPATH is
 			dram_in: in std_logic_vector(D_SIZE- 1 downto 0);
 			RD_MEM, WR_MEM, EN_MEM: out std_logic;
 			--IRAM
-			iram_out: out std_logic_vector(I_SIZE-1 downto 0);
+			--iram_out: out std_logic_vector(I_SIZE-1 downto 0);
 			iram_addr: out std_logic_vector(IRAM_DEPTH-1 downto 0);
 			iram_in: in std_logic_vector(I_SIZE-1 downto 0);
 			INP1, INP2: in std_logic_vector(D_SIZE-1 downto 0);

@@ -11,4 +11,5 @@ vcom a.b-DataPath.vhd
 vcom myTypes.vhd
 vcom CU_HW.vhd
 vcom DLX.vhd
+vcom DLX_wrapper.vhd
 vcom CU_Test.vhd
