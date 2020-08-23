@@ -18,10 +18,10 @@ entity DATAPATH is
 			RD_MEM, WR_MEM, EN_MEM: out std_logic;
 			--IRAM
 			--iram_out: out std_logic_vector(I_SIZE-1 downto 0);
-			iram_addr: out std_logic_vector(IRAM_DEPTH-1 downto 0);
+			iram_addr: out std_logic_vector(I_SIZE-1 downto 0);
 			iram_in: in std_logic_vector(I_SIZE-1 downto 0);
-			INP1, INP2: in std_logic_vector(D_SIZE-1 downto 0);
-			RS1, RS2, RD: in std_logic_vector(4 downto 0);			
+			--INP1, INP2: in std_logic_vector(D_SIZE-1 downto 0);
+			--RS1, RS2, RD: in std_logic_vector(4 downto 0);			
 			Clk, Rst: in std_logic
 		  );
 end DATAPATH;
@@ -68,6 +68,12 @@ architecture Struct of DATAPATH is
 		       DATA1, DATA2: IN std_logic_vector(N-1 downto 0);
 		       OUTALU: OUT std_logic_vector(N-1 downto 0));
 	end component ALU;
+
+	component adder is
+		port (A, B: in std_logic_vector(31 downto 0);
+				 X: out std_logic_vector(31 downto 0)
+			 );
+	end component adder;
 	
 	--signal INP1, INP2: std_logic_vector(D_SIZE-1 downto 0);
 	--signal RS1, RS2, RD: std_logic_vector(4 downto 0);
@@ -80,10 +86,17 @@ architecture Struct of DATAPATH is
 	signal type_alu: TYPE_OP;
 	signal CWregEX: std_logic_vector(9 downto 0);
 	signal CWregMW, RD_R_OUT: std_logic_vector(4 downto 0);
+	signal PC_OUT, adder_out, IR_R_OUT: std_logic_vector(31 downto 0);
+	signal INP1, INP2: std_logic_vector(D_SIZE-1 downto 0);
+	signal RS1, RS2, RD: std_logic_vector(4 downto 0); 
 	--signal CWregID: std_logic_vector(12 downto 0);
 	
 begin
-
+	INP1 <= X"0000" & IR_R_OUT(15 downto 0);
+	INP2 <= X"0000" & IR_R_OUT(15 downto 0);	
+    RS1 <= IR_R_OUT(15 downto 11);
+	RS2 <= IR_R_OUT(25 downto 21);
+	RD <= IR_R_OUT(20 downto 16);
 
 	--control signals
 	-- FIRST PIPE STAGE OUTPUTS             
@@ -124,19 +137,24 @@ begin
 	--EN3 <= controls(CONTROL-11);              
 	--S3  <= controls(CONTROL-12);  
 	--WF1 <= controls(CONTROL-13); 
+	--STAGE FETCH
+	iram_addr <= PC_OUT;
+	adder_PC: adder port map(PC_OUT, X"00000001", adder_out);
+	PC_reg: Register_generic port map(adder_out, Clk, Rst, '1', PC_OUT);
+	IR_reg: Register_generic port map(iram_in, Clk, Rst, '1',IR_R_OUT);
 	--STAGE 1
 	--reg_stage_1: Register_generic generic map(13) port map(controls(12 downto 0), Clk, Rst, '1', CWregID);
-	inp1_r: Register_generic port map(INP1, Clk, Rst, '1', INP1_R_OUT);
-	inp2_r: Register_generic port map(INP1, Clk, Rst, '1', INP2_R_OUT);
+	--inp1_r: Register_generic port map(INP1, Clk, Rst, '1', INP1_R_OUT);
+	--inp2_r: Register_generic port map(INP1, Clk, Rst, '1', INP2_R_OUT);
 	--rs1_r: Register_generic generic map(5) port map(RS1, Clk, Rst, '1', RS1_R_OUT);
 	--rs2_r: Register_generic generic map(5) port map(RS2, Clk, Rst, '1', RS2_R_OUT);
-	RF: register_file port map (Clk, Rst, '1', '1', '1', '1', RD2_OUT, RS1, RS2, S3_OUT, RFOUT1, RFOUT2);
-	in1: Register_generic port map (INP1_R_OUT, Clk, Rst, '1', IN1_OUT);
-	in2: Register_generic port map (INP2_R_OUT, Clk, Rst, '1', IN2_OUT);
-	A: Register_generic port map (RFOUT1, Clk, Rst, '1', A_OUT);
+	RF: register_file port map (Clk, Rst, '1', '1', '1', WF1, RD2_OUT, RS1, RS2, S3_OUT, RFOUT1, RFOUT2);
+	in1: Register_generic port map (INP1, Clk, Rst, '1', IN1_OUT);
+	in2: Register_generic port map (INP2, Clk, Rst, '1', IN2_OUT);
+	A: Register_generic port map (RFOUT1, Clk, Rst, '1', A_OUT);	
 	B: Register_generic port map (RFOUT2, Clk, Rst, '1', B_OUT);
-	rd_reg: Register_generic generic map(5) port map(RD, Clk, Rst, '1', RD_R_OUT);
-	rd1: Register_generic generic map(5) port map (RD_R_OUT, Clk, Rst, '1', RD1_OUT);
+	--rd_reg: Register_generic generic map(5) port map(RD, Clk, Rst, '1', RD_R_OUT);
+	rd1: Register_generic generic map(5) port map (RD, Clk, Rst, '1', RD1_OUT);
 	--STAGE 2	
 	reg_stage_2: Register_generic generic map(10) port map(controls(9 downto 0), Clk, Rst, '1', CWregEX);
 	mux_s1: MUX21_GENERIC port map (IN1_OUT, A_OUT, S1, S1_OUT);

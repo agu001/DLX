@@ -4,13 +4,13 @@ use work.myTypes.all;
 
 entity DLX is
 	generic ( I_SIZE: natural := 32 );
-	port ( 	IR: in std_logic_vector(I_SIZE-1 downto 0);
+	port ( 	--IR: in std_logic_vector(I_SIZE-1 downto 0);
 	 		dram_out: out std_logic_vector(I_SIZE-1 downto 0);
 			dram_addr: out std_logic_vector(31 downto 0);
 			dram_in: in std_logic_vector(I_SIZE-1 downto 0);
 			RD_MEM, WR_MEM, EN_MEM: out std_logic;			
 			--iram_out: out std_logic_vector(I_SIZE-1 downto 0);
-			iram_addr: out std_logic_vector(7 downto 0);
+			iram_addr: out std_logic_vector(I_SIZE-1 downto 0);
 			iram_in: in std_logic_vector(I_SIZE-1 downto 0);
 		   	Clk, Rst: in std_logic
 		 );
@@ -35,8 +35,8 @@ architecture Struct of DLX is
 				--iram_out: out std_logic_vector(I_SIZE-1 downto 0);
 				iram_addr: out std_logic_vector(IRAM_DEPTH-1 downto 0);
 				iram_in: in std_logic_vector(I_SIZE-1 downto 0);
-				INP1, INP2: in std_logic_vector(D_SIZE-1 downto 0);
-				RS1, RS2, RD: in std_logic_vector(4 downto 0);			
+				--INP1, INP2: in std_logic_vector(D_SIZE-1 downto 0);
+				--RS1, RS2, RD: in std_logic_vector(4 downto 0);			
 				Clk, Rst: in std_logic
 			  );
 	end component DATAPATH;
@@ -76,13 +76,13 @@ architecture Struct of DLX is
 	
 begin
 	
-	INP1_S <= X"0000" & IR(15 downto 0);
-	INP2_S <= X"0000" & IR(15 downto 0);
+	--INP1_S <= X"0000" & iram_in(15 downto 0);
+	--INP2_S <= X"0000" & iram_in(15 downto 0);
 
 	controls_s <= RF1 & RF2 & EN1 & S1 & S2 & ALU1 & ALU2 & EN2 & RM & WM & EN3 & S3 & WF1;
 
-	CONTROL_UNIT: cu port map (RF1, RF2, WF1, EN1, S1, S2, ALU1, ALU2, EN2, RM, WM, EN3, S3, IR(I_SIZE-1 downto I_SIZE-6), IR(10 downto 0), Clk, Rst);
+	CONTROL_UNIT: cu port map (RF1, RF2, WF1, EN1, S1, S2, ALU1, ALU2, EN2, RM, WM, EN3, S3, iram_in(I_SIZE-1 downto I_SIZE-6), iram_in(10 downto 0), Clk, Rst);
 	DATA_PATH: DATAPATH port map 
-						(controls_s, dram_out, dram_addr, dram_in, RD_MEM, WR_MEM, EN_MEM, iram_addr, iram_in, INP1_S, INP2_S, IR(15 downto 11), IR(25 downto 21), IR(20 downto 16), Clk, Rst);
+						(controls_s, dram_out, dram_addr, dram_in, RD_MEM, WR_MEM, EN_MEM, iram_addr, iram_in, Clk, Rst);
 	
 end Struct;

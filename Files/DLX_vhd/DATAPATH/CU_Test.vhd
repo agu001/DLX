@@ -11,7 +11,7 @@ architecture TEST of cu_test is
 
 	component DLX_wrapper is
 		generic ( I_SIZE: natural := 32 );
-		port ( IR: in std_logic_vector(I_SIZE-1 downto 0);
+		port ( --IR: in std_logic_vector(I_SIZE-1 downto 0);
 			   Clk, Rst: in std_logic
 			 );
 	end component DLX_wrapper;
@@ -19,12 +19,12 @@ architecture TEST of cu_test is
     signal Clk: std_logic := '1';
     signal Rst: std_logic := '1';
 
-    signal IR: std_logic_vector(31 downto 0); 
+    --signal IR: std_logic_vector(31 downto 0); 
 
 begin
 
         -- instance of DLX
-		dut: DLX_wrapper port map (IR, Clk, Rst);
+		dut: DLX_wrapper port map (Clk, Rst);
 
         Clk <= not Clk after 1 ns;
 		Rst <= '1', '0' after 3 ns;
@@ -42,10 +42,6 @@ begin
 		--IR <= X"04050080";
 		--wait until Clk='1' and Clk'event;
 		--wait for 1 ns;
-		IR <= X"30630010"; --S_MEM
-		wait until Clk='1' and Clk'event;
-		wait for 1 ns;
-		IR <= X"34070010"; --L_MEM
         wait;
         end process;
 

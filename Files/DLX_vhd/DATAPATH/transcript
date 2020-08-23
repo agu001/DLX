@@ -1,0 +1,1163 @@
+# //  ModelSim SE-64 6.5c Aug 27 2009 Linux 3.10.0-1062.12.1.el7.x86_64
+# //
+# //  Copyright 1991-2009 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+# vsim -t 10ps work.cu_test 
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error: CU_Test.vhd(27): Bad default binding for component instance "dut : dlx_wrapper".
+#  (Component port "ir" is not on the entity.)
+# ** Warning: [1] CU_Test.vhd(27): (vopt-3473) Component instance "dut : dlx_wrapper" is not bound.
+# Optimization failed
+# Error loading design
+vsim -t 10ps work.cu_test
+# vsim -t 10ps work.cu_test 
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: [1] DLX_wrapper.vhd(61): (vopt-3473) Component instance "imemory : iram" is not bound.
+# ** Error: DLX_wrapper.vhd(59): (vopt-1272) Length of formal "iram_addr" is 8; length of actual is 32.
+# ** Error: Vopt Compiler exiting
+# Error loading design
+vsim -t 10ps work.cu_test
+# vsim -t 10ps work.cu_test 
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: [1] DLX_wrapper.vhd(61): (vopt-3473) Component instance "imemory : iram" is not bound.
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading work.cu_test(test)#1
+# Loading work.dlx(struct)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# ** Fatal: (vsim-3348) Port size (8) does not match actual size (32) for port '/cu_test/dut/cpu/data_path/iram_addr'.
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path File: a.b-DataPath.vhd Line: 21
+# FATAL ERROR while loading design
+# Error loading design
+vsim -t 10ps work.cu_test
+# vsim -t 10ps work.cu_test 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: [1] DLX_wrapper.vhd(61): (vopt-3473) Component instance "imemory : iram" is not bound.
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading work.cu_test(test)#1
+# Loading work.dlx(struct)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+# ** Warning: (vsim-3473) Component instance "imemory : iram" is not bound.
+#    Time: 0 ps  Iteration: 0  Region: /cu_test/dut  File: CU_Test.vhd
+vsim -t 10ps work.cu_test
+# vsim -t 10ps work.cu_test 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.cu_test(test)#1
+# Loading work.dlx(struct)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+add wave *
+vsim -t 10ps work.cu_test
+# vsim -t 10ps work.cu_test 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.cu_test(test)#1
+# Loading work.dlx(struct)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+add wave *
+add wave \
+{sim:/cu_test/dut/cpu/dram_out } \
+{sim:/cu_test/dut/cpu/dram_addr } \
+{sim:/cu_test/dut/cpu/dram_in } \
+{sim:/cu_test/dut/cpu/rd_mem } \
+{sim:/cu_test/dut/cpu/wr_mem } \
+{sim:/cu_test/dut/cpu/en_mem } \
+{sim:/cu_test/dut/cpu/iram_addr } \
+{sim:/cu_test/dut/cpu/iram_in } \
+{sim:/cu_test/dut/cpu/clk } \
+{sim:/cu_test/dut/cpu/rst } \
+{sim:/cu_test/dut/cpu/rf1 } \
+{sim:/cu_test/dut/cpu/rf2 } \
+{sim:/cu_test/dut/cpu/en1 } \
+{sim:/cu_test/dut/cpu/s1 } \
+{sim:/cu_test/dut/cpu/s2 } \
+{sim:/cu_test/dut/cpu/alu1 } \
+{sim:/cu_test/dut/cpu/alu2 } \
+{sim:/cu_test/dut/cpu/en2 } \
+{sim:/cu_test/dut/cpu/rm } \
+{sim:/cu_test/dut/cpu/wm } \
+{sim:/cu_test/dut/cpu/en3 } \
+{sim:/cu_test/dut/cpu/s3 } \
+{sim:/cu_test/dut/cpu/wf1 } \
+{sim:/cu_test/dut/cpu/controls_s } \
+{sim:/cu_test/dut/cpu/inp1_s } \
+{sim:/cu_test/dut/cpu/inp2_s } 
+run 30 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Fatal: (vsim-3421) Value 32 is out of range 0 to 15.
+#    Time: 0 ps  Iteration: 1  Process: /cu_test/dut/cpu/control_unit/line__67 File: CU_HW.vhd
+# Fatal error in Block control_unit at CU_HW.vhd line 67
+# 
+# HDL call sequence:
+# Stopped at CU_HW.vhd 67 Block control_unit
+# 
+vsim -t 10ps work.cu_test
+# vsim -t 10ps work.cu_test 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.cu_test(test)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+run 30 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+add waves *
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.cu_test(test)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+run 30s
+# Invalid time value: 30s
+run 30 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+add waves *
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.cu_test(test)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+run 20 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.cu_test(test)#1
+# Loading work.dlx(struct)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+vsim -t 10ps work.cu_test
+# vsim -t 10ps work.cu_test 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.cu_test(test)#1
+# Loading work.dlx(struct)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/rst'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 3
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/dram_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 4
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/dram_addr'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 5
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/dram_in'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 6
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/inp1'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 7
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/inp1_r_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 8
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/inp2'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 9
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/inp2_r_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 10
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/in1_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 11
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/in2_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 12
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/rs1'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 13
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/rs2'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 14
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/rd'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 15
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/rd_r_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 16
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/rd1_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 17
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/rd2_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 18
+# ** Error: (vish-4014) No objects found matching '/cu_test/ir'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 19
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/controls'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 20
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/cwregex'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 21
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/cwregmw'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 22
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/clk'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 23
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/rfout1'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 24
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/rfout2'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 25
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/a_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 26
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/b_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 27
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/s1_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 28
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/s2_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 29
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/alu_op_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 30
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/alu_out_reg'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 31
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/memory_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 32
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/me_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 33
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/s3_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 34
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/out_reg_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 35
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/func_op'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 36
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/type_alu'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 37
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/data_path/rf/registers'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave.do line 38
+add waves *
+run 20 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do
+vsim -t 10ps work.cu_test
+# vsim -t 10ps work.cu_test 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.cu_test(test)#1
+# Loading work.dlx(struct)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do
+run 30 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Fatal: (vsim-3421) Value 32 is out of range 0 to 15.
+#    Time: 3 ns  Iteration: 0  Process: /cu_test/dut/cpu/control_unit/line__67 File: CU_HW.vhd
+# Fatal error in Block control_unit at CU_HW.vhd line 67
+# 
+# HDL call sequence:
+# Stopped at CU_HW.vhd 67 Block control_unit
+# 
+vsim -t 10ps work.cu_test
+# vsim -t 10ps work.cu_test 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.cu_test(test)#1
+# Loading work.dlx(struct)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do
+run 30 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Fatal: (vsim-3421) Value 32 is out of range 0 to 15.
+#    Time: 3 ns  Iteration: 0  Process: /cu_test/dut/cpu/control_unit/line__67 File: CU_HW.vhd
+# Fatal error in Block control_unit at CU_HW.vhd line 68
+# 
+# HDL call sequence:
+# Stopped at CU_HW.vhd 68 Block control_unit
+# 
+add wave \
+{sim:/cu_test/dut/cpu/iram_addr } \
+{sim:/cu_test/dut/cpu/iram_in } 
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.cu_test(test)#1
+# Loading work.dlx(struct)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+run 30 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Fatal: (vsim-3421) Value 32 is out of range 0 to 15.
+#    Time: 3 ns  Iteration: 0  Process: /cu_test/dut/cpu/control_unit/line__67 File: CU_HW.vhd
+# Fatal error in Block control_unit at CU_HW.vhd line 68
+# 
+# HDL call sequence:
+# Stopped at CU_HW.vhd 68 Block control_unit
+# 
+add wave \
+{sim:/cu_test/dut/cpu/dram_out } \
+{sim:/cu_test/dut/cpu/dram_addr } \
+{sim:/cu_test/dut/cpu/dram_in } \
+{sim:/cu_test/dut/cpu/rd_mem } \
+{sim:/cu_test/dut/cpu/wr_mem } \
+{sim:/cu_test/dut/cpu/en_mem } \
+{sim:/cu_test/dut/cpu/iram_addr } \
+{sim:/cu_test/dut/cpu/iram_in } \
+{sim:/cu_test/dut/cpu/clk } \
+{sim:/cu_test/dut/cpu/rst } \
+{sim:/cu_test/dut/cpu/rf1 } \
+{sim:/cu_test/dut/cpu/rf2 } \
+{sim:/cu_test/dut/cpu/en1 } \
+{sim:/cu_test/dut/cpu/s1 } \
+{sim:/cu_test/dut/cpu/s2 } \
+{sim:/cu_test/dut/cpu/alu1 } \
+{sim:/cu_test/dut/cpu/alu2 } \
+{sim:/cu_test/dut/cpu/en2 } \
+{sim:/cu_test/dut/cpu/rm } \
+{sim:/cu_test/dut/cpu/wm } \
+{sim:/cu_test/dut/cpu/en3 } \
+{sim:/cu_test/dut/cpu/s3 } \
+{sim:/cu_test/dut/cpu/wf1 } \
+{sim:/cu_test/dut/cpu/controls_s } \
+{sim:/cu_test/dut/cpu/inp1_s } \
+{sim:/cu_test/dut/cpu/inp2_s } 
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.cu_test(test)#1
+# Loading work.dlx(struct)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+run 30 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Fatal: (vsim-3421) Value 32 is out of range 0 to 15.
+#    Time: 3 ns  Iteration: 0  Process: /cu_test/dut/cpu/control_unit/line__67 File: CU_HW.vhd
+# Fatal error in Block control_unit at CU_HW.vhd line 68
+# 
+# HDL call sequence:
+# Stopped at CU_HW.vhd 68 Block control_unit
+# 
+vsim -t 10ps work.cu_test
+# vsim -t 10ps work.cu_test 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.cu_test(test)#1
+# Loading work.dlx(struct)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do
+run 30 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+add wave \
+{sim:/cu_test/dut/cpu/dram_out } \
+{sim:/cu_test/dut/cpu/dram_addr } \
+{sim:/cu_test/dut/cpu/dram_in } \
+{sim:/cu_test/dut/cpu/rd_mem } \
+{sim:/cu_test/dut/cpu/wr_mem } \
+{sim:/cu_test/dut/cpu/en_mem } \
+{sim:/cu_test/dut/cpu/iram_addr } \
+{sim:/cu_test/dut/cpu/iram_in } \
+{sim:/cu_test/dut/cpu/clk } \
+{sim:/cu_test/dut/cpu/rst } \
+{sim:/cu_test/dut/cpu/rf1 } \
+{sim:/cu_test/dut/cpu/rf2 } \
+{sim:/cu_test/dut/cpu/en1 } \
+{sim:/cu_test/dut/cpu/s1 } \
+{sim:/cu_test/dut/cpu/s2 } \
+{sim:/cu_test/dut/cpu/alu1 } \
+{sim:/cu_test/dut/cpu/alu2 } \
+{sim:/cu_test/dut/cpu/en2 } \
+{sim:/cu_test/dut/cpu/rm } \
+{sim:/cu_test/dut/cpu/wm } \
+{sim:/cu_test/dut/cpu/en3 } \
+{sim:/cu_test/dut/cpu/s3 } \
+{sim:/cu_test/dut/cpu/wf1 } \
+{sim:/cu_test/dut/cpu/controls_s } \
+{sim:/cu_test/dut/cpu/inp1_s } \
+{sim:/cu_test/dut/cpu/inp2_s } 
+add wave \
+{sim:/cu_test/dut/cpu/data_path/controls } \
+{sim:/cu_test/dut/cpu/data_path/dram_out } \
+{sim:/cu_test/dut/cpu/data_path/dram_addr } \
+{sim:/cu_test/dut/cpu/data_path/dram_in } \
+{sim:/cu_test/dut/cpu/data_path/rd_mem } \
+{sim:/cu_test/dut/cpu/data_path/wr_mem } \
+{sim:/cu_test/dut/cpu/data_path/en_mem } \
+{sim:/cu_test/dut/cpu/data_path/iram_addr } \
+{sim:/cu_test/dut/cpu/data_path/iram_in } \
+{sim:/cu_test/dut/cpu/data_path/inp1 } \
+{sim:/cu_test/dut/cpu/data_path/inp2 } \
+{sim:/cu_test/dut/cpu/data_path/rs1 } \
+{sim:/cu_test/dut/cpu/data_path/rs2 } \
+{sim:/cu_test/dut/cpu/data_path/rd } \
+{sim:/cu_test/dut/cpu/data_path/clk } \
+{sim:/cu_test/dut/cpu/data_path/rst } \
+{sim:/cu_test/dut/cpu/data_path/rfout1 } \
+{sim:/cu_test/dut/cpu/data_path/rfout2 } \
+{sim:/cu_test/dut/cpu/data_path/s3_out } \
+{sim:/cu_test/dut/cpu/data_path/a_out } \
+{sim:/cu_test/dut/cpu/data_path/b_out } \
+{sim:/cu_test/dut/cpu/data_path/s1_out } \
+{sim:/cu_test/dut/cpu/data_path/s2_out } \
+{sim:/cu_test/dut/cpu/data_path/alu_op_out } \
+{sim:/cu_test/dut/cpu/data_path/alu_out_reg } \
+{sim:/cu_test/dut/cpu/data_path/memory_out } \
+{sim:/cu_test/dut/cpu/data_path/me_out } \
+{sim:/cu_test/dut/cpu/data_path/out_reg_out } \
+{sim:/cu_test/dut/cpu/data_path/inp1_r_out } \
+{sim:/cu_test/dut/cpu/data_path/inp2_r_out } \
+{sim:/cu_test/dut/cpu/data_path/in1_out } \
+{sim:/cu_test/dut/cpu/data_path/in2_out } \
+{sim:/cu_test/dut/cpu/data_path/s1 } \
+{sim:/cu_test/dut/cpu/data_path/s2 } \
+{sim:/cu_test/dut/cpu/data_path/alu1 } \
+{sim:/cu_test/dut/cpu/data_path/alu2 } \
+{sim:/cu_test/dut/cpu/data_path/en2 } \
+{sim:/cu_test/dut/cpu/data_path/rm } \
+{sim:/cu_test/dut/cpu/data_path/wm } \
+{sim:/cu_test/dut/cpu/data_path/en3 } \
+{sim:/cu_test/dut/cpu/data_path/s3 } \
+{sim:/cu_test/dut/cpu/data_path/rd1_out } \
+{sim:/cu_test/dut/cpu/data_path/rd2_out } \
+{sim:/cu_test/dut/cpu/data_path/func_op } \
+{sim:/cu_test/dut/cpu/data_path/type_alu } \
+{sim:/cu_test/dut/cpu/data_path/cwregex } \
+{sim:/cu_test/dut/cpu/data_path/cwregmw } \
+{sim:/cu_test/dut/cpu/data_path/rd_r_out } \
+{sim:/cu_test/dut/cpu/data_path/iram_out } \
+{sim:/cu_test/dut/cpu/data_path/adder_out } 
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.cu_test(test)#1
+# Loading work.dlx(struct)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+run 30 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+add wave \
+{sim:/cu_test/dut/memory/x } \
+{sim:/cu_test/dut/memory/a } \
+{sim:/cu_test/dut/memory/memory } 
+add wave \
+{sim:/cu_test/dut/cpu/data_path/rf/registers } 
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.cu_test(test)#1
+# Loading work.dlx(struct)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+run 30 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+add wave \
+{sim:/cu_test/dut/cpu/data_path/iram_out } 
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do
+
+vsim -t 10ps work.cu_test
+# vsim -t 10ps work.cu_test 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading work.cu_test(test)#1
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.dlx_wrapper(struct)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/inp2'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do line 13
+run 30 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4200 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 4200 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+vsim -t 10ps work.cu_test
+# vsim -t 10ps work.cu_test 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading work.cu_test(test)#1
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.dlx_wrapper(struct)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/inp2'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do line 13
+run 30 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4200 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 4200 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+vsim -t 10ps work.cu_test
+# vsim -t 10ps work.cu_test 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading work.cu_test(test)#1
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.dlx_wrapper(struct)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/inp2'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do line 13
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/iram_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do line 24
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/iram_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do line 53
+run 30 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+add wave \
+{sim:/cu_test/dut/cpu/data_path/ir_r_out } 
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading work.cu_test(test)#1
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.dlx_wrapper(struct)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+run 30 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do
+add wave \
+{sim:/cu_test/dut/cpu/data_path/pc_out } 
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading work.cu_test(test)#1
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.dlx_wrapper(struct)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+run 30 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do
+vsim -t 10ps work.cu_test
+# vsim -t 10ps work.cu_test 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading work.cu_test(test)#1
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.dlx_wrapper(struct)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/inp1_r_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do line 11
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/inp2_r_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do line 13
+run 30 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do
+vsim -t 10ps work.cu_test
+# vsim -t 10ps work.cu_test 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading work.cu_test(test)#1
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.dlx_wrapper(struct)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do
+run 30 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+add wave \
+{sim:/cu_test/dut/cpu/data_path/wf1 } 
+add wave \
+{sim:/cu_test/dut/cpu/data_path/rf/wr } 
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading work.cu_test(test)#1
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.dlx_wrapper(struct)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#1
+run 30 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+vsim -t 10ps work.cu_test
+# vsim -t 10ps work.cu_test 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading work.cu_test(test)#1
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.dlx_wrapper(struct)#1
+# Loading work.alu_type
+# Loading work.datapath(struct)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.mux21_generic(mux21_gen_structural)#1
+do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/rd_r_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave2.do line 16
+run 30 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/imemory
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/data_path/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /cu_test/dut/cpu/control_unit

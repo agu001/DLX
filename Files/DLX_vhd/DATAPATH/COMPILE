@@ -6,6 +6,8 @@ vcom register.vhd
 vcom RF.vhd
 vcom alu_type.vhd
 vcom alu.vhd
+vcom adder.vhd
+vcom a.c-IRAM.vhd
 vcom DRAM.vhd
 vcom a.b-DataPath.vhd
 vcom myTypes.vhd

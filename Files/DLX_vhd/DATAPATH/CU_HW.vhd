@@ -63,8 +63,9 @@ architecture beh of cu is
   	signal aluOpcode2: aluOp := DEFAULT;
 
 begin
-
-	  cw <= cw_mem( to_integer( unsigned(OPCODE) ) );
+		
+	  	cw <= cw_mem( to_integer( unsigned(OPCODE) ) ) when (OPCODE /= "100000" );
+	  
 
 	  -- FIRST PIPE STAGE OUTPUTS             
       RF1 <= cw1(CW_SIZE -1);              
