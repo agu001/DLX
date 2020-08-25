@@ -8,6 +8,7 @@ vcom alu_type.vhd
 vcom alu.vhd
 vcom adder.vhd
 vcom sign_ext.vhd
+vcom comparator.vhd
 vcom a.c-IRAM.vhd
 vcom DRAM.vhd
 vcom a.b-DataPath.vhd

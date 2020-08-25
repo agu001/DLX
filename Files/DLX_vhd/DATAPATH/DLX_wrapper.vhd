@@ -26,7 +26,7 @@ architecture Struct of DLX_wrapper is
 
 	component IRAM is
 	  generic (
-		RAM_DEPTH : integer := 48;
+		RAM_DEPTH : integer := 512;
 		I_SIZE : integer := 32);
 	  port (
 		Rst  : in  std_logic;
