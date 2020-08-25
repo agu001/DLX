@@ -64,7 +64,8 @@ architecture beh of cu is
 
 begin
 		
-	  	cw <= cw_mem( to_integer( unsigned(OPCODE) ) ) when (OPCODE /= "100000" );
+	  	cw <= cw_mem( to_integer( unsigned(OPCODE) ) ) when (OPCODE /= "100000" ) else
+			  "0000000000000";
 	  
 
 	  -- FIRST PIPE STAGE OUTPUTS             

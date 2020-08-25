@@ -13,7 +13,6 @@ add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/in
 add wave -noupdate -format Literal -radix hexadecimal /cu_test/dut/cpu/data_path/rs1
 add wave -noupdate -format Literal -radix hexadecimal /cu_test/dut/cpu/data_path/rs2
 add wave -noupdate -format Literal -radix hexadecimal /cu_test/dut/cpu/data_path/rd
-add wave -noupdate -format Literal -radix hexadecimal /cu_test/dut/cpu/data_path/rd_r_out
 add wave -noupdate -format Literal -radix hexadecimal /cu_test/dut/cpu/data_path/rd1_out
 add wave -noupdate -format Literal -radix hexadecimal /cu_test/dut/cpu/data_path/rd2_out
 add wave -noupdate -format Logic -radix hexadecimal /cu_test/dut/cpu/data_path/clk
@@ -25,6 +24,7 @@ add wave -noupdate -format Literal -radix hexadecimal /cu_test/dut/cpu/data_path
 add wave -noupdate -format Literal -radix binary /cu_test/dut/cpu/data_path/controls
 add wave -noupdate -format Literal -radix binary /cu_test/dut/cpu/data_path/cwregex
 add wave -noupdate -format Literal -radix binary /cu_test/dut/cpu/data_path/cwregmw
+add wave -noupdate -format Literal /cu_test/dut/cpu/data_path/cwregwr
 add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/rfout1
 add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/rfout2
 add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/s3_out
@@ -53,7 +53,7 @@ add wave -noupdate -format Literal -radix unsigned /cu_test/dut/memory/x
 add wave -noupdate -format Literal -radix unsigned /cu_test/dut/memory/a
 add wave -noupdate -format Literal -radix unsigned /cu_test/dut/memory/memory
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {8830 ps} 0}
+WaveRestoreCursors {{Cursor 1} {12850 ps} 0}
 configure wave -namecolwidth 319
 configure wave -valuecolwidth 95
 configure wave -justifyvalue left
@@ -68,4 +68,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {140 ps} {15810 ps}
+WaveRestoreZoom {0 ps} {31500 ps}
