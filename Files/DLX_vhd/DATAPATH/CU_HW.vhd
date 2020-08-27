@@ -45,8 +45,8 @@ use work.myTypes.all;
 
 architecture beh of cu is
 	type mem_array is array (integer range 0 to MICROCODE_MEM_SIZE - 1) of std_logic_vector(CW_SIZE - 1 downto 0);
-  							--ISJUMP,	RF1,	RF2,	EN1,	S2, 	ALU1,	ALU2,	EN2,	ISBRANCH,	ISBEQZ,	RM,	WM,	EN3,	S3,	WF1
-							--0,		1,  	2,		3,		4,		ex5,	ex6,	5,		6,			7,		8,	9,	10,		11,	12
+  							--RF1,	RF2,	EN1,	S2,		EN2,	ISJUMP,	ISBRANCH,	BEQZ,	RM,	WM,	EN3,	S3,	WF1
+							--0,	1,  	2,		3,		4,		5,		6,			7,		8,	9,	10,		11,	12
 	signal cw_mem : mem_array := (  "1111100000001", --RTYPE
 		                            "0111100000001", --ADDI1
 		                            "0111100000001", --SUBI1
@@ -60,7 +60,7 @@ architecture beh of cu is
 									"0010100000001", --S_REG1 INP2 = 0
 									"0010100000001", --S_REG2 INP1 = 0
 									"1110100001100", --S_MEM2
-									"0111100010111", --L_MEM1 we save in R2 MEM[R[2]+inp1]
+									"0110100010111", --L_MEM1 we save in R2 MEM[R[2]+inp1]
 		                            "1010100010111", --L_MEM2
 									"0000000000000");--NOP 
 

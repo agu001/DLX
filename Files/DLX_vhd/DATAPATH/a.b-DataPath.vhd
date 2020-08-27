@@ -93,14 +93,21 @@ architecture Struct of DATAPATH is
 				RESET:	In	std_logic;
 				Q:	Out	std_logic);
 	end component FD;
-
+	
+	component FU is
+		port ( 	RS1, RS2, RD_MEM, RD_WB:IN std_logic_vector(4 downto 0);  
+				F_ALU_MEM, F_ALU_WB: IN std_logic_vector(31 downto 0);
+				F_OUT: OUT std_logic_vector(31 downto 0);
+				MUX1_SEL, MUX2_SEL: OUT std_logic;
+				CLK, RST: IN std_logic);
+	end component FU;
 	--signal INP1, INP2: std_logic_vector(D_SIZE-1 downto 0);
 	--signal RS1, RS2, RD: std_logic_vector(4 downto 0);
 	--REGISTER_FILE
-	signal RFOUT1, RFOUT2, S3_OUT, A_OUT, B_OUT, S1_OUT, S2_OUT, ALU_OP_OUT, ALU_OUT_REG, MEMORY_OUT, ME_OUT, OUT_REG_OUT, INP1_R_OUT, INP2_R_OUT: std_logic_vector(D_SIZE-1 downto 0);
+	signal RFOUT1, RFOUT2, S3_OUT, A_OUT, B_OUT, S1_OUT, S2_OUT, ALU_OP_OUT, ALU_OUT_REG1, ALU_OUT_REG2, MEMORY_REG_OUT, MEMORY_OUT, ME_OUT, OUT_REG_OUT, INP1_R_OUT, INP2_R_OUT: std_logic_vector(D_SIZE-1 downto 0);
 	signal IN1_OUT, IMM32_OUT: std_logic_vector(D_SIZE-1 downto 0);
 	signal RF1, RF2, EN1, S1, S2, ALU1, ALU2, EN2, RM, WM, EN3, S3, WF1, EN4: std_logic;
-	signal RD1_OUT, RD2_OUT, RS1_R_OUT, RS2_R_OUT: std_logic_vector(4 downto 0);
+	signal RD1_OUT, RD2_OUT, RD3_OUT, RS1_R_OUT, RS2_R_OUT: std_logic_vector(4 downto 0);
 	signal FUNC_OP: std_logic_vector(1 downto 0);
 	signal type_alu: TYPE_OP;
 	signal CWregEX: std_logic_vector(11 downto 0);
@@ -110,16 +117,19 @@ architecture Struct of DATAPATH is
 	signal INP1: std_logic_vector(D_SIZE-1 downto 0);
 	signal INP2: std_logic_vector(15 downto 0);	
 	signal RS1, RS2, RD: std_logic_vector(4 downto 0); 
-	signal CWregWR, CWregWR_temp: std_logic_vector(1 downto 0);
+	signal CWregWR, CWregWR_temp: std_logic_vector(2 downto 0);
 	signal RD_RTYPE_OUT, RD_ITYPE_OUT: std_logic_vector(4 downto 0);
 	signal ISJUMP, ISBRANCH, ISBEQZ, ZERO_RESULT, PCSrc, ZERO_REG_OUT, branch_taken: std_logic;
+	signal MUX_FW1_OUT, MUX_FW2_OUT, FU_OUT: std_logic_vector(31 downto 0);
+	signal FU_CTRL1, FU_CTRL2: std_logic; 
 	--signal CWregID: std_logic_vector(12 downto 0);
 	
 begin
+
+	
+
 	--INP1 <= X"0000" & IR_R_OUT(15 downto 0);
-	INP2 <= IR_R_OUT(15 downto 0);	
-    RS1 <= IR_R_OUT(15 downto 11);
-	RS2 <= IR_R_OUT(25 downto 21);
+	
 	--RD <= IR_R_OUT(20 downto 16);
 	--ISJUMP,	RF1,	RF2,	EN1,	S2, 	ALU1,	ALU2,	EN2,	ISBRANCH,	ISBEQZ,	RM,	WM,	EN3,	S3,	WF1
 	--*******************
@@ -143,8 +153,8 @@ begin
 	RM <= CWregMW(4);  
  	WM <= CWregMW(3); 
 	EN3 <= CWregMW(2);  
-	S3 <= CWregMW(1);
 	--WRITEBACK STAGE
+	S3 <= CWregWR(2);
 	WF1 <= CWregWR(1);
 	EN4 <= CWregWR(0);
 	--**********************	
@@ -196,37 +206,47 @@ begin
 	PC_reg: Register_generic port map(PC_IN, Clk, Rst, '1', PC_OUT);
 	IR_reg: Register_generic port map(iram_in, Clk, Rst, '1',IR_R_OUT);
 	--STAGE DECODE
+	INP2 <= IR_R_OUT(15 downto 0);	
+    RS1 <= IR_R_OUT(25 downto 21);
+	RS2 <= IR_R_OUT(20 downto 16);
 	--reg_stage_1: Register_generic generic map(13) port map(controls(12 downto 0), Clk, Rst, '1', CWregID);
 	--inp1_r: Register_generic port map(INP1, Clk, Rst, '1', INP1_R_OUT);
 	--inp2_r: Register_generic port map(INP1, Clk, Rst, '1', INP2_R_OUT);
-	--rs1_r: Register_generic generic map(5) port map(RS1, Clk, Rst, '1', RS1_R_OUT);
-	--rs2_r: Register_generic generic map(5) port map(RS2, Clk, Rst, '1', RS2_R_OUT);
+	rs1_r: Register_generic generic map(5) port map(RS1, Clk, Rst, '1', RS1_R_OUT);
+	rs2_r: Register_generic generic map(5) port map(RS2, Clk, Rst, '1', RS2_R_OUT);
 	NPC_reg2: Register_generic port map(NPC_REG1_OUT, Clk, Rst, EN1, NPC_REG2_OUT);
-	RF: register_file port map (Clk, Rst, EN1, '1', '1', WF1, RD2_OUT, RS1, RS2, Out_reg_OUT, RFOUT1, RFOUT2);
+	RF: register_file port map (Clk, Rst, EN1, '1', '1', WF1, RD3_OUT, RS1, RS2, S3_OUT, RFOUT1, RFOUT2);
 	--in1: Register_generic port map (INP1, Clk, Rst, '1', IN1_OUT);
 	imm16_to_extend: sign_ext port map(INP2, SIGN_EXT_OUT);
 	imm32_extended: Register_generic port map (SIGN_EXT_OUT, Clk, Rst, EN1, IMM32_OUT);
 	A: Register_generic port map (RFOUT1, Clk, Rst, EN1, A_OUT);	
 	B: Register_generic port map (RFOUT2, Clk, Rst, EN1, B_OUT);
 	--rd_reg: Register_generic generic map(5) port map(RD, Clk, Rst, '1', RD_R_OUT);
-	rd_rtype: Register_generic generic map(5) port map (IR_R_OUT(20 downto 16), Clk, Rst, EN1, RD_RTYPE_OUT);
-	rd_itype: Register_generic generic map(5) port map (IR_R_OUT(15 downto 11), Clk, Rst, EN1, RD_ITYPE_OUT);
+	rd_rtype: Register_generic generic map(5) port map (IR_R_OUT(15 downto 11), Clk, Rst, EN1, RD_RTYPE_OUT);
+	rd_itype: Register_generic generic map(5) port map (IR_R_OUT(20 downto 16), Clk, Rst, EN1, RD_ITYPE_OUT);
 	--STAGE EXECUTE
+
+		forwarding_unit: FU port map 
+							(RS1_R_OUT, RS2_R_OUT, RD2_OUT, RD3_OUT, ALU_OUT_REG1, ALU_OUT_REG2, FU_OUT, FU_CTRL1, FU_CTRL2, Clk, Rst);
+	
+		
 		reg_stage_2: Register_generic generic map(12) port map(controls(11 downto 0), Clk, Rst, '1', CWregEX);
 		
-		IMM32_SHIFTED <= "0000" & IMM32_OUT(25 downto 0) & "00";
-		adder_NPC: adder port map(NPC_REG2_OUT, IMM32_SHIFTED, RELATIVE_ADDRESS);
+		--IMM32_SHIFTED <= IMM32_OUT(29 downto 0) & "00"; IMPORTANT!!
+		adder_NPC: adder port map(NPC_REG2_OUT, IMM32_OUT, RELATIVE_ADDRESS); --IMM32_SHIFTED -> IMM32_OUT
 		compare: comparator port map(A_OUT, ZERO_RESULT);
 		
 		mux_s_rd: MUX21_GENERIC generic map(5) port map (RD_RTYPE_OUT, RD_ITYPE_OUT, '1', RD1_OUT);	
 		mux_s2: MUX21_GENERIC port map (B_OUT, IMM32_OUT, S2, S2_OUT);
-		alu_op: ALU port map (type_alu, A_OUT, S2_OUT, ALU_OP_OUT);
+		mux_fw1: MUX21_GENERIC port map ( FU_OUT, A_OUT, FU_CTRL1, MUX_FW1_OUT);
+		mux_fw2: MUX21_GENERIC port map ( FU_OUT, S2_OUT, FU_CTRL2, MUX_FW2_OUT);
+		alu_op: ALU port map (type_alu, MUX_FW1_OUT, MUX_FW2_OUT, ALU_OP_OUT);
 	
 		--pipeline registers
 		zero_reg: fd port map(ZERO_RESULT, Clk, Rst, ZERO_REG_OUT);			
 		address_jump_branch: Register_generic port map(RELATIVE_ADDRESS, Clk, Rst, '1', ADDRESS_TO_JUMP);
 		NPC_reg3: Register_generic port map(NPC_REG2_OUT, Clk, Rst, '1', NPC_REG3_OUT);
-		alu_out_reg1: Register_generic port map (ALU_OP_OUT, Clk, Rst, EN2, ALU_OUT_REG);
+		alu_reg1: Register_generic port map (ALU_OP_OUT, Clk, Rst, EN2, ALU_OUT_REG1);
 		me: Register_generic port map (B_OUT, Clk, Rst, EN2, ME_OUT);
 		rd2: Register_generic generic map(5) port map (RD1_OUT, Clk, Rst, EN2, RD2_OUT);
 	--STAGE MEMORY
@@ -240,12 +260,16 @@ begin
 	WR_MEM <= WM;
 	EN_MEM <= EN3;
 	dram_out <= ME_OUT;
-	dram_addr <= ALU_OUT_REG;
+	dram_addr <= ALU_OUT_REG1;
 	MEMORY_OUT <= dram_in;
-	mux_s3: MUX21_GENERIC port map (MEMORY_OUT, ALU_OUT_REG, S3, S3_OUT);
+	mem_reg: Register_generic port map (MEMORY_OUT, Clk, Rst, EN2, MEMORY_REG_OUT);
+	alu_reg2: Register_generic port map (ALU_OUT_REG1, Clk, Rst, EN2, ALU_OUT_REG2);
+	rd3: Register_generic generic map(5) port map (RD2_OUT, Clk, Rst, EN3, RD3_OUT);
+	CWregWR_temp <= CWregMW(1 downto 0)&'1';
+	reg_stage_MEM: Register_generic generic map(3) port map(CWregWR_temp, Clk, Rst, '1', CWregWR);
 	--STAGE WB
-	CWregWR_temp <= CWregMW(0)&'1';
-	reg_stage_4: Register_generic generic map(2) port map(CWregWR_temp, Clk, Rst, '1', CWregWR);
-	Out_reg: Register_generic port map (S3_OUT, Clk, Rst, '1', Out_reg_OUT);
+	mux_s3: MUX21_GENERIC port map (MEMORY_REG_OUT, ALU_OUT_REG2, S3, S3_OUT);
+	--reg_stage_4: Register_generic generic map(2) port map(CWregWR_temp, Clk, Rst, '1', CWregWR);
+	--Out_reg: Register_generic port map (S3_OUT, Clk, Rst, '1', Out_reg_OUT);
 	
 end Struct;

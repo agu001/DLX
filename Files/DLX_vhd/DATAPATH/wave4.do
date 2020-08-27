@@ -19,13 +19,13 @@ add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/rf
 add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/s3_out
 add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/a_out
 add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/b_out
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/s2_out
+add wave -noupdate -format Literal -radix decimal /cu_test/dut/cpu/data_path/s2_out
 add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/alu_op_out
 add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/alu_out_reg
 add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/memory_out
 add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/me_out
 add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/out_reg_out
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/imm32_out
+add wave -noupdate -format Literal -radix hexadecimal /cu_test/dut/cpu/data_path/imm32_out
 add wave -noupdate -format Logic -radix unsigned /cu_test/dut/cpu/data_path/en1
 add wave -noupdate -format Logic -radix unsigned /cu_test/dut/cpu/data_path/s2
 add wave -noupdate -format Logic -radix unsigned /cu_test/dut/cpu/data_path/alu1
@@ -46,8 +46,7 @@ add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/np
 add wave -noupdate -format Literal -radix hexadecimal /cu_test/dut/cpu/data_path/ir_r_out
 add wave -noupdate -format Logic -radix unsigned /cu_test/dut/cpu/data_path/isjump
 add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/sign_ext_out
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/imm32_shifted
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/relative_address
+add wave -noupdate -format Literal -radix decimal /cu_test/dut/cpu/data_path/relative_address
 add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/pc_in
 add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/address_to_jump
 add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/npc_reg1_out
@@ -64,9 +63,11 @@ add wave -noupdate -format Logic -radix unsigned /cu_test/dut/cpu/data_path/isbe
 add wave -noupdate -format Logic -radix unsigned /cu_test/dut/cpu/data_path/zero_result
 add wave -noupdate -format Logic -radix unsigned /cu_test/dut/cpu/data_path/zero_reg_out
 add wave -noupdate -format Logic -radix unsigned /cu_test/dut/cpu/data_path/branch_taken
+add wave -noupdate -format Literal -radix unsigned /cu_test/dut/cpu/data_path/rf/registers
+add wave -noupdate -format Literal -radix unsigned /cu_test/dut/memory/memory
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {4320 ps} 0}
-configure wave -namecolwidth 443
+WaveRestoreCursors {{Cursor 1} {12780 ps} 0}
+configure wave -namecolwidth 328
 configure wave -valuecolwidth 95
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
@@ -80,4 +81,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {0 ps} {29340 ps}
+WaveRestoreZoom {80 ps} {31580 ps}

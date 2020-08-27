@@ -11,5 +11,6 @@ end entity;
 
 architecture Beh of sign_ext is
 begin
-	DataOut <= X"0000" & DataIn;
+	DataOut <= X"0000" & DataIn when (DataIn(15) = '0') else
+			   X"FFFF" & DataIn;
 end Beh;
