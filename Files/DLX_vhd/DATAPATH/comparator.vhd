@@ -5,12 +5,12 @@ use WORK.alu_type.all;
 
 entity comparator is
 	generic ( SIZE: natural := 32 );
-	port ( R1, R2: in std_logic_vector(SIZE-1 downto 0);
-			EQUAL: out std_logic );
+	port ( R1: in std_logic_vector(SIZE-1 downto 0);
+			ISZERO: out std_logic );
 end comparator;
 
 architecture Beh of comparator is
 begin
-	EQUAL <= '1' when (R1 = R2) else
+	ISZERO <= '1' when (to_integer(unsigned(R1)) = 0) else
 			'0';
 end Beh;

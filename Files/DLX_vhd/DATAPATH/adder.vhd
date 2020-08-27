@@ -12,5 +12,5 @@ end adder;
 
 architecture Beh of adder is
 begin
-	X <= std_logic_vector( unsigned(A) + signed(B) );
+	X <= std_logic_vector( signed(A) + signed(B) );
 end Beh;
