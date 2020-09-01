@@ -2,24 +2,26 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 package myTypes is
-	constant CW_SIZE: integer := 13;
+	constant MICROCODE_MEM_DEPTH: integer := 64;
+	constant MICROCODE_MEM_SIZE: integer := 15;
+	constant CW_SIZE: integer := 16;
 	-- Control unit input sizes
 	constant OP_CODE_SIZE : integer :=  6;                                              -- OPCODE field size
-	constant FUNC_SIZE    : integer :=  6;                                             -- FUNC field size
+	constant FUNC_SIZE    : integer :=  11;                                             -- FUNC field size
 
 	-- R-Type instruction -> FUNC field
-	constant opADD : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "000100";    -- ADD RS1,RS2,RD
-	constant opSUB : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "100010";    -- SUB RS1,RS2,RD
-	constant opAND : std_logic_vector(FUNC_SIZE - 1 downto 0) := "100100";
-	constant opOR : std_logic_vector(FUNC_SIZE - 1 downto 0) := "100101";
-	constant opSGE : std_logic_vector(FUNC_SIZE - 1 downto 0) :=   "101101";
-	constant opSLE : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "101100";
-	constant opSLL : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "000100";
-	constant opSNE : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "101001";
-	constant opSRL : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "000110";
-	constant opXOR : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "100110";
+	constant funcADD : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "00000100000";    -- ADD RS1,RS2,RD
+	constant funcSUB : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "00000100010";    -- SUB RS1,RS2,RD
+	constant funcAND : std_logic_vector(FUNC_SIZE - 1 downto 0) := "00000100100";
+	constant funcOR : std_logic_vector(FUNC_SIZE - 1 downto 0) := "00000100101";
+	constant funcSGE : std_logic_vector(FUNC_SIZE - 1 downto 0) :=   "00000101101";
+	constant funcSLE : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "00000101100";
+	constant funcSLL : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "10000000100";		--CHANGED MSB!!!!!!!!!!!!!!!!!
+	constant funcSNE : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "00000101001";
+	constant funcSRL : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "00000000110";
+	constant funcXOR : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "00000100110";
 
-	constant DEFAULT : std_logic_vector(1 downto 0) :=  "00";
+	--constant DEFAULT : std_logic_vector(3 downto 0) :=  "0000";
 	constant DEFAULT_OP : std_logic_vector(FUNC_SIZE-1 downto 0) :=  "00000000000";
 
 	-- R-Type instruction -> OPCODE field
@@ -30,7 +32,7 @@ package myTypes is
 	constant ANDI : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=   "001100";
 	constant LW : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=   "100011";
 	constant ORI : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=   "001101";
-	constant SGEI : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=   "011101";    
+	constant SGEI : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=   "011101";
 	constant SLEI : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=   "011100";
 	constant SLLI : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=  "010100";
 	constant SNEI : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=  "011001";
@@ -46,5 +48,7 @@ package myTypes is
 	constant BNEZ : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=   "000101";
 
 	constant NOP : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=   "010101";
+
+	--ALU OPERATION
 end myTypes;
 

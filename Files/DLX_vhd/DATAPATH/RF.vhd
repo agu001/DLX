@@ -23,33 +23,33 @@ end register_file;
 
 architecture BEH of register_file is
 
-	type REG_ARRAY is array(0 to 2**ADDBIT-1) of std_logic_vector(DATABIT-1 downto 0); 
-	signal REGISTERS : REG_ARRAY; 
-	
-begin 
+	type REG_ARRAY is array(0 to 2**ADDBIT-1) of std_logic_vector(DATABIT-1 downto 0);
+	signal REGISTERS : REG_ARRAY;
 
-	process(CLK, RESET) 
+begin
+
+	process(CLK, RESET)
 	begin
-		
+
 		if(CLK = '0' AND CLK'event) then
 			if(RESET ='1') then
 				REGISTERS <= (others => ( others =>'0')) after 0.2 ns;
-				REGISTERS(1) <= std_logic_vector(to_unsigned(5, DATABIT)) after 0.2 ns;	
-				REGISTERS(3) <= std_logic_vector(to_unsigned(8, DATABIT)) after 0.2 ns;	
+				REGISTERS(1) <= std_logic_vector(to_unsigned(5, DATABIT)) after 0.2 ns;
+				REGISTERS(3) <= std_logic_vector(to_unsigned(8, DATABIT)) after 0.2 ns;
 				OUT1 <= ( others =>'0') after 0.2 ns;
 			    OUT2 <= ( others =>'0') after 0.2 ns;
 			elsif( ENABLE = '1') then
 				if (RD1 = '1') then
-					OUT1 <= REGISTERS(to_integer(unsigned(ADD_RD1))) after 0.2 ns;		
+					OUT1 <= REGISTERS(to_integer(unsigned(ADD_RD1))) after 0.2 ns;
 				end if;
 				if (RD2 = '1') then
-					OUT2 <= REGISTERS(to_integer(unsigned(ADD_RD2))) after 0.2 ns;		
+					OUT2 <= REGISTERS(to_integer(unsigned(ADD_RD2))) after 0.2 ns;
 				end if;
-				if (WR = '1') then
-					REGISTERS(to_integer(unsigned(ADD_WR))) <= DATAIN after 0.2 ns;		
+				if (WR = '1' and ADD_WR /="00000") then
+					REGISTERS(to_integer(unsigned(ADD_WR))) <= DATAIN after 0.2 ns;
 				end if;
 			end if;
-		end if;		
+		end if;
 	end process;
 
 end BEH;

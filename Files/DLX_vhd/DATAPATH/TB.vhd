@@ -4,10 +4,10 @@ use ieee.std_logic_unsigned.all;
 use ieee.std_logic_arith.all;
 use work.myTypes.all;
 
-entity cu_test is
-end cu_test;
+entity TB is
+end TB;
 
-architecture TEST of cu_test is
+architecture TEST of TB is
 
 	component DLX_wrapper is
 		generic ( I_SIZE: natural := 32 );
@@ -19,7 +19,7 @@ architecture TEST of cu_test is
     signal Clk: std_logic := '1';
     signal Rst: std_logic := '1';
 
-    --signal IR: std_logic_vector(31 downto 0); 
+    --signal IR: std_logic_vector(31 downto 0);
 
 begin
 
@@ -37,8 +37,8 @@ begin
                         ----- benches, but do not use it in normal processes!
 		--wait until Clk='0' and Clk'event;
         --IR <= X"00221800";
-		--wait for 1 ns;		
-		--wait until Clk='0' and Clk'event;		
+		--wait for 1 ns;
+		--wait until Clk='0' and Clk'event;
 		--IR <= X"04050080";
 		--wait until Clk='1' and Clk'event;
 		--wait for 1 ns;

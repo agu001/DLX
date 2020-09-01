@@ -41,11 +41,11 @@ begin  -- IRam_Bhe
     variable tmp_data_u : std_logic_vector(I_SIZE-1 downto 0);
   begin  -- process FILL_MEM_P
     if (Rst = '0') then
-      file_open(mem_fp,"test.asm.mem",READ_MODE);
+      file_open(mem_fp,"./../../asm_example/Branch.asm.mem",READ_MODE);
       while (not endfile(mem_fp)) loop
         readline(mem_fp,file_line);
         hread(file_line,tmp_data_u);
-        IRAM_mem(index) <= conv_integer(unsigned(tmp_data_u));       
+        IRAM_mem(index) <= conv_integer(unsigned(tmp_data_u));
         index := index + 1;
       end loop;
     end if;
@@ -54,8 +54,8 @@ begin  -- IRam_Bhe
 --	RdProc: process(Addr, IRAM_mem)
 --			variable index: integer := 0;
 --			begin
---				if (Rst = '0') then		
---					index := conv_integer(unsigned(Addr));		
+--				if (Rst = '0') then
+--					index := conv_integer(unsigned(Addr));
 --					Dout <= IRAM_mem(index) after 0.3 ns;
 --				end if;
 --			end process;

@@ -1,5 +1,5 @@
 library IEEE;
-use IEEE.std_logic_1164.all; 
+use IEEE.std_logic_1164.all;
 use work.myTypes.all;
 
 entity DLX_wrapper is
@@ -12,8 +12,8 @@ end DLX_wrapper;
 architecture Struct of DLX_wrapper is
 
 	component DRAM is
-		generic (	n: natural := 32; 
-					p: natural := 256;
+		generic (	n: natural := 32;
+					p: natural := 10000;
 					k: natural := 32;
 					Td: time := 0.5 ns
 				);
@@ -42,14 +42,14 @@ architecture Struct of DLX_wrapper is
 		 		dram_out: out std_logic_vector(I_SIZE-1 downto 0);
 				dram_addr: out std_logic_vector(31 downto 0);
 				dram_in: in std_logic_vector(I_SIZE-1 downto 0);
-				RD_MEM, WR_MEM, EN_MEM: out std_logic;			
+				RD_MEM, WR_MEM, EN_MEM: out std_logic;
 				--iram_out: out std_logic_vector(I_SIZE-1 downto 0);
 				iram_addr: out std_logic_vector(I_SIZE-1 downto 0);
 				iram_in: in std_logic_vector(I_SIZE-1 downto 0);
 			   	Clk, Rst: in std_logic
 			 );
 	end component DLX;
-	
+
 	signal dram_out, dram_addr, dram_in: std_logic_vector(31 downto 0);
 	signal RD_MEM, WR_MEM, EN_MEM: std_logic;
 	signal iram_addr: std_logic_vector(I_SIZE-1 downto 0);
@@ -57,6 +57,6 @@ architecture Struct of DLX_wrapper is
 
 begin
 	CPU: DLX port map (dram_out, dram_addr, dram_in, RD_MEM, WR_MEM, EN_MEM, iram_addr, iram_in, Clk, Rst);
-	Memory: DRAM port map (dram_out, dram_addr, dram_in, Rst, RD_MEM, WR_MEM, Clk, EN_MEM);	
+	Memory: DRAM port map (dram_out, dram_addr, dram_in, Rst, RD_MEM, WR_MEM, Clk, EN_MEM);
 	IMemory: IRAM port map (Rst, iram_addr, iram_in);
 end Struct;
