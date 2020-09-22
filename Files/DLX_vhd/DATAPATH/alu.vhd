@@ -14,9 +14,10 @@ end ALU;
 
 architecture BEHAVIOR of ALU is
 	signal zero: std_logic_vector(N-1 downto 0);
-	signal intd2, rd2: integer;
+	signal intd2, intd2_5bits, rd2: integer;
 begin
 	intd2 <= to_integer(unsigned(DATA2));
+	intd2_5bits  <= to_integer(unsigned(DATA2(4 downto 0)));
 	rd2 <= to_integer(unsigned(DATA2)) rem N;
 	zero <= (others => '0');
 P_ALU: process (TYPE_OP, DATA1, DATA2, INTD2)
@@ -52,7 +53,7 @@ P_ALU: process (TYPE_OP, DATA1, DATA2, INTD2)
 				OUTALU(0) <= '0' after 1 ns;
 			end if;
 		when alu_SLL	=>
-			OUTALU <= std_logic_vector((signed(DATA1)) srl intd2) after 1 ns;
+			OUTALU <= std_logic_vector((signed(DATA1)) sll intd2_5bits) after 1 ns;
 		when alu_SNE	=>
 			OUTALU(31 downto 1) <= (others => '0');
 			if (signed(DATA1) /= signed(DATA2)) then
@@ -61,7 +62,7 @@ P_ALU: process (TYPE_OP, DATA1, DATA2, INTD2)
 				OUTALU(0) <= '0' after 1 ns;
 			end if;
 		when alu_SRL	=>
-			OUTALU <= std_logic_vector((signed(DATA1)) srl intd2) after 1 ns;
+			OUTALU <= std_logic_vector((signed(DATA1)) srl intd2_5bits) after 1 ns;
 		when alu_XOR16	=>
 			OUTALU <= DATA1(31 downto 16)&(DATA1(15 downto 0) xor DATA2(15 downto 0)) after 1 ns; -- bitwise operations
 		when alu_XOR32	=>

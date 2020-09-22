@@ -98,10 +98,10 @@ architecture Struct of DATAPATH is
 	end component FD;
 
 	component FORWARDING_UNIT is
-		port ( 	RS1, RS2, RD_MEM, RD_WB:IN std_logic_vector(4 downto 0);
-				F_ALU_MEM, F_ALU_WB: IN std_logic_vector(31 downto 0);
-				WF_MEM, WF_WB: in std_logic;
-				F_OUT: OUT std_logic_vector(31 downto 0);
+		port ( 	RS1, RS2, RD_EX, RD_MEM, RD_WB:IN std_logic_vector(4 downto 0);
+				F_ALU_EX, F_ALU_MEM, F_ALU_WB: IN std_logic_vector(31 downto 0);
+				WF_EX, WF_MEM, WF_WB: in std_logic;
+				F_OUT_S1, F_OUT_S2: OUT std_logic_vector(31 downto 0);
 				MUX1_SEL, MUX2_SEL: OUT std_logic;
 				CLK, RST: IN std_logic
 			 );
@@ -118,15 +118,15 @@ architecture Struct of DATAPATH is
 
 	--TO DECLARE:	OUT_REG_OUT
 	signal CW_active: std_logic_vector(CW_SIZE-1 downto 0);
-	signal RFOUT1, RFOUT2, S3_1_OUT, S3_2_OUT, A_OUT, B_OUT, S2_OUT, ALU_OUT, ALU_OUT_REG1, ALU_OUT_REG2, MEMORY_OUT, MEMORY_OUT_REG1, ME_OUT: std_logic_vector(D_SIZE-1 downto 0);
+	signal RFOUT1, RFOUT2, S3_1_OUT, S3_2_OUT, S3_2_WB_OUT, A_OUT, B_OUT, S2_OUT, ALU_OUT, ALU_OUT_REG1, ALU_OUT_REG2, MEMORY_OUT, MEMORY_OUT_REG1, ME_OUT: std_logic_vector(D_SIZE-1 downto 0);
 	signal PC_OUT, NPC, IR_R_OUT, IMM32, IMM32_OUT, REL_ADDR, PC_IN, REL_ADDR_OUT, NPC_REG1_OUT, NPC_REG2_OUT, NPC_REG3_OUT, NPC_REG4_OUT, mux_to_PC_2_to_1, mux_to_ir: std_logic_vector(D_SIZE-1 downto 0);
-	signal IN1_OUT, MUX_FW1_OUT, MUX_FW2_OUT, FU_OUT: std_logic_vector(D_SIZE-1 downto 0);
+	signal IN1_OUT, MUX_FW1_OUT, MUX_FW2_OUT, FU_OUT_S1, FU_OUT_S2: std_logic_vector(D_SIZE-1 downto 0);
 
 	signal RF1, RF2, EN1, S1, S2, EN2, ISJUMP, ISBRANCH, ISBEQZ, RM, WM, EN3, S3, WF1, SE_CTRL, I0_R1_SEL, JAL_SEL: std_logic;
 	signal ZERO_RESULT, ZERO_REG_OUT: std_logic;
-	signal branch_taken, branch_taken1, FU_CTRL1, FU_CTRL2, HDU_PC_EN, HDU_IR_EN, HDU_MUX_SEL, JAL_SEL_OUT1, JAL_SEL_OUT2: std_logic;
+	signal branch_taken, branch_taken1, FU_CTRL1, FU_CTRL2, HDU_PC_EN, HDU_IR_EN, HDU_MUX_SEL, JAL_SEL_OUT1, JAL_SEL_OUT2, WF_WB_REG_OUT: std_logic;
 
-	signal RS1, RS2, RD, RD_OUT_REG1, RD_OUT_REG2, RS1_R_OUT, RS2_R_OUT: std_logic_vector(4 downto 0);
+	signal RS1, RS2, RD, RD_OUT_REG1, RD_OUT_REG2, RD_OUT_REG3, RS1_R_OUT, RS2_R_OUT: std_logic_vector(4 downto 0);
 	signal RD_RTYPE_OUT, RD_ITYPE_OUT, RD_type_mux_OUT: std_logic_vector(4 downto 0);
 
 	signal aluCTRL: ALU_TYPE_OP;
@@ -213,14 +213,14 @@ begin
 			NPC_reg2: Register_generic port map(NPC_REG1_OUT, Clk, Rst, EN1, NPC_REG2_OUT);
 
 	--EXECUTE
-			FU: FORWARDING_UNIT port map (RS1_R_OUT, RS2_R_OUT, RD_OUT_REG1, RD_OUT_REG2, ALU_OUT_REG1, S3_2_OUT, CWregMW(0), WF1, FU_OUT, FU_CTRL1, FU_CTRL2, Clk, Rst);
+			FU: FORWARDING_UNIT port map (RS1_R_OUT, RS2_R_OUT, RD_OUT_REG1, RD_OUT_REG2, RD_OUT_REG3, ALU_OUT_REG1, S3_2_OUT, S3_2_WB_OUT, CWregMW(0), WF1, WF_WB_REG_OUT, FU_OUT_S1, FU_OUT_S2, FU_CTRL1, FU_CTRL2, Clk, Rst);
 
 			adder_NPC: adder port map(NPC_REG2_OUT, IMM32_OUT, REL_ADDR);
 			compare: comparator port map(MUX_FW1_OUT, ZERO_RESULT);
 
-			mux_fw1: MUX21_GENERIC port map ( FU_OUT, A_OUT, FU_CTRL1, MUX_FW1_OUT);
+			mux_fw1: MUX21_GENERIC port map ( FU_OUT_S1, A_OUT, FU_CTRL1, MUX_FW1_OUT);
 
-			mux_fw2: MUX21_GENERIC port map ( FU_OUT, B_OUT, FU_CTRL2, MUX_FW2_OUT);
+			mux_fw2: MUX21_GENERIC port map ( FU_OUT_S2, B_OUT, FU_CTRL2, MUX_FW2_OUT);
 			mux_s2: MUX21_GENERIC port map (MUX_FW2_OUT, IMM32_OUT, S2, S2_OUT);
 
 			alu_op: ALU port map (aluCTRL, MUX_FW1_OUT, S2_OUT, ALU_OUT);
@@ -264,5 +264,10 @@ begin
 	--WRITEBACK
 			mux_s3_1: MUX21_GENERIC port map (MEMORY_OUT_REG1, ALU_OUT_REG2, S3, S3_1_OUT);
 			mux_s3_2: MUX21_GENERIC port map (NPC_REG4_OUT, S3_1_OUT, JAL_SEL_OUT2, S3_2_OUT);
+
+			--pipeline registers
+			WF_WB_REG: fd port map(WF1, Clk, Rst, '1', WF_WB_REG_OUT);
+			RD_reg3: Register_generic generic map(5) port map (RD_OUT_REG2, Clk, Rst, '1', RD_OUT_REG3);
+			WB_OUT_REG: Register_generic port map (S3_2_OUT, Clk, Rst, '1', S3_2_WB_OUT);
 
 end Struct;

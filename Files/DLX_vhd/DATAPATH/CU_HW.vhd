@@ -43,7 +43,7 @@ use WORK.alu_type.all;
 architecture beh of CONTROL_UNIT is
 	type mem_array is array (integer range 0 to MICROCODE_MEM_DEPTH - 1) of std_logic_vector(MICROCODE_MEM_SIZE - 1 downto 0);
   							--RF1,	RF2,	EN1,	I0_R1_SEL,	JAL_SEL,	nextSE_CTRL,	S2,		EN2,	ISJUMP,	ISBRANCH,	BEQZ,	RM,	WM,	EN3,	S3,	WF1
-							--0,	1,  	2,		3,			4,			5,			6,		7,		8,		9,			10,		11,	12,	13, 	14,	15
+							--0,	1,  	2,		3,			4,			5,				6,		7,		8,		9,			10,		11,	12,	13, 	14,	15
 	signal cw_mem : mem_array := (  "111101100000101",--RTYPE	0
 									"000000000000000",
 									"101000110000000",--J		2
@@ -64,16 +64,16 @@ architecture beh of CONTROL_UNIT is
 									"000000000000000",
 									"000000000000000",
 									"000000000000000",
-									"000000000000000",--SLLI	20
+									"101000100000101",--SLLI	20
 									"001000100000100",--NOP		21
-									"000000000000000",--SRLI	22
+									"101000100000101",--SRLI	22
 									"000000000000000",
 									"000000000000000",
-									"000000000000000",--SNEI	25
+									"101000100000101",--SNEI	25
 									"000000000000000",
 									"000000000000000",
-									"000000000000000",--SLEI	28
-									"000000000000000",--SGEI	29
+									"101000100000101",--SLEI	28
+									"101000100000101",--SGEI	29
 									"000000000000000",
 									"000000000000000",
 									"000000000000000",

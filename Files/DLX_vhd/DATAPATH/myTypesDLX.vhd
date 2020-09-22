@@ -16,7 +16,7 @@ package myTypes is
 	constant funcOR : std_logic_vector(FUNC_SIZE - 1 downto 0) := "00000100101";
 	constant funcSGE : std_logic_vector(FUNC_SIZE - 1 downto 0) :=   "00000101101";
 	constant funcSLE : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "00000101100";
-	constant funcSLL : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "10000000100";		--CHANGED MSB!!!!!!!!!!!!!!!!!
+	constant funcSLL : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "00000000100";		--CHANGED MSB!!!!!!!!!!!!!!!!!
 	constant funcSNE : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "00000101001";
 	constant funcSRL : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "00000000110";
 	constant funcXOR : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "00000100110";

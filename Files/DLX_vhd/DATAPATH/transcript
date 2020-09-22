@@ -33,6 +33,302 @@
 # Loading work.mux21_generic(mux21_gen_structural)#4
 # Loading work.register_generic(structural_2)#5
 # Updating msgviewer database...
+do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/controls'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 3
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/alu_operation'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 4
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/s3_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 19
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/sign_ext_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 32
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/relative_address'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 33
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/address_to_jump'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 35
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/rd1_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 56
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/rd2_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 57
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/rd3_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 58
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/inp2'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 67
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/cwregwr_temp'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 69
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/s_rd_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 72
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/pcwrite'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 84
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/irwrite'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 85
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/mux_ctrl'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 86
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/controls_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 87
+run 30 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Error: numstd_conv_unsigned_nuA: NATURAL arg value is negative (-2147483648)
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/cu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Error: (vsim-7) Failed to open VHDL file "./../../asm_example/Shiftandimmediate2.asm.mem" in r mode.
+# No such file or directory. (errno = ENOENT)
+#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
+# ** Fatal: (vsim-7) Failed to open VHDL file "./../../asm_example/Shiftandimmediate2.asm.mem" in r mode.
+# No such file or directory. (errno = ENOENT)
+#    Time: 3 ns  Iteration: 0  Process: /tb/dut/imemory/fill_mem_p File: a.c-IRAM.vhd
+# Fatal error in Process fill_mem_p at a.c-IRAM.vhd line 46
+# 
+# HDL call sequence:
+# Stopped at a.c-IRAM.vhd 46 Process fill_mem_p
+# 
+# Updating msgviewer database...
+
+do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/controls'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 3
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/alu_operation'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 4
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/s3_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 19
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/sign_ext_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 32
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/relative_address'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 33
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/address_to_jump'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 35
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/rd1_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 56
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/rd2_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 57
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/rd3_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 58
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/inp2'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 67
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/cwregwr_temp'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 69
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/s_rd_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 72
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/pcwrite'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 84
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/irwrite'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 85
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/mux_ctrl'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 86
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/controls_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 87
+do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/controls'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 3
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/alu_operation'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 4
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/s3_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 19
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/sign_ext_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 32
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/relative_address'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 33
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/address_to_jump'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 35
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/rd1_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 56
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/rd2_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 57
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/rd3_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 58
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/inp2'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 67
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/cwregwr_temp'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 69
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/s_rd_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 72
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/pcwrite'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 84
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/irwrite'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 85
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/mux_ctrl'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 86
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/controls_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 87
+vsim -t 10ps work.tb
+# vsim -t 10ps work.tb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.tb(test)#1
+# Loading work.alu_type
+# Loading work.dlx(struct)#1
+# Loading work.datapath(struct)#1
+# Loading work.mux21_generic(mux21_gen_structural)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.adder(beh)#1
+# Loading work.mux21_generic(mux21_gen_structural)#2
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#3
+# Loading work.register_generic(structural_2)#3
+# Loading work.alu(behavior)#1
+# Loading work.mux21_generic(mux21_gen_structural)#4
+# Loading work.register_generic(structural_2)#5
+do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/controls'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 3
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/alu_operation'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 4
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/s3_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 19
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/sign_ext_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 32
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/relative_address'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 33
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/address_to_jump'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 35
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/rd1_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 56
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/rd2_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 57
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/rd3_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 58
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/inp2'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 67
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/cwregwr_temp'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 69
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/s_rd_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 72
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/pcwrite'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 84
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/irwrite'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 85
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/mux_ctrl'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 86
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/controls_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/CU.do line 87
+run 30 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Error: numstd_conv_unsigned_nuA: NATURAL arg value is negative (-2147483648)
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/cu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 8200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 8200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 10200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 10200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 10200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# Updating msgviewer database...
+do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/imm16'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do line 35
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.tb(test)#1
+# Loading work.alu_type
+# Loading work.dlx(struct)#1
+# Loading work.datapath(struct)#1
+# Loading work.mux21_generic(mux21_gen_structural)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.adder(beh)#1
+# Loading work.mux21_generic(mux21_gen_structural)#2
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#3
+# Loading work.register_generic(structural_2)#3
+# Loading work.alu(behavior)#1
+# Loading work.mux21_generic(mux21_gen_structural)#4
+# Loading work.register_generic(structural_2)#5
+run 30 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Error: numstd_conv_unsigned_nuA: NATURAL arg value is negative (-2147483648)
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/cu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 8200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 8200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 10200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 10200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 10200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# Updating msgviewer database...
 do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/cudp.do
 # ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/control_unit/opcode'.
 # Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/cudp.do line 3
@@ -252,477 +548,157 @@ do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/cudp.do
 # Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/cudp.do line 110
 # ** Error: (vish-4014) No objects found matching '/cu_test/dut/memory/memory'.
 # Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/cudp.do line 111
-do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do
-run 70 ns
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/compare
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
-# ** Error: numstd_conv_unsigned_nuA: NATURAL arg value is negative (-2147483648)
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/cu
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
-#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
-#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
-# ** Fatal: (vsim-3421) Value 512 is out of range 0 to 511.
-#    Time: 18200 ps  Iteration: 2  Process: /tb/dut/imemory/line__32 File: a.c-IRAM.vhd
-# Fatal error in Block imemory at a.c-IRAM.vhd line 32
-# 
-# HDL call sequence:
-# Stopped at a.c-IRAM.vhd 32 Block imemory
-# 
+do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/dram_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 3
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/dram_addr'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 4
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/dram_in'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 5
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/rd_mem'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 6
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/wr_mem'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 7
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/en_mem'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 8
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/iram_addr'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 9
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/iram_in'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 10
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/controls'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 11
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/cwregex'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 12
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/cwregmw'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 13
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/cwregwr'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 14
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/clk'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 15
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/rst'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 16
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/rfout1'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 17
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/rfout2'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 18
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/s3_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 19
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/a_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 20
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/b_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 21
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/s2_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 22
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/alu_op_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 23
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/alu_out_reg1'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 24
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/alu_out_reg2'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 25
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/memory_reg_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 26
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/memory_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 27
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/me_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 28
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/imm32_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 29
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/rf/registers'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 30
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/en1'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 31
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/s2'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 32
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/alu1'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 33
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/alu2'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 34
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/en2'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 35
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/rm'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 36
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/wm'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 37
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/en3'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 38
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/s3'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 39
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/wf1'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 40
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/en4'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 41
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/rd1_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 42
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/rd2_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 43
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/rd3_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 44
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/rs1_r_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 45
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/rs2_r_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 46
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/func_op'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 47
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/type_alu'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 48
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/pc_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 49
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/npc'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 50
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/ir_r_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 51
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/sign_ext_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 52
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/relative_address'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 53
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/pc_in'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 54
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/address_to_jump'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 55
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/npc_reg1_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 56
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/npc_reg2_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 57
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/npc_reg3_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 58
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/mux_to_pc_2_to_1'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 59
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/inp2'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 60
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/rs1'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 61
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/rs2'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 62
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/rd_rtype_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 63
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/rd_itype_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 64
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/isjump'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 65
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/isbranch'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 66
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/isbeqz'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 67
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/zero_result'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 68
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/zero_reg_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 69
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/branch_taken'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 70
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/mux_fw1_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 71
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/mux_fw2_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 72
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/fu_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 73
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/fu_ctrl1'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 74
+# ** Error: (vish-4014) No objects found matching '/cu_test/dut/cpu/data_path/fu_ctrl2'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/wave5.do line 75
+run 30 ns
 # Updating msgviewer database...
-restart -f
-run 70 ns
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/compare
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
-# ** Error: numstd_conv_unsigned_nuA: NATURAL arg value is negative (-2147483648)
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/cu
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
-#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
-#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
-# ** Fatal: (vsim-3421) Value 512 is out of range 0 to 511.
-#    Time: 18200 ps  Iteration: 2  Process: /tb/dut/imemory/line__32 File: a.c-IRAM.vhd
-# Fatal error in Block imemory at a.c-IRAM.vhd line 32
-# 
-# HDL call sequence:
-# Stopped at a.c-IRAM.vhd 32 Block imemory
-# 
-# Updating msgviewer database...
-restart -f
-run 70 ns
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/compare
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
-# ** Error: numstd_conv_unsigned_nuA: NATURAL arg value is negative (-2147483648)
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/cu
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
-#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
-#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
-# ** Fatal: (vsim-3421) Value 512 is out of range 0 to 511.
-#    Time: 18200 ps  Iteration: 2  Process: /tb/dut/imemory/line__32 File: a.c-IRAM.vhd
-# Fatal error in Block imemory at a.c-IRAM.vhd line 32
-# 
-# HDL call sequence:
-# Stopped at a.c-IRAM.vhd 32 Block imemory
-# 
-# Updating msgviewer database...
-vsim -t 10ps work.tb
-# vsim -t 10ps work.tb 
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.mytypes
-# Loading ieee.numeric_std(body)
-# Loading std.textio(body)
-# Loading ieee.std_logic_textio(body)
-# Loading work.tb(test)#1
-# Loading work.alu_type
-# Loading work.dlx(struct)#1
-# Loading work.datapath(struct)#1
-# Loading work.mux21_generic(mux21_gen_structural)#1
-# Loading work.register_generic(structural_2)#1
-# Loading work.adder(beh)#1
-# Loading work.mux21_generic(mux21_gen_structural)#2
-# Loading work.register_generic(structural_2)#2
-# Loading work.mux21_generic(mux21_gen_structural)#3
-# Loading work.register_generic(structural_2)#3
-# Loading work.alu(behavior)#1
-# Loading work.mux21_generic(mux21_gen_structural)#4
-# Loading work.register_generic(structural_2)#5
-do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do
-run 70 ns
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/compare
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
-# ** Error: numstd_conv_unsigned_nuA: NATURAL arg value is negative (-2147483648)
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/cu
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
-#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
-#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 24200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 24200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 34200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/compare
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 42200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 42200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 44200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 44200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 46200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 48200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/compare
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 48200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 48200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 50200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 50200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 58200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 58200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 66200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 66200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# Updating msgviewer database...
-restart -f
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.mytypes
-# Loading ieee.numeric_std(body)
-# Loading std.textio(body)
-# Loading ieee.std_logic_textio(body)
-# Loading work.tb(test)#1
-# Loading work.alu_type
-# Loading work.dlx(struct)#1
-# Loading work.datapath(struct)#1
-# Loading work.mux21_generic(mux21_gen_structural)#1
-# Loading work.register_generic(structural_2)#1
-# Loading work.adder(beh)#1
-# Loading work.mux21_generic(mux21_gen_structural)#2
-# Loading work.register_generic(structural_2)#2
-# Loading work.mux21_generic(mux21_gen_structural)#3
-# Loading work.register_generic(structural_2)#3
-# Loading work.alu(behavior)#1
-# Loading work.mux21_generic(mux21_gen_structural)#4
-# Loading work.register_generic(structural_2)#5
-run 70 ns
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/compare
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
-# ** Error: numstd_conv_unsigned_nuA: NATURAL arg value is negative (-2147483648)
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/cu
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
-#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
-#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 24200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 24200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 34200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/compare
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 42200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 42200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 44200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 44200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 46200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 48200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/compare
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 48200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 48200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 50200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 50200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 58200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 58200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 66200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 66200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# Updating msgviewer database...
-vsim -t 10ps work.tb
-# vsim -t 10ps work.tb 
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.mytypes
-# Loading ieee.numeric_std(body)
-# Loading std.textio(body)
-# Loading ieee.std_logic_textio(body)
-# Loading work.tb(test)#1
-# Loading work.alu_type
-# Loading work.dlx(struct)#1
-# Loading work.datapath(struct)#1
-# Loading work.mux21_generic(mux21_gen_structural)#1
-# Loading work.register_generic(structural_2)#1
-# Loading work.adder(beh)#1
-# Loading work.mux21_generic(mux21_gen_structural)#2
-# Loading work.register_generic(structural_2)#2
-# Loading work.mux21_generic(mux21_gen_structural)#3
-# Loading work.register_generic(structural_2)#3
-# Loading work.alu(behavior)#1
-# Loading work.mux21_generic(mux21_gen_structural)#4
-# Loading work.register_generic(structural_2)#5
-do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do
-# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/s3_out'.
-# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do line 53
-add wave \
-{sim:/tb/dut/cpu/dp/npc_reg4_out } 
-add wave \
-{sim:/tb/dut/cpu/dp/jal_sel_out1 } \
-{sim:/tb/dut/cpu/dp/jal_sel_out2 } 
-add wave \
-{sim:/tb/dut/cpu/dp/s3_1_out } \
-{sim:/tb/dut/cpu/dp/s3_2_out } 
-run 70 ns
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/compare
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
-# ** Error: numstd_conv_unsigned_nuA: NATURAL arg value is negative (-2147483648)
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/cu
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
-#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
-#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 24200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 24200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 34200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/compare
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 42200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 42200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 44200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 44200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 46200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 48200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/compare
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 48200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 48200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 50200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 50200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 58200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 58200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 66200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 66200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# Updating msgviewer database...
-write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do
-vsim -t 10ps work.tb
-# vsim -t 10ps work.tb 
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
-# Loading work.mytypes
-# Loading ieee.numeric_std(body)
-# Loading std.textio(body)
-# Loading ieee.std_logic_textio(body)
-# Loading work.tb(test)#1
-# Loading work.alu_type
-# Loading work.dlx(struct)#1
-# Loading work.datapath(struct)#1
-# Loading work.mux21_generic(mux21_gen_structural)#1
-# Loading work.register_generic(structural_2)#1
-# Loading work.adder(beh)#1
-# Loading work.mux21_generic(mux21_gen_structural)#2
-# Loading work.register_generic(structural_2)#2
-# Loading work.mux21_generic(mux21_gen_structural)#3
-# Loading work.register_generic(structural_2)#3
-# Loading work.alu(behavior)#1
-# Loading work.mux21_generic(mux21_gen_structural)#4
-# Loading work.register_generic(structural_2)#5
-do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do
-run 70 ns
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/compare
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
-# ** Error: numstd_conv_unsigned_nuA: NATURAL arg value is negative (-2147483648)
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/cu
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
-#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
-#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
-#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 24200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 24200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 34200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/compare
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 42200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 42200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 44200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 44200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 46200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 48200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/compare
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 48200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 48200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 50200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 50200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 58200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 58200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 66200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 66200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# Updating msgviewer database...
+clear
+# [3;J[H[2J
 vsim -t 10ps work.tb
 # vsim -t 10ps work.tb 
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
@@ -751,11 +727,13 @@ vsim -t 10ps work.tb
 do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do
 # ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/imm16'.
 # Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do line 35
-run 70 ns
+run 50 ns
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
 # ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
 #    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -772,46 +750,485 @@ run 70 ns
 #    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
 # ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
 #    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
-#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
-#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 8200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 8200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 10200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 10200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 10200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
 #    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
 #    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# Updating msgviewer database...
+vsim -t 10ps work.tb
+# vsim -t 10ps work.tb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.tb(test)#1
+# Loading work.alu_type
+# Loading work.dlx(struct)#1
+# Loading work.datapath(struct)#1
+# Loading work.mux21_generic(mux21_gen_structural)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.adder(beh)#1
+# Loading work.mux21_generic(mux21_gen_structural)#2
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#3
+# Loading work.register_generic(structural_2)#3
+# Loading work.alu(behavior)#1
+# Loading work.mux21_generic(mux21_gen_structural)#4
+# Loading work.register_generic(structural_2)#5
+do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/fu_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do line 28
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/imm16'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do line 35
+run 50 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Error: numstd_conv_unsigned_nuA: NATURAL arg value is negative (-2147483648)
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/cu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 24200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+#    Time: 8200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 24200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+#    Time: 8200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 34200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/compare
+#    Time: 10200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 42200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+#    Time: 10200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 42200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+#    Time: 14200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 44200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 44200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# Updating msgviewer database...
+add wave \
+{sim:/tb/dut/cpu/dp/fu_out_s1 } \
+{sim:/tb/dut/cpu/dp/fu_out_s2 } 
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.tb(test)#1
+# Loading work.alu_type
+# Loading work.dlx(struct)#1
+# Loading work.datapath(struct)#1
+# Loading work.mux21_generic(mux21_gen_structural)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.adder(beh)#1
+# Loading work.mux21_generic(mux21_gen_structural)#2
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#3
+# Loading work.register_generic(structural_2)#3
+# Loading work.alu(behavior)#1
+# Loading work.mux21_generic(mux21_gen_structural)#4
+# Loading work.register_generic(structural_2)#5
+run 50 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Error: numstd_conv_unsigned_nuA: NATURAL arg value is negative (-2147483648)
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/cu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 46200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
+#    Time: 8200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 48200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/compare
+#    Time: 8200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 48200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
+#    Time: 10200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 48200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
+#    Time: 10200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 50200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/alu_op
+#    Time: 14200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 50200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/alu_op
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 58200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# Updating msgviewer database...
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do
+vsim -t 10ps work.tb
+# vsim -t 10ps work.tb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.tb(test)#1
+# Loading work.alu_type
+# Loading work.dlx(struct)#1
+# Loading work.datapath(struct)#1
+# Loading work.mux21_generic(mux21_gen_structural)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.adder(beh)#1
+# Loading work.mux21_generic(mux21_gen_structural)#2
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#3
+# Loading work.register_generic(structural_2)#3
+# Loading work.alu(behavior)#1
+# Loading work.mux21_generic(mux21_gen_structural)#4
+# Loading work.register_generic(structural_2)#5
+do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do
+run 50 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Error: numstd_conv_unsigned_nuA: NATURAL arg value is negative (-2147483648)
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/cu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 58200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+#    Time: 8200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 66200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+#    Time: 8200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 66200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+#    Time: 10200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 10200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 14200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 20200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# Updating msgviewer database...
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do
+vsim -t 10ps work.tb
+# vsim -t 10ps work.tb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.tb(test)#1
+# Loading work.alu_type
+# Loading work.dlx(struct)#1
+# Loading work.datapath(struct)#1
+# Loading work.mux21_generic(mux21_gen_structural)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.adder(beh)#1
+# Loading work.mux21_generic(mux21_gen_structural)#2
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#3
+# Loading work.register_generic(structural_2)#3
+# Loading work.alu(behavior)#1
+# Loading work.mux21_generic(mux21_gen_structural)#4
+# Loading work.register_generic(structural_2)#5
+do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do
+run 50 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Error: numstd_conv_unsigned_nuA: NATURAL arg value is negative (-2147483648)
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/cu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 8200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 8200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 10200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 10200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 14200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 20200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# Updating msgviewer database...
+vsim -t 10ps work.tb
+# vsim -t 10ps work.tb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.tb(test)#1
+# Loading work.alu_type
+# Loading work.dlx(struct)#1
+# Loading work.datapath(struct)#1
+# Loading work.mux21_generic(mux21_gen_structural)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.adder(beh)#1
+# Loading work.mux21_generic(mux21_gen_structural)#2
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#3
+# Loading work.register_generic(structural_2)#3
+# Loading work.alu(behavior)#1
+# Loading work.mux21_generic(mux21_gen_structural)#4
+# Loading work.register_generic(structural_2)#5
+do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do
+run 50 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Error: numstd_conv_unsigned_nuA: NATURAL arg value is negative (-2147483648)
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/cu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 8200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 8200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 10200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 10200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 14200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 20200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# Updating msgviewer database...
+add wave \
+{sim:/tb/dut/cpu/dp/s3_2_wb_out } 
+add wave \
+{sim:/tb/dut/cpu/dp/wf_wb_reg_out } 
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.tb(test)#1
+# Loading work.alu_type
+# Loading work.dlx(struct)#1
+# Loading work.datapath(struct)#1
+# Loading work.mux21_generic(mux21_gen_structural)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.adder(beh)#1
+# Loading work.mux21_generic(mux21_gen_structural)#2
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#3
+# Loading work.register_generic(structural_2)#3
+# Loading work.alu(behavior)#1
+# Loading work.mux21_generic(mux21_gen_structural)#4
+# Loading work.register_generic(structural_2)#5
+run 50 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Error: numstd_conv_unsigned_nuA: NATURAL arg value is negative (-2147483648)
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/cu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 8200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 8200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 10200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 10200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 14200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 20200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# Updating msgviewer database...
+vsim -t 10ps work.tb
+# vsim -t 10ps work.tb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.tb(test)#1
+# Loading work.alu_type
+# Loading work.dlx(struct)#1
+# Loading work.datapath(struct)#1
+# Loading work.mux21_generic(mux21_gen_structural)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.adder(beh)#1
+# Loading work.mux21_generic(mux21_gen_structural)#2
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#3
+# Loading work.register_generic(structural_2)#3
+# Loading work.alu(behavior)#1
+# Loading work.mux21_generic(mux21_gen_structural)#4
+# Loading work.register_generic(structural_2)#5
+do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do
+run 50 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Error: numstd_conv_unsigned_nuA: NATURAL arg value is negative (-2147483648)
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/cu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 8200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 8200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 10200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 10200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 14200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 18200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
 # Updating msgviewer database...
