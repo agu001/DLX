@@ -242,7 +242,7 @@ begin
 			branch_taken <= (ISBRANCH and ZERO_REG_OUT) when ( ISBEQZ = '1') else
 						 	(ISBRANCH and (not ZERO_REG_OUT)) when ( ISBEQZ = '0') else
 						 	'0';
-			branch_taken1 <= branch_taken or Rst;
+			branch_taken1 <= branch_taken or Rst or ISJUMP;
 
 			mux_to_PC_2: MUX21_GENERIC port map(REL_ADDR_OUT, NPC, branch_taken, mux_to_PC_2_to_1);
 

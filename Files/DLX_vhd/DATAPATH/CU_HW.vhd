@@ -42,8 +42,8 @@ use WORK.alu_type.all;
 
 architecture beh of CONTROL_UNIT is
 	type mem_array is array (integer range 0 to MICROCODE_MEM_DEPTH - 1) of std_logic_vector(MICROCODE_MEM_SIZE - 1 downto 0);
-  							--RF1,	RF2,	EN1,	I0_R1_SEL,	JAL_SEL,	nextSE_CTRL,	S2,		EN2,	ISJUMP,	ISBRANCH,	BEQZ,	RM,	WM,	EN3,	S3,	WF1
-							--0,	1,  	2,		3,			4,			5,				6,		7,		8,		9,			10,		11,	12,	13, 	14,	15
+  							--RF1,	RF2,	EN1,	I0_R1_SEL,	JAL_SEL, ISJR,	nextSE_CTRL,	S2,		EN2,	ISJUMP,	ISBRANCH,	BEQZ,	RM,	WM,	EN3,	S3,	WF1
+							--0,	1,  	2,		3,			4,	      5,			6,		7,		8,		9,			10,		11,	12,	13, 	14,	15
 	signal cw_mem : mem_array := (  "111101100000101",--RTYPE	0
 									"000000000000000",
 									"101000110000000",--J		2
@@ -187,6 +187,9 @@ begin
 					when funcSNE =>
 							nextALU_CTRL <= alu_SNE;
 							nextSE_CTRL <= '1';
+					when funcSEQ =>
+							nextALU_CTRL <= alu_SEQ;
+							nextSE_CTRL <= '1';
 					when funcSRL =>
 							nextALU_CTRL <= alu_SRL;
 							nextSE_CTRL <= '0';
@@ -217,6 +220,9 @@ begin
 				nextSE_CTRL <= '0';
 			when SNEI =>
 				nextALU_CTRL <= alu_SNE;
+				nextSE_CTRL <= '1';
+			when SEQI =>
+				nextALU_CTRL <= alu_SEQ;
 				nextSE_CTRL <= '1';
 			when SRLI =>
 				nextALU_CTRL <= alu_SRL;

@@ -61,6 +61,13 @@ P_ALU: process (TYPE_OP, DATA1, DATA2, INTD2)
 			else
 				OUTALU(0) <= '0' after 1 ns;
 			end if;
+		when alu_SEQ	=>
+			OUTALU(31 downto 1) <= (others => '0');
+			if (signed(DATA1) = signed(DATA2)) then
+				OUTALU(0) <= '1' after 1 ns;
+			else
+				OUTALU(0) <= '0' after 1 ns;
+			end if;
 		when alu_SRL	=>
 			OUTALU <= std_logic_vector((signed(DATA1)) srl intd2_5bits) after 1 ns;
 		when alu_XOR16	=>

@@ -15,12 +15,12 @@ add wave -noupdate -format Logic /tb/dut/cpu/dp/hdu_mux_sel
 add wave -noupdate -format Literal /tb/dut/cpu/dp/opcode_to_cu
 add wave -noupdate -format Literal /tb/dut/cpu/dp/func_to_cu
 add wave -noupdate -format Literal /tb/dut/cpu/dp/cw_active
-add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/rs1
-add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/rs1_r_out
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rs1
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rs1_r_out
 add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/rf/registers
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/rfout1
-add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/rs2
-add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/rs2_r_out
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rs2
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rs2_r_out
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/rfout2
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/rel_addr
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/a_out
@@ -72,7 +72,7 @@ add wave -noupdate -format Logic /tb/dut/cpu/dp/jal_sel_out2
 add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/s3_1_out
 add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/s3_2_out
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {15200 ps} 0}
+WaveRestoreCursors {{Cursor 1} {23050 ps} 0}
 configure wave -namecolwidth 250
 configure wave -valuecolwidth 124
 configure wave -justifyvalue left
@@ -87,4 +87,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {130 ps} {52630 ps}
+WaveRestoreZoom {12310 ps} {43810 ps}
