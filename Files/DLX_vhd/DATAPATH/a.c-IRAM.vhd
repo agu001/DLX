@@ -25,12 +25,14 @@ architecture IRam_Bhe of IRAM is
   type RAMtype is array (0 to RAM_DEPTH - 1) of integer;-- std_logic_vector(I_SIZE - 1 downto 0);
 
   signal IRAM_mem : RAMtype;
-  signal AddrShifted: std_logic_vector(I_SIZE-1 downto 0);
+  signal AddrShifted, Dout_temp: std_logic_vector(I_SIZE-1 downto 0);
 
 begin  -- IRam_Bhe
-  AddrShifted <= "00" & Addr(I_SIZE-1 downto 2);
-  Dout <= conv_std_logic_vector(IRAM_mem(conv_integer(unsigned(AddrShifted))),I_SIZE);
 
+	AddrShifted <= "00" & Addr(I_SIZE-1 downto 2);
+	Dout_temp <= conv_std_logic_vector(IRAM_mem(conv_integer(unsigned(AddrShifted))),I_SIZE);
+	Dout <= Dout_temp when (Dout_temp /= X"80000000") else
+			X"54000000";
   -- purpose: This process is in charge of filling the Instruction RAM with the firmware
   -- type   : combinational
   -- inputs : Rst
@@ -42,7 +44,7 @@ begin  -- IRam_Bhe
     variable tmp_data_u : std_logic_vector(I_SIZE-1 downto 0);
   begin  -- process FILL_MEM_P
     if (Rst = '0') then
-      file_open(mem_fp,"./asm_example/Branch.asm.mem",READ_MODE);
+      file_open(mem_fp,"./asm_example/all_general_test.asm.mem",READ_MODE);
       while (not endfile(mem_fp)) loop
         readline(mem_fp,file_line);
         hread(file_line,tmp_data_u);

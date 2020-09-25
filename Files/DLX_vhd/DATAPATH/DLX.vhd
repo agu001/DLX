@@ -47,15 +47,16 @@ architecture Struct of DLX is
 				-- DECODE STAGE OUTPUTS
 				RF1    		: out std_logic;               -- enables the read port 1 of the register file
 				RF2    		: out std_logic;               -- enables the read port 2 of the register file
-				EN1    		: out std_logic;               -- enables the register file and the pipeline registers
+				EN_DE    		: out std_logic;               -- enables the register file and the pipeline registers
 
 				--EXECUTE STAGE OUTPUTS
 				I0_R1_SEL	: out std_logic;               --selection bit of RD multiplexer			NEW!!
 				JAL_SEL		: out std_logic;               --selection bit of RD/R31 multiplexer		NEW!!
+				ISJR		: out std_logic;
 				S2 	    	: out std_logic;               --selection bit of second alu input multiplexer
 				SE_CTRL		: out std_logic;
 				ALU_CTRL	: out ALU_TYPE_OP;
-				EN2  	  	: out std_logic;               -- enables the pipe registers
+				EN_EM  	  	: out std_logic;               -- enables the pipe registers
 
 				-- MEMORY STAGE OUTPUTS
 				ISJUMP		: out std_logic;			   --
@@ -63,12 +64,16 @@ architecture Struct of DLX is
 				ISBEQZ   	: out std_logic;			   --
 				RM     		: out std_logic;               -- enables the read-out of the memory
 				WM     		: out std_logic;               -- enables the write-in of the memory
-				EN3    		: out std_logic;               -- enables the memory and the pipeline registers
-				S3     		: out std_logic;               -- input selection of the multiplexer
+				MSIZE1		: out std_logic;
+				MSIZE0		: out std_logic;
+				SE_CTRL2	: out std_logic;
+				EN_MW  		: out std_logic;               -- enables the memory and the pipeline registers
+				               -- input selection of the multiplexer
 
 				-- WRITEBACK STAGE OUTPUTS
+				S3     		: out std_logic;
 				WF1    		: out std_logic;               -- enables the write port of the register file
-
+				EN_W		: out std_logic;
 				-- INPUTS
 				OPCODE 		: in  std_logic_vector(OP_CODE_SIZE - 1 downto 0);
 				FUNC   		: in  std_logic_vector(FUNC_SIZE - 1 downto 0);
@@ -76,7 +81,7 @@ architecture Struct of DLX is
 				Rst 		: in std_logic);
     end component;
 
-	signal ISJUMP,	RF1,	RF2,	EN1,	I0_R1_SEL,	JAL_SEL,	S2, 	SE_CTRL,	EN2,	ISBRANCH,	ISBEQZ,	RM,	WM,	EN3,	S3,	WF1: std_logic;
+	signal RF1,	RF2, EN_DE,	I0_R1_SEL, JAL_SEL, ISJR, S2, EN_EM, ISJUMP, ISBRANCH, ISBEQZ, RM, WM, MSIZE1, MSIZE0, SE_CTRL2, SE_CTRL, EN_MW, S3, WF1, EN_W: std_logic;
 	signal controls_s: std_logic_vector(CW_SIZE-1 downto 0);
 	signal INP1_S, INP2_S: std_logic_vector(31 downto 0);
 	signal ALU_CTRL: ALU_TYPE_OP;
@@ -86,11 +91,11 @@ architecture Struct of DLX is
 	--signal RD_MEM, WR_MEM, EN_MEM: std_logic;
 
 begin
-	--RF1,	RF2,	EN1,	I0_R1_SEL,	JAL_SEL,	SE_CTRL,	S2,		EN2,	ISJUMP,	ISBRANCH,	BEQZ,	RM,	WM,	EN3,	S3,	WF1
-	--0,	1,  	2,		3,			4,			5,			6,		7,		8,		9,			10,		11,	12,	13, 	14,	15
-	controls_s <= RF1 & RF2 & EN1 & I0_R1_SEL & JAL_SEL & SE_CTRL & S2 & EN2 & ISJUMP & ISBRANCH & ISBEQZ & RM & WM & EN3 & S3 & WF1;
+	--RF1,	RF2,	EN_DE,	I0_R1_SEL,	JAL_SEL, ISJR,		S2,		EN_EM,	ISJUMP,	ISBRANCH,	BEQZ,	RM,	WM,	MSIZE1,	MSIZE0,	SE_CTRL2,	EN_MW,	S3,	WF1, EN_W
+	--0,	1,  	2,		3,			4,	      5,		6,		7,		8,		9,			10,		11,	12,	13, 	14,		15,			16,		17,	 18,	19
+	controls_s <= RF1 & RF2 & EN_DE & I0_R1_SEL & JAL_SEL & ISJR & SE_CTRL & S2 & EN_EM & ISJUMP & ISBRANCH & ISBEQZ & RM & WM & MSIZE1 & MSIZE0 & SE_CTRL2 & EN_MW & S3 & WF1 & EN_W;
 
-	CU: CONTROL_UNIT port map (RF1,	RF2, EN1, I0_R1_SEL, JAL_SEL, S2, SE_CTRL, ALU_CTRL, EN2, ISJUMP, ISBRANCH,	ISBEQZ,	RM,	WM,	EN3, S3, WF1, OPCODE_to_CU, FUNC_to_CU, Clk, Rst);
+	CU: CONTROL_UNIT port map (RF1,	RF2, EN_DE, I0_R1_SEL, JAL_SEL, ISJR, S2, SE_CTRL, ALU_CTRL, EN_EM, ISJUMP, ISBRANCH, ISBEQZ, RM, WM, MSIZE1, MSIZE0, SE_CTRL2, EN_MW, S3, WF1, EN_W, OPCODE_to_CU, FUNC_to_CU, Clk, Rst);
 
 	DP: DATAPATH port map (controls_s, ALU_CTRL, dram_addr, dram_out, dram_in, RD_MEM, WR_MEM, EN_MEM, iram_addr, iram_in, OPCODE_to_CU, FUNC_to_CU, Clk, Rst);
 

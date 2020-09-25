@@ -20,15 +20,18 @@ architecture Beh of DRAM is
 	subtype WordT is std_logic_vector(n-1 downto 0);
 	type StorageT is array(0 to p-1) of WordT;
 	signal Memory: StorageT;
+	signal int_A: integer;
 
 begin
+
+	int_A <= to_integer(unsigned(A));
 
 	WrProc: process(Clk)
 			begin
 				if (Clk'event and Clk='0') then
 					if (Rst = '1') then
 							Memory <= (others => (others => '0'));
-					elsif (En = '1') then
+					elsif (En = '1' and (int_A >= 0 and int_A <=p ) ) then
 						if (WM = '1') then
 							Memory(to_integer(unsigned(A))) <= X after Td;
 						elsif (RM = '1') then

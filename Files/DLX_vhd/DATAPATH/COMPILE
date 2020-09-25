@@ -10,6 +10,7 @@ vcom alu_type.vhd
 vcom alu.vhd
 vcom adder.vhd
 vcom sign_ext.vhd
+vcom sign_extend_mem.vhd
 vcom FORWARDING_UNIT.vhd
 vcom comparator.vhd
 vcom a.c-IRAM.vhd

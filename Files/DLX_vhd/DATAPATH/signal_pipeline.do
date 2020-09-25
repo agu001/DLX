@@ -15,6 +15,9 @@ add wave -noupdate -format Logic /tb/dut/cpu/dp/hdu_mux_sel
 add wave -noupdate -format Literal /tb/dut/cpu/dp/opcode_to_cu
 add wave -noupdate -format Literal /tb/dut/cpu/dp/func_to_cu
 add wave -noupdate -format Literal /tb/dut/cpu/dp/cw_active
+add wave -noupdate -format Literal /tb/dut/cpu/dp/cwregex
+add wave -noupdate -format Literal /tb/dut/cpu/dp/cwregmw
+add wave -noupdate -format Literal /tb/dut/cpu/dp/cwregwr
 add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rs1
 add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rs1_r_out
 add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/rf/registers
@@ -31,10 +34,11 @@ add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/mux_fw1_out
 add wave -noupdate -format Logic -radix decimal /tb/dut/cpu/dp/fu_ctrl2
 add wave -noupdate -format Literal /tb/dut/cpu/dp/fu_out_s2
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/mux_fw2_out
-add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/rel_addr_out
 add wave -noupdate -format Logic /tb/dut/cpu/dp/se_ctrl
 add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/imm32
 add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/imm32_out
+add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/bj_addr
+add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/bj_addr_out
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/s2_out
 add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/alu_out
 add wave -noupdate -format Literal /tb/dut/cpu/dp/aluctrl
@@ -51,15 +55,12 @@ add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/dram_data_in
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/memory_out
 add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rd_out_reg1
 add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rd_out_reg2
-add wave -noupdate -format Logic /tb/dut/cpu/dp/en1
 add wave -noupdate -format Logic /tb/dut/cpu/dp/s2
-add wave -noupdate -format Logic /tb/dut/cpu/dp/en2
 add wave -noupdate -format Logic /tb/dut/cpu/dp/isjump
 add wave -noupdate -format Logic /tb/dut/cpu/dp/isbranch
 add wave -noupdate -format Logic /tb/dut/cpu/dp/isbeqz
 add wave -noupdate -format Logic /tb/dut/cpu/dp/rm
 add wave -noupdate -format Logic /tb/dut/cpu/dp/wm
-add wave -noupdate -format Logic /tb/dut/cpu/dp/en3
 add wave -noupdate -format Logic /tb/dut/cpu/dp/s3
 add wave -noupdate -format Logic /tb/dut/cpu/dp/wf1
 add wave -noupdate -format Logic /tb/dut/cpu/dp/se_ctrl
@@ -71,8 +72,12 @@ add wave -noupdate -format Logic /tb/dut/cpu/dp/jal_sel_out1
 add wave -noupdate -format Logic /tb/dut/cpu/dp/jal_sel_out2
 add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/s3_1_out
 add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/s3_2_out
+add wave -noupdate -format Logic /tb/dut/cpu/dp/en_de
+add wave -noupdate -format Logic /tb/dut/cpu/dp/en_em
+add wave -noupdate -format Logic /tb/dut/cpu/dp/en_mw
+add wave -noupdate -format Logic /tb/dut/cpu/dp/en_w
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {23050 ps} 0}
+WaveRestoreCursors {{Cursor 1} {110030 ps} 0}
 configure wave -namecolwidth 250
 configure wave -valuecolwidth 124
 configure wave -justifyvalue left
@@ -87,4 +92,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {12310 ps} {43810 ps}
+WaveRestoreZoom {90830 ps} {130230 ps}
