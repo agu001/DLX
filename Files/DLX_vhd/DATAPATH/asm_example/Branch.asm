@@ -11,7 +11,7 @@ addi r2, r2, 4
 bnez r1, ciclo
 
 addi r4, r0, 65535
-ori r5, r4, 1000
+ori r5, r4, 100000
 add r6, r4, r5
 
 end:

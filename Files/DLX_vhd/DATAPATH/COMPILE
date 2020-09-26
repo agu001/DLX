@@ -15,7 +15,7 @@ vcom FORWARDING_UNIT.vhd
 vcom comparator.vhd
 vcom a.c-IRAM.vhd
 vcom DRAM.vhd
-vcom a.b-DataPath.vhd
+vcom a.b-DataPath2.vhd
 vcom CU_HW.vhd
 vcom DLX.vhd
 vcom DLX_wrapper.vhd

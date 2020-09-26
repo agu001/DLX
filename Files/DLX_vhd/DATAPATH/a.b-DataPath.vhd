@@ -190,15 +190,16 @@ begin
 	--FETCH
 			mux_to_PC: MUX21_GENERIC port map(BJ_ADDR_OUT, mux_to_PC_2_to_1, ISJUMP, PC_IN);
 			PC_reg: Register_generic port map(PC_IN, Clk, Rst, HDU_PC_EN, PC_OUT);
+
 			iram_addr <= PC_OUT;
 
 			adder_PC: adder port map(PC_OUT, X"00000004", NPC);
 			NPC_reg1: Register_generic port map(NPC, Clk, Rst, '1', NPC_REG1_OUT);
 
-			ir_mux_nop_iram: MUX21_GENERIC generic map(32) port map (X"54000000", iram_in, branch_taken1, mux_to_IR);
+			--ir_mux_nop_iram: MUX21_GENERIC generic map(32) port map (X"54000000", iram_in, branch_taken1, mux_to_IR);
 
-			IR_reg: Register_generic port map(mux_to_IR, Clk, Rst, HDU_IR_EN, IR_R_OUT);
-
+			--IR_reg: Register_generic port map(mux_to_IR, Clk, Rst, HDU_IR_EN, IR_R_OUT);
+			IR_reg: Register_generic port map(iram_in, Clk, Rst, HDU_IR_EN, IR_R_OUT);
 	--DECODE
 			OPCODE_to_CU <= IR_R_OUT(I_SIZE-1 downto I_SIZE-6);
 			FUNC_to_CU <= IR_R_OUT(10 downto 0);
@@ -209,7 +210,7 @@ begin
 			RD_itype: Register_generic generic map(5) port map (IR_R_OUT(20 downto 16), Clk, Rst, EN_DE, RD_ITYPE_OUT);
 			IMM26 <= IR_R_OUT(25 downto 0);
 
-			hdu: HAZARD_DETECTION_UNIT port map(RS1, RS2, RS2_R_OUT, CWregEX(4), HDU_PC_EN, HDU_IR_EN, HDU_MUX_SEL);
+			hdu: HAZARD_DETECTION_UNIT port map(RS1, RS2, RS2_R_OUT, CWregEX(8), HDU_PC_EN, HDU_IR_EN, HDU_MUX_SEL);
 			mux_control: MUX21_GENERIC generic map(CW_SIZE) port map ("000000000000000000000", CW_from_CU, HDU_MUX_SEL, CW_active);
 
 			rs1_r: Register_generic generic map(5) port map(RS1, Clk, Rst, '1', RS1_R_OUT);
@@ -223,7 +224,7 @@ begin
 			sext: sign_ext port map(SE_CTRL, CW_active(CW_SIZE-5), IMM26, IMM32);
 
 			--pipeline registers
-			EX_M_WB_reg: Register_generic generic map(CW_EX_SIZE) port map(CW_active(CW_EX_SIZE-1 downto 0), Clk, branch_taken1, EN_DE, CWregEX);
+			EX_M_WB_reg: Register_generic generic map(CW_EX_SIZE) port map(CW_active(CW_EX_SIZE-1 downto 0), Clk, branch_taken1, '1', CWregEX);
 			IMM32_reg: Register_generic port map (IMM32, Clk, Rst, EN_DE, IMM32_OUT);
 			aluCTRL_reg: Register_generic generic map(aluCTRLbits1'length) port map(aluCTRLbits1, Clk, branch_taken, EN_DE, aluCTRLbits2 );
 			NPC_reg2: Register_generic port map(NPC_REG1_OUT, Clk, Rst, EN_DE, NPC_REG2_OUT);
@@ -256,10 +257,10 @@ begin
 			NPC_reg3: Register_generic port map(NPC_REG2_OUT, Clk, Rst, EN_EM, NPC_REG3_OUT);
 
 	--MEMORY
-			branch_taken <= (ISBRANCH and ZERO_REG_OUT) when ( ISBEQZ = '1') else
-						 	(ISBRANCH and (not ZERO_REG_OUT)) when ( ISBEQZ = '0') else
-						 	'0';
-			branch_taken1 <= branch_taken or Rst or ISJUMP;
+			--branch_taken <= (ISBRANCH and ZERO_REG_OUT) when ( ISBEQZ = '1') else
+			--			 	(ISBRANCH and (not ZERO_REG_OUT)) when ( ISBEQZ = '0') else
+			--			 	'0';
+			--branch_taken1 <= branch_taken or Rst or ISJUMP;
 
 			mux_to_PC_2: MUX21_GENERIC port map(BJ_ADDR_OUT, NPC, branch_taken, mux_to_PC_2_to_1);
 
