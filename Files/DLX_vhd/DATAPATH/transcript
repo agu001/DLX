@@ -38,7 +38,7 @@ do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do
 # Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do line 12
 # ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/zero_reg_out'.
 # Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do line 48
-run 30 ns
+run 70 ns
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
 # ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
@@ -65,23 +65,19 @@ run 30 ns
 #    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
 # ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
 #    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
+# ** Error: (vsim-7) Failed to open VHDL file "./asm_example/JUMP_BRANCH_ISSUE.asm.mem" in r mode.
+# No such file or directory. (errno = ENOENT)
 #    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
-#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 6 ns  Iteration: 2  Instance: /tb/dut/memory
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 22 ns  Iteration: 3  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 22 ns  Iteration: 3  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 24 ns  Iteration: 3  Instance: /tb/dut/cpu/dp/alu_op
-# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
-#    Time: 24 ns  Iteration: 3  Instance: /tb/dut/cpu/dp/alu_op
+# ** Fatal: (vsim-7) Failed to open VHDL file "./asm_example/JUMP_BRANCH_ISSUE.asm.mem" in r mode.
+# No such file or directory. (errno = ENOENT)
+#    Time: 3 ns  Iteration: 0  Process: /tb/dut/imemory/fill_mem_p File: a.c-IRAM.vhd
+# Fatal error in Process fill_mem_p at a.c-IRAM.vhd line 48
+# 
+# HDL call sequence:
+# Stopped at a.c-IRAM.vhd 48 Process fill_mem_p
+# 
 # Updating msgviewer database...
-vsim -t 10ps work.tb
-# vsim -t 10ps work.tb 
+restart -f
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # Loading std.standard
 # Loading ieee.std_logic_1164(body)
@@ -105,12 +101,7 @@ vsim -t 10ps work.tb
 # Loading work.alu(behavior)#1
 # Loading work.mux21_generic(mux21_gen_structural)#3
 # Loading work.register_generic(structural_2)#4
-do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do
-# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/mux_to_ir'.
-# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do line 12
-# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/zero_reg_out'.
-# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do line 48
-run 30 ns
+run 70 ns
 # ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
 #    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
 # ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
@@ -153,8 +144,6 @@ run 30 ns
 #    Time: 24200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
 #    Time: 24200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
-# Updating msgviewer database...
-run 30 ns
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
 #    Time: 32200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/compare
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
@@ -183,4 +172,532 @@ run 30 ns
 #    Time: 54200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/alu_op
 # ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
 #    Time: 56200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 68200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 68200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# Updating msgviewer database...
+run 10 ns
+# Updating msgviewer database...
+add wave \
+{sim:/tb/dut/cpu/dp/jal_sel_out2 } 
+add wave \
+{sim:/tb/dut/cpu/dp/rd_out_reg3 } 
+add wave \
+{sim:/tb/dut/cpu/dp/wf_wb_reg_out } 
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading work.tb(test)#1
+# Loading work.alu_type
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.dlx_wrapper(struct)#1
+# Loading work.control_unit(beh)#1
+# Loading work.datapath(struct)#1
+# Loading work.mux21_generic(mux21_gen_structural)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#2
+# Loading work.register_generic(structural_2)#3
+# Loading work.alu(behavior)#1
+# Loading work.mux21_generic(mux21_gen_structural)#3
+# Loading work.register_generic(structural_2)#4
+run 70 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/memory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/data_ext_mem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Error: numstd_conv_unsigned_nuA: NATURAL arg value is negative (-2147483648)
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/cu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
+#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
+#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 6200 ps  Iteration: 1  Instance: /tb/dut/memory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 24200 ps  Iteration: 1  Instance: /tb/dut/memory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 24200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 24200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 32200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 32200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 40200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 40200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 42200 ps  Iteration: 1  Instance: /tb/dut/memory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 42200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 42200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 44200 ps  Iteration: 1  Instance: /tb/dut/memory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 44200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 46200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 46200 ps  Iteration: 7  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 54200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 54200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 56200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 68200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 68200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# Updating msgviewer database...
+vsim -t 10ps work.tb
+# vsim -t 10ps work.tb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading work.tb(test)#1
+# Loading work.alu_type
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.dlx_wrapper(struct)#1
+# Loading work.control_unit(beh)#1
+# Loading work.datapath(struct)#1
+# Loading work.mux21_generic(mux21_gen_structural)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#2
+# Loading work.register_generic(structural_2)#3
+# Loading work.alu(behavior)#1
+# Loading work.mux21_generic(mux21_gen_structural)#3
+# Loading work.register_generic(structural_2)#4
+do /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/mux_to_ir'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do line 12
+# ** Error: (vish-4014) No objects found matching '/tb/dut/cpu/dp/zero_reg_out'.
+# Executing ONERROR command at macro /home/ms20.16/Desktop/git/DLX/Files/DLX_vhd/DATAPATH/signal_pipeline.do line 48
+run 70 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/memory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/data_ext_mem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Error: numstd_conv_unsigned_nuA: NATURAL arg value is negative (-2147483648)
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/cu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
+#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
+#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 6200 ps  Iteration: 1  Instance: /tb/dut/memory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 24200 ps  Iteration: 1  Instance: /tb/dut/memory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 24200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 24200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 32200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 32200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 40200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 40200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 42200 ps  Iteration: 1  Instance: /tb/dut/memory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 42200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 42200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 44200 ps  Iteration: 1  Instance: /tb/dut/memory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 44200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 46200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 46200 ps  Iteration: 7  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 54200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 54200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 56200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 68200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 68200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# Updating msgviewer database...
+run 20 ns
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 78200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 78200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/alu_op
+# Updating msgviewer database...
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading work.tb(test)#1
+# Loading work.alu_type
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.dlx_wrapper(struct)#1
+# Loading work.control_unit(beh)#1
+# Loading work.datapath(struct)#1
+# Loading work.mux21_generic(mux21_gen_structural)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#2
+# Loading work.register_generic(structural_2)#3
+# Loading work.alu(behavior)#1
+# Loading work.mux21_generic(mux21_gen_structural)#3
+# Loading work.register_generic(structural_2)#4
+run 100 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/memory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/data_ext_mem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Error: numstd_conv_unsigned_nuA: NATURAL arg value is negative (-2147483648)
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/cu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
+#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
+#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 6200 ps  Iteration: 1  Instance: /tb/dut/memory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 24200 ps  Iteration: 1  Instance: /tb/dut/memory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 24200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 24200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 32200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 32200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 40200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 40200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 42200 ps  Iteration: 1  Instance: /tb/dut/memory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 42200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 42200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 44200 ps  Iteration: 1  Instance: /tb/dut/memory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 44200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 60200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 60200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 62200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 74200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 74200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 98200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 98200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# Updating msgviewer database...
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading work.tb(test)#1
+# Loading work.alu_type
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.dlx_wrapper(struct)#1
+# Loading work.control_unit(beh)#1
+# Loading work.datapath(struct)#1
+# Loading work.mux21_generic(mux21_gen_structural)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#2
+# Loading work.register_generic(structural_2)#3
+# Loading work.alu(behavior)#1
+# Loading work.mux21_generic(mux21_gen_structural)#3
+# Loading work.register_generic(structural_2)#4
+run 100 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/memory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/data_ext_mem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Error: numstd_conv_unsigned_nuA: NATURAL arg value is negative (-2147483648)
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/cu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
+#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
+#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 6200 ps  Iteration: 1  Instance: /tb/dut/memory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 24200 ps  Iteration: 1  Instance: /tb/dut/memory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 24200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 24200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 32200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 32200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 40200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 40200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 42200 ps  Iteration: 1  Instance: /tb/dut/memory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 42200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 42200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 44200 ps  Iteration: 1  Instance: /tb/dut/memory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 44200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 60200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 60200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 62200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 74200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 74200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 98200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 98200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# Updating msgviewer database...
+restart -f
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.mytypes
+# Loading work.tb(test)#1
+# Loading work.alu_type
+# Loading ieee.numeric_std(body)
+# Loading std.textio(body)
+# Loading ieee.std_logic_textio(body)
+# Loading work.dlx_wrapper(struct)#1
+# Loading work.control_unit(beh)#1
+# Loading work.datapath(struct)#1
+# Loading work.mux21_generic(mux21_gen_structural)#1
+# Loading work.register_generic(structural_2)#1
+# Loading work.adder(beh)#1
+# Loading work.register_generic(structural_2)#2
+# Loading work.mux21_generic(mux21_gen_structural)#2
+# Loading work.register_generic(structural_2)#3
+# Loading work.alu(behavior)#1
+# Loading work.mux21_generic(mux21_gen_structural)#3
+# Loading work.register_generic(structural_2)#4
+run 100 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/memory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/data_ext_mem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Error: numstd_conv_unsigned_nuA: NATURAL arg value is negative (-2147483648)
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/dp
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb/dut/cpu/cu
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+#    Time: 0 ps  Iteration: 1  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
+#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: CONV_INTEGER(UNSIGNED) input array has 32 bits and MSB is not zero.
+#    Time: 3 ns  Iteration: 0  Instance: /tb/dut/imemory
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 6200 ps  Iteration: 1  Instance: /tb/dut/memory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 22200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 24200 ps  Iteration: 1  Instance: /tb/dut/memory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 24200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 24200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 32200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 32200 ps  Iteration: 5  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 40200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 40200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 42200 ps  Iteration: 1  Instance: /tb/dut/memory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 42200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 42200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 44200 ps  Iteration: 1  Instance: /tb/dut/memory
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 44200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 54200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 54200 ps  Iteration: 4  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 56200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/compare
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 68200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 68200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 78200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 78200 ps  Iteration: 3  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 92200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER is returning a negative result.
+#    Time: 92200 ps  Iteration: 2  Instance: /tb/dut/cpu/dp/alu_op
 # Updating msgviewer database...
