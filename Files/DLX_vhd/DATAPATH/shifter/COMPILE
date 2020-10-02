@@ -1,0 +1,6 @@
+vcom mux21.vhd
+vcom mux3x1.vhd
+vcom mux4x1.vhd
+vcom mux8x1.vhd
+vcom T2shifter.vhd
+vcom TestBenchShift.vhd
