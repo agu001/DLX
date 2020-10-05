@@ -20,10 +20,11 @@ architecture Struct of T2shifter is
 	end component mux3x1;
 
 	component mux4x1 is
-		port ( INPUT1, INPUT2, INPUT3, INPUT4: in std_logic_vector(39 downto 0);
-			   SEL: in std_logic_vector(1 downto 0);
-			   OUTPUT: out std_logic_vector(39 downto 0)
-			 );
+			generic (BITS: integer := 40);
+			port ( INPUT1, INPUT2, INPUT3, INPUT4: in std_logic_vector(BITS-1 downto 0);
+				   SEL: in std_logic_vector(1 downto 0);
+				   OUTPUT: out std_logic_vector(BITS-1 downto 0)
+				 );
 	end component mux4x1;
 
 	component mux8x1 is
@@ -33,13 +34,13 @@ architecture Struct of T2shifter is
 			 );
 	end component mux8x1;
 
-	component MUX21_GENERIC is
+	component MUX21 is
 		generic(NBIT: integer := 32);
 		Port (	A:	In	std_logic_vector(NBIT-1 downto 0);
 				B:	In	std_logic_vector(NBIT-1 downto 0);
 				SEL:	In	std_logic;
 				Y:	Out	std_logic_vector(NBIT-1 downto 0));
-	end component MUX21_GENERIC;
+	end component MUX21;
 
 	signal IN1_LR, IN1_AR, IN1_LAL, IN2_LR, IN2_AR, IN2_LAL, IN3_LR, IN3_AR, IN3_LAL, IN4_LR, IN4_AR, IN4_LAL: std_logic_vector(39 downto 0);
 	signal ext_sign_in1, zero_in1: std_logic_vector(7 downto 0);
@@ -89,14 +90,14 @@ begin
 	MUX_L2: mux4x1 port map(MUX1_OUT_IN1, MUX1_OUT_IN2, MUX1_OUT_IN3, MUX1_OUT_IN4, shift(4 downto 3), MASK_OUT);
 
 	--third level 1 left 0 right
-	MUX_A: MUX21_GENERIC port map(MASK_OUT(32 downto 1), MASK_OUT(38 downto 7), conf(0), MUX2_OUT_IN1);
-	MUX_B: MUX21_GENERIC port map(MASK_OUT(33 downto 2), MASK_OUT(37 downto 6), conf(0), MUX2_OUT_IN2);
-	MUX_C: MUX21_GENERIC port map(MASK_OUT(34 downto 3), MASK_OUT(36 downto 5), conf(0), MUX2_OUT_IN3);
-	MUX_D: MUX21_GENERIC port map(MASK_OUT(35 downto 4), MASK_OUT(35 downto 4), conf(0), MUX2_OUT_IN4);
-	MUX_E: MUX21_GENERIC port map(MASK_OUT(36 downto 5), MASK_OUT(34 downto 3), conf(0), MUX2_OUT_IN5);
-	MUX_F: MUX21_GENERIC port map(MASK_OUT(37 downto 6), MASK_OUT(33 downto 2), conf(0), MUX2_OUT_IN6);
-	MUX_G: MUX21_GENERIC port map(MASK_OUT(38 downto 7), MASK_OUT(32 downto 1), conf(0), MUX2_OUT_IN7);
-	MUX_X: MUX21_GENERIC port map(MASK_OUT(39 downto 8), MASK_OUT(31 downto 0), conf(0), MUX2_OUT_IN8);
+	MUX_A: MUX21 port map(MASK_OUT(32 downto 1), MASK_OUT(38 downto 7), conf(0), MUX2_OUT_IN1);
+	MUX_B: MUX21 port map(MASK_OUT(33 downto 2), MASK_OUT(37 downto 6), conf(0), MUX2_OUT_IN2);
+	MUX_C: MUX21 port map(MASK_OUT(34 downto 3), MASK_OUT(36 downto 5), conf(0), MUX2_OUT_IN3);
+	MUX_D: MUX21 port map(MASK_OUT(35 downto 4), MASK_OUT(35 downto 4), conf(0), MUX2_OUT_IN4);
+	MUX_E: MUX21 port map(MASK_OUT(36 downto 5), MASK_OUT(34 downto 3), conf(0), MUX2_OUT_IN5);
+	MUX_F: MUX21 port map(MASK_OUT(37 downto 6), MASK_OUT(33 downto 2), conf(0), MUX2_OUT_IN6);
+	MUX_G: MUX21 port map(MASK_OUT(38 downto 7), MASK_OUT(32 downto 1), conf(0), MUX2_OUT_IN7);
+	MUX_X: MUX21 port map(MASK_OUT(39 downto 8), MASK_OUT(31 downto 0), conf(0), MUX2_OUT_IN8);
 
 	MUX_L3: mux8x1 port map(MUX2_OUT_IN8, MUX2_OUT_IN7, MUX2_OUT_IN6, MUX2_OUT_IN5, MUX2_OUT_IN4, MUX2_OUT_IN3, MUX2_OUT_IN2, MUX2_OUT_IN1, shift(2 downto 0), dataOUT);
 

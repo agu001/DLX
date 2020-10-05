@@ -3,9 +3,10 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 
 entity mux4x1 is
-	port ( INPUT1, INPUT2, INPUT3, INPUT4: in std_logic_vector(39 downto 0);
+	generic (BITS: integer := 40);
+	port ( INPUT1, INPUT2, INPUT3, INPUT4: in std_logic_vector(BITS-1 downto 0);
 		   SEL: in std_logic_vector(1 downto 0);
-		   OUTPUT: out std_logic_vector(39 downto 0)
+		   OUTPUT: out std_logic_vector(BITS-1 downto 0)
 		 );
 end mux4x1;
 
