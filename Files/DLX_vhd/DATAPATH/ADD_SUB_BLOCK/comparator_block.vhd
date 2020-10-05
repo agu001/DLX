@@ -22,11 +22,8 @@ architecture struct of comparator is
 begin
 
 	zd: zero_detector generic map (32) port map (SUM, Z);
-	--le <= not Cout or Z;
-	--lt <= not Cout;
+
 	e  <= Z;
-	--gt <= Cout and not Z;
-	--ge <= Cout;
 
 	opp_signs <= A(NBIT-1) XOR B(NBIT-1);
 	opp_signs2 <= opp_signs AND S;

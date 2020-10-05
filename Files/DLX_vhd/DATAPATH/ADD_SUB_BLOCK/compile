@@ -14,8 +14,8 @@ vcom BUF.vhd
 vcom BUF1.vhd
 vcom CARRY_GENERATOR.vhd
 vcom P4_ADDER.vhd
-vcom ADD_SUB_BLOCK.vhd
 vcom zero_detector.vhd
 vcom comparator_block.vhd
+vcom ADD_SUB_BLOCK.vhd
 vcom tb_comparator.vhd
 vcom TB_ADD_SUB_BLOCK.vhd

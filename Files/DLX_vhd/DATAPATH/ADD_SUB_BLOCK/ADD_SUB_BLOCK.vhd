@@ -8,9 +8,9 @@ entity ADD_SUB_BLOCK is
 		port (
 					A :		in	std_logic_vector(NBIT-1 downto 0);
 					B :		in	std_logic_vector(NBIT-1 downto 0);
-					SUB :	in	std_logic;
+					SUB, SIGN:	in	std_logic;
 					RES :	out	std_logic_vector(NBIT-1 downto 0);
-					Cout :	out	std_logic);
+					Cout, e, ne, lt, le, gt, ge:	out	std_logic);
 end entity;
 
 architecture arch of ADD_SUB_BLOCK is
@@ -31,14 +31,26 @@ architecture arch of ADD_SUB_BLOCK is
 					);
 		end component;
 
-		signal B_1: std_logic_vector(NBIT-1 downto 0);
+		component comparator is
+			generic (NBIT: integer:= 32);
+			port	(	A, B, SUM:	in std_logic_vector(NBIT-1 downto 0);
+						S, Cout:	in std_logic;
+						e, lt, le, gt, ge:	out std_logic		--equal, less than, less or equal, greater than, greater or equal
+					);
+		end component;
+
+		signal B_1, RES_1: std_logic_vector(NBIT-1 downto 0);
+		signal Cout_1: std_logic;
 begin
 	GEN_XOR:
 	for i in 0 to NBIT-1 generate
 		xor2x: xor2_block port map(B(i), SUB, B_1(i));
 	end generate GEN_XOR;
 
-	ADDER: P4_ADDER generic map (NBIT) port map ( A, B_1, SUB, RES, Cout);
+	ADDER: P4_ADDER generic map (NBIT) port map ( A, B_1, SUB, RES_1, Cout_1);
+	COMPAR: comparator generic map(NBIT) port map(A, B_1, RES_1, SIGN, Cout_1, e, ne, lt, le, gt, ge);
 
+	RES <= RES_1;
+	Cout <= Cout_1;
 
 end architecture;

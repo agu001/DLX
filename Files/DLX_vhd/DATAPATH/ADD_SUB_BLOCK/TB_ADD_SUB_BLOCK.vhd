@@ -15,7 +15,7 @@ architecture TEST of TB_ADD_SUB_BLOCK is
 		port (
 					A :		in	std_logic_vector(NBIT-1 downto 0);
 					B :		in	std_logic_vector(NBIT-1 downto 0);
-					SUB :	in	std_logic;
+					SUB, SIGN :	in	std_logic;
 					RES :	out	std_logic_vector(NBIT-1 downto 0);
 					Cout :	out	std_logic);
 	end component;
