@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use WORK.alu_type.all;
+use WORK.alu_package.all;
 
 entity FORWARDING_UNIT is
 	port ( 	    RS1, RS2, RD_EX, RD_MEM, RD_WB:IN std_logic_vector(4 downto 0);
