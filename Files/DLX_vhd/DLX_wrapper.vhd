@@ -12,7 +12,7 @@ end DLX_wrapper;
 architecture Struct of DLX_wrapper is
 
 	component DRAM is
-		generic (	n: natural := 8;
+		generic (	n: natural := 32;
 					p: natural := 10000;
 					k: natural := 32;
 					Td: time := 0.5 ns

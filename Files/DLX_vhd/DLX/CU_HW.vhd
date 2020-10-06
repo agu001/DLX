@@ -62,7 +62,7 @@ architecture beh of CONTROL_UNIT is
 									"10100001000000001011",--ANDI	12
 									"10100001000000001011",--ORI	13
 									"10100001000000001011",--XORI	14
-									"00000000000000000001",--LHI	15
+									"10100001000000001011",--LHI	15
 									"00000000000000000000",
 									"00000000000000000000",
 									"10100101100000000001",--JR		18
@@ -296,6 +296,9 @@ begin
 				nextSE_CTRL <= '0';
 			when XORI =>
 				nextALU_CTRL <= alu_XOR16;
+				nextSE_CTRL <= '0';
+			when LHI =>
+				nextALU_CTRL <= alu_LHI;
 				nextSE_CTRL <= '0';
 			when others =>
 				nextALU_CTRL <= alu_ADD;  -- default operation of store and load instructions

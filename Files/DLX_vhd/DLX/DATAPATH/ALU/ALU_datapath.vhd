@@ -7,7 +7,7 @@ use WORK.alu_package.all;
 	entity ALU_datapath is
 		port (	conf, ctrl_mux_out: in std_logic_vector(1 downto 0);
 				comparator_ctrl, logic_op: in std_logic_vector(2 downto 0);
-				ctrl_16, adder_comp_sel, SUB: in std_logic;
+				ctrl_16, adder_comp_sel, SUB, shift_16: in std_logic;
 				DATA1, DATA2: IN std_logic_vector(NBIT-1 downto 0);
 				OUTALU: OUT std_logic_vector(NBIT-1 downto 0));
 	end ALU_datapath;
@@ -67,9 +67,10 @@ architecture Struct of ALU_datapath is
 				  y:	Out	std_logic);
 		end component mux61;
 
-		signal shifter_out, adder_out, logic_out, zeros32, adder_comp_out, comparator_out32: std_logic_vector(NBIT-1 downto 0);
+		signal shifter_out, adder_out, logic_out, zeros32, adder_comp_out, comparator_out32, DATA_s: std_logic_vector(NBIT-1 downto 0);
 		signal mult_out: std_logic_vector(2*NBIT-1 downto 0);
 		signal zeros31: std_logic_vector(NBIT-2 downto 0);
+		signal shift_s: std_logic_vector(4 downto 0);
 		signal Cout, e, ne, lt, le, gt, ge, comparator_out1: std_logic;
 
 begin
@@ -77,7 +78,9 @@ begin
 		zeros31 <= (others => '0');
 
 		--shifter
-		SHIFTER: T2_shifter port map(DATA1, DATA2(4 downto 0), conf, shifter_out);
+		num_to_shift: mux21_generic generic map(5) port map("10000", DATA2(4 downto 0), shift_16, shift_s);
+		data_to_shift: mux21_generic generic map(NBIT) port map(DATA2, DATA1, shift_16, DATA_s);
+		SHIFTER: T2_shifter port map(DATA_s, shift_s, conf, shifter_out);
 
 		--adder, subtractor, comparator
 		ADD_SUB_COMP: ADD_SUB_COMP_BLOCK port map(DATA1, DATA2, SUB, conf(1), adder_out, Cout, e, ne, lt, le, gt, ge);

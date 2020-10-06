@@ -3,7 +3,7 @@ use ieee.std_logic_1164.ALL;
 use ieee.numeric_std.ALL;
 
 entity DRAM is
-	generic (	n: natural := 8;
+	generic (	n: natural := 32;
 				p: natural := 256;
 				k: natural := 8;
 				Td: time := 0.5 ns

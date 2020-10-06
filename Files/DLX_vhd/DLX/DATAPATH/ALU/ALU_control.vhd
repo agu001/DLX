@@ -8,7 +8,7 @@ entity ALU_control is
 			SE_ctrl: in std_logic;
 			conf, ctrl_mux_out: out std_logic_vector(1 downto 0);
 			comparator_ctrl, logic_op: out std_logic_vector(2 downto 0);
-			ctrl_16, adder_comp_sel, SUB: out std_logic);
+			ctrl_16, adder_comp_sel, SUB, shift_16: out std_logic);
 end ALU_control;
 
 architecture BEHAVIOR of ALU_control is
@@ -23,6 +23,7 @@ begin
 	-- complete all the requested functions
 	begin
 		l_r <= '0';
+		shift_16 <= '0';
 		ctrl_mux_out <= "00";
 		comparator_ctrl <= "000";
 		logic_op <= "100"; --logic_op(2) -> AND, logic_op(1) -> OR, logic_op(0) -> XOR
@@ -95,8 +96,12 @@ begin
 				adder_comp_sel <= '0';
 				SUB <= '1';
 				ctrl_mux_out <= "01";
-			when alu_SLL 	=>
+			when alu_SLL	=>
 				l_r <= '1';
+				ctrl_mux_out <= "00";
+			when alu_LHI	=>
+				l_r <= '1';
+				shift_16 <= '1';
 				ctrl_mux_out <= "00";
 			when alu_SRA | alu_SRL	=>
 				l_r <= '0';
