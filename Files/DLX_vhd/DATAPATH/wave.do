@@ -1,52 +1,85 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate -format Logic -radix unsigned /cu_test/dut/data_path/rst
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/dram_out
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/dram_addr
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/dram_in
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/inp1
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/inp1_r_out
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/inp2
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/inp2_r_out
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/in1_out
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/in2_out
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/rs1
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/rs2
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/rd
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/rd_r_out
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/rd1_out
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/rd2_out
-add wave -noupdate -format Literal -radix hexadecimal /cu_test/ir
-add wave -noupdate -format Literal -radix binary /cu_test/dut/data_path/controls
-add wave -noupdate -format Literal /cu_test/dut/data_path/cwregex
-add wave -noupdate -format Literal /cu_test/dut/data_path/cwregmw
-add wave -noupdate -format Logic -radix unsigned /cu_test/dut/data_path/clk
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/rfout1
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/rfout2
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/a_out
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/b_out
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/s1_out
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/s2_out
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/alu_op_out
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/alu_out_reg
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/memory_out
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/me_out
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/s3_out
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/out_reg_out
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/func_op
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/type_alu
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/data_path/rf/registers
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/memory/x
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/memory/a
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/memory/z
-add wave -noupdate -format Literal -radix unsigned /cu_test/dut/memory/memory
-add wave -noupdate -format Logic -radix unsigned /cu_test/dut/memory/en
-add wave -noupdate -format Logic -radix unsigned /cu_test/dut/memory/wm
-add wave -noupdate -format Logic -radix unsigned /cu_test/dut/memory/rm
+add wave -noupdate -format Logic /tb/dut/cpu/dp/hdu_pc_en
+add wave -noupdate -format Logic /tb/dut/cpu/dp/hdu_ir_en
+add wave -noupdate -format Logic /tb/dut/clk
+add wave -noupdate -format Logic /tb/dut/rst
+add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/pc_in
+add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/pc_out
+add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/npc
+add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/iram_addr
+add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/iram_in
+add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/mux_to_ir
+add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/ir_r_out
+add wave -noupdate -format Logic /tb/dut/cpu/dp/hdu_mux_sel
+add wave -noupdate -format Literal /tb/dut/cpu/dp/opcode_to_cu
+add wave -noupdate -format Literal /tb/dut/cpu/dp/func_to_cu
+add wave -noupdate -format Literal /tb/dut/cpu/dp/cw_active
+add wave -noupdate -format Literal /tb/dut/cpu/dp/cwregex
+add wave -noupdate -format Literal /tb/dut/cpu/dp/cwregmw
+add wave -noupdate -format Literal /tb/dut/cpu/dp/cwregwr
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rs1
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rs1_r_out
+add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/rf/registers
+add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/rfout1
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rs2
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rs2_r_out
+add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/rfout2
+add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/rel_addr
+add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/a_out
+add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/b_out
+add wave -noupdate -format Logic -radix decimal /tb/dut/cpu/dp/fu_ctrl1
+add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/fu_out_s1
+add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/mux_fw1_out
+add wave -noupdate -format Logic -radix decimal /tb/dut/cpu/dp/fu_ctrl2
+add wave -noupdate -format Literal /tb/dut/cpu/dp/fu_out_s2
+add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/mux_fw2_out
+add wave -noupdate -format Logic /tb/dut/cpu/dp/se_ctrl
+add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/imm32
+add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/imm32_out
+add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/bj_addr
+add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/bj_addr_out
+add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/s2_out
+add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/alu_out
+add wave -noupdate -format Literal /tb/dut/cpu/dp/aluctrl
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rd_type_mux_out
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rd
+add wave -noupdate -format Logic /tb/dut/cpu/dp/zero_result
+add wave -noupdate -format Logic /tb/dut/cpu/dp/zero_reg_out
+add wave -noupdate -format Logic /tb/dut/cpu/dp/branch_taken1
+add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/me_out
+add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/dram_addr
+add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/dram_data_out
+add wave -noupdate -format Literal -radix decimal /tb/dut/memory/memory
+add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/dram_data_in
+add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/memory_out
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rd_out_reg1
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rd_out_reg2
+add wave -noupdate -format Logic /tb/dut/cpu/dp/s2
+add wave -noupdate -format Logic /tb/dut/cpu/dp/isjump
+add wave -noupdate -format Logic /tb/dut/cpu/dp/isbranch
+add wave -noupdate -format Logic /tb/dut/cpu/dp/isbeqz
+add wave -noupdate -format Logic /tb/dut/cpu/dp/rm
+add wave -noupdate -format Logic /tb/dut/cpu/dp/wm
+add wave -noupdate -format Logic /tb/dut/cpu/dp/s3
+add wave -noupdate -format Logic /tb/dut/cpu/dp/wf1
+add wave -noupdate -format Logic /tb/dut/cpu/dp/se_ctrl
+add wave -noupdate -format Logic /tb/dut/cpu/dp/i0_r1_sel
+add wave -noupdate -format Logic /tb/dut/cpu/dp/jal_sel
+add wave -noupdate -format Logic /tb/dut/cpu/dp/branch_taken
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/npc_reg4_out
+add wave -noupdate -format Logic /tb/dut/cpu/dp/jal_sel_out1
+add wave -noupdate -format Logic /tb/dut/cpu/dp/jal_sel_out2
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/s3_1_out
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/s3_2_out
+add wave -noupdate -format Logic /tb/dut/cpu/dp/en_de
+add wave -noupdate -format Logic /tb/dut/cpu/dp/en_em
+add wave -noupdate -format Logic /tb/dut/cpu/dp/en_mw
+add wave -noupdate -format Logic /tb/dut/cpu/dp/en_w
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {1370 ps} 0}
-configure wave -namecolwidth 286
-configure wave -valuecolwidth 95
+WaveRestoreCursors {{Cursor 1} {110030 ps} 0}
+configure wave -namecolwidth 250
+configure wave -valuecolwidth 124
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
 configure wave -snapdistance 10
@@ -59,4 +92,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {0 ps} {26250 ps}
+WaveRestoreZoom {90830 ps} {130230 ps}
