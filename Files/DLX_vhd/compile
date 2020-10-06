@@ -1,0 +1,63 @@
+				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/constants.vhd
+				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/fa.vhd
+				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/iv.vhd
+				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/nd2.vhd
+				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/mux21_generic.vhd
+				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/rca.vhd
+				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/CSblock.vhd
+				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/SUM_GENERATOR.vhd
+				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/PGnet.vhd
+				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/PG.vhd
+				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/G.vhd
+				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/BUF.vhd
+				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/BUF1.vhd
+				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/CARRY_GENERATOR.vhd
+				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/P4_adder.vhd
+
+			vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/xor2.vhd
+			vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/add_sub_block.vhd
+			vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/comparator/zero_detector.vhd
+			vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/comparator/comparator.vhd
+		vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_comp_block.vhd
+
+		vcom ./DLX/DATAPATH/ALU/Booth_multiplier/rca.vhd
+		vcom ./DLX/DATAPATH/ALU/Booth_multiplier/Comp2.vhd
+		vcom ./DLX/DATAPATH/ALU/Booth_multiplier/encoder33.vhd
+		vcom ./DLX/DATAPATH/ALU/Booth_multiplier/mux51.vhd
+		vcom ./DLX/DATAPATH/ALU/Booth_multiplier/sign_ext.vhd
+		vcom ./DLX/DATAPATH/ALU/Booth_multiplier/boothmul.vhd
+
+		vcom ./DLX/DATAPATH/ALU/T2_shifter/mux21.vhd
+		vcom ./DLX/DATAPATH/ALU/T2_shifter/mux41_generic.vhd
+		vcom ./DLX/DATAPATH/ALU/T2_shifter/mux61.vhd
+		vcom ./DLX/DATAPATH/ALU/T2_shifter/mux81_generic.vhd
+		vcom ./DLX/DATAPATH/ALU/T2_shifter/T2_shifter.vhd
+
+	vcom ./DLX/DATAPATH/ALU/ALU_package.vhd
+
+		vcom ./DLX/DATAPATH/ALU/logic_unit/and2_generic.vhd
+		vcom ./DLX/DATAPATH/ALU/logic_unit/xor2_generic.vhd
+		vcom ./DLX/DATAPATH/ALU/logic_unit/or2_generic.vhd
+		vcom ./DLX/DATAPATH/ALU/logic_unit/logic_unit.vhd
+
+	vcom ./DLX/DATAPATH/ALU/ALU_datapath.vhd
+	vcom ./DLX/DATAPATH/ALU/ALU_control.vhd
+	vcom ./DLX/DATAPATH/ALU/ALU.vhd
+	vcom ./DLX/DATAPATH/ALU/tb_ALU.vhd
+
+vcom myTypesDLX.vhd
+vcom ./DLX/DATAPATH/components/fd.vhd
+vcom ./DLX/DATAPATH/components/register.vhd
+vcom ./DLX/DATAPATH/RF.vhd
+vcom ./DLX/DATAPATH/HAZARD_DETECTION_UNIT.vhd
+vcom ./DLX/DATAPATH/components/adder.vhd
+vcom ./DLX/DATAPATH/sign_ext_dp.vhd
+vcom ./DLX/DATAPATH/sign_extend_mem.vhd
+vcom ./DLX/DATAPATH/FORWARDING_UNIT.vhd
+vcom ./DLX/DATAPATH/a.b-DataPath2.vhd
+vcom ./DLX/CU_HW.vhd
+vcom ./DLX/DLX.vhd
+vcom a.c-IRAM.vhd
+vcom DRAM.vhd
+vcom DLX_wrapper.vhd
+vcom TB.vhd
