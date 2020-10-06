@@ -298,7 +298,7 @@ begin
 				nextALU_CTRL <= alu_XOR16;
 				nextSE_CTRL <= '0';
 			when others =>
-				nextALU_CTRL <= alu_ADD;
+				nextALU_CTRL <= alu_ADD;  -- default operation of store and load instructions
 				nextSE_CTRL <= '1';
 		 end case;
 		end process;

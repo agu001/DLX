@@ -130,7 +130,7 @@ architecture Struct of DATAPATH is
 	signal PC_OUT, NPC, IR_R_OUT, IMM32, IMM32_OUT, REL_ADDR, PC_IN, BJ_ADDR, BJ_ADDR_OUT, NPC_REG1_OUT, NPC_REG2_OUT, NPC_REG3_OUT, NPC_REG4_OUT, mux_to_PC_2_to_1, mux_to_ir: std_logic_vector(D_SIZE-1 downto 0);
 	signal IN1_OUT, MUX_FW1_OUT, MUX_FW2_OUT, FU_OUT_S1, FU_OUT_S2: std_logic_vector(D_SIZE-1 downto 0);
 
-	signal RF1, RF2, EN_DE, S1, S2, EN_EM, EN_W, ISJUMP, ISBRANCH, ISBEQZ, RM, WM, EN_MW, S3, WF1, SE_CTRL, I0_R1_SEL, JAL_SEL, MSIZE1, MSIZE0, SE_CTRL2, ISJR: std_logic;
+	signal RF1, RF2, EN_DE, S1, S2, EN_EM, EN_W, ISJUMP, ISBRANCH, ISBEQZ, RM, WM, EN_MW, S3, WF1, SE_CTRL, SE_CTRL1, I0_R1_SEL, JAL_SEL, MSIZE1, MSIZE0, SE_CTRL2, ISJR: std_logic;
 	signal ZERO_RESULT, ZERO_REG_OUT: std_logic;
 	signal branch_taken, branch_taken1, branch_taken2, FU_CTRL1, FU_CTRL2, HDU_PC_EN, HDU_IR_EN, HDU_MUX_SEL, JAL_SEL_OUT1, JAL_SEL_OUT2, WF_WB_REG_OUT: std_logic;
 
@@ -228,6 +228,7 @@ begin
 			IMM32_reg: Register_generic port map (IMM32, Clk, Rst, EN_DE, IMM32_OUT);
 			aluCTRL_reg: Register_generic generic map(aluCTRLbits1'length) port map(aluCTRLbits1, Clk, branch_taken, EN_DE, aluCTRLbits2 );
 			NPC_reg2: Register_generic port map(NPC_REG1_OUT, Clk, Rst, EN_DE, NPC_REG2_OUT);
+			SE_CTRL_EX: fd port map(SE_CTRL, Clk, Rst, EN_DE, SE_CTRL1);
 
 	--EXECUTE
 			FU: FORWARDING_UNIT port map (RS1_R_OUT, RS2_R_OUT, RD_OUT_REG1, RD_OUT_REG2, RD_OUT_REG3, ALU_OUT_REG1, S3_2_OUT, S3_2_WB_OUT, CWregMW(0), WF1, WF_WB_REG_OUT, FU_OUT_S1, FU_OUT_S2, FU_CTRL1, FU_CTRL2, Clk, Rst);
@@ -241,7 +242,7 @@ begin
 			mux_fw2: MUX21_GENERIC port map ( FU_OUT_S2, B_OUT, FU_CTRL2, MUX_FW2_OUT);
 			mux_s2: MUX21_GENERIC port map (MUX_FW2_OUT, IMM32_OUT, S2, S2_OUT);
 
-			alu_op: ALU port map (MUX_FW1_OUT, S2_OUT, SE_CTRL, aluCTRL, ALU_OUT);
+			alu_op: ALU port map (MUX_FW1_OUT, S2_OUT, SE_CTRL1, aluCTRL, ALU_OUT);
 
 			RD_type_mux: MUX21_GENERIC generic map(5) port map (RD_RTYPE_OUT, RD_ITYPE_OUT, I0_R1_SEL, RD_type_mux_OUT);
 			mux_jal:  MUX21_GENERIC generic map(5) port map ("11111", RD_type_mux_OUT, JAL_SEL, RD);

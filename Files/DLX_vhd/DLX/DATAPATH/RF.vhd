@@ -34,8 +34,20 @@ begin
 		if(CLK = '0' AND CLK'event) then
 			if(RESET ='1') then
 				REGISTERS <= (others => ( others =>'0')) after 0.2 ns;
-				REGISTERS(1) <= std_logic_vector(to_unsigned(0, DATABIT)) after 0.2 ns;
-				REGISTERS(3) <= std_logic_vector(to_unsigned(0, DATABIT)) after 0.2 ns;
+				REGISTERS(5) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
+				REGISTERS(2) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
+				REGISTERS(3) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
+				REGISTERS(10) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
+				REGISTERS(9) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
+				REGISTERS(7) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
+				REGISTERS(8) <= std_logic_vector(to_unsigned(16, DATABIT)) after 0.2 ns;
+				REGISTERS(12) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
+				REGISTERS(15) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
+				REGISTERS(20) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
+				REGISTERS(30) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
+				REGISTERS(13) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
+				REGISTERS(14) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
+				REGISTERS(18) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
 				OUT1 <= ( others =>'0') after 0.2 ns;
 			    OUT2 <= ( others =>'0') after 0.2 ns;
 			elsif( ENABLE = '1') then

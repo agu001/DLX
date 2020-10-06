@@ -39,16 +39,11 @@ architecture struct of logic_unit is
 	end component mux21_generic;
 
 	signal OR_OUT, AND_OUT, XOR_OUT, MUX1_OUT, MUX2_OUT: std_logic_vector(NBIT-1 downto 0);
-	signal en_or, en_and, en_xor: std_logic;
 
 begin
 	xor_block: xor2_generic generic map (NBIT) port map (DATA1, DATA2, XOR_OUT);--001
 	or_block: or2_generic generic map (NBIT) port map (DATA1, DATA2, OR_OUT);--010
 	and_block: and2_generic generic map (NBIT) port map (DATA1, DATA2, AND_OUT);--100
-
-	en_xor <= logic_op(0);
-	en_or <= logic_op(1);
-	en_and <= logic_op(2);
 
 	mux1: mux21_generic generic map(NBIT) port map (XOR_OUT, OR_OUT, logic_op(0), MUX1_OUT);
 	mux2: mux21_generic generic map(NBIT) port map (AND_OUT, MUX1_OUT, logic_op(2), MUX2_OUT);
