@@ -6,5 +6,5 @@ vcom mux21_generic.vhd
 vcom and2_generic.vhd
 vcom xor2_generic.vhd
 vcom or2_generic.vhd
-vcom logic_block.vhd
-vcom tb_logic_block.vhd
+vcom logic_unit.vhd
+vcom tb_logic_unit.vhd

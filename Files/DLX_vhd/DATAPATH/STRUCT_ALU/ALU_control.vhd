@@ -1,17 +1,17 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-use WORK.alu_type.all;
+use WORK.alu_package.all;
 
-entity ALU_controller is
-	port (  TYPE_OP: in ALU_TYPE_OP;
+entity ALU_control is
+	port (  ALU_OP: in ALU_OP_type;
 			SE_ctrl: in std_logic;
 			conf, ctrl_mux_out: out std_logic_vector(1 downto 0);
 			comparator_ctrl, logic_op: out std_logic_vector(2 downto 0);
 			ctrl_16, adder_comp_sel, SUB: out std_logic);
-end ALU_controller;
+end ALU_control;
 
-architecture BEHAVIOR of ALU_controller is
+architecture BEHAVIOR of ALU_control is
 
 	signal l_r: std_logic;
 
@@ -19,7 +19,7 @@ begin
 
 	conf <= SE_ctrl & l_r;
 
-	P_ALU: process (TYPE_OP)
+	P_ALU: process (ALU_OP)
 	-- complete all the requested functions
 	begin
 		l_r <= '0';
@@ -29,7 +29,7 @@ begin
 		ctrl_16 <= '0';
 		adder_comp_sel <= '0';
 		SUB <= '0';
-		case TYPE_OP is
+		case ALU_OP is
 			when alu_DEFAULT	=>
 			when alu_ADD | alu_ADDU	=>
 				adder_comp_sel <= '1';

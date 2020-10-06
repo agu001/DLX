@@ -1,13 +1,12 @@
 library ieee;
 use ieee.std_logic_1164.all;
---use ieee.std_logic_unsigned.all;
 use IEEE.numeric_std.all;
 
 entity comparator is
 	generic (NBIT: integer:= 32);
 	port	(	A, B, SUM:	in std_logic_vector(NBIT-1 downto 0);
 				S, Cout:	in std_logic;
-				e, ne, lt, le, gt, ge:	out std_logic		--equal, less than, less or equal, greater than, greater or equal
+				e, ne, lt, le, gt, ge:	out std_logic		--equal, not equal, less than, less or equal, greater than, greater or equal
 			);
 end;
 
@@ -18,14 +17,14 @@ architecture struct of comparator is
 				 Z:	out std_logic);
 	end component zero_detector;
 
-	signal Z, opp_signs, opp_signs2, e_s: std_logic;
+	signal Z, opp_signs, opp_signs2: std_logic;
 begin
 
 	zd: zero_detector generic map (32) port map (SUM, Z);
 
-	e_s <= Z;
-	e <= e_s;
-	ne <= not e_s;
+	e <= Z;
+	ne <= not Z;
+
 	opp_signs <= A(NBIT-1) XOR B(NBIT-1);
 	opp_signs2 <= opp_signs AND S;
 

@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_unsigned.all;
 use IEEE.numeric_std.all;
-use WORK.alu_type.all;
+use WORK.alu_package.all;
 
 entity TB is
 end TB;

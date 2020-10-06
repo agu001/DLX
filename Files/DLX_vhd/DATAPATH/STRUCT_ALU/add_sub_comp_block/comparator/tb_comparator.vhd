@@ -7,23 +7,20 @@ entity tb_comparator is
 end;
 
 architecture test2 of tb_comparator is
-	component ADD_SUB_BLOCK is
-		generic (
-					NBIT:	integer :=	32);
-		port (
-					A :		in	std_logic_vector(NBIT-1 downto 0);
-					B :		in	std_logic_vector(NBIT-1 downto 0);
-					SUB, SIGN:	in	std_logic;
-					RES :	out	std_logic_vector(NBIT-1 downto 0);
-					Cout, e, ne, lt, le, gt, ge:	out std_logic);
-end component;
+	component add_sub_block is
+		generic ( NBIT:	integer :=	32);
+		port (	A :		in	std_logic_vector(NBIT-1 downto 0);
+				B :		in	std_logic_vector(NBIT-1 downto 0);
+				SUB, SIGN:	in	std_logic;
+				RES :	out	std_logic_vector(NBIT-1 downto 0);
+				Cout, e, ne, lt, le, gt, ge:	out std_logic);
+	end component;
 
 	component comparator is
-		generic (NBIT: integer:= 32);
+		generic ( NBIT: integer:= 32);
 		port	(	A, B, SUM:	in std_logic_vector(NBIT-1 downto 0);
 					S, Cout:	in std_logic;
-					e, lt, le, gt, ge:	out std_logic		--equal, less than, less or equal, greater than, greater or equal
-				);
+					e, lt, le, gt, ge:	out std_logic);		--equal, less than, less or equal, greater than, greater or equal
 	end component;
 
 	signal A,B,RES :std_logic_vector(32-1 downto 0);
@@ -31,7 +28,7 @@ end component;
 
 begin
 	dut: comparator generic map (32) port map(A, B, RES, S, Cout);
-	dut2: ADD_SUB_BLOCK generic map(32) port map(A, B, SUB, S, RES, Cout);
+	dut2: add_sub_block generic map(32) port map(A, B, SUB, S, RES, Cout);
 
 	process
 	begin

@@ -1,0 +1,49 @@
+			vcom ./add_sub_comp_block/add_sub_block/P4_adder/constants.vhd
+			vcom ./add_sub_comp_block/add_sub_block/P4_adder/fa.vhd
+			vcom ./add_sub_comp_block/add_sub_block/P4_adder/iv.vhd
+			vcom ./add_sub_comp_block/add_sub_block/P4_adder/nd2.vhd
+			vcom ./add_sub_comp_block/add_sub_block/P4_adder/mux21_generic.vhd
+			vcom ./add_sub_comp_block/add_sub_block/P4_adder/rca.vhd
+			vcom ./add_sub_comp_block/add_sub_block/P4_adder/CSblock.vhd
+			vcom ./add_sub_comp_block/add_sub_block/P4_adder/SUM_GENERATOR.vhd
+			vcom ./add_sub_comp_block/add_sub_block/P4_adder/PGnet.vhd
+			vcom ./add_sub_comp_block/add_sub_block/P4_adder/PG.vhd
+			vcom ./add_sub_comp_block/add_sub_block/P4_adder/G.vhd
+			vcom ./add_sub_comp_block/add_sub_block/P4_adder/BUF.vhd
+			vcom ./add_sub_comp_block/add_sub_block/P4_adder/BUF1.vhd
+			vcom ./add_sub_comp_block/add_sub_block/P4_adder/CARRY_GENERATOR.vhd
+			vcom ./add_sub_comp_block/add_sub_block/P4_adder/P4_adder.vhd
+
+		vcom ./add_sub_comp_block/add_sub_block/xor2.vhd
+		vcom ./add_sub_comp_block/add_sub_block/add_sub_block.vhd
+
+		vcom ./add_sub_comp_block/comparator/zero_detector.vhd
+		vcom ./add_sub_comp_block/comparator/comparator.vhd
+
+	vcom ./add_sub_comp_block/add_sub_comp_block.vhd
+
+	vcom ./Booth_multiplier/rca.vhd
+	vcom ./Booth_multiplier/Comp2.vhd
+	vcom ./Booth_multiplier/encoder33.vhd
+	vcom ./Booth_multiplier/mux51.vhd
+	vcom ./Booth_multiplier/sign_ext.vhd
+	vcom ./Booth_multiplier/boothmul.vhd
+
+	vcom ./T2_shifter/mux21.vhd
+	vcom ./T2_shifter/mux41_generic.vhd
+	vcom ./T2_shifter/mux61.vhd
+	vcom ./T2_shifter/mux81_generic.vhd
+	vcom ./T2_shifter/T2_shifter.vhd
+
+vcom ALU_package.vhd
+
+	vcom ./logic_unit/and2_generic.vhd
+	vcom ./logic_unit/xor2_generic.vhd
+	vcom ./logic_unit/or2_generic.vhd
+	vcom ./logic_unit/logic_unit.vhd
+
+vcom ALU_datapath.vhd
+vcom ALU_control.vhd
+vcom ALU.vhd
+vcom tb_ALU.vhd
+

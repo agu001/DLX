@@ -8,12 +8,12 @@ end TB;
 
 architecture TestBench of TB is
 
-	component logic_block is
+	component logic_unit is
 	  	port(	logic_op: IN std_logic_vector(2 downto 0);
 	  			ctrl_16: IN std_logic;					--0->32, 1->16
 				DATA1, DATA2: IN std_logic_vector(NBIT-1 downto 0);
 				Y: OUT std_logic_vector(NBIT-1 downto 0));
-	end component logic_block;
+	end component logic_unit;
 
   signal DATA1, DATA2: std_logic_vector(31 downto 0);
   signal logic_op: std_logic_vector(2 downto 0);
@@ -22,7 +22,7 @@ architecture TestBench of TB is
 
 begin
 
-  dut: logic_block port map (logic_op, ctrl_16, DATA1, DATA2, Y);
+  dut: logic_unit port map (logic_op, ctrl_16, DATA1, DATA2, Y);
 
 
   process
