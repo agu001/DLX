@@ -9,7 +9,6 @@ add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/pc_out
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/npc
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/iram_addr
 add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/iram_in
-add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/mux_to_ir
 add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/ir_r_out
 add wave -noupdate -format Logic /tb/dut/cpu/dp/hdu_mux_sel
 add wave -noupdate -format Literal /tb/dut/cpu/dp/opcode_to_cu
@@ -45,12 +44,13 @@ add wave -noupdate -format Literal /tb/dut/cpu/dp/aluctrl
 add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rd_type_mux_out
 add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rd
 add wave -noupdate -format Logic /tb/dut/cpu/dp/zero_result
-add wave -noupdate -format Logic /tb/dut/cpu/dp/zero_reg_out
 add wave -noupdate -format Logic /tb/dut/cpu/dp/branch_taken1
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/me_out
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/dram_addr
+add wave -noupdate -format Literal /tb/dut/dram_size
+add wave -noupdate -format Logic /tb/dut/clk
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/dram_data_out
-add wave -noupdate -format Literal -radix decimal /tb/dut/memory/memory
+add wave -noupdate -format Literal -radix decimal -expand /tb/dut/memory/memory
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/dram_data_in
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/memory_out
 add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rd_out_reg1
@@ -77,7 +77,7 @@ add wave -noupdate -format Logic /tb/dut/cpu/dp/en_em
 add wave -noupdate -format Logic /tb/dut/cpu/dp/en_mw
 add wave -noupdate -format Logic /tb/dut/cpu/dp/en_w
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {110030 ps} 0}
+WaveRestoreCursors {{Cursor 1} {65080 ps} 0}
 configure wave -namecolwidth 250
 configure wave -valuecolwidth 124
 configure wave -justifyvalue left
@@ -92,4 +92,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {90830 ps} {130230 ps}
+WaveRestoreZoom {52070 ps} {78330 ps}

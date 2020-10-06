@@ -16,6 +16,7 @@ entity DATAPATH is
 			aluCTRL_from_CU: in ALU_OP_type;
 			--DRAM
 			dram_addr: out std_logic_vector(DRAM_DEPTH-1 downto 0);
+			dram_size: out std_logic_vector(1 downto 0);
 			dram_data_out: out std_logic_vector(D_SIZE-1 downto 0);
 			dram_data_in: in std_logic_vector(D_SIZE- 1 downto 0);
 			dram_rd, dram_wr, dram_en: out std_logic;
@@ -273,6 +274,7 @@ begin
 			dram_rd <= RM;
 			dram_wr <= WM;
 			dram_addr <= ALU_OUT_REG1;
+			dram_size <= MSIZE1 & MSIZE0;
 			dram_data_out <= ME_OUT;
 			--MEMORY_OUT <= dram_data_in;
 

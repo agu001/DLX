@@ -143,7 +143,7 @@ begin
 		ISBEQZ   	<= outCW(CW_SIZE -12);
 		RM     		<= outCW(CW_SIZE -13);
 		WM     		<= outCW(CW_SIZE -14);
-		MSIZE1		<= outCW(CW_SIZE -15);
+		MSIZE1		<= outCW(CW_SIZE -15);				--"01" if byte, "10" if half, "11" if word	 <= MSIZE & MSIZE0
 		MSIZE0		<= outCW(CW_SIZE -16);
 		SE_CTRL2	<= outCW(CW_SIZE -17);
 		EN_MW  		<= outCW(CW_SIZE -18);

@@ -6,8 +6,9 @@ use WORK.alu_package.all;
 entity DLX is
 	generic ( I_SIZE: natural := 32 );
 	port ( 	--IR: in std_logic_vector(I_SIZE-1 downto 0);
-	 		dram_out: out std_logic_vector(I_SIZE-1 downto 0);
 			dram_addr: out std_logic_vector(31 downto 0);
+			dram_size: out std_logic_vector(1 downto 0);
+			dram_out: out std_logic_vector(I_SIZE-1 downto 0);
 			dram_in: in std_logic_vector(I_SIZE-1 downto 0);
 			RD_MEM, WR_MEM, EN_MEM: out std_logic;
 			--iram_out: out std_logic_vector(I_SIZE-1 downto 0);
@@ -30,6 +31,7 @@ architecture Struct of DLX is
 				aluCTRL_from_CU: in ALU_OP_type;
 				--DRAM
 				dram_addr: out std_logic_vector(DRAM_DEPTH-1 downto 0);
+				dram_size: out std_logic_vector(1 downto 0);
 				dram_data_out: out std_logic_vector(D_SIZE-1 downto 0);
 				dram_data_in: in std_logic_vector(D_SIZE- 1 downto 0);
 				dram_rd, dram_wr, dram_en: out std_logic;
@@ -97,6 +99,6 @@ begin
 
 	CU: CONTROL_UNIT port map (RF1,	RF2, EN_DE, I0_R1_SEL, JAL_SEL, ISJR, S2, SE_CTRL, ALU_CTRL, EN_EM, ISJUMP, ISBRANCH, ISBEQZ, RM, WM, MSIZE1, MSIZE0, SE_CTRL2, EN_MW, S3, WF1, EN_W, OPCODE_to_CU, FUNC_to_CU, Clk, Rst);
 
-	DP: DATAPATH port map (controls_s, ALU_CTRL, dram_addr, dram_out, dram_in, RD_MEM, WR_MEM, EN_MEM, iram_addr, iram_in, OPCODE_to_CU, FUNC_to_CU, Clk, Rst);
+	DP: DATAPATH port map (controls_s, ALU_CTRL, dram_addr, dram_size, dram_out, dram_in, RD_MEM, WR_MEM, EN_MEM, iram_addr, iram_in, OPCODE_to_CU, FUNC_to_CU, Clk, Rst);
 
 end Struct;
