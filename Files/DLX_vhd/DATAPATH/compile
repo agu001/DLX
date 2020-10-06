@@ -46,10 +46,7 @@
 	vcom ./ALU/tb_ALU.vhd
 
 vcom myTypesDLX.vhd
-vcom nd2.vhd
-vcom iv.vhd
 vcom fd.vhd
-
 vcom register.vhd
 vcom RF.vhd
 vcom HAZARD_DETECTION_UNIT.vhd
