@@ -1,7 +1,8 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use WORK.alu_type.all;
+use work.constants.tp_mux;
+use WORK.alu_package.all;
 use work.myTypes.all;
 
 entity DATAPATH is
@@ -12,7 +13,7 @@ entity DATAPATH is
 			);
 	port (	--CU
 			CW_from_CU: in std_logic_vector(CW_SIZE-1 downto 0);
-			aluCTRL_from_CU: in alu_type_op;
+			aluCTRL_from_CU: in ALU_OP_type;
 			--DRAM
 			dram_addr: out std_logic_vector(DRAM_DEPTH-1 downto 0);
 			dram_data_out: out std_logic_vector(D_SIZE-1 downto 0);
@@ -54,20 +55,19 @@ architecture Struct of DATAPATH is
 				 OUT2: 		OUT std_logic_vector(DATABIT-1 downto 0));
 	end component register_file;
 
-	component MUX21_GENERIC is
-		generic(NBIT: integer := D_SIZE;
-			   DELAY_MUX: time := 0.2 ns);
-		Port (	A:	In	std_logic_vector(NBIT-1 downto 0);
-			B:	In	std_logic_vector(NBIT-1 downto 0);
-			SEL:	In	std_logic;
-			Y:	Out	std_logic_vector(NBIT-1 downto 0));
-	end component MUX21_GENERIC;
+	component mux21_generic is
+		generic (	NBIT: integer := NBIT;
+			   		DELAY_MUX: time := tp_mux);
+		Port (	in_1, in_0:	In	std_logic_vector(NBIT-1 downto 0);
+				sel:	In	std_logic;
+				y:	Out	std_logic_vector(NBIT-1 downto 0));
+	end component mux21_generic;
 
 	component ALU is
-		generic (N : integer := 32);
-		port	(	TYPE_OP: IN ALU_TYPE_OP;
-					DATA1, DATA2: IN std_logic_vector(N-1 downto 0);
-					OUTALU: OUT std_logic_vector(N-1 downto 0));
+		port (	DATA1, DATA2: IN std_logic_vector(NBIT-1 downto 0);
+				SE_ctrl_in: in std_logic;
+				ALU_OP: in ALU_OP_type;
+				OUTALU: OUT std_logic_vector(NBIT-1 downto 0));
 	end component ALU;
 
 	component adder is
@@ -76,18 +76,18 @@ architecture Struct of DATAPATH is
 			 );
 	end component adder;
 
-	component sign_ext is
+	component sign_ext_dp is
 		port ( 	SE_CTRL, ISJUMP: in std_logic;
 				DataIn: in std_logic_vector(25 downto 0);
 			   	Dataout: out std_logic_vector(31 downto 0)
 			 );
 	end component;
 
-	component comparator is
-		generic ( SIZE: natural := 32 );
-		port ( R1: in std_logic_vector(SIZE-1 downto 0);
-			ISZERO: out std_logic );
-	end component comparator;
+	component zero_detector is
+		generic ( NBIT:	integer:= NBIT );
+		port (	A:	in std_logic_vector(NBIT-1 downto 0);
+				Z:	out std_logic);
+	end component zero_detector;
 
 	component FD is
 		Port (	D:	In	std_logic;
@@ -137,7 +137,7 @@ architecture Struct of DATAPATH is
 	signal RS1, RS2, RD, RD_OUT_REG1, RD_OUT_REG2, RD_OUT_REG3, RS1_R_OUT, RS2_R_OUT: std_logic_vector(4 downto 0);
 	signal RD_RTYPE_OUT, RD_ITYPE_OUT, RD_type_mux_OUT: std_logic_vector(4 downto 0);
 
-	signal aluCTRL: ALU_TYPE_OP;
+	signal aluCTRL: ALU_OP_type;
 	signal aluCTRLint: integer;
 	signal aluCTRLbits1, aluCTRLbits2: std_logic_vector(4 downto 0);
 
@@ -160,8 +160,8 @@ begin
 			RF2 <= CW_active(CW_SIZE-2);
 			EN_DE <= CW_active(CW_SIZE-3) or WF1;
 			aluCTRLbits1 <= std_logic_vector(to_unsigned(aluCTRLint, aluCTRLbits1'length));
-			aluCTRLint <= ALU_TYPE_OP'POS(aluCTRL_from_CU);
-			aluCTRL <= ALU_TYPE_OP'VAL(to_integer(unsigned(aluCTRLbits2)));
+			aluCTRLint <= ALU_OP_type'POS(aluCTRL_from_CU);
+			aluCTRL <= ALU_OP_type'VAL(to_integer(unsigned(aluCTRLbits2)));
 	--EXECUTE STAGE
 			I0_R1_SEL  <= CWregEX(CW_EX_SIZE-1);
 			JAL_SEL  <= CWregEX(CW_EX_SIZE-2);
@@ -221,7 +221,7 @@ begin
 			A: Register_generic port map (RFOUT1, Clk, Rst, EN_DE, A_OUT);
 			B: Register_generic port map (RFOUT2, Clk, Rst, EN_DE, B_OUT);
 
-			sext: sign_ext port map(SE_CTRL, CW_active(CW_SIZE-5), IMM26, IMM32);
+			sext: sign_ext_dp port map(SE_CTRL, CW_active(CW_SIZE-5), IMM26, IMM32);
 
 			--pipeline registers
 			EX_M_WB_reg: Register_generic generic map(CW_EX_SIZE) port map(CW_active(CW_EX_SIZE-1 downto 0), Clk, branch_taken1, '1', CWregEX);
@@ -234,14 +234,14 @@ begin
 
 			adder_NPC: adder port map(NPC_REG2_OUT, IMM32_OUT, REL_ADDR);
 			addr_to_jump: MUX21_GENERIC port map(MUX_FW1_OUT, REL_ADDR, ISJR, BJ_ADDR);
-			compare: comparator port map(MUX_FW1_OUT, ZERO_RESULT);
+			op1_is_zero: zero_detector port map(MUX_FW1_OUT, ZERO_RESULT);
 
 			mux_fw1: MUX21_GENERIC port map ( FU_OUT_S1, A_OUT, FU_CTRL1, MUX_FW1_OUT);
 
 			mux_fw2: MUX21_GENERIC port map ( FU_OUT_S2, B_OUT, FU_CTRL2, MUX_FW2_OUT);
 			mux_s2: MUX21_GENERIC port map (MUX_FW2_OUT, IMM32_OUT, S2, S2_OUT);
 
-			alu_op: ALU port map (aluCTRL, MUX_FW1_OUT, S2_OUT, ALU_OUT);
+			alu_op: ALU port map (MUX_FW1_OUT, S2_OUT, SE_CTRL, aluCTRL, ALU_OUT);
 
 			RD_type_mux: MUX21_GENERIC generic map(5) port map (RD_RTYPE_OUT, RD_ITYPE_OUT, I0_R1_SEL, RD_type_mux_OUT);
 			mux_jal:  MUX21_GENERIC generic map(5) port map ("11111", RD_type_mux_OUT, JAL_SEL, RD);

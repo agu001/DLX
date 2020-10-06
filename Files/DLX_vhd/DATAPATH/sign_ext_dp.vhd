@@ -3,14 +3,14 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use WORK.alu_type.all;
 
-entity sign_ext is
+entity sign_ext_dp is
 	port ( 	    SE_CTRL, ISJUMP: in std_logic; 	--extend signed if SE_CTRL is 1
 				DataIn: in std_logic_vector(25 downto 0);
 			   	Dataout: out std_logic_vector(31 downto 0)
 			 );
 end entity;
 
-architecture Beh of sign_ext is
+architecture Beh of sign_ext_dp is
 begin
 
 	process(SE_CTRL, ISJUMP, DataIn)

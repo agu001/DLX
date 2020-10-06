@@ -5,11 +5,10 @@ use IEEE.numeric_std.all;
 use WORK.alu_package.all;
 
 	entity ALU is
-		generic (N : integer := 32);
-		port (	DATA1, DATA2: IN std_logic_vector(N-1 downto 0);
+		port (	DATA1, DATA2: IN std_logic_vector(NBIT-1 downto 0);
 				SE_ctrl_in: in std_logic;
 				ALU_OP: in ALU_OP_type;
-				OUTALU: OUT std_logic_vector(N-1 downto 0));
+				OUTALU: OUT std_logic_vector(NBIT-1 downto 0));
 	end ALU;
 
 architecture Struct of ALU is
@@ -26,8 +25,8 @@ architecture Struct of ALU is
 		port (	conf, ctrl_mux_out: in std_logic_vector(1 downto 0);
 				comparator_ctrl, logic_op: in std_logic_vector(2 downto 0);
 				ctrl_16, adder_comp_sel, SUB: in std_logic;
-				DATA1, DATA2: IN std_logic_vector(N-1 downto 0);
-				OUTALU: OUT std_logic_vector(N-1 downto 0));
+				DATA1, DATA2: IN std_logic_vector(NBIT-1 downto 0);
+				OUTALU: OUT std_logic_vector(NBIT-1 downto 0));
 	end component ALU_datapath;
 
 	signal conf_s, ctrl_mux_out_s: std_logic_vector(1 downto 0);

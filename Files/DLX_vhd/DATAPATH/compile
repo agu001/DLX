@@ -1,0 +1,66 @@
+				vcom ./ALU/add_sub_comp_block/add_sub_block/P4_adder/constants.vhd
+				vcom ./ALU/add_sub_comp_block/add_sub_block/P4_adder/fa.vhd
+				vcom ./ALU/add_sub_comp_block/add_sub_block/P4_adder/iv.vhd
+				vcom ./ALU/add_sub_comp_block/add_sub_block/P4_adder/nd2.vhd
+				vcom ./ALU/add_sub_comp_block/add_sub_block/P4_adder/mux21_generic.vhd
+				vcom ./ALU/add_sub_comp_block/add_sub_block/P4_adder/rca.vhd
+				vcom ./ALU/add_sub_comp_block/add_sub_block/P4_adder/CSblock.vhd
+				vcom ./ALU/add_sub_comp_block/add_sub_block/P4_adder/SUM_GENERATOR.vhd
+				vcom ./ALU/add_sub_comp_block/add_sub_block/P4_adder/PGnet.vhd
+				vcom ./ALU/add_sub_comp_block/add_sub_block/P4_adder/PG.vhd
+				vcom ./ALU/add_sub_comp_block/add_sub_block/P4_adder/G.vhd
+				vcom ./ALU/add_sub_comp_block/add_sub_block/P4_adder/BUF.vhd
+				vcom ./ALU/add_sub_comp_block/add_sub_block/P4_adder/BUF1.vhd
+				vcom ./ALU/add_sub_comp_block/add_sub_block/P4_adder/CARRY_GENERATOR.vhd
+				vcom ./ALU/add_sub_comp_block/add_sub_block/P4_adder/P4_adder.vhd
+
+			vcom ./ALU/add_sub_comp_block/add_sub_block/xor2.vhd
+			vcom ./ALU/add_sub_comp_block/add_sub_block/add_sub_block.vhd
+			vcom ./ALU/add_sub_comp_block/comparator/zero_detector.vhd
+			vcom ./ALU/add_sub_comp_block/comparator/comparator.vhd
+		vcom ./ALU/add_sub_comp_block/add_sub_comp_block.vhd
+
+		vcom ./ALU/Booth_multiplier/rca.vhd
+		vcom ./ALU/Booth_multiplier/Comp2.vhd
+		vcom ./ALU/Booth_multiplier/encoder33.vhd
+		vcom ./ALU/Booth_multiplier/mux51.vhd
+		vcom ./ALU/Booth_multiplier/sign_ext.vhd
+		vcom ./ALU/Booth_multiplier/boothmul.vhd
+
+		vcom ./ALU/T2_shifter/mux21.vhd
+		vcom ./ALU/T2_shifter/mux41_generic.vhd
+		vcom ./ALU/T2_shifter/mux61.vhd
+		vcom ./ALU/T2_shifter/mux81_generic.vhd
+		vcom ./ALU/T2_shifter/T2_shifter.vhd
+
+	vcom ./ALU/ALU_package.vhd
+
+		vcom ./ALU/logic_unit/and2_generic.vhd
+		vcom ./ALU/logic_unit/xor2_generic.vhd
+		vcom ./ALU/logic_unit/or2_generic.vhd
+		vcom ./ALU/logic_unit/logic_unit.vhd
+
+	vcom ./ALU/ALU_datapath.vhd
+	vcom ./ALU/ALU_control.vhd
+	vcom ./ALU/ALU.vhd
+	vcom ./ALU/tb_ALU.vhd
+
+vcom myTypesDLX.vhd
+vcom nd2.vhd
+vcom iv.vhd
+vcom fd.vhd
+
+vcom register.vhd
+vcom RF.vhd
+vcom HAZARD_DETECTION_UNIT.vhd
+vcom adder.vhd
+vcom sign_ext_dp.vhd
+vcom sign_extend_mem.vhd
+vcom FORWARDING_UNIT.vhd
+vcom a.c-IRAM.vhd
+vcom DRAM.vhd
+vcom a.b-DataPath2.vhd
+vcom CU_HW.vhd
+vcom DLX.vhd
+vcom DLX_wrapper.vhd
+vcom TB.vhd

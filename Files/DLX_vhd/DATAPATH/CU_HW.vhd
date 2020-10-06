@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.myTypes.all;
-use WORK.alu_type.all;
+use WORK.alu_package.all;
 
 	entity CONTROL_UNIT is
 		port (	-- FETCH STAGE OUTPUTS
@@ -18,7 +18,7 @@ use WORK.alu_type.all;
 				ISJR		: out std_logic;
 				S2 	    	: out std_logic;               --selection bit of second alu input multiplexer
 				SE_CTRL		: out std_logic;
-				ALU_CTRL	: out ALU_TYPE_OP;
+				ALU_CTRL	: out ALU_OP_type;
 				EN_EM  	  	: out std_logic;               -- enables the pipe registers
 
 				-- MEMORY STAGE OUTPUTS
@@ -116,7 +116,7 @@ architecture beh of CONTROL_UNIT is
 	signal cw_from_mem: std_logic_vector(MICROCODE_MEM_SIZE-1 downto 0);
 	signal outCW: std_logic_vector(CW_SIZE-1 downto 0);
 
-  	signal nextALU_CTRL : ALU_TYPE_OP;
+  	signal nextALU_CTRL : ALU_OP_type;
   	signal nextSE_CTRL : std_logic;
 
 begin

@@ -2,6 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_unsigned.all;
 use IEEE.numeric_std.all;
+use WORK.alu_package.all;
 
 entity logic_unit is
   	port(	logic_op: IN std_logic_vector(2 downto 0);

@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use work.myTypes.all;
-use WORK.alu_type.all;
+use WORK.alu_package.all;
 
 entity DLX is
 	generic ( I_SIZE: natural := 32 );
@@ -27,7 +27,7 @@ architecture Struct of DLX is
 				);
 		port (	--CU
 				CW_from_CU: in std_logic_vector(CW_SIZE-1 downto 0);
-				aluCTRL_from_CU: in alu_type_op;
+				aluCTRL_from_CU: in ALU_OP_type;
 				--DRAM
 				dram_addr: out std_logic_vector(DRAM_DEPTH-1 downto 0);
 				dram_data_out: out std_logic_vector(D_SIZE-1 downto 0);
@@ -55,7 +55,7 @@ architecture Struct of DLX is
 				ISJR		: out std_logic;
 				S2 	    	: out std_logic;               --selection bit of second alu input multiplexer
 				SE_CTRL		: out std_logic;
-				ALU_CTRL	: out ALU_TYPE_OP;
+				ALU_CTRL	: out ALU_OP_type;
 				EN_EM  	  	: out std_logic;               -- enables the pipe registers
 
 				-- MEMORY STAGE OUTPUTS
@@ -84,7 +84,7 @@ architecture Struct of DLX is
 	signal RF1,	RF2, EN_DE,	I0_R1_SEL, JAL_SEL, ISJR, S2, EN_EM, ISJUMP, ISBRANCH, ISBEQZ, RM, WM, MSIZE1, MSIZE0, SE_CTRL2, SE_CTRL, EN_MW, S3, WF1, EN_W: std_logic;
 	signal controls_s: std_logic_vector(CW_SIZE-1 downto 0);
 	signal INP1_S, INP2_S: std_logic_vector(31 downto 0);
-	signal ALU_CTRL: ALU_TYPE_OP;
+	signal ALU_CTRL: ALU_OP_type;
 	signal OPCODE_to_CU: std_logic_vector(OP_CODE_SIZE - 1 downto 0);
 	signal FUNC_to_CU: std_logic_vector(FUNC_SIZE - 1 downto 0);
 
