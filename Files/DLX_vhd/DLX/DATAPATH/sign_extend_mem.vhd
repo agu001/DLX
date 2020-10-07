@@ -40,7 +40,7 @@ begin
 					elsif (numbytes = 2 ) then
 						DataOut <= zero16 & DataIn(15 downto 0);
 					else
-						DataOut <= zero8 & DataIn(23 downto 0);
+						DataOut <= DataIn;
 					end if;
 				when '1' =>
 					if (numbytes = 1 ) then
@@ -48,7 +48,7 @@ begin
 					elsif (numbytes = 2 ) then
 						DataOut <= sign16 & DataIn(15 downto 0);
 					else
-						DataOut <= sign8 & DataIn(23 downto 0);
+						DataOut <= DataIn;
 					end if;
 				when others => DataOut <= zero24 & zero8;
 			end case;

@@ -27,6 +27,9 @@ lbu r3,5-4(r4)
 lhi r1,#-40
 mult r5,r2,r4
 sb 41(r3), r2
+sh 45(r3), r7
+sw 49(r3), r1
+lw r1, 49(r0)
 seq r13,r1,r4
 seqi r29,r20,#1
 sgeu r9,r20,r10
