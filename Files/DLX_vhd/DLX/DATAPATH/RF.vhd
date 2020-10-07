@@ -48,21 +48,16 @@ begin
 				REGISTERS(13) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
 				REGISTERS(14) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
 				REGISTERS(18) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
-				OUT1 <= ( others =>'0') after 0.2 ns;
-			    OUT2 <= ( others =>'0') after 0.2 ns;
 			elsif( ENABLE = '1') then
-				if (RD1 = '1') then
-					OUT1 <= REGISTERS(to_integer(unsigned(ADD_RD1))) after 0.2 ns;
-				end if;
-				if (RD2 = '1') then
-					OUT2 <= REGISTERS(to_integer(unsigned(ADD_RD2))) after 0.2 ns;
-				end if;
 				if (WR = '1' and ADD_WR /="00000") then
 					REGISTERS(to_integer(unsigned(ADD_WR))) <= DATAIN after 0.2 ns;
 				end if;
 			end if;
 		end if;
 	end process;
+
+	OUT1 <= REGISTERS(to_integer(unsigned(ADD_RD1))) after 0.2 ns when(RD1 = '1' and ENABLE = '1');
+	OUT2 <= REGISTERS(to_integer(unsigned(ADD_RD2))) after 0.2 ns when(RD2 = '1' and ENABLE = '1');
 
 end BEH;
 
