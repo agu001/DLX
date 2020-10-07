@@ -42,6 +42,7 @@ package myTypes is
 	constant ADDI : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=   "001000";
 	constant ANDI : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=   "001100";
 	constant LW : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=   "100011";
+	constant LH : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=   "100001";
 	constant LB : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=   "100000";
 	constant LBU : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=   "100100";
 	constant ORI : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=   "001101";
@@ -63,6 +64,7 @@ package myTypes is
 	constant SUBI : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=  "001010";
 	constant SUBUI : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=  "001011";
 	constant SW : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=  "101011";
+	constant SH : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=  "101001";
 	constant SB : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=  "101000";
 	constant XORI : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=  "001110";
 	constant ADDUI : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=  "001001";

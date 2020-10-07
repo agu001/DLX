@@ -79,12 +79,12 @@ architecture beh of CONTROL_UNIT is
 									"10100001000000001011",--SGEI	29
 									"00000000000000000000",
 									"00000000000000000000",
-									"10100001000100101111",--LB		32
-									"00000000000000000000",
+									"10100001000100111111",--LB		32
+									"10100001000101011111",--LH
 									"00000000000000000000",
 									"10100001000101101111",--LW		35
-									"10100001000100111111",--LBU	36
-									"10100001000101011111",--LHU	37
+									"10100001000100101111",--LBU	36
+									"10100001000101001111",--LHU	37
 									"00000000000000000000",
 									"00000000000000000000",
 									"11100001000010101001",--SB		40
@@ -300,6 +300,9 @@ begin
 			when LHI =>
 				nextALU_CTRL <= alu_LHI;
 				nextSE_CTRL <= '0';
+			when LHU | LB | LBU | LH =>
+				nextALU_CTRL <= alu_ADD;
+				nextSE_CTRL <= '1';
 			when others =>
 				nextALU_CTRL <= alu_ADD;  -- default operation of store and load instructions
 				nextSE_CTRL <= '1';

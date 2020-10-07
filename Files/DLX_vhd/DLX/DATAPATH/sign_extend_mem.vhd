@@ -21,37 +21,19 @@ begin
 	zero24 <= X"000000";
 	zero16 <= X"0000";
 	zero8 <= X"00";
-	sign24 <= X"000000" when (DataIn(23) = '0') else
+	sign24 <= X"000000" when (DataIn(31) = '0') else
 			  X"FFFFFF";
-	sign16 <= X"0000" when (DataIn(15) = '0') else
+	sign16 <= X"0000" when (DataIn(31) = '0') else
 			  X"FFFF";
-	sign8 <=  X"00" when (DataIn(7) = '0') else
-			  X"FF";
+	--sign8 <=  X"00" when (DataIn() = '0') else
+	--		  X"FF";
 	temp_v <= MSIZE1 & MSIZE0;
 	numbytes <= to_integer(unsigned(temp_v));
 
-	process(SE_CTRL, DataIn)
-	begin
-		if (numbytes /= 0) then
-			case SE_CTRL is
-				when '0' =>
-					if (numbytes = 1 ) then
-						DataOut <= zero24 & DataIn(7 downto 0);
-					elsif (numbytes = 2 ) then
-						DataOut <= zero16 & DataIn(15 downto 0);
-					else
-						DataOut <= DataIn;
-					end if;
-				when '1' =>
-					if (numbytes = 1 ) then
-						DataOut <= sign24 & DataIn(7 downto 0);
-					elsif (numbytes = 2 ) then
-						DataOut <= sign16 & DataIn(15 downto 0);
-					else
-						DataOut <= DataIn;
-					end if;
-				when others => DataOut <= zero24 & zero8;
-			end case;
-		end if;
-	end process;
+
+	DataOut <= 	zero24 & DataIn(31 downto 24) when numbytes = 1 and se_ctrl = '0' else
+				zero16 & DataIn(31 downto 16) when numbytes = 2 and se_ctrl = '0' else
+				sign24 & DataIn(31 downto 24) when numbytes = 1 and se_ctrl = '1' else
+				sign16 & DataIn(31 downto 16) when numbytes = 2 and se_ctrl = '1' else
+				DataIn;
 end Beh;
