@@ -8,8 +8,10 @@ nop
 ori r5, r3, #342
 sge r1,r2,r10
 sgei r9,r20,#6
+b1:
 sle r13,r2,r4
 slei r1,r3,#-4
+bnez r1, b1
 sll r1,r2,r3
 slli r4,r1,#5
 sne r1,r2,r3
@@ -17,23 +19,30 @@ snei r3,r5,#4
 srl r5,r7,r8
 srli r7,r5,#2
 sub r6,r12,r15
+b2:
 subi r7,r9,#-30
+beqz r7, b2
 xor r6,r12,r15
 xori r6,r12,#1
 addu r5,r3,r4
 addui r1,r5,#250
-lb r1,3-4(r2)
-lbu r3,5-4(r4)
+lb r1, 50(r0)
+lbu r3, 50(r0)
 lhi r1,#-40
 mult r5,r2,r4
 sb 41(r3), r2
-sh 45(r3), r7
-sw 49(r3), r1
-lw r1, 49(r0)
+sw 52(r3), r1
+jal labjal
+addi r31, r0, labjr2
+jalr r31
+lh r3, 50(r0)
+labjal:
 seq r13,r1,r4
 seqi r29,r20,#1
 sgeu r9,r20,r10
 sgeui r7,r8,#23
+jr r31
+labjr2:
 sgt r1,r2,r3
 sgti r4,r1,#15
 sgtu r5,r6,r3

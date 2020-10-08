@@ -46,7 +46,7 @@ sgtui r10,r1,#1
 sltui r10,r1,#1
 sltui r10,r1,#3
 addui r11,r0,#65535
-;lhi r12,#65535
+lhi r12,#65535
 or r13,r11,r12
 ori r14,r12,#65535
 and r15,r14,r2
@@ -55,8 +55,8 @@ sll r17,r16,r2
 slli r18,r16,#1
 srl r19,r16,r2
 srli r20,r16,#1
-sra r21,r12,r2
 srai r22,r12,#1
 mult r23,r1,r5
 xor r24,r1,r1
 xori r25,r1,#2
+sra r21,r12,r2
