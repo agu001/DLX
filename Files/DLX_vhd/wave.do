@@ -19,7 +19,7 @@ add wave -noupdate -format Literal /tb/dut/cpu/dp/cwregmw
 add wave -noupdate -format Literal /tb/dut/cpu/dp/cwregwr
 add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rs1
 add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rs1_r_out
-add wave -noupdate -format Literal -radix hexadecimal -expand /tb/dut/cpu/dp/rf/registers
+add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/rf/registers
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/rfout1
 add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rs2
 add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rs2_r_out
@@ -39,7 +39,7 @@ add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/imm32_out
 add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/bj_addr
 add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/bj_addr_out
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/s2_out
-add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/alu_out
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/alu_out
 add wave -noupdate -format Literal /tb/dut/cpu/dp/aluctrl
 add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rd_type_mux_out
 add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rd
@@ -55,6 +55,8 @@ add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/dram_data_in
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/memory_out
 add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rd_out_reg1
 add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rd_out_reg2
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rd_out_reg3
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/s3_2_wb_out
 add wave -noupdate -format Logic /tb/dut/cpu/dp/s2
 add wave -noupdate -format Logic /tb/dut/cpu/dp/isjump
 add wave -noupdate -format Logic /tb/dut/cpu/dp/isbranch
@@ -90,7 +92,7 @@ add wave -noupdate -color Magenta -format Literal -radix hexadecimal /tb/dut/cpu
 add wave -noupdate -color Magenta -format Literal -radix hexadecimal /tb/dut/cpu/dp/data_ext_mem/numbytes
 add wave -noupdate -color Magenta -format Literal -radix hexadecimal /tb/dut/cpu/dp/data_ext_mem/temp_v
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {65080 ps} 0}
+WaveRestoreCursors {{Cursor 1} {11050 ps} 0}
 configure wave -namecolwidth 250
 configure wave -valuecolwidth 124
 configure wave -justifyvalue left
@@ -105,4 +107,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {55060 ps} {81320 ps}
+WaveRestoreZoom {0 ps} {26260 ps}
