@@ -217,7 +217,7 @@ begin
 			rs1_r: Register_generic generic map(5) port map(RS1, Clk, Rst, '1', RS1_R_OUT);
 			rs2_r: Register_generic generic map(5) port map(RS2, Clk, Rst, '1', RS2_R_OUT);
 
-			RF: register_file port map (Clk, Rst, EN_DE, '1', '1', WF_WB_REG_OUT, RD_OUT_REG3, RS1, RS2, S3_2_WB_OUT, RFOUT1, RFOUT2);
+			RF: register_file port map (Clk, Rst, EN_DE, '1', '1', WF1, RD_OUT_REG2, RS1, RS2, S3_2_OUT, RFOUT1, RFOUT2);
 
 			A: Register_generic port map (RFOUT1, Clk, Rst, EN_DE, A_OUT);
 			B: Register_generic port map (RFOUT2, Clk, Rst, EN_DE, B_OUT);
