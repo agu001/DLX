@@ -4,9 +4,7 @@ use work.myTypes.all;
 use WORK.alu_package.all;
 
 entity DLX is
-	generic ( I_SIZE: natural := 32 );
-	port ( 	--IR: in std_logic_vector(I_SIZE-1 downto 0);
-			dram_addr: out std_logic_vector(31 downto 0);
+	port ( 	dram_addr: out std_logic_vector(31 downto 0);
 			dram_size: out std_logic_vector(1 downto 0);
 			dram_out: out std_logic_vector(I_SIZE-1 downto 0);
 			dram_in: in std_logic_vector(I_SIZE-1 downto 0);
@@ -36,7 +34,7 @@ architecture Struct of DLX is
 				dram_data_in: in std_logic_vector(D_SIZE- 1 downto 0);
 				dram_rd, dram_wr, dram_en: out std_logic;
 				--IRAM
-				iram_addr: out std_logic_vector(IRAM_DEPTH-1 downto 0);
+				iram_addr: out std_logic_vector(D_SIZE-1 downto 0);
 				iram_in: in std_logic_vector(I_SIZE-1 downto 0);
 				OPCODE_to_CU 		: out  std_logic_vector(OP_CODE_SIZE - 1 downto 0);
 				FUNC_to_CU   		: out  std_logic_vector(FUNC_SIZE - 1 downto 0);

@@ -33,31 +33,31 @@ begin
 
 		if(CLK = '0' AND CLK'event) then
 			if(RESET ='1') then
-				REGISTERS <= (others => ( others =>'0')) after 0.2 ns;
-				REGISTERS(5) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
-				REGISTERS(2) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
-				REGISTERS(3) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
-				REGISTERS(10) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
-				REGISTERS(9) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
-				REGISTERS(7) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
-				REGISTERS(8) <= std_logic_vector(to_unsigned(16, DATABIT)) after 0.2 ns;
-				REGISTERS(12) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
-				REGISTERS(15) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
-				REGISTERS(20) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
-				REGISTERS(30) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
-				REGISTERS(13) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
-				REGISTERS(14) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
-				REGISTERS(18) <= std_logic_vector(to_unsigned(10, DATABIT)) after 0.2 ns;
+				REGISTERS <= (others => ( others =>'0'));
+				REGISTERS(5) <= std_logic_vector(to_unsigned(10, DATABIT));
+				REGISTERS(2) <= std_logic_vector(to_unsigned(10, DATABIT));
+				REGISTERS(3) <= std_logic_vector(to_unsigned(10, DATABIT));
+				REGISTERS(10) <= std_logic_vector(to_unsigned(10, DATABIT));
+				REGISTERS(9) <= std_logic_vector(to_unsigned(10, DATABIT));
+				REGISTERS(7) <= std_logic_vector(to_unsigned(10, DATABIT));
+				REGISTERS(8) <= std_logic_vector(to_unsigned(16, DATABIT));
+				REGISTERS(12) <= std_logic_vector(to_unsigned(10, DATABIT));
+				REGISTERS(15) <= std_logic_vector(to_unsigned(10, DATABIT));
+				REGISTERS(20) <= std_logic_vector(to_unsigned(10, DATABIT));
+				REGISTERS(30) <= std_logic_vector(to_unsigned(10, DATABIT));
+				REGISTERS(13) <= std_logic_vector(to_unsigned(10, DATABIT));
+				REGISTERS(14) <= std_logic_vector(to_unsigned(10, DATABIT));
+				REGISTERS(18) <= std_logic_vector(to_unsigned(10, DATABIT));
 			elsif( ENABLE = '1') then
 				if (WR = '1' and ADD_WR /="00000") then
-					REGISTERS(to_integer(unsigned(ADD_WR))) <= DATAIN after 0.2 ns;
+					REGISTERS(to_integer(unsigned(ADD_WR))) <= DATAIN;
 				end if;
 			end if;
 		end if;
 	end process;
 
-	OUT1 <= REGISTERS(to_integer(unsigned(ADD_RD1))) after 0.2 ns when(RD1 = '1' and ENABLE = '1');
-	OUT2 <= REGISTERS(to_integer(unsigned(ADD_RD2))) after 0.2 ns when(RD2 = '1' and ENABLE = '1');
+	OUT1 <= REGISTERS(to_integer(unsigned(ADD_RD1))) when(RD1 = '1' and ENABLE = '1');
+	OUT2 <= REGISTERS(to_integer(unsigned(ADD_RD2))) when(RD2 = '1' and ENABLE = '1');
 
 end BEH;
 

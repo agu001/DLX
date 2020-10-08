@@ -16,10 +16,10 @@ begin
 	PSYNCH: process(CK,RESET)
 	begin
 	    if RESET='1' then -- active high reset
-	      Q <= '0' after 0.2 ns;
+	      Q <= '0';
 	    elsif CK'event and CK='1' then -- positive edge triggered:
 	    	if (EN='1') then
-	      		Q <= D after 0.2 ns; -- input is written on output
+	      		Q <= D; -- input is written on output
 	      	end if;
 	    end if;
 	end process;

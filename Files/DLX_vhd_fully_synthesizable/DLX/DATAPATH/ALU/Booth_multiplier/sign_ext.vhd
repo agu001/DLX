@@ -12,9 +12,8 @@ end sign_ext;
 architecture struct of sign_ext is
 
 	component mux21_generic is
-		generic(NBIT: integer;
-		    	DELAY_MUX: time := tp_mux);
-        port(   in_1, in_0: in std_logic_vector(NBIT-1 downto 0);
+		generic(NBIT: integer);
+        port(   a, b: in std_logic_vector(NBIT-1 downto 0);
                 sel: in std_logic;
                 y: out std_logic_vector(NBIT-1 downto 0)
         );
@@ -24,6 +23,6 @@ architecture struct of sign_ext is
 begin
 	zeros <= (others => '0');
 	ones <= (others => '1');
-	mx: MUX21_GENERIC generic map(NBIT, tp_mux) port map ( ones, zeros, I(NBIT-1), O(2*NBIT-1 downto NBIT));
+	mx: MUX21_GENERIC generic map(NBIT) port map ( ones, zeros, I(NBIT-1), O(2*NBIT-1 downto NBIT));
 	O(NBIT-1 downto 0) <= I;
 end struct;

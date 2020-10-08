@@ -17,15 +17,15 @@ begin
 	begin
 		if (ISJUMP = '1') then
 			if ((DataIn(25) = '0') or SE_CTRL = '0') then
-				DataOut <= ("000000" & DataIn) after 0.3 ns;
+				DataOut <= ("000000" & DataIn);
 			else
-				DataOut <= ("111111" & DataIn) after 0.3 ns;
+				DataOut <= ("111111" & DataIn);
 			end if;
 		else
 			if ((DataIn(15) = '0') or SE_CTRL = '0') then
-				DataOut <= (X"0000" & DataIn(15 downto 0)) after 0.3 ns;
+				DataOut <= (X"0000" & DataIn(15 downto 0));
 			else
-				DataOut <= (X"FFFF" & DataIn(15 downto 0)) after 0.3 ns;
+				DataOut <= (X"FFFF" & DataIn(15 downto 0));
 			end if;
 		end if;
 	end process;

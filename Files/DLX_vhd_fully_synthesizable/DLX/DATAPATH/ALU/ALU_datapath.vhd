@@ -46,7 +46,7 @@ architecture Struct of ALU_datapath is
 
 		component mux21_generic is
 			generic(NBIT: integer);
-			Port (in_1, in_0:	In	std_logic_vector(NBIT-1 downto 0);
+			Port (a, b:	In	std_logic_vector(NBIT-1 downto 0);
 				  sel:	In	std_logic;
 				  y:	Out	std_logic_vector(NBIT-1 downto 0));
 		end component mux21_generic;

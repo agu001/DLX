@@ -6,9 +6,9 @@ package CONSTANTS is
    constant NRDELAY : time := 0.2 ns;
    constant DRCAS : time := 0 ns;
    constant DRCAC : time := 0 ns;
-   constant numBit : integer := 4;	
-   constant tp_mux : time := 0.5 ns; 
+   constant numBit : integer := 4;
+   constant tp_mux : time := 0.5 ns;
    constant NBIT_PER_BLOCK : integer := 4;
-   --constant NBLOCKS	: integer := 8;
+   --constant NBLOCKS	: integer := 4;
    constant NBIT: integer := 32;
 end CONSTANTS;

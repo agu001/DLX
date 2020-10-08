@@ -1,4 +1,4 @@
-library ieee; 
+library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use WORK.constants.all; -- libreria WORK user-defined
@@ -23,7 +23,7 @@ architecture STRUCTURAL of SUM_GENERATOR is
 			);
     end component CSblock;
 begin
-	
+
 	G1: for i in 0 to NBLOCKS-1 generate
 	  CS_i:  CSblock generic map(NBIT_PER_BLOCK)
 				     port map(A(NBIT_PER_BLOCK*(i+1)-1 downto NBIT_PER_BLOCK*i),
@@ -33,10 +33,10 @@ begin
 	    end generate;
 end STRUCTURAL;
 
-configuration CFG_SUM_GENERATOR OF SUM_GENERATOR is
-	for STRUCTURAL
-		for all : CSblock
-			use configuration work.cfg_CSblock;
-		end for;
-	end for;	
-end configuration;
+--configuration CFG_SUM_GENERATOR OF SUM_GENERATOR is
+--	for STRUCTURAL
+--		for all : CSblock
+--			use configuration work.cfg_CSblock;
+--		end for;
+--	end for;
+--end configuration;

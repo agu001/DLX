@@ -2,6 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 package myTypes is
+	constant I_SIZE: integer:= 32;
 	constant MICROCODE_MEM_DEPTH: integer := 64;
 	constant MICROCODE_MEM_SIZE: integer := 20;
 	constant CW_SIZE: integer := 21;
