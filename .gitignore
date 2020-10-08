@@ -7,3 +7,7 @@ Files/DLX_vhd/DATAPATH/ADD_SUB_BLOCK/vsim.wlf
 work/
 transcript
 vsim.wlf
+command.log
+default.svf
+filenames.log
+
