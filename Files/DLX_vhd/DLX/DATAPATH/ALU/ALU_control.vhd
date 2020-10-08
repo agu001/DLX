@@ -8,7 +8,7 @@ entity ALU_control is
 			SE_ctrl: in std_logic;
 			conf, ctrl_mux_out: out std_logic_vector(1 downto 0);
 			comparator_ctrl, logic_op: out std_logic_vector(2 downto 0);
-			ctrl_16, adder_comp_sel, SUB, shift_16: out std_logic);
+			adder_comp_sel, SUB, shift_16: out std_logic);
 end ALU_control;
 
 architecture BEHAVIOR of ALU_control is
@@ -27,7 +27,6 @@ begin
 		ctrl_mux_out <= "00";
 		comparator_ctrl <= "000";
 		logic_op <= "100"; --logic_op(2) -> AND, logic_op(1) -> OR, logic_op(0) -> XOR
-		ctrl_16 <= '0';
 		adder_comp_sel <= '0';
 		SUB <= '0';
 		case ALU_OP is
@@ -42,28 +41,13 @@ begin
 				ctrl_mux_out <= "01";
 			when alu_MULT	=>
 				ctrl_mux_out <= "11";
-			when alu_AND16	=>
-				ctrl_16 <= '1';
+			when alu_AND	=>
 				ctrl_mux_out <= "10";
 				logic_op <= "100";
-			when alu_AND32	=>
-				ctrl_16 <= '0';
-				ctrl_mux_out <= "10";
-				logic_op <= "100";
-			when alu_OR16	=>
-				ctrl_16 <= '1';
+			when alu_OR	=>
 				ctrl_mux_out <= "10";
 				logic_op <= "010";
-			when alu_OR32	=>
-				ctrl_16 <= '0';
-				ctrl_mux_out <= "10";
-				logic_op <= "010";
-			when alu_XOR16	=>
-				ctrl_16 <= '1';
-				ctrl_mux_out <= "10";
-				logic_op <= "001";
-			when alu_XOR32	=>
-				ctrl_16 <= '0';
+			when alu_XOR	=>
 				ctrl_mux_out <= "10";
 				logic_op <= "001";
 			when alu_SGE | alu_SGEU	=>

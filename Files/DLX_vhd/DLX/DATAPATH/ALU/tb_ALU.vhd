@@ -177,19 +177,12 @@ begin
 		DATA2 <= X"F00FF00F";
 		SE_ctrl_in <= '0';
 		--32
-		ALU_OP <= alu_XOR32;--xor
+		ALU_OP <= alu_XOR;--xor
 		wait for 1 ns;
-		ALU_OP <= alu_OR32;--or
+		ALU_OP <= alu_OR;--or
 		wait for 1 ns;
-		ALU_OP <= alu_AND32;--and
+		ALU_OP <= alu_AND;--and
 		wait for 1 ns;
-		--16
-		ALU_OP <= alu_XOR16;--xor
-		wait for 1 ns;
-		ALU_OP <= alu_OR16;--or
-		wait for 1 ns;
-		ALU_OP <= alu_AND16;--and
-    	wait for 1 ns;
 		wait;
 	end process;
 

@@ -7,7 +7,7 @@ use WORK.alu_package.all;
 	entity ALU_datapath is
 		port (	conf, ctrl_mux_out: in std_logic_vector(1 downto 0);
 				comparator_ctrl, logic_op: in std_logic_vector(2 downto 0);
-				ctrl_16, adder_comp_sel, SUB, shift_16: in std_logic;
+				adder_comp_sel, SUB, shift_16: in std_logic;
 				DATA1, DATA2: IN std_logic_vector(NBIT-1 downto 0);
 				OUTALU: OUT std_logic_vector(NBIT-1 downto 0));
 	end ALU_datapath;
@@ -33,7 +33,6 @@ architecture Struct of ALU_datapath is
 
 		component logic_unit is
 		  	port(	logic_op: IN std_logic_vector(2 downto 0);
-		  			ctrl_16: IN std_logic;					--0->32, 1->16
 					DATA1, DATA2: IN std_logic_vector(NBIT-1 downto 0);
 					Y: OUT std_logic_vector(NBIT-1 downto 0));
 		end component logic_unit;
@@ -89,7 +88,7 @@ begin
 		add_comp_slct: mux21_generic generic map(NBIT) port map(adder_out, comparator_out32, adder_comp_sel, adder_comp_out);
 
 		--logic
-		logic: logic_unit port map (logic_op, ctrl_16, DATA1, DATA2, logic_out);
+		logic: logic_unit port map (logic_op, DATA1, DATA2, logic_out);
 
 		--multiplier
 		MULT: boothmul port map(DATA1, DATA2, mult_out);
