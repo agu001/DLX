@@ -89,7 +89,7 @@ if ($srcfile =~ /^(.*)\.dlx$/) {
 # Floating-point instructions
   "addf"  => "f,0x00",
   "subf"  => "f,0x01",
-  "multf" => "f,0x02",
+  "multf" => "r,0x00", #it was f, 0x02
   "divf"  => "f,0x03",
   "addd"  => "f,0x04",
   "subd"  => "f,0x05",
