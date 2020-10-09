@@ -24,7 +24,7 @@ vcom myTypesDLX.vhd
 		vcom ./DLX/DATAPATH/ALU/Booth_multiplier/twoscomplement.vhd
 		vcom ./DLX/DATAPATH/ALU/Booth_multiplier/encoder33.vhd
 		vcom ./DLX/DATAPATH/ALU/Booth_multiplier/mux51.vhd
-		vcom ./DLX/DATAPATH/ALU/Booth_multiplier/sign_ext.vhd
+		vcom ./DLX/DATAPATH/ALU/Booth_multiplier/sign_ext2x_generic.vhd
 		vcom ./DLX/DATAPATH/ALU/Booth_multiplier/boothmul.vhd
 
 		vcom ./DLX/DATAPATH/ALU/T2_shifter/mux21.vhd
@@ -49,7 +49,7 @@ vcom ./DLX/DATAPATH/components/fd.vhd
 vcom ./DLX/DATAPATH/components/register_generic.vhd
 vcom ./DLX/DATAPATH/register_file.vhd
 vcom ./DLX/DATAPATH/HAZARD_DETECTION_UNIT.vhd
-vcom ./DLX/DATAPATH/sign_ext_dp.vhd
+vcom ./DLX/DATAPATH/immediate_ext.vhd
 vcom ./DLX/DATAPATH/sign_extend_mem.vhd
 vcom ./DLX/DATAPATH/FORWARDING_UNIT.vhd
 vcom ./DLX/DATAPATH/a.b-DataPath2.vhd

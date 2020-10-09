@@ -4,14 +4,14 @@ use ieee.numeric_std.all;
 use WORK.alu_package.all;
 use WORK.myTypes.all;
 
-entity sign_ext_dp is
-	port ( 	    SE_CTRL, ISJUMP: in std_logic; 	--extend signed if SE_CTRL is 1
-				DataIn: in std_logic_vector(25 downto 0);
+entity immediate_ext is
+	port ( 	    SE_CTRL, ISJUMP: in std_logic;					--extend signed if SE_CTRL is 1
+				DataIn: in std_logic_vector(25 downto 0);		--immediate is 26 bits for jump instructions
 			   	Dataout: out std_logic_vector(BUS_WIDTH-1 downto 0)
 			 );
-end entity;
+end entity immediate_ext;
 
-architecture Beh of sign_ext_dp is
+architecture Beh of immediate_ext is
 begin
 
 	process(SE_CTRL, ISJUMP, DataIn)

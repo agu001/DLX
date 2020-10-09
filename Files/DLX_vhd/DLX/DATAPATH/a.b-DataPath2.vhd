@@ -75,12 +75,12 @@ architecture Struct of DATAPATH is
 	end component P4_adder;
 
 
-	component sign_ext_dp is
+	component immediate_ext is
 		port ( 	SE_CTRL, ISJUMP: in std_logic;
 				DataIn: in std_logic_vector(25 downto 0);
 			   	Dataout: out std_logic_vector(BUS_WIDTH-1 downto 0)
 			 );
-	end component;
+	end component immediate_ext;
 
 	component zero_detector is
 		generic ( NBIT:	integer:= BUS_WIDTH );
@@ -195,9 +195,6 @@ begin
 			adder_PC: P4_adder generic map (BUS_WIDTH) port map(PC_OUT, X"00000004", '0',  NPC, open);
 			NPC_reg1: Register_generic port map(NPC, Clk, Rst, '1', NPC_REG1_OUT);
 
-			--ir_mux_nop_iram: MUX21_GENERIC generic map(32) port map (X"54000000", iram_in, branch_taken1, mux_to_IR);
-
-			--IR_reg: Register_generic port map(mux_to_IR, Clk, Rst, HDU_IR_EN, IR_R_OUT);
 			IR_reg: Register_generic port map(iram_in, Clk, Rst, HDU_IR_EN, IR_R_OUT);
 	--DECODE
 			OPCODE_to_CU <= IR_R_OUT(BUS_WIDTH-1 downto BUS_WIDTH-6);
@@ -220,7 +217,7 @@ begin
 			A: Register_generic port map (RFOUT1, Clk, Rst, EN_DE, A_OUT);
 			B: Register_generic port map (RFOUT2, Clk, Rst, EN_DE, B_OUT);
 
-			sext: sign_ext_dp port map(SE_CTRL, CW_active(CW_SIZE-5), IMM26, IMM32);
+			sext: immediate_ext port map(SE_CTRL, CW_active(CW_SIZE-5), IMM26, IMM32);
 
 			--pipeline registers
 			EX_M_WB_reg: Register_generic generic map(CW_EX_SIZE) port map(CW_active(CW_EX_SIZE-1 downto 0), Clk, branch_taken1, '1', CWregEX);

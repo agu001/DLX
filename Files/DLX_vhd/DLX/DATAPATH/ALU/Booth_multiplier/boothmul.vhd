@@ -48,11 +48,11 @@ architecture struct of boothmul is
 			);
 	end component;
 
-	component sign_ext is
+	component sign_ext2x_generic is
 		generic ( NBIT: integer );
 		port ( I: in std_logic_vector(NBIT-1 downto 0);
 			   O: out std_logic_vector(2*NBIT-1 downto 0) );
-	end component sign_ext;
+	end component sign_ext2x_generic;
 
 	component twoscomplement is
 		generic ( NBIT: integer := 64 );
@@ -85,7 +85,7 @@ begin
 
 	--sel_result <= A_mp(NBIT-1) XOR B_mp(NBIT-1);
 
-	s_e: sign_ext generic map(NBIT) port map(A_mp, A_s(0));
+	s_e: sign_ext2x_generic generic map(NBIT) port map(A_mp, A_s(0));
 	--A_s(0) <= zero(NBIT-1 downto 0) & A_mp; --segnale A su 64 bit
 
 	C2: twoscomplement generic map (LEN) port map(A_s(0), Abar_s(0)); --complemento a due di A
