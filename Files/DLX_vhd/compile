@@ -21,7 +21,7 @@ vcom myTypesDLX.vhd
 			vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/comparator/comparator.vhd
 		vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_comp_block.vhd
 
-		vcom ./DLX/DATAPATH/ALU/Booth_multiplier/Comp2.vhd
+		vcom ./DLX/DATAPATH/ALU/Booth_multiplier/twoscomplement.vhd
 		vcom ./DLX/DATAPATH/ALU/Booth_multiplier/encoder33.vhd
 		vcom ./DLX/DATAPATH/ALU/Booth_multiplier/mux51.vhd
 		vcom ./DLX/DATAPATH/ALU/Booth_multiplier/sign_ext.vhd

@@ -13,7 +13,7 @@ vcom BUF.vhd
 vcom BUF1.vhd
 vcom CARRY_GENERATOR.vhd
 vcom P4_ADDER.vhd
-vcom Comp2.vhd
+vcom twoscomplement.vhd
 vcom encoder33.vhd
 vcom mux51.vhd
 vcom sign_ext.vhd
