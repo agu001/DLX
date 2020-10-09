@@ -46,8 +46,8 @@ vcom myTypesDLX.vhd
 	vcom ./DLX/DATAPATH/ALU/tb_ALU.vhd
 
 vcom ./DLX/DATAPATH/components/fd.vhd
-vcom ./DLX/DATAPATH/components/register.vhd
-vcom ./DLX/DATAPATH/RF.vhd
+vcom ./DLX/DATAPATH/components/register_generic.vhd
+vcom ./DLX/DATAPATH/register_file.vhd
 vcom ./DLX/DATAPATH/HAZARD_DETECTION_UNIT.vhd
 vcom ./DLX/DATAPATH/sign_ext_dp.vhd
 vcom ./DLX/DATAPATH/sign_extend_mem.vhd
