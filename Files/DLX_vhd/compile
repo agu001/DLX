@@ -1,4 +1,5 @@
-				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/constants.vhd
+vcom myTypesDLX.vhd
+
 				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/fa.vhd
 				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/iv.vhd
 				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/nd2.vhd
@@ -44,7 +45,6 @@
 	vcom ./DLX/DATAPATH/ALU/ALU.vhd
 	vcom ./DLX/DATAPATH/ALU/tb_ALU.vhd
 
-vcom myTypesDLX.vhd
 vcom ./DLX/DATAPATH/components/fd.vhd
 vcom ./DLX/DATAPATH/components/register.vhd
 vcom ./DLX/DATAPATH/RF.vhd

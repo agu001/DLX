@@ -4,49 +4,38 @@ use work.myTypes.all;
 use WORK.alu_package.all;
 
 entity DLX is
-	generic ( I_SIZE: natural := 32 );
-	port ( 	--IR: in std_logic_vector(I_SIZE-1 downto 0);
-			dram_addr: out std_logic_vector(31 downto 0);
+	port ( 	dram_addr: out std_logic_vector(BUS_WIDTH-1 downto 0);
 			dram_size: out std_logic_vector(1 downto 0);
-			dram_out: out std_logic_vector(I_SIZE-1 downto 0);
-			dram_in: in std_logic_vector(I_SIZE-1 downto 0);
+			dram_out: out std_logic_vector(BUS_WIDTH-1 downto 0);
+			dram_in: in std_logic_vector(BUS_WIDTH-1 downto 0);
 			RD_MEM, WR_MEM, EN_MEM: out std_logic;
-			--iram_out: out std_logic_vector(I_SIZE-1 downto 0);
-			iram_addr: out std_logic_vector(I_SIZE-1 downto 0);
-			iram_in: in std_logic_vector(I_SIZE-1 downto 0);
-		   	Clk, Rst: in std_logic
-		 );
+			iram_addr: out std_logic_vector(BUS_WIDTH-1 downto 0);
+			iram_in: in std_logic_vector(BUS_WIDTH-1 downto 0);
+		   	Clk, Rst: in std_logic );
 end DLX;
 
 architecture Struct of DLX is
 
 	component DATAPATH is
-		generic ( D_SIZE: natural := 32;
-				  IRAM_DEPTH: natural := 8;
-				  I_SIZE: natural := 32;
-				  DRAM_DEPTH: natural := 32
-				);
 		port (	--CU
 				CW_from_CU: in std_logic_vector(CW_SIZE-1 downto 0);
 				aluCTRL_from_CU: in ALU_OP_type;
 				--DRAM
-				dram_addr: out std_logic_vector(DRAM_DEPTH-1 downto 0);
+				dram_addr: out std_logic_vector(BUS_WIDTH-1 downto 0);
 				dram_size: out std_logic_vector(1 downto 0);
-				dram_data_out: out std_logic_vector(D_SIZE-1 downto 0);
-				dram_data_in: in std_logic_vector(D_SIZE- 1 downto 0);
+				dram_data_out: out std_logic_vector(BUS_WIDTH-1 downto 0);
+				dram_data_in: in std_logic_vector(BUS_WIDTH- 1 downto 0);
 				dram_rd, dram_wr, dram_en: out std_logic;
 				--IRAM
-				iram_addr: out std_logic_vector(IRAM_DEPTH-1 downto 0);
-				iram_in: in std_logic_vector(I_SIZE-1 downto 0);
+				iram_addr: out std_logic_vector(BUS_WIDTH-1 downto 0);
+				iram_in: in std_logic_vector(BUS_WIDTH-1 downto 0);
 				OPCODE_to_CU 		: out  std_logic_vector(OP_CODE_SIZE - 1 downto 0);
 				FUNC_to_CU   		: out  std_logic_vector(FUNC_SIZE - 1 downto 0);
-				Clk, Rst: in std_logic
-			  );
+				Clk, Rst: in std_logic );
 	end component DATAPATH;
-	component CONTROL_UNIT is
-		port (	-- FETCH STAGE OUTPUTS
 
-				-- DECODE STAGE OUTPUTS
+	component CONTROL_UNIT is
+		port (	-- DECODE STAGE OUTPUTS
 				RF1    		: out std_logic;               -- enables the read port 1 of the register file
 				RF2    		: out std_logic;               -- enables the read port 2 of the register file
 				EN_DE    		: out std_logic;               -- enables the register file and the pipeline registers
@@ -85,12 +74,10 @@ architecture Struct of DLX is
 
 	signal RF1,	RF2, EN_DE,	I0_R1_SEL, JAL_SEL, ISJR, S2, EN_EM, ISJUMP, ISBRANCH, ISBEQZ, RM, WM, MSIZE1, MSIZE0, SE_CTRL2, SE_CTRL, EN_MW, S3, WF1, EN_W: std_logic;
 	signal controls_s: std_logic_vector(CW_SIZE-1 downto 0);
-	signal INP1_S, INP2_S: std_logic_vector(31 downto 0);
+	signal INP1_S, INP2_S: std_logic_vector(BUS_WIDTH-1 downto 0);
 	signal ALU_CTRL: ALU_OP_type;
 	signal OPCODE_to_CU: std_logic_vector(OP_CODE_SIZE - 1 downto 0);
 	signal FUNC_to_CU: std_logic_vector(FUNC_SIZE - 1 downto 0);
-
-	--signal RD_MEM, WR_MEM, EN_MEM: std_logic;
 
 begin
 	--RF1,	RF2,	EN_DE,	I0_R1_SEL,	JAL_SEL, ISJR,		S2,		EN_EM,	ISJUMP,	ISBRANCH,	BEQZ,	RM,	WM,	MSIZE1,	MSIZE0,	SE_CTRL2,	EN_MW,	S3,	WF1, EN_W

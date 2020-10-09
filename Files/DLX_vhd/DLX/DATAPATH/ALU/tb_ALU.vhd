@@ -3,6 +3,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.std_logic_unsigned.all;
 use IEEE.numeric_std.all;
 use WORK.alu_package.all;
+use WORK.myTypes.all;
 
 entity TB is
 end TB;
@@ -10,16 +11,16 @@ end TB;
 architecture TestBench of TB is
 
 		component ALU is
-		  port 	 ( DATA1, DATA2: IN std_logic_vector(NBIT-1 downto 0);
-		  		   SE_ctrl_in: in std_logic;
-		 		   ALU_OP: in ALU_OP_type;
-				   OUTALU: OUT std_logic_vector(NBIT-1 downto 0));
+			port (	DATA1, DATA2: IN std_logic_vector(BUS_WIDTH-1 downto 0);
+					SE_ctrl_in: in std_logic;
+					ALU_OP: in ALU_OP_type;
+					OUTALU: OUT std_logic_vector(BUS_WIDTH-1 downto 0));
 		end component ALU;
 
-		signal DATA1, DATA2: std_logic_vector(NBIT-1 downto 0);
+		signal DATA1, DATA2: std_logic_vector(BUS_WIDTH-1 downto 0);
 		signal SE_ctrl_in: std_logic;
 	    signal ALU_OP: ALU_OP_type;
-		signal OUTALU: std_logic_vector(NBIT-1 downto 0);
+		signal OUTALU: std_logic_vector(BUS_WIDTH-1 downto 0);
 
 begin
 

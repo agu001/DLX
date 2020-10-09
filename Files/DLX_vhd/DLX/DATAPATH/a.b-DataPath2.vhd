@@ -1,28 +1,22 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use work.constants.tp_mux;
 use WORK.alu_package.all;
 use work.myTypes.all;
 
 entity DATAPATH is
-	generic ( D_SIZE: natural := 32;
-			  IRAM_DEPTH: natural := 8;
-			  I_SIZE: natural := 32;
-			  DRAM_DEPTH: natural := 32
-			);
 	port (	--CU
 			CW_from_CU: in std_logic_vector(CW_SIZE-1 downto 0);
 			aluCTRL_from_CU: in ALU_OP_type;
 			--DRAM
-			dram_addr: out std_logic_vector(DRAM_DEPTH-1 downto 0);
+			dram_addr: out std_logic_vector(BUS_WIDTH-1 downto 0);
 			dram_size: out std_logic_vector(1 downto 0);
-			dram_data_out: out std_logic_vector(D_SIZE-1 downto 0);
-			dram_data_in: in std_logic_vector(D_SIZE- 1 downto 0);
+			dram_data_out: out std_logic_vector(BUS_WIDTH-1 downto 0);
+			dram_data_in: in std_logic_vector(BUS_WIDTH- 1 downto 0);
 			dram_rd, dram_wr, dram_en: out std_logic;
 			--IRAM
-			iram_addr: out std_logic_vector(I_SIZE-1 downto 0);
-			iram_in: in std_logic_vector(I_SIZE-1 downto 0);
+			iram_addr: out std_logic_vector(BUS_WIDTH-1 downto 0);
+			iram_in: in std_logic_vector(BUS_WIDTH-1 downto 0);
 			OPCODE_to_CU 		: out  std_logic_vector(OP_CODE_SIZE - 1 downto 0);
 			FUNC_to_CU   		: out  std_logic_vector(FUNC_SIZE - 1 downto 0);
 			Clk, Rst: in std_logic
@@ -31,7 +25,7 @@ end DATAPATH;
 
 architecture Struct of DATAPATH is
 	component Register_generic is
-		generic(NBIT:integer := D_SIZE);
+		generic(NBIT:integer := BUS_WIDTH);
 		Port (	D:	In	std_logic_vector(NBIT-1 downto 0);
 				CK:	In	std_logic;
 				RESET:	In	std_logic;
@@ -40,7 +34,7 @@ architecture Struct of DATAPATH is
 	end component;
 
 	component register_file is
-		generic (DATABIT: natural := D_SIZE;
+		generic (DATABIT: natural := BUS_WIDTH;
 			  	ADDBIT: natural := 5);
 		port	(CLK: 		IN std_logic;
 				 RESET: 	IN std_logic;
@@ -57,7 +51,7 @@ architecture Struct of DATAPATH is
 	end component register_file;
 
 	component mux21_generic is
-		generic (	NBIT: integer := NBIT;
+		generic (	NBIT: integer := BUS_WIDTH;
 			   		DELAY_MUX: time := tp_mux);
 		Port (	in_1, in_0:	In	std_logic_vector(NBIT-1 downto 0);
 				sel:	In	std_logic;
@@ -72,20 +66,20 @@ architecture Struct of DATAPATH is
 	end component ALU;
 
 	component adder is
-		port (A, B: in std_logic_vector(31 downto 0);
-				 X: out std_logic_vector(31 downto 0)
+		port (A, B: in std_logic_vector(BUS_WIDTH-1 downto 0);
+				 X: out std_logic_vector(BUS_WIDTH-1 downto 0)
 			 );
 	end component adder;
 
 	component sign_ext_dp is
 		port ( 	SE_CTRL, ISJUMP: in std_logic;
 				DataIn: in std_logic_vector(25 downto 0);
-			   	Dataout: out std_logic_vector(31 downto 0)
+			   	Dataout: out std_logic_vector(BUS_WIDTH-1 downto 0)
 			 );
 	end component;
 
 	component zero_detector is
-		generic ( NBIT:	integer:= NBIT );
+		generic ( NBIT:	integer:= BUS_WIDTH );
 		port (	A:	in std_logic_vector(NBIT-1 downto 0);
 				Z:	out std_logic);
 	end component zero_detector;
@@ -100,9 +94,9 @@ architecture Struct of DATAPATH is
 
 	component FORWARDING_UNIT is
 		port ( 	RS1, RS2, RD_EX, RD_MEM, RD_WB:IN std_logic_vector(4 downto 0);
-				F_ALU_EX, F_ALU_MEM, F_ALU_WB: IN std_logic_vector(31 downto 0);
+				F_ALU_EX, F_ALU_MEM, F_ALU_WB: IN std_logic_vector(BUS_WIDTH-1 downto 0);
 				WF_EX, WF_MEM, WF_WB: in std_logic;
-				F_OUT_S1, F_OUT_S2: OUT std_logic_vector(31 downto 0);
+				F_OUT_S1, F_OUT_S2: OUT std_logic_vector(BUS_WIDTH-1 downto 0);
 				MUX1_SEL, MUX2_SEL: OUT std_logic;
 				CLK, RST: IN std_logic
 			 );
@@ -118,8 +112,8 @@ architecture Struct of DATAPATH is
 
 	component sign_ext_mem is
 		port ( 	    SE_CTRL, MSIZE1, MSIZE0: in std_logic; 	--extend signed if SE_CTRL is 1
-					DataIn: in std_logic_vector(31 downto 0);
-				   	Dataout: out std_logic_vector(31 downto 0)
+					DataIn: in std_logic_vector(BUS_WIDTH-1 downto 0);
+				   	Dataout: out std_logic_vector(BUS_WIDTH-1 downto 0)
 				 );
 	end component;
 
@@ -127,9 +121,9 @@ architecture Struct of DATAPATH is
 
 	--TO DECLARE:	OUT_REG_OUT
 	signal CW_active: std_logic_vector(CW_SIZE-1 downto 0);
-	signal RFOUT1, RFOUT2, S3_1_OUT, S3_2_OUT, S3_2_WB_OUT, A_OUT, B_OUT, S2_OUT, ALU_OUT, ALU_OUT_REG1, ALU_OUT_REG2, MEMORY_OUT, MEMORY_OUT_REG1, ME_OUT: std_logic_vector(D_SIZE-1 downto 0);
-	signal PC_OUT, NPC, IR_R_OUT, IMM32, IMM32_OUT, REL_ADDR, PC_IN, BJ_ADDR, BJ_ADDR_OUT, NPC_REG1_OUT, NPC_REG2_OUT, NPC_REG3_OUT, NPC_REG4_OUT, mux_to_PC_2_to_1, mux_to_ir: std_logic_vector(D_SIZE-1 downto 0);
-	signal IN1_OUT, MUX_FW1_OUT, MUX_FW2_OUT, FU_OUT_S1, FU_OUT_S2: std_logic_vector(D_SIZE-1 downto 0);
+	signal RFOUT1, RFOUT2, S3_1_OUT, S3_2_OUT, S3_2_WB_OUT, A_OUT, B_OUT, S2_OUT, ALU_OUT, ALU_OUT_REG1, ALU_OUT_REG2, MEMORY_OUT, MEMORY_OUT_REG1, ME_OUT: std_logic_vector(BUS_WIDTH-1 downto 0);
+	signal PC_OUT, NPC, IR_R_OUT, IMM32, IMM32_OUT, REL_ADDR, PC_IN, BJ_ADDR, BJ_ADDR_OUT, NPC_REG1_OUT, NPC_REG2_OUT, NPC_REG3_OUT, NPC_REG4_OUT, mux_to_PC_2_to_1, mux_to_ir: std_logic_vector(BUS_WIDTH-1 downto 0);
+	signal IN1_OUT, MUX_FW1_OUT, MUX_FW2_OUT, FU_OUT_S1, FU_OUT_S2: std_logic_vector(BUS_WIDTH-1 downto 0);
 
 	signal RF1, RF2, EN_DE, S1, S2, EN_EM, EN_W, ISJUMP, ISBRANCH, ISBEQZ, RM, WM, EN_MW, S3, WF1, SE_CTRL, SE_CTRL1, I0_R1_SEL, JAL_SEL, MSIZE1, MSIZE0, SE_CTRL2, ISJR: std_logic;
 	signal ZERO_RESULT, ZERO_REG_OUT: std_logic;
@@ -202,7 +196,7 @@ begin
 			--IR_reg: Register_generic port map(mux_to_IR, Clk, Rst, HDU_IR_EN, IR_R_OUT);
 			IR_reg: Register_generic port map(iram_in, Clk, Rst, HDU_IR_EN, IR_R_OUT);
 	--DECODE
-			OPCODE_to_CU <= IR_R_OUT(I_SIZE-1 downto I_SIZE-6);
+			OPCODE_to_CU <= IR_R_OUT(BUS_WIDTH-1 downto BUS_WIDTH-6);
 			FUNC_to_CU <= IR_R_OUT(10 downto 0);
 
 			RS1 <= IR_R_OUT(25 downto 21);
@@ -276,7 +270,6 @@ begin
 			dram_addr <= ALU_OUT_REG1;
 			dram_size <= MSIZE1 & MSIZE0;
 			dram_data_out <= ME_OUT;
-			--MEMORY_OUT <= dram_data_in;
 
 			--sign extension
 			data_ext_mem: sign_ext_mem port map(SE_CTRL2, MSIZE1, MSIZE0, dram_data_in, MEMORY_OUT);

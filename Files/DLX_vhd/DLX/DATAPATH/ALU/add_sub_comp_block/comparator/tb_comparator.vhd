@@ -8,7 +8,7 @@ end;
 
 architecture test2 of tb_comparator is
 	component add_sub_block is
-		generic ( NBIT:	integer :=	32);
+		generic ( NBIT:	integer);
 		port (	A :		in	std_logic_vector(NBIT-1 downto 0);
 				B :		in	std_logic_vector(NBIT-1 downto 0);
 				SUB, SIGN:	in	std_logic;
@@ -17,7 +17,7 @@ architecture test2 of tb_comparator is
 	end component;
 
 	component comparator is
-		generic ( NBIT: integer:= 32);
+		generic ( NBIT: integer);
 		port	(	A, B, SUM:	in std_logic_vector(NBIT-1 downto 0);
 					S, Cout:	in std_logic;
 					e, lt, le, gt, ge:	out std_logic);		--equal, less than, less or equal, greater than, greater or equal

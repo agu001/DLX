@@ -2,9 +2,9 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_unsigned.all;
 use IEEE.numeric_std.all;
-use WORK.alu_package.all;
 
 entity logic_unit is
+	generic (NBIT: integer);
   	port(	logic_op: IN std_logic_vector(2 downto 0);
 			DATA1, DATA2: IN std_logic_vector(NBIT-1 downto 0);
 			Y: OUT std_logic_vector(NBIT-1 downto 0));

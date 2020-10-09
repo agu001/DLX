@@ -3,12 +3,13 @@ use IEEE.std_logic_1164.all;
 use IEEE.std_logic_unsigned.all;
 use IEEE.numeric_std.all;
 use WORK.alu_package.all;
+use work.myTypes.all;
 
 	entity ALU is
-		port (	DATA1, DATA2: IN std_logic_vector(NBIT-1 downto 0);
+		port (	DATA1, DATA2: IN std_logic_vector(BUS_WIDTH-1 downto 0);
 				SE_ctrl_in: in std_logic;
 				ALU_OP: in ALU_OP_type;
-				OUTALU: OUT std_logic_vector(NBIT-1 downto 0));
+				OUTALU: OUT std_logic_vector(BUS_WIDTH-1 downto 0));
 	end ALU;
 
 architecture Struct of ALU is
@@ -25,8 +26,8 @@ architecture Struct of ALU is
 		port (	conf, ctrl_mux_out: in std_logic_vector(1 downto 0);
 				comparator_ctrl, logic_op: in std_logic_vector(2 downto 0);
 				adder_comp_sel, SUB, shift_16: in std_logic;
-				DATA1, DATA2: IN std_logic_vector(NBIT-1 downto 0);
-				OUTALU: OUT std_logic_vector(NBIT-1 downto 0));
+				DATA1, DATA2: IN std_logic_vector(BUS_WIDTH-1 downto 0);
+				OUTALU: OUT std_logic_vector(BUS_WIDTH-1 downto 0));
 	end component ALU_datapath;
 
 	signal conf_s, ctrl_mux_out_s: std_logic_vector(1 downto 0);

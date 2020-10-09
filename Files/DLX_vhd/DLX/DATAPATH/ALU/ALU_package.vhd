@@ -8,7 +8,7 @@ package alu_package is
 							alu_XOR, alu_ADDU, alu_SGEU, alu_SGTU, alu_SGT,
 							alu_SLT, alu_SLTU, alu_SRA, alu_SUBU, alu_MULT, alu_LHI);
 
-	constant NBIT: integer:= 32;
+	--constant NBIT: integer:= 32;
 	constant DEFAULT : std_logic_vector(3 downto 0) :=  "0000";
 
 end alu_package;

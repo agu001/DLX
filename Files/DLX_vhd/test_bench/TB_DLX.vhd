@@ -29,17 +29,17 @@ begin
 
         -- instance of DLX
 	U1: DLX
-        Generic Map (SIZE_IR, SIZE_PC) -- SIZE_ALU_OPC)   
+        Generic Map (SIZE_IR, SIZE_PC) -- SIZE_ALU_OPC)
 	Port Map (Clock, Reset);
-	
+
 
         PCLOCK : process(Clock)
 	begin
-		Clock <= not(Clock) after 0.5 ns;	
+		Clock <= not(Clock) after 0.5 ns;
 	end process;
-	
+
 	Reset <= '0', '1' after 6 ns, '0' after 11 ns, '1' after 15 ns;
-       
+
 
 end TEST;
 

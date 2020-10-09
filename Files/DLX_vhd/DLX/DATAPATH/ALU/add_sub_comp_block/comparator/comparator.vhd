@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 entity comparator is
-	generic (NBIT: integer:= 32);
+	generic (NBIT: integer);
 	port	(	A, B, SUM:	in std_logic_vector(NBIT-1 downto 0);
 				S, Cout:	in std_logic;
 				e, ne, lt, le, gt, ge:	out std_logic		--equal, not equal, less than, less or equal, greater than, greater or equal
@@ -12,7 +12,7 @@ end;
 
 architecture struct of comparator is
 	component zero_detector is
-		generic (NBIT:	integer:= 32);
+		generic (NBIT:	integer);
 		port 	(A:	in std_logic_vector(NBIT-1 downto 0);
 				 Z:	out std_logic);
 	end component zero_detector;
@@ -20,7 +20,7 @@ architecture struct of comparator is
 	signal Z, opp_signs, opp_signs2: std_logic;
 begin
 
-	zd: zero_detector generic map (32) port map (SUM, Z);
+	zd: zero_detector generic map (NBIT) port map (SUM, Z);
 
 	e <= Z;
 	ne <= not Z;

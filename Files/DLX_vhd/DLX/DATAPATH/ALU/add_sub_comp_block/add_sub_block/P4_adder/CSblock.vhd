@@ -1,10 +1,10 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
-use WORK.constants.all; -- libreria WORK user-defined
+use work.myTypes.all;
 
 entity CSblock is
-	generic(NBIT: integer := numBit );
+	generic(NBIT: integer );
 	Port( A,B: in std_logic_vector(NBIT-1 downto 0);
 		  Cin: in std_logic;
 		  S: out std_logic_vector(NBIT-1 downto 0)
@@ -13,7 +13,7 @@ end entity CSblock;
 
 architecture STRUCTURAL of CSblock is
 	component RCA is
-	generic (NBIT :  integer := numBit;
+	generic (NBIT :  integer;
 			 DRCAS : Time := 0 ns;
 	         DRCAC : Time := 0 ns);
 	Port (	A:	In	std_logic_vector(NBIT-1 downto 0);
@@ -23,7 +23,7 @@ architecture STRUCTURAL of CSblock is
 	end component RCA;
 
 	component MUX21_GENERIC is
-	generic(NBIT: integer := numBit;
+	generic(NBIT: integer;
 		   DELAY_MUX: time := tp_mux);
 	Port (	in_1, in_0:	In	std_logic_vector(NBIT-1 downto 0);
 			sel:	In	std_logic;
@@ -39,14 +39,3 @@ begin
    MUX21: MUX21_GENERIC generic map(NBIT, tp_mux) port map (RCA2toMUX, RCA1toMUX, Cin, S);
 
 end architecture;
-
-configuration cfg_CSblock of CSblock is
-	for STRUCTURAL
-		for all : RCA
-			use configuration work.CFG_RCA_STRUCTURAL;
-		end for;
-		for MUX21 : MUX21_GENERIC
-			use configuration work.CFG_MUX21_GEN_STRUCTURAL;
-		end for;
-	end for;
-end configuration;

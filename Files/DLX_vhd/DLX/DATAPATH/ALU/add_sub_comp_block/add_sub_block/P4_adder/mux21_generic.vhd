@@ -1,9 +1,9 @@
 library IEEE;
 use IEEE.std_logic_1164.all; --  libreria IEEE con definizione tipi standard logic
-use WORK.constants.all; -- libreria WORK user-defined
+use WORK.myTypes.all;
 
 entity MUX21_GENERIC is
-	generic (	NBIT: integer := numBit;
+	generic (	NBIT: integer;
 		   		DELAY_MUX: time := tp_mux);
 	Port (	in_1, in_0:	In	std_logic_vector(NBIT-1 downto 0);
 			sel:	In	std_logic;
@@ -38,14 +38,3 @@ begin
 	   end generate;
 
 end MUX21_GEN_STRUCTURAL;
-
-configuration CFG_MUX21_GEN_STRUCTURAL of MUX21_GENERIC is
-	for MUX21_GEN_STRUCTURAL
-		for all : IV
-			use configuration WORK.CFG_IV_BEHAVIORAL;
-		end for;
-		for all : ND2
-			use configuration WORK.CFG_ND2_ARCH2;
-		end for;
-	end for;
-end CFG_MUX21_GEN_STRUCTURAL;

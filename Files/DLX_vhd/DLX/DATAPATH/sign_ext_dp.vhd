@@ -2,11 +2,12 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use WORK.alu_package.all;
+use WORK.myTypes.all;
 
 entity sign_ext_dp is
 	port ( 	    SE_CTRL, ISJUMP: in std_logic; 	--extend signed if SE_CTRL is 1
 				DataIn: in std_logic_vector(25 downto 0);
-			   	Dataout: out std_logic_vector(31 downto 0)
+			   	Dataout: out std_logic_vector(BUS_WIDTH-1 downto 0)
 			 );
 end entity;
 

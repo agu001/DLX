@@ -1,6 +1,6 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
-use work.myTypes.all;
+use WORK.myTypes.all;
 
 entity HAZARD_DETECTION_UNIT is
 	port ( RS1_DEC, RS2_DEC, RD_EX: in std_logic_vector(4 downto 0);

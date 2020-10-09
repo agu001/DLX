@@ -1,11 +1,10 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
---use IEEE.std_logic_unsigned.all;
 use ieee.numeric_std.all;
-use WORK.all;
+use WORK.myTypes.all;
 
 entity register_file is
- generic (DATABIT: natural := 64;
+ generic (DATABIT: natural := BUS_WIDTH;
 		  ADDBIT: natural := 5);
  port ( CLK: 		IN std_logic;
          RESET: 	IN std_logic;

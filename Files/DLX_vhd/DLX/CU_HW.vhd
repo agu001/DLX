@@ -5,9 +5,7 @@ use work.myTypes.all;
 use WORK.alu_package.all;
 
 	entity CONTROL_UNIT is
-		port (	-- FETCH STAGE OUTPUTS
-
-				-- DECODE STAGE OUTPUTS
+		port (	-- DECODE STAGE OUTPUTS
 				RF1    		: out std_logic;               -- enables the read port 1 of the register file
 				RF2    		: out std_logic;               -- enables the read port 2 of the register file
 				EN_DE    		: out std_logic;               -- enables the register file and the pipeline registers

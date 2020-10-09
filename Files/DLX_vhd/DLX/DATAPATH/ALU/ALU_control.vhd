@@ -2,6 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use WORK.alu_package.all;
+use work.myTypes.all;
 
 entity ALU_control is
 	port (  ALU_OP: in ALU_OP_type;

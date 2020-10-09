@@ -2,6 +2,21 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 package myTypes is
+	----------------------------------
+	constant IVDELAY : time := 0.1 ns;
+	constant NDDELAY : time := 0.2 ns;
+	constant NDDELAYRISE : time := 0.6 ns;
+	constant NDDELAYFALL : time := 0.4 ns;
+	constant NRDELAY : time := 0.2 ns;
+	constant DRCAS : time := 0 ns;
+	constant DRCAC : time := 0 ns;
+	constant tp_mux : time := 0.5 ns;
+	constant NBIT_PER_BLOCK : integer := 4;
+	constant NBIT: integer := 32;
+	----------------------------------
+	constant BUS_WIDTH: natural := 32;
+	constant DRAM_DEPTH: natural := 512;
+
 	constant MICROCODE_MEM_DEPTH: integer := 64;
 	constant MICROCODE_MEM_SIZE: integer := 20;
 	constant CW_SIZE: integer := 21;

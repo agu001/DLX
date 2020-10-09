@@ -1,11 +1,10 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
-use WORK.constants.all;
+use WORK.myTypes.all;
 
 entity P4_adder is
-		generic (
-			NBIT :		integer := 32);
+		generic ( NBIT :	integer);
 		port (
 			A :		in	std_logic_vector(NBIT-1 downto 0);
 			B :		in	std_logic_vector(NBIT-1 downto 0);
@@ -17,25 +16,21 @@ end P4_adder;
 architecture STRUCT of P4_adder is
 
 	component CARRY_GENERATOR is
-		generic( NBIT: integer := 8;
-				 NBIT_PER_BLOCK : integer := 4
-				);
+		generic( NBIT: integer;
+				 NBIT_PER_BLOCK : integer );
 		port( A: in std_logic_vector(NBIT-1 downto 0);
 				B: in std_logic_vector(NBIT-1 downto 0);
 				Cin: std_logic;
-				Co: out std_logic_vector((NBIT/NBIT_PER_BLOCK)-1 downto 0)
-			);
+				Co: out std_logic_vector((NBIT/NBIT_PER_BLOCK)-1 downto 0));
 	end component CARRY_GENERATOR;
 
 	component SUM_GENERATOR is
-			generic (
-				NBIT_PER_BLOCK: integer := 4;
-				NBLOCKS:	integer := 8);
-			port (
-				A:	in	std_logic_vector(NBIT_PER_BLOCK*NBLOCKS-1 downto 0);
-				B:	in	std_logic_vector(NBIT_PER_BLOCK*NBLOCKS-1 downto 0);
-				Ci:	in	std_logic_vector(NBLOCKS-1 downto 0);
-				S:	out	std_logic_vector(NBIT_PER_BLOCK*NBLOCKS-1 downto 0));
+			generic (	NBIT_PER_BLOCK: integer;
+						NBLOCKS:	integer);
+			port (	A:	in	std_logic_vector(NBIT_PER_BLOCK*NBLOCKS-1 downto 0);
+					B:	in	std_logic_vector(NBIT_PER_BLOCK*NBLOCKS-1 downto 0);
+					Ci:	in	std_logic_vector(NBLOCKS-1 downto 0);
+					S:	out	std_logic_vector(NBIT_PER_BLOCK*NBLOCKS-1 downto 0));
 	end component SUM_GENERATOR;
 
 	constant NBLOCKS: integer := NBIT/NBIT_PER_BLOCK;
