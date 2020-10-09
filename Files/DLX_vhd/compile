@@ -49,7 +49,6 @@ vcom ./DLX/DATAPATH/components/fd.vhd
 vcom ./DLX/DATAPATH/components/register.vhd
 vcom ./DLX/DATAPATH/RF.vhd
 vcom ./DLX/DATAPATH/HAZARD_DETECTION_UNIT.vhd
-vcom ./DLX/DATAPATH/components/adder.vhd
 vcom ./DLX/DATAPATH/sign_ext_dp.vhd
 vcom ./DLX/DATAPATH/sign_extend_mem.vhd
 vcom ./DLX/DATAPATH/FORWARDING_UNIT.vhd

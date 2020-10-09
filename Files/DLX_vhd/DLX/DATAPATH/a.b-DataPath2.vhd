@@ -64,11 +64,16 @@ architecture Struct of DATAPATH is
 				OUTALU: OUT std_logic_vector(NBIT-1 downto 0));
 	end component ALU;
 
-	component adder is
-		port (A, B: in std_logic_vector(BUS_WIDTH-1 downto 0);
-				 X: out std_logic_vector(BUS_WIDTH-1 downto 0)
-			 );
-	end component adder;
+	component P4_adder is
+		generic ( NBIT : integer);
+		port (
+			A :		in	std_logic_vector(NBIT-1 downto 0);
+			B :		in	std_logic_vector(NBIT-1 downto 0);
+			Cin :	in	std_logic;
+			S :		out	std_logic_vector(NBIT-1 downto 0);
+			Cout :	out	std_logic);
+	end component P4_adder;
+
 
 	component sign_ext_dp is
 		port ( 	SE_CTRL, ISJUMP: in std_logic;
@@ -187,7 +192,7 @@ begin
 
 			iram_addr <= PC_OUT;
 
-			adder_PC: adder port map(PC_OUT, X"00000004", NPC);
+			adder_PC: P4_adder generic map (BUS_WIDTH) port map(PC_OUT, X"00000004", '0',  NPC, open);
 			NPC_reg1: Register_generic port map(NPC, Clk, Rst, '1', NPC_REG1_OUT);
 
 			--ir_mux_nop_iram: MUX21_GENERIC generic map(32) port map (X"54000000", iram_in, branch_taken1, mux_to_IR);
@@ -227,7 +232,7 @@ begin
 	--EXECUTE
 			FU: FORWARDING_UNIT port map (RS1_R_OUT, RS2_R_OUT, RD_OUT_REG1, RD_OUT_REG2, RD_OUT_REG3, ALU_OUT_REG1, S3_2_OUT, S3_2_WB_OUT, CWregMW(0), WF1, WF_WB_REG_OUT, FU_OUT_S1, FU_OUT_S2, FU_CTRL1, FU_CTRL2, Clk, Rst);
 
-			adder_NPC: adder port map(NPC_REG2_OUT, IMM32_OUT, REL_ADDR);
+			adder_NPC: P4_adder generic map (BUS_WIDTH) port map(NPC_REG2_OUT, IMM32_OUT, '0', REL_ADDR, open);
 			addr_to_jump: MUX21_GENERIC port map(MUX_FW1_OUT, REL_ADDR, ISJR, BJ_ADDR);
 			op1_is_zero: zero_detector port map(MUX_FW1_OUT, ZERO_RESULT);
 
