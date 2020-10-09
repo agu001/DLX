@@ -13,9 +13,7 @@ end entity CSblock;
 
 architecture STRUCTURAL of CSblock is
 	component RCA is
-	generic (NBIT :  integer;
-			 DRCAS : Time := 0 ns;
-	         DRCAC : Time := 0 ns);
+	generic (NBIT :  integer);
 	Port (	A:	In	std_logic_vector(NBIT-1 downto 0);
 			B:	In	std_logic_vector(NBIT-1 downto 0);
 			Ci:	In	std_logic;
@@ -33,8 +31,8 @@ architecture STRUCTURAL of CSblock is
 
 begin
 
-	RCA1: RCA generic map(NBIT, DRCAS, DRCAC) port map(A, B, '0', RCA1toMUX);
-	RCA2: RCA generic map(NBIT, DRCAS, DRCAC) port map(A, B, '1', RCA2toMUX);
+	RCA1: RCA generic map(NBIT) port map(A, B, '0', RCA1toMUX);
+	RCA2: RCA generic map(NBIT) port map(A, B, '1', RCA2toMUX);
    MUX21: MUX21_GENERIC generic map(NBIT) port map (RCA2toMUX, RCA1toMUX, Cin, S);
 
 end architecture;

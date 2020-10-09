@@ -1,9 +1,8 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use WORK.myTypes.all;
 
 entity FA is
-        generic ( DFAS: time;
-		  		  DFAC: time);
 	Port (	A:	In	std_logic;
 			B:	In	std_logic;
 			Ci:	In	std_logic;
@@ -15,7 +14,7 @@ architecture BEHAVIORAL of FA is
 
 begin
 
-  S <= A xor B xor Ci after DFAS;
-  Co <= (A and B) or (B and Ci) or (A and Ci) after DFAC;
+  S <= A xor B xor Ci after FASDELAY;
+  Co <= (A and B) or (B and Ci) or (A and Ci) after FACDELAY;
 
 end BEHAVIORAL;

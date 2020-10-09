@@ -7,8 +7,8 @@ package myTypes is
 	constant NDDELAY : time := 0.1 ns;
 	constant XORDELAY: time := 0.1 ns;
 	constant FDDELAY:  time := 0.1 ns;
-	constant DRCAS : time := 0 ns;
-	constant DRCAC : time := 0 ns;
+	constant FASDELAY : time := 0.1 ns;
+	constant FACDELAY : time := 0.1 ns;
 	------------constant tp_mux : time := 0.5 ns	;!!!!!!!!!!!!
 	constant NBIT_PER_BLOCK : integer := 4;
 	constant NBIT: integer := 32;
