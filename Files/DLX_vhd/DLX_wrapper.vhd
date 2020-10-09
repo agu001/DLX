@@ -7,25 +7,26 @@ entity DLX_wrapper is
 end DLX_wrapper;
 
 architecture Struct of DLX_wrapper is
-		component DRAM is
-		generic (	p: natural := DRAM_DEPTH;
+	component DRAM is
+		generic (	DEPTH: natural := DRAM_DEPTH;
+					NBIT: natural := BUS_WIDTH;
 					Td: time := 0.5 ns
 				);
-		port ( A: in std_logic_vector(BUS_WIDTH-1 downto 0);
+		port ( A: in std_logic_vector(NBIT-1 downto 0);
 			   size: in std_logic_vector(1 downto 0);	--"01" if byte, "10" if half, "11" if word
-			   X: in std_logic_vector(BUS_WIDTH-1 downto 0);
-			   Z: out std_logic_vector(BUS_WIDTH-1 downto 0);
+			   X: in std_logic_vector(NBIT-1 downto 0);
+			   Z: out std_logic_vector(NBIT-1 downto 0);
 			   Rst, RM, WM, Clk, En: in std_logic
 	  		 );
 	end component DRAM;
 
 	component IRAM is
 	  generic (
-		RAM_DEPTH : integer := 512;
-		I_SIZE : integer := BUS_WIDTH);
+			DEPTH : integer := 512;
+			NBIT : integer := BUS_WIDTH);
 	  port (	Rst  : in  std_logic;
-				Addr : in  std_logic_vector(I_SIZE - 1 downto 0);
-				Dout : out std_logic_vector(I_SIZE - 1 downto 0));
+				Addr : in  std_logic_vector(NBIT - 1 downto 0);
+				Dout : out std_logic_vector(NBIT - 1 downto 0));
 	end component IRAM;
 
 	component DLX is

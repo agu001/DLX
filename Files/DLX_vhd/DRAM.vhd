@@ -4,21 +4,22 @@ use ieee.numeric_std.ALL;
 use WORK.myTypes.all;
 
 entity DRAM is
-	generic (	p: natural := 256;
-				Td: time := 0.5 ns
-			);
-	port ( A: in std_logic_vector(BUS_WIDTH-1 downto 0);
-		   size: in std_logic_vector(1 downto 0);	--"01" if byte, "10" if half, "11" if word
-		   X: in std_logic_vector(BUS_WIDTH-1 downto 0);
-		   Z: out std_logic_vector(BUS_WIDTH-1 downto 0);
-		   Rst, RM, WM, Clk, En: in std_logic
-  		 );
+		generic (	DEPTH: natural;
+					NBIT: natural;
+					Td: time := 0.5 ns
+				);
+		port ( A: in std_logic_vector(NBIT-1 downto 0);
+			   size: in std_logic_vector(1 downto 0);	--"01" if byte, "10" if half, "11" if word
+			   X: in std_logic_vector(NBIT-1 downto 0);
+			   Z: out std_logic_vector(NBIT-1 downto 0);
+			   Rst, RM, WM, Clk, En: in std_logic
+	  		 );
 end DRAM;
 
 architecture Beh of DRAM is
 
 	subtype WordT is std_logic_vector(7 downto 0);
-	type StorageT is array(0 to p-1) of WordT;
+	type StorageT is array(0 to DEPTH-1) of WordT;
 	signal Memory: StorageT;
 	signal int_A: integer;
 
@@ -42,7 +43,7 @@ begin
 							Memory(50) <= X"EE";
 							Memory(51) <= X"EE";
 							Memory(52) <= X"EE";
-					elsif (En = '1' and (int_A >= 0 and int_A <=p ) ) then
+					elsif (En = '1' and (int_A >= 0 and int_A <=DEPTH ) ) then
 						if (WM = '1') then
 
 							case size is
