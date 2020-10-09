@@ -6,6 +6,7 @@ package myTypes is
 	constant IVDELAY : time := 0.1 ns;
 	constant NDDELAY : time := 0.1 ns;
 	constant XORDELAY: time := 0.1 ns;
+	constant FDDELAY:  time := 0.1 ns;
 	constant DRCAS : time := 0 ns;
 	constant DRCAC : time := 0 ns;
 	------------constant tp_mux : time := 0.5 ns	;!!!!!!!!!!!!
