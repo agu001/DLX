@@ -14,8 +14,7 @@ end;
 architecture struct of T2_SHIFTER is
 
     component mux21_generic is
-		generic(NBIT: integer;
-		    	DELAY_MUX: time := tp_mux);
+		generic(NBIT: integer);
         port(   in_1, in_0: in std_logic_vector(NBIT-1 downto 0);
                 sel: in std_logic;
                 y: out std_logic_vector(NBIT-1 downto 0)
@@ -60,7 +59,7 @@ begin
 
     zeros7 <= (others => '0');
     zeros8 <= (others => '0');
-    msbs8_mux: mux21_generic generic map (8, tp_mux) port map (X"FF", zeros8, msbs_at_1, msbs8);
+    msbs8_mux: mux21_generic generic map (8) port map (X"FF", zeros8, msbs_at_1, msbs8);
     msbs7 <= msbs8(6 downto 0);
 
     --FIRST STAGE--
@@ -70,7 +69,7 @@ begin
     --SECOND STAGE--
     sh_by8_generate:
     for i in 0 to 3 generate
-        sh_by8_mux_MX: mux21_generic generic map (BUS_WIDTH+7, tp_mux) port map (ML(i), MR(i), sel_1s, M(i));
+        sh_by8_mux_MX: mux21_generic generic map (BUS_WIDTH+7) port map (ML(i), MR(i), sel_1s, M(i));
         innerIf: if (i /= 3) generate
             MR(i+1) <= msbs8 & M(i)(BUS_WIDTH+7-1 downto 8);
             ML(i+1) <= M(i)(BUS_WIDTH-2 downto 0) & zeros8;
@@ -85,7 +84,7 @@ begin
         S(i) <= SH_BY8_BUF((i+31) downto i);
     end generate sh_by1_generate;
 
-    stage3_sel_3s_mux: mux21_generic generic map (3, tp_mux) port map (sel_3s_l, sel_3s_r, sel_1s, sel_3s);
+    stage3_sel_3s_mux: mux21_generic generic map (3) port map (sel_3s_l, sel_3s_r, sel_1s, sel_3s);
     stage3_mux: mux81_generic generic map (BUS_WIDTH) port map (S(0), S(1), S(2), S(3), S(4), S(5), S(6), S(7), sel_3s, dataOut);
 
 end struct;

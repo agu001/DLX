@@ -51,8 +51,7 @@ architecture Struct of DATAPATH is
 	end component register_file;
 
 	component mux21_generic is
-		generic (	NBIT: integer := BUS_WIDTH;
-			   		DELAY_MUX: time := tp_mux);
+		generic (	NBIT: integer := BUS_WIDTH);
 		Port (	in_1, in_0:	In	std_logic_vector(NBIT-1 downto 0);
 				sel:	In	std_logic;
 				y:	Out	std_logic_vector(NBIT-1 downto 0));
