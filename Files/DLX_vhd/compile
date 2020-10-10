@@ -1,20 +1,33 @@
 vcom myTypesDLX.vhd
 
-				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/fa.vhd
-				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/iv.vhd
-				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/nd2.vhd
-				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/XOR2.vhd
-				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/OR2.vhd
-				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/AND2.vhd
-				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/mux21_generic.vhd
+	vcom ./DLX/DATAPATH/logic_gates/iv.vhd
+	vcom ./DLX/DATAPATH/logic_gates/nd2.vhd
+	vcom ./DLX/DATAPATH/logic_gates/XOR2.vhd
+	vcom ./DLX/DATAPATH/logic_gates/OR2.vhd
+	vcom ./DLX/DATAPATH/logic_gates/AND2.vhd
+	vcom ./DLX/DATAPATH/logic_gates/buffer_generic.vhd
+	vcom ./DLX/DATAPATH/logic_gates/buffer1.vhd
+	vcom ./DLX/DATAPATH/logic_gates/and2_generic.vhd
+	vcom ./DLX/DATAPATH/logic_gates/xor2_generic.vhd
+	vcom ./DLX/DATAPATH/logic_gates/or2_generic.vhd
+
+	vcom ./DLX/DATAPATH/blocks/fa.vhd
+	vcom ./DLX/DATAPATH/blocks/fd.vhd
+	vcom ./DLX/DATAPATH/blocks/register_generic.vhd
+	vcom ./DLX/DATAPATH/blocks/mux21_generic.vhd
+	vcom ./DLX/DATAPATH/blocks/twoscomplement.vhd
+	vcom ./DLX/DATAPATH/blocks/mux51.vhd
+	vcom ./DLX/DATAPATH/blocks/mux21.vhd
+	vcom ./DLX/DATAPATH/blocks/mux41_generic.vhd
+	vcom ./DLX/DATAPATH/blocks/mux61.vhd
+	vcom ./DLX/DATAPATH/blocks/mux81_generic.vhd
+
 				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/rca.vhd
 				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/CSblock.vhd
 				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/SUM_GENERATOR.vhd
 				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/PGnet.vhd
 				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/PG.vhd
 				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/G.vhd
-				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/buffer_generic.vhd
-				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/buffer1.vhd
 				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/CARRY_GENERATOR.vhd
 				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/P4_adder.vhd
 
@@ -23,23 +36,16 @@ vcom myTypesDLX.vhd
 			vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/comparator/comparator.vhd
 		vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_comp_block.vhd
 
-		vcom ./DLX/DATAPATH/ALU/Booth_multiplier/twoscomplement.vhd
+
 		vcom ./DLX/DATAPATH/ALU/Booth_multiplier/encoder33.vhd
-		vcom ./DLX/DATAPATH/ALU/Booth_multiplier/mux51.vhd
+
 		vcom ./DLX/DATAPATH/ALU/Booth_multiplier/sign_ext2x_generic.vhd
 		vcom ./DLX/DATAPATH/ALU/Booth_multiplier/boothmul.vhd
 
-		vcom ./DLX/DATAPATH/ALU/T2_shifter/mux21.vhd
-		vcom ./DLX/DATAPATH/ALU/T2_shifter/mux41_generic.vhd
-		vcom ./DLX/DATAPATH/ALU/T2_shifter/mux61.vhd
-		vcom ./DLX/DATAPATH/ALU/T2_shifter/mux81_generic.vhd
 		vcom ./DLX/DATAPATH/ALU/T2_shifter/T2_shifter.vhd
 
 	vcom ./DLX/DATAPATH/ALU/ALU_package.vhd
 
-		vcom ./DLX/DATAPATH/ALU/logic_unit/and2_generic.vhd
-		vcom ./DLX/DATAPATH/ALU/logic_unit/xor2_generic.vhd
-		vcom ./DLX/DATAPATH/ALU/logic_unit/or2_generic.vhd
 		vcom ./DLX/DATAPATH/ALU/logic_unit/logic_unit.vhd
 
 	vcom ./DLX/DATAPATH/ALU/ALU_datapath.vhd
@@ -47,8 +53,6 @@ vcom myTypesDLX.vhd
 	vcom ./DLX/DATAPATH/ALU/ALU.vhd
 	vcom ./DLX/DATAPATH/ALU/tb_ALU.vhd
 
-vcom ./DLX/DATAPATH/components/fd.vhd
-vcom ./DLX/DATAPATH/components/register_generic.vhd
 vcom ./DLX/DATAPATH/register_file.vhd
 vcom ./DLX/DATAPATH/HAZARD_DETECTION_UNIT.vhd
 vcom ./DLX/DATAPATH/immediate_ext.vhd

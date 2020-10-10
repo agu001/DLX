@@ -31,5 +31,3 @@ BEGIN
 	end process;
 end architecture beh;
 
-
-
