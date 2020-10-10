@@ -37,7 +37,6 @@ add wave -noupdate -format Logic /tb/dut/cpu/dp/se_ctrl
 add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/imm32
 add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/imm32_out
 add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/bj_addr
-add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/bj_addr_out
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/s2_out
 add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/alu_out
 add wave -noupdate -format Literal /tb/dut/cpu/dp/aluctrl
@@ -77,16 +76,12 @@ add wave -noupdate -format Logic /tb/dut/cpu/dp/en_de
 add wave -noupdate -format Logic /tb/dut/cpu/dp/en_em
 add wave -noupdate -format Logic /tb/dut/cpu/dp/en_mw
 add wave -noupdate -format Logic /tb/dut/cpu/dp/en_w
-add wave -noupdate -color Magenta -format Logic -radix hexadecimal /tb/dut/cpu/dp/data_ext_mem/se_ctrl
-add wave -noupdate -color Magenta -format Logic -radix hexadecimal /tb/dut/cpu/dp/data_ext_mem/msize1
-add wave -noupdate -color Magenta -format Logic -radix hexadecimal /tb/dut/cpu/dp/data_ext_mem/msize0
-add wave -noupdate -color Magenta -format Literal -radix hexadecimal /tb/dut/cpu/dp/data_ext_mem/datain
-add wave -noupdate -color Magenta -format Literal -radix hexadecimal /tb/dut/cpu/dp/data_ext_mem/dataout
-add wave -noupdate -color Magenta -format Literal -radix hexadecimal /tb/dut/cpu/dp/data_ext_mem/zero24
-add wave -noupdate -color Magenta -format Literal -radix hexadecimal /tb/dut/cpu/dp/data_ext_mem/sign24
-add wave -noupdate -color Magenta -format Literal -radix hexadecimal /tb/dut/cpu/dp/data_ext_mem/zero16
-add wave -noupdate -color Magenta -format Literal -radix hexadecimal /tb/dut/cpu/dp/data_ext_mem/sign16
 add wave -noupdate -format Literal /tb/dut/dmemory/memory
+add wave -noupdate -format Literal /tb/dut/cpu/dp/dram_sign_ext/datain
+add wave -noupdate -format Literal /tb/dut/cpu/dp/dram_sign_ext/dataout
+add wave -noupdate -format Literal /tb/dut/cpu/dp/dram_sign_ext/int_msize
+add wave -noupdate -format Literal /tb/dut/cpu/dp/dram_sign_ext/msize
+add wave -noupdate -format Logic /tb/dut/cpu/dp/dram_sign_ext/se_ctrl
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {4070 ps} 0}
 configure wave -namecolwidth 349
@@ -103,4 +98,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {0 ps} {23320 ps}
+WaveRestoreZoom {0 ps} {525 ns}
