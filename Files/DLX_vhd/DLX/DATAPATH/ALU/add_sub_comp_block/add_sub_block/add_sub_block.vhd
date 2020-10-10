@@ -21,7 +21,7 @@ architecture arch of ADD_SUB_BLOCK is
 						Cout :	out	std_logic);
 		end component P4_ADDER;
 
-		component xor2_block is
+		component XOR2 is
 				port(	A, B: 	in std_logic;
 						C:		out std_logic);
 		end component;
@@ -30,7 +30,7 @@ architecture arch of ADD_SUB_BLOCK is
 begin
 	GEN_XOR:
 	for i in 0 to NBIT-1 generate
-		xor2x: xor2_block port map(B(i), SUB, B_1(i));
+		xor2x: XOR2 port map(B(i), SUB, B_1(i));
 	end generate GEN_XOR;
 
 	ADDER: P4_ADDER generic map (NBIT) port map ( A, B_1, SUB, RES, Cout);
