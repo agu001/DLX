@@ -4,13 +4,13 @@ use ieee.numeric_std.all;
 use WORK.alu_package.all;
 use WORK.myTypes.all;
 
-entity sign_ext_mem is
+entity dmemory_ext is
 	port ( 	    SE_CTRL, MSIZE1, MSIZE0: in std_logic; 	--extend signed if SE_CTRL is 1
 				DataIn: in std_logic_vector(BUS_WIDTH-1 downto 0);
 			   	Dataout: out std_logic_vector(BUS_WIDTH-1 downto 0));
 end entity;
 
-architecture Beh of sign_ext_mem is
+architecture Beh of dmemory_ext is
 
 	signal zero24, sign24: std_logic_vector(23 downto 0);
 	signal zero16, sign16: std_logic_vector(15 downto 0);

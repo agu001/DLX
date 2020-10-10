@@ -114,7 +114,7 @@ architecture Struct of DATAPATH is
 	end component HAZARD_DETECTION_UNIT;
 
 
-	component sign_ext_mem is
+	component dmemory_ext is
 		port ( 	    SE_CTRL, MSIZE1, MSIZE0: in std_logic; 	--extend signed if SE_CTRL is 1
 					DataIn: in std_logic_vector(BUS_WIDTH-1 downto 0);
 				   	Dataout: out std_logic_vector(BUS_WIDTH-1 downto 0)
@@ -273,7 +273,7 @@ begin
 			dram_data_out <= ME_OUT;
 
 			--sign extension
-			data_ext_mem: sign_ext_mem port map(SE_CTRL2, MSIZE1, MSIZE0, dram_data_in, MEMORY_OUT);
+			data_ext_mem: dmemory_ext port map(SE_CTRL2, MSIZE1, MSIZE0, dram_data_in, MEMORY_OUT);
 
 			--pipeline registers
 			WB_reg: Register_generic generic map(CW_WR_SIZE) port map(CWregMW(CW_WR_SIZE-1 downto 0), Clk, Rst, EN_MW, CWregWR);

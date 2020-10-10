@@ -3,13 +3,13 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use work.myTypes.all;
 
-entity sign_ext2x_generic is
+entity sign_ext_generic is
 	generic ( NBIT: integer );
 	port ( I: in std_logic_vector(NBIT-1 downto 0);
 		   O: out std_logic_vector(2*NBIT-1 downto 0) );
-end sign_ext2x_generic;
+end sign_ext_generic;
 
-architecture struct of sign_ext2x_generic is
+architecture struct of sign_ext_generic is
 
 	component mux21_generic is
 		generic(NBIT: integer);
