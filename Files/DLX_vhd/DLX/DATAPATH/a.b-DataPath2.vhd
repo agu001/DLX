@@ -58,10 +58,10 @@ architecture Struct of DATAPATH is
 	end component mux21_generic;
 
 	component ALU is
-		port (	DATA1, DATA2: IN std_logic_vector(NBIT-1 downto 0);
+		port (	DATA1, DATA2: IN std_logic_vector(BUS_WIDTH-1 downto 0);
 				SE_ctrl_in: in std_logic;
 				ALU_OP: in ALU_OP_type;
-				OUTALU: OUT std_logic_vector(NBIT-1 downto 0));
+				OUTALU: OUT std_logic_vector(BUS_WIDTH-1 downto 0));
 	end component ALU;
 
 	component P4_adder is

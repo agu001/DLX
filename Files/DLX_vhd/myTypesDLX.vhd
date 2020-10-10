@@ -7,11 +7,11 @@ package myTypes is
 	constant NDDELAY : time := 0.1 ns;
 	constant XORDELAY: time := 0.1 ns;
 	constant FDDELAY:  time := 0.1 ns;
-	constant FASDELAY : time := 0.1 ns;
-	constant FACDELAY : time := 0.1 ns;
+	--constant FASDELAY : time := 0.1 ns;
+	--constant FACDELAY : time := 0.1 ns;
 	------------constant tp_mux : time := 0.5 ns	;!!!!!!!!!!!!
 	constant NBIT_PER_BLOCK : integer := 4;
-	constant NBIT: integer := 32;
+	--constant NBIT: integer := 32;
 	----------------------------------
 	constant BUS_WIDTH: natural := 32;
 	constant DRAM_DEPTH: natural := 512;

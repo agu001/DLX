@@ -20,8 +20,10 @@ architecture df of OR2 is
 		Port (	A:	In	std_logic;
 				Y:	Out	std_logic);
 	end component;
+
+	signal A_n, B_n: std_logic;
 begin
-	iva: IV (A, A_n);
-	ivb: IV (B, B_n);
-	nd: ND2 (A_n, B_n, C);
+	iva: IV port map (A, A_n);
+	ivb: IV port map (B, B_n);
+	ndx: ND2 port map (A_n, B_n, C);
 end architecture;
