@@ -17,20 +17,63 @@ architecture struct of comparator is
 				 Z:	out std_logic);
 	end component zero_detector;
 
-	signal Z, opp_signs, opp_signs2: std_logic;
+	component ND2 is
+		Port (	A:	In	std_logic;
+				B:	In	std_logic;
+				Y:	Out	std_logic);
+	end component;
+
+	component IV is
+		Port (	A:	In	std_logic;
+				Y:	Out	std_logic);
+	end component;
+
+	component XOR2 is
+		port(	A, B: 	in std_logic;
+				C:		out std_logic);
+	end component;
+
+	component OR2 is
+		port(	A, B: 	in std_logic;
+				C:		out std_logic);
+	end component;
+
+	component AND2 is
+		port(	A, B: 	in std_logic;
+				C:		out std_logic);
+	end component;
+
+	signal Z, opp_signs, opp_signs1, opp_signs2, Cout_n, Z_n, le_u, gt_u: std_logic;
 begin
 
 	zd: zero_detector generic map (NBIT) port map (SUM, Z);
 
 	e <= Z;
-	ne <= not Z;
 
-	opp_signs <= A(NBIT-1) XOR B(NBIT-1);
-	opp_signs2 <= opp_signs AND S;
+	--ne <= not Z;
+	ivx1: IV port map (Z, ne);
 
-	le <= (not Cout or Z) XOR opp_signs2;
-	lt <= (not Cout) XOR opp_signs2;
-	gt <= (Cout and not Z) XOR opp_signs2;
-	ge <= (Cout) XOR opp_signs2;
+	--opp_signs <= A(NBIT-1) XOR B(NBIT-1);
+	xorx1: XOR2 port map (A(NBIT-1), B(NBIT-1), opp_signs);
+
+	--opp_signs2 <= opp_signs AND S;
+	andx1: AND2 port map (opp_signs, S, opp_signs2);
+
+	ivx2: IV port map (Cout, Cout_n);
+	ivx3: IV port map (Z, Z_n);
+
+	--le <= (not Cout or Z) XOR opp_signs2;
+	orx1: OR2 port map (Cout_n, Z, le_u);
+	xorx2: XOR2 port map (le_u, opp_signs2, le);
+
+	--lt <= (not Cout) XOR opp_signs2;
+	xorx3: XOR2 port map(Cout_n, opp_signs2, lt);
+
+	--gt <= (Cout and not Z) XOR opp_signs2;
+	andx2: AND2 port map (Cout, Z, gt_u);
+	xorx4: XOR2 port map (gt_u, opp_signs2, gt);
+
+	--ge <= (Cout) XOR opp_signs2;
+	xorx5: XOR2 port map (Cout, opp_signs2, ge);
 
 end struct;
