@@ -10,13 +10,13 @@ end MUX21_GENERIC;
 
 architecture MUX21_GEN_STRUCTURAL of MUX21_GENERIC is
 
-	component ND2
+	component ND2 is
 		Port (	A:	In	std_logic;
 				B:	In	std_logic;
 				Y:	Out	std_logic);
 	end component;
 
-	component IV
+	component IV is
 		Port (	A:	In	std_logic;
 				Y:	Out	std_logic);
 	end component;
