@@ -35,16 +35,16 @@ architecture STRUCT of CARRY_GENERATOR is
 			);
 	end component PGnet;
 
-	component BUF1 is
+	component buffer1 is
 		port(I: in std_logic;
 			 O: out std_logic);
-	end component BUF1;
+	end component buffer1;
 
-	component BUF is
+	component buffer_generic is
 		generic(NBIT: integer);
 		port(I: in std_logic_vector(NBIT-1 downto 0);
 		 	 O: out std_logic_vector(NBIT-1 downto 0));
-	end component BUF;
+	end component buffer_generic;
 
 	constant NUM_CARRY: integer := integer(ceil(log2(real(NBIT/NBIT_PER_BLOCK))));
 	constant INIT_CYCLE: integer := integer(ceil(log2(real(NBIT_PER_BLOCK))));
@@ -93,7 +93,7 @@ firstrow:	for i in 0 to NBIT/(2**k)-1 generate
 c_ex:		for i in 1 to NUM_CARRY generate
 cycle1:			for j in 0 to NBIT/NBIT_PER_BLOCK-1 generate
 					r: if (j rem 2**i) < 2**i/2 generate
-						  bb: BUF generic map(2) port map(I => fm(i-1)(j),O => fm(i)(j));
+						  bb: buffer_generic generic map(2) port map(I => fm(i-1)(j),O => fm(i)(j));
 						end generate;
 					r1d0: if (j rem 2**i >= 2**i/2) and (j < 2**i) generate
 						gg:	G port map(PGin => fm(i-1)(j), Gin => fm(i-1)((2**(i-1))-1)(0),Gout => fm(i)(j)(0));
@@ -106,7 +106,7 @@ cycle1:			for j in 0 to NBIT/NBIT_PER_BLOCK-1 generate
 
 deliver_out: for i in 0 to NBIT/NBIT_PER_BLOCK-1 generate
 
-				uscita: BUF1 port map(fm(NUM_CARRY)(i)(0), Co(i));
+				uscita: buffer1 port map(fm(NUM_CARRY)(i)(0), Co(i));
 			 end generate;
 
 

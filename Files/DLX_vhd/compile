@@ -10,8 +10,8 @@ vcom myTypesDLX.vhd
 				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/PGnet.vhd
 				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/PG.vhd
 				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/G.vhd
-				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/BUF.vhd
-				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/BUF1.vhd
+				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/buffer_generic.vhd
+				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/buffer1.vhd
 				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/CARRY_GENERATOR.vhd
 				vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/P4_adder.vhd
 
