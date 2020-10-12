@@ -15,7 +15,6 @@ vcom ./DLX/DATAPATH/blocks/fa.vhd
 vcom ./DLX/DATAPATH/blocks/fd.vhd
 vcom ./DLX/DATAPATH/blocks/register_generic.vhd
 vcom ./DLX/DATAPATH/blocks/mux21_generic.vhd
-vcom ./DLX/DATAPATH/blocks/twoscomplement.vhd
 vcom ./DLX/DATAPATH/blocks/mux51.vhd
 vcom ./DLX/DATAPATH/blocks/mux21.vhd
 vcom ./DLX/DATAPATH/blocks/mux41_generic.vhd
@@ -36,7 +35,7 @@ vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/comparator/zero_detector.vhd
 vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/comparator/comparator.vhd
 vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_comp_block.vhd
 
-
+vcom ./DLX/DATAPATH/ALU/Booth_multiplier/twoscomplement.vhd
 vcom ./DLX/DATAPATH/ALU/Booth_multiplier/encoder33.vhd
 vcom ./DLX/DATAPATH/ALU/Booth_multiplier/sign_ext_generic.vhd
 vcom ./DLX/DATAPATH/ALU/Booth_multiplier/boothmul.vhd

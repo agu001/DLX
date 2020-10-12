@@ -21,9 +21,10 @@ architecture df of AND2 is
 				Y:	Out	std_logic);
 	end component;
 
-	signal A_n, B_n: std_logic;
+	signal ND_OUT: std_logic;
 begin
-	iva: IV port map (A, A_n);
-	ivb: IV port map (B, B_n);
-	ndx: ND2 port map (A_n, B_n, C);
+
+	ndx: ND2 port map (A, B, ND_OUT);
+	iva: IV port map (ND_OUT, C);
+
 end architecture;
