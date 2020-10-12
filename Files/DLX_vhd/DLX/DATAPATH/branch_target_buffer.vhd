@@ -14,8 +14,8 @@ use work.myTypes.all;
 architecture beh of BTB is
 
 	constant mem_size: integer := 5;
-	type rf is array(2**mem_size-1 downto 0) of std_logic_vector(BUS_WIDTH-1 downto 0);
-	type rf_pred is array(2**mem_size-1 downto 0) of std_logic;
+	type rf is array(0 to 2**mem_size-1) of std_logic_vector(BUS_WIDTH-1 downto 0);
+	type rf_pred is array(0 to 2**mem_size-1) of std_logic;
 
 	signal pc_mem, target_mem: rf;
 	signal predict_mem: rf_pred;
@@ -23,31 +23,33 @@ architecture beh of BTB is
 
 begin
 
-	INDEX_FETCH <= to_integer(unsigned(PC_from_fetch(mem_size-1 downto 0)));
-	INDEX_EXE <= to_integer(unsigned(PC_from_exe(mem_size-1 downto 0)));
+	INDEX_FETCH <= to_integer(unsigned(PC_from_fetch(mem_size-1 downto 2)));
+	INDEX_EXE <= to_integer(unsigned(PC_from_exe(mem_size-1 downto 2)));
 
 	fetch_stage:
-	process(PC_from_fetch)
+	process(clk, PC_from_fetch)
 	begin
 		if (clk = '0' and clk'event) then
 			if (rst = '1') then
 				predict_taken <= '0';
-				target_out <= (others => '0');
+				target_out <= (others => 'Z');
 			elsif ( pc_mem(INDEX_FETCH) = PC_from_fetch ) then
 				predict_taken <= predict_mem(INDEX_FETCH);
 				target_out <= target_mem(INDEX_FETCH);
+			else
+				predict_taken <= '0';
 			end if;
 		end if;
 	end process;
 
 	execute_stage:
-	process(PC_from_exe, branch_was_taken)
+	process(clk, PC_from_exe, branch_was_taken)
 	begin
 		if (clk = '0' and clk'event) then
 			if(rst = '1') then
-				pc_mem <= (others => (others => '0'));
-				target_mem <= (others => (others => '0'));
-				predict_mem <= (others => '0');
+				pc_mem <= (others => (others => 'Z'));
+				target_mem <= (others => (others => 'Z'));
+				predict_mem <= (others => 'Z');
 			elsif (ISBRANCH = '1') then
 				if ( PC_from_exe /= pc_mem(INDEX_EXE) ) then
 					pc_mem(INDEX_EXE) <= PC_from_exe;

@@ -3,10 +3,10 @@ use ieee.std_logic_1164.all;
 
 package myTypes is
 	----------------------------------
-	constant IVDELAY : time := 0.1 ns;
-	constant NDDELAY : time := 0.1 ns;
-	constant XORDELAY: time := 0.1 ns;
-	constant FDDELAY:  time := 0.1 ns;
+	constant IVDELAY : time := 0.01 ns;
+	constant NDDELAY : time := 0.01 ns;
+	constant XORDELAY: time := 0.01 ns;
+	constant FDDELAY:  time := 0.01 ns;
 	--constant FASDELAY : time := 0.1 ns;
 	--constant FACDELAY : time := 0.1 ns;
 	------------constant tp_mux : time := 0.5 ns	;!!!!!!!!!!!!

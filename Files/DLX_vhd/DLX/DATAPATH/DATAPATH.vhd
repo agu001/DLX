@@ -108,7 +108,7 @@ architecture Struct of DATAPATH is
 
 	component HAZARD_DETECTION_UNIT is
 		port ( RS1_DEC, RS2_DEC, RD_EX: in std_logic_vector(4 downto 0);
-			   MEMRD_EX: in std_logic;
+			   MEMRD_EX, clk, rst, en: in std_logic;
 			   PC_EN, IR_EN, MUX_SEL: out std_logic
 			 );
 	end component HAZARD_DETECTION_UNIT;
@@ -203,10 +203,10 @@ begin
 
 	--***********     PIPELINE     ***********
 	--FETCH
-			mux_to_PC: MUX21_GENERIC port map(BJ_ADDR, mux_to_PC_2_to_1, ISJUMP, PC_IN);
+			mux_to_PC: MUX21_GENERIC port map(BJ_ADDR, mux_to_PC_2_to_1, ISJUMP, PC_IN_1);
 
-			--PC_IN <= target_table when (prediction_table = '1' and prediction_wrong = '0') else
-			--		 PC_IN_1;
+			PC_IN <= target_table when (prediction_table = '1' and prediction_wrong = '0') else
+					 PC_IN_1;
 
 			PC_reg: Register_generic port map(PC_IN, Clk, Rst, HDU_PC_EN, PC_OUT);
 
@@ -231,7 +231,7 @@ begin
 			RD_itype: Register_generic generic map(5) port map (IR_R_OUT(20 downto 16), Clk, Rst, EN_DE, RD_ITYPE_OUT);
 			IMM26 <= IR_R_OUT(25 downto 0);
 
-			hdu: HAZARD_DETECTION_UNIT port map(RS1, RS2, RS2_R_OUT, CWregEX(8), HDU_PC_EN, HDU_IR_EN, HDU_MUX_SEL);
+			hdu: HAZARD_DETECTION_UNIT port map(RS1, RS2, RS2_R_OUT, CWregEX(8), Clk, Rst, EN_DE, HDU_PC_EN, HDU_IR_EN, HDU_MUX_SEL);
 			mux_cw_hdu: MUX21_GENERIC generic map(CW_SIZE) port map ("000000000000000000000", CW_from_CU, HDU_MUX_SEL, CW_active);
 
 			RF: register_file port map (Clk, Rst, EN_DE, '1', '1', WF1, RD_OUT_REG2, RS1, RS2, S3_2_OUT, RFOUT1, RFOUT2);
@@ -264,15 +264,15 @@ begin
 						 	'0';
 			branch_taken2 <= branch_taken or Rst or ISJUMP;
 
-			mux_to_PC_2: MUX21_GENERIC port map(BJ_ADDR, NPC, branch_taken, mux_to_PC_2_to_1);
+			--mux_to_PC_2: MUX21_GENERIC port map(BJ_ADDR, NPC, branch_taken, mux_to_PC_2_to_1);
 			--BRANCH LOGIC
 
 			--BTB CHECKING
 			prediction_wrong <= branch_taken xor PREDICTION_OUT_REG2;
 
-			--mux_to_PC_2_to_1 <= BJ_ADDR when (prediction_wrong='1' and branch_taken='1') else
-			--					NPC_REG2_OUT when (prediction_wrong='1' and branch_taken='0') else
-			--					NPC;
+			mux_to_PC_2_to_1 <= BJ_ADDR when (prediction_wrong='1' and branch_taken='1') else
+								NPC_REG2_OUT when (prediction_wrong='1' and branch_taken='0') else
+								NPC;
 			--BTB CHECKING
 
 			mux_fw1: MUX21_GENERIC port map ( FU_OUT_S1, A_OUT, FU_CTRL1, MUX_FW1_OUT);

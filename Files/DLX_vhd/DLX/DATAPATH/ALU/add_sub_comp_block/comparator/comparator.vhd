@@ -70,7 +70,7 @@ begin
 	xorx3: XOR2 port map(Cout_n, opp_signs2, lt);
 
 	--gt <= (Cout and not Z) XOR opp_signs2;
-	andx2: AND2 port map (Cout, Z, gt_u);
+	andx2: AND2 port map (Cout, Z_n, gt_u);
 	xorx4: XOR2 port map (gt_u, opp_signs2, gt);
 
 	--ge <= (Cout) XOR opp_signs2;
