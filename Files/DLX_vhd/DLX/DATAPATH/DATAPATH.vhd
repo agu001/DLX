@@ -121,12 +121,20 @@ architecture Struct of DATAPATH is
 				 );
 	end component;
 
+	component BTB is
+			port (	PC_from_fetch, PC_from_exe, target_to_save: in std_logic_vector(BUS_WIDTH-1 downto 0);
+					ISBRANCH, branch_was_taken, clk, rst: in std_logic;
+					predict_taken: out std_logic;
+					target_out: out std_logic_vector(BUS_WIDTH-1 downto 0)
+				);
+	end component BTB;
+
 	--*****SIGNALS*****
 
 	--TO DECLARE:	OUT_REG_OUT
 	signal CW_active: std_logic_vector(CW_SIZE-1 downto 0);
 	signal RFOUT1, RFOUT2, S3_1_OUT, S3_2_OUT, S3_2_WB_OUT, A_OUT, B_OUT, S2_OUT, ALU_OUT, ALU_OUT_REG1, ALU_OUT_REG2, MEMORY_OUT, MEMORY_OUT_REG1, ME_OUT: std_logic_vector(BUS_WIDTH-1 downto 0);
-	signal PC_OUT, NPC, IR_R_OUT, IMM32, IMM32_OUT, REL_ADDR, PC_IN, BJ_ADDR, NPC_REG1_OUT, NPC_REG2_OUT, NPC_REG3_OUT, NPC_REG4_OUT, mux_to_PC_2_to_1, mux_to_ir: std_logic_vector(BUS_WIDTH-1 downto 0);
+	signal PC_OUT, NPC, IR_R_OUT, IMM32, IMM32_OUT, REL_ADDR, PC_IN, PC_IN_1, BJ_ADDR, NPC_REG1_OUT, NPC_REG2_OUT, NPC_REG3_OUT, NPC_REG4_OUT, mux_to_PC_2_to_1, mux_to_ir: std_logic_vector(BUS_WIDTH-1 downto 0);
  	-----------------BJ_ADDR_OUT
 	signal IN1_OUT, MUX_FW1_OUT, MUX_FW2_OUT, FU_OUT_S1, FU_OUT_S2: std_logic_vector(BUS_WIDTH-1 downto 0);
 
@@ -150,6 +158,11 @@ architecture Struct of DATAPATH is
 	signal CWregWR: std_logic_vector(CW_WR_SIZE-1 downto 0);
 
 	signal IMM26: std_logic_vector(25 downto 0);
+
+	--BTB signal
+	signal prediction_table, prediction_wrong,PREDICTION_OUT_REG1, PREDICTION_OUT_REG2: std_logic;
+	signal target_table: std_logic_vector(BUS_WIDTH-1 downto 0);
+
 
 begin
 	--RF1,	RF2,	EN_DEC,	   I0_R1_SEL,	JAL_SEL, ISJR, SE_CTRL,		S2,		EN_EX,	ISJUMP,	ISBRANCH,	BEQZ,	RM,	WM,	MSIZE1,	MSIZE0,	SE_CTRL2,	EN_MEM,	S3,	WF1, EN_WB
@@ -191,14 +204,23 @@ begin
 	--***********     PIPELINE     ***********
 	--FETCH
 			mux_to_PC: MUX21_GENERIC port map(BJ_ADDR, mux_to_PC_2_to_1, ISJUMP, PC_IN);
+
+			--PC_IN <= target_table when (prediction_table = '1' and prediction_wrong = '0') else
+			--		 PC_IN_1;
+
 			PC_reg: Register_generic port map(PC_IN, Clk, Rst, HDU_PC_EN, PC_OUT);
 
 			iram_addr <= PC_OUT;
+
+			--BTB
+			branch_predict: BTB port map(PC_out, NPC_REG3_OUT, BJ_ADDR, ISBRANCH, branch_taken, Clk, Rst, prediction_table, target_table);
+			--BTB
 
 			adder_NPC: P4_adder generic map (BUS_WIDTH) port map(PC_OUT, X"00000004", '0',  NPC, open);
 			NPC_reg1: Register_generic port map(NPC, Clk, Rst, '1', NPC_REG1_OUT);
 
 			IR_reg: Register_generic port map(iram_in, Clk, Rst, HDU_IR_EN, IR_R_OUT);
+			prediction_FETCH: fd port map(prediction_table, Clk, Rst, '1', PREDICTION_OUT_REG1);
 	--DECODE
 			OPCODE_to_CU <= IR_R_OUT(BUS_WIDTH-1 downto BUS_WIDTH-6);
 			FUNC_to_CU <= IR_R_OUT(10 downto 0);
@@ -227,6 +249,7 @@ begin
 			aluCTRL_reg: Register_generic generic map(aluCTRLbits1'length) port map(aluCTRLbits1, Clk, branch_taken, EN_DE, aluCTRLbits2 );
 			NPC_reg2: Register_generic port map(NPC_REG1_OUT, Clk, Rst, EN_DE, NPC_REG2_OUT);
 			SE_CTRL_EX: fd port map(SE_CTRL, Clk, Rst, EN_DE, SE_CTRL1);
+			prediction_DEC: fd port map(PREDICTION_OUT_REG1, Clk, Rst, '1', PREDICTION_OUT_REG2);
 
 	--EXECUTE
 			FU: FORWARDING_UNIT port map (RS1_R_OUT, RS2_R_OUT, RD_OUT_REG1, RD_OUT_REG2, RD_OUT_REG3, ALU_OUT_REG1, S3_2_OUT, S3_2_WB_OUT, CWregMW(0), WF1, WF1_WB_reg_OUT, FU_OUT_S1, FU_OUT_S2, FU_CTRL1, FU_CTRL2, Clk, Rst);
@@ -243,6 +266,14 @@ begin
 
 			mux_to_PC_2: MUX21_GENERIC port map(BJ_ADDR, NPC, branch_taken, mux_to_PC_2_to_1);
 			--BRANCH LOGIC
+
+			--BTB CHECKING
+			prediction_wrong <= branch_taken xor PREDICTION_OUT_REG2;
+
+			--mux_to_PC_2_to_1 <= BJ_ADDR when (prediction_wrong='1' and branch_taken='1') else
+			--					NPC_REG2_OUT when (prediction_wrong='1' and branch_taken='0') else
+			--					NPC;
+			--BTB CHECKING
 
 			mux_fw1: MUX21_GENERIC port map ( FU_OUT_S1, A_OUT, FU_CTRL1, MUX_FW1_OUT);
 

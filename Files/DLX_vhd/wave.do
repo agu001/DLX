@@ -4,6 +4,8 @@ add wave -noupdate -format Logic /tb/dut/cpu/dp/hdu_pc_en
 add wave -noupdate -format Logic /tb/dut/cpu/dp/hdu_ir_en
 add wave -noupdate -format Logic /tb/dut/clk
 add wave -noupdate -format Logic /tb/dut/rst
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/mux_to_pc_2_to_1
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/pc_in_1
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/pc_in
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/pc_out
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/npc
@@ -82,9 +84,24 @@ add wave -noupdate -format Literal /tb/dut/cpu/dp/dram_sign_ext/dataout
 add wave -noupdate -format Literal /tb/dut/cpu/dp/dram_sign_ext/int_msize
 add wave -noupdate -format Literal /tb/dut/cpu/dp/dram_sign_ext/msize
 add wave -noupdate -format Logic /tb/dut/cpu/dp/dram_sign_ext/se_ctrl
+add wave -noupdate -format Logic /tb/dut/cpu/dp/branch_predict/branch_was_taken
+add wave -noupdate -format Logic /tb/dut/cpu/dp/branch_predict/clk
+add wave -noupdate -format Literal /tb/dut/cpu/dp/branch_predict/index_exe
+add wave -noupdate -format Literal /tb/dut/cpu/dp/branch_predict/index_fetch
+add wave -noupdate -format Logic /tb/dut/cpu/dp/branch_predict/isbranch
+add wave -noupdate -format Literal /tb/dut/cpu/dp/branch_predict/pc_from_exe
+add wave -noupdate -format Literal /tb/dut/cpu/dp/branch_predict/pc_from_fetch
+add wave -noupdate -format Literal /tb/dut/cpu/dp/branch_predict/pc_mem
+add wave -noupdate -format Literal /tb/dut/cpu/dp/branch_predict/predict_mem
+add wave -noupdate -format Logic /tb/dut/cpu/dp/branch_predict/predict_taken
+add wave -noupdate -format Logic /tb/dut/cpu/dp/branch_predict/rst
+add wave -noupdate -format Literal /tb/dut/cpu/dp/branch_predict/target_mem
+add wave -noupdate -format Literal /tb/dut/cpu/dp/branch_predict/target_out
+add wave -noupdate -format Literal /tb/dut/cpu/dp/branch_predict/target_to_save
+add wave -noupdate -format Logic /tb/dut/cpu/dp/branch_taken
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {4070 ps} 0}
-configure wave -namecolwidth 349
+WaveRestoreCursors {{Cursor 1} {3380 ps} 0}
+configure wave -namecolwidth 249
 configure wave -valuecolwidth 124
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
@@ -98,4 +115,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {0 ps} {525 ns}
+WaveRestoreZoom {0 ps} {5930 ps}
