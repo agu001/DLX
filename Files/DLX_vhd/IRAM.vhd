@@ -43,7 +43,7 @@ begin  -- IRam_Bhe
     variable tmp_data_u : std_logic_vector(NBIT-1 downto 0);
   begin  -- process FILL_MEM_P
     if (Rst = '0') then
-      file_open(mem_fp,"./asm_example/test_arithmetic_dump.asm.mem",READ_MODE);
+      file_open(mem_fp,"./asm_example/JUMP_BRANCH_ISSUE.asm.mem",READ_MODE);
       while (not endfile(mem_fp)) loop
         readline(mem_fp,file_line);
         hread(file_line,tmp_data_u);
