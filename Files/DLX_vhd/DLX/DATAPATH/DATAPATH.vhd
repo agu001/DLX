@@ -108,7 +108,7 @@ architecture Struct of DATAPATH is
 
 	component HAZARD_DETECTION_UNIT is
 		port ( RS1_DEC, RS2_DEC, RD_EX: in std_logic_vector(4 downto 0);
-			   MEMRD_EX, clk, rst, en: in std_logic;
+			   MEMRD_EX, STALL: in std_logic;
 			   PC_EN, IR_EN, MUX_SEL: out std_logic
 			 );
 	end component HAZARD_DETECTION_UNIT;
@@ -153,7 +153,7 @@ architecture Struct of DATAPATH is
 	constant CW_EX_SIZE: natural := 18;
 	constant CW_M_SIZE: natural := 9;
 	constant CW_WR_SIZE: natural := 3;
-	signal CWregEX: std_logic_vector(CW_EX_SIZE-1 downto 0);
+	signal CWregEX, CWregEX_1, zero_s: std_logic_vector(CW_EX_SIZE-1 downto 0);
 	signal CWregMW: std_logic_vector(CW_M_SIZE-1 downto 0);
 	signal CWregWR: std_logic_vector(CW_WR_SIZE-1 downto 0);
 
@@ -231,8 +231,8 @@ begin
 			RD_itype: Register_generic generic map(5) port map (IR_R_OUT(20 downto 16), Clk, Rst, EN_DE, RD_ITYPE_OUT);
 			IMM26 <= IR_R_OUT(25 downto 0);
 
-			hdu: HAZARD_DETECTION_UNIT port map(RS1, RS2, RS2_R_OUT, CWregEX(8), Clk, Rst, EN_DE, HDU_PC_EN, HDU_IR_EN, HDU_MUX_SEL);
-			mux_cw_hdu: MUX21_GENERIC generic map(CW_SIZE) port map ("000000000000000000000", CW_from_CU, HDU_MUX_SEL, CW_active);
+			hdu: HAZARD_DETECTION_UNIT port map(RS1, RS2, RS2_R_OUT, CWregEX(8), branch_taken2, HDU_PC_EN, HDU_IR_EN, HDU_MUX_SEL);
+			mux_cw_hdu: MUX21_GENERIC generic map(CW_SIZE) port map ("001000010000000001001", CW_from_CU, HDU_MUX_SEL, CW_active);
 
 			RF: register_file port map (Clk, Rst, EN_DE, '1', '1', WF1, RD_OUT_REG2, RS1, RS2, S3_2_OUT, RFOUT1, RFOUT2);
 
@@ -241,8 +241,10 @@ begin
 
 			imm_sign_ext: immediate_ext port map(SE_CTRL, CW_active(CW_SIZE-5), IMM26, IMM32);
 
+			zero_s <= (others => '0');--NEW
+			mux_cwregex: MUX21_GENERIC generic map(CW_EX_SIZE) port map (zero_s, CW_active(CW_EX_SIZE-1 downto 0), branch_taken2, CWregEX_1);--NEW
 			--pipeline registers
-			EX_M_WB_cw_reg: Register_generic generic map(CW_EX_SIZE) port map(CW_active(CW_EX_SIZE-1 downto 0), Clk, branch_taken1, '1', CWregEX);
+			EX_M_WB_cw_reg: Register_generic generic map(CW_EX_SIZE) port map(CWregEX_1, Clk, Rst, '1', CWregEX);
 			rs1_r: Register_generic generic map(5) port map(RS1, Clk, Rst, '1', RS1_R_OUT);
 			rs2_r: Register_generic generic map(5) port map(RS2, Clk, Rst, '1', RS2_R_OUT);
 			IMM32_reg: Register_generic port map (IMM32, Clk, Rst, EN_DE, IMM32_OUT);
@@ -262,13 +264,14 @@ begin
 			branch_taken <= (ISBRANCH and ZERO_RESULT) when ( ISBEQZ = '1') else
 						 	(ISBRANCH and (not ZERO_RESULT)) when ( ISBEQZ = '0') else
 						 	'0';
-			branch_taken2 <= branch_taken or Rst or ISJUMP;
 
 			--mux_to_PC_2: MUX21_GENERIC port map(BJ_ADDR, NPC, branch_taken, mux_to_PC_2_to_1);
 			--BRANCH LOGIC
 
 			--BTB CHECKING
 			prediction_wrong <= branch_taken xor PREDICTION_OUT_REG2;
+
+			branch_taken2 <= prediction_wrong or Rst or ISJUMP;--NEW
 
 			mux_to_PC_2_to_1 <= BJ_ADDR when (prediction_wrong='1' and branch_taken='1') else
 								NPC_REG2_OUT when (prediction_wrong='1' and branch_taken='0') else

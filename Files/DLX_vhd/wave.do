@@ -2,6 +2,7 @@ onerror {resume}
 quietly WaveActivateNextPane {} 0
 add wave -noupdate -format Logic /tb/dut/cpu/dp/hdu_pc_en
 add wave -noupdate -format Logic /tb/dut/cpu/dp/hdu_ir_en
+add wave -noupdate -format Logic /tb/dut/cpu/dp/branch_taken2
 add wave -noupdate -format Logic /tb/dut/clk
 add wave -noupdate -format Logic /tb/dut/rst
 add wave -noupdate -format Logic /tb/dut/cpu/dp/branch_predict/predict_taken
@@ -15,6 +16,7 @@ add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/iram_addr
 add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/iram_in
 add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/ir_r_out
 add wave -noupdate -format Logic /tb/dut/cpu/dp/hdu_mux_sel
+add wave -noupdate -format Logic /tb/dut/cpu/dp/prediction_wrong
 add wave -noupdate -format Literal /tb/dut/cpu/dp/opcode_to_cu
 add wave -noupdate -format Literal /tb/dut/cpu/dp/func_to_cu
 add wave -noupdate -format Literal /tb/dut/cpu/dp/cw_active
@@ -47,7 +49,6 @@ add wave -noupdate -format Literal /tb/dut/cpu/dp/aluctrl
 add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rd_type_mux_out
 add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/rd
 add wave -noupdate -format Logic /tb/dut/cpu/dp/zero_result
-add wave -noupdate -format Logic /tb/dut/cpu/dp/branch_taken1
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/me_out
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/dram_addr
 add wave -noupdate -format Literal /tb/dut/dram_size
@@ -99,7 +100,7 @@ add wave -noupdate -format Logic /tb/dut/cpu/dp/branch_predict/rst
 add wave -noupdate -format Literal /tb/dut/cpu/dp/branch_predict/target_mem
 add wave -noupdate -format Literal /tb/dut/cpu/dp/branch_predict/target_to_save
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {23000 ps} 0}
+WaveRestoreCursors {{Cursor 1} {41510 ps} 0}
 configure wave -namecolwidth 360
 configure wave -valuecolwidth 124
 configure wave -justifyvalue left
@@ -114,4 +115,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {11330 ps} {32050 ps}
+WaveRestoreZoom {31200 ps} {51920 ps}
