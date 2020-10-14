@@ -1,6 +1,5 @@
-addi r1, r0, 2
+addi r1, r0, 3
 xor r2, r2, r2
-
 ciclo:
 lw r3, 0(r2)
 addi r3, r3, 10
@@ -8,10 +7,12 @@ sw 100(r2), r3
 subi r1, r1, 1
 addi r2, r2, 4
 bnez r1, ciclo
+lw r3, 0(r2)
+addi r3, r3, 10
 ciclo2:
 addi r4, r0, 65535
 ori r5, r4, 10000
-addi r6, r0, #60
+addi r6, r0, end
 jalr r6
 addi r6,r2,#30
 addi r5,r2,#5

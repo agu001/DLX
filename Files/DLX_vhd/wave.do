@@ -2,7 +2,6 @@ onerror {resume}
 quietly WaveActivateNextPane {} 0
 add wave -noupdate -format Logic /tb/dut/cpu/dp/hdu_pc_en
 add wave -noupdate -format Logic /tb/dut/cpu/dp/hdu_ir_en
-add wave -noupdate -format Logic /tb/dut/cpu/dp/branch_taken2
 add wave -noupdate -format Logic /tb/dut/clk
 add wave -noupdate -format Logic /tb/dut/rst
 add wave -noupdate -format Logic /tb/dut/cpu/dp/branch_predict/predict_taken
@@ -16,7 +15,7 @@ add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/iram_addr
 add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/iram_in
 add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/ir_r_out
 add wave -noupdate -format Logic /tb/dut/cpu/dp/hdu_mux_sel
-add wave -noupdate -format Logic /tb/dut/cpu/dp/prediction_wrong
+add wave -noupdate -format Logic /tb/dut/cpu/dp/flush
 add wave -noupdate -format Literal /tb/dut/cpu/dp/opcode_to_cu
 add wave -noupdate -format Literal /tb/dut/cpu/dp/func_to_cu
 add wave -noupdate -format Literal /tb/dut/cpu/dp/cw_active
@@ -100,8 +99,8 @@ add wave -noupdate -format Logic /tb/dut/cpu/dp/branch_predict/rst
 add wave -noupdate -format Literal /tb/dut/cpu/dp/branch_predict/target_mem
 add wave -noupdate -format Literal /tb/dut/cpu/dp/branch_predict/target_to_save
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {41510 ps} 0}
-configure wave -namecolwidth 360
+WaveRestoreCursors {{Cursor 1} {72750 ps} 0}
+configure wave -namecolwidth 267
 configure wave -valuecolwidth 124
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
@@ -115,4 +114,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {31200 ps} {51920 ps}
+WaveRestoreZoom {61800 ps} {85010 ps}

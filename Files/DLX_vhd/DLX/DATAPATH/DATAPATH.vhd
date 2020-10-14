@@ -108,7 +108,7 @@ architecture Struct of DATAPATH is
 
 	component HAZARD_DETECTION_UNIT is
 		port ( RS1_DEC, RS2_DEC, RD_EX: in std_logic_vector(4 downto 0);
-			   MEMRD_EX, STALL: in std_logic;
+			   MEMRD_EX, NOP: in std_logic;
 			   PC_EN, IR_EN, MUX_SEL: out std_logic
 			 );
 	end component HAZARD_DETECTION_UNIT;
@@ -141,7 +141,7 @@ architecture Struct of DATAPATH is
 	signal RF1, RF2, EN_DE, S1, S2, EN_EM, EN_W, ISJUMP, ISBRANCH, ISBEQZ, RM, WM, EN_MW, S3, WF1, SE_CTRL, SE_CTRL1, I0_R1_SEL, JAL_SEL, MSIZE1, MSIZE0, SE_CTRL2, ISJR: std_logic;
 	signal ZERO_RESULT: std_logic;
 	-----------signal ZERO_REG_OUT: std_logic;
-	signal branch_taken, branch_taken1, branch_taken2, FU_CTRL1, FU_CTRL2, HDU_PC_EN, HDU_IR_EN, HDU_MUX_SEL, JAL_SEL_OUT1, JAL_SEL_OUT2, WF1_WB_REG_OUT: std_logic;
+	signal branch_taken, branch_taken1, FLUSH, FU_CTRL1, FU_CTRL2, HDU_PC_EN, HDU_IR_EN, HDU_MUX_SEL, JAL_SEL_OUT1, JAL_SEL_OUT2, WF1_WB_REG_OUT: std_logic;
 
 	signal RS1, RS2, RD, RD_OUT_REG1, RD_OUT_REG2, RD_OUT_REG3, RS1_R_OUT, RS2_R_OUT: std_logic_vector(4 downto 0);
 	signal RD_RTYPE_OUT, RD_ITYPE_OUT, RD_type_mux_OUT: std_logic_vector(4 downto 0);
@@ -160,8 +160,8 @@ architecture Struct of DATAPATH is
 	signal IMM26: std_logic_vector(25 downto 0);
 
 	--BTB signal
-	signal prediction_table, prediction_wrong,PREDICTION_OUT_REG1, PREDICTION_OUT_REG2: std_logic;
-	signal target_table: std_logic_vector(BUS_WIDTH-1 downto 0);
+	signal prediction_bit, prediction_wrong,PREDICTION_OUT_REG1, PREDICTION_OUT_REG2: std_logic;
+	signal target_address: std_logic_vector(BUS_WIDTH-1 downto 0);
 
 
 begin
@@ -205,7 +205,7 @@ begin
 	--FETCH
 			mux_to_PC: MUX21_GENERIC port map(BJ_ADDR, mux_to_PC_2_to_1, ISJUMP, PC_IN_1);
 
-			PC_IN <= target_table when (prediction_table = '1' and prediction_wrong = '0') else
+			PC_IN <= target_address when (prediction_bit = '1' and prediction_wrong = '0') else
 					 PC_IN_1;
 
 			PC_reg: Register_generic port map(PC_IN, Clk, Rst, HDU_PC_EN, PC_OUT);
@@ -213,14 +213,14 @@ begin
 			iram_addr <= PC_OUT;
 
 			--BTB
-			branch_predict: BTB port map(PC_out, NPC_REG3_OUT, BJ_ADDR, ISBRANCH, branch_taken, Clk, Rst, prediction_table, target_table);
+			branch_predict: BTB port map(PC_out, NPC_REG3_OUT, BJ_ADDR, ISBRANCH, branch_taken, Clk, Rst, prediction_bit, target_address);
 			--BTB
 
 			adder_NPC: P4_adder generic map (BUS_WIDTH) port map(PC_OUT, X"00000004", '0',  NPC, open);
 			NPC_reg1: Register_generic port map(NPC, Clk, Rst, '1', NPC_REG1_OUT);
 
 			IR_reg: Register_generic port map(iram_in, Clk, Rst, HDU_IR_EN, IR_R_OUT);
-			prediction_FETCH: fd port map(prediction_table, Clk, Rst, '1', PREDICTION_OUT_REG1);
+			prediction_FETCH: fd port map(prediction_bit, Clk, Rst, '1', PREDICTION_OUT_REG1);
 	--DECODE
 			OPCODE_to_CU <= IR_R_OUT(BUS_WIDTH-1 downto BUS_WIDTH-6);
 			FUNC_to_CU <= IR_R_OUT(10 downto 0);
@@ -231,7 +231,7 @@ begin
 			RD_itype: Register_generic generic map(5) port map (IR_R_OUT(20 downto 16), Clk, Rst, EN_DE, RD_ITYPE_OUT);
 			IMM26 <= IR_R_OUT(25 downto 0);
 
-			hdu: HAZARD_DETECTION_UNIT port map(RS1, RS2, RS2_R_OUT, CWregEX(8), branch_taken2, HDU_PC_EN, HDU_IR_EN, HDU_MUX_SEL);
+			hdu: HAZARD_DETECTION_UNIT port map(RS1, RS2, RS2_R_OUT, CWregEX(8), FLUSH, HDU_PC_EN, HDU_IR_EN, HDU_MUX_SEL);--NOT ENABLED WHEN MISPREDICTION HAPPENS
 			mux_cw_hdu: MUX21_GENERIC generic map(CW_SIZE) port map ("001000010000000001001", CW_from_CU, HDU_MUX_SEL, CW_active);
 
 			RF: register_file port map (Clk, Rst, EN_DE, '1', '1', WF1, RD_OUT_REG2, RS1, RS2, S3_2_OUT, RFOUT1, RFOUT2);
@@ -242,7 +242,7 @@ begin
 			imm_sign_ext: immediate_ext port map(SE_CTRL, CW_active(CW_SIZE-5), IMM26, IMM32);
 
 			zero_s <= (others => '0');--NEW
-			mux_cwregex: MUX21_GENERIC generic map(CW_EX_SIZE) port map (zero_s, CW_active(CW_EX_SIZE-1 downto 0), branch_taken2, CWregEX_1);--NEW
+			mux_cwregex: MUX21_GENERIC generic map(CW_EX_SIZE) port map (zero_s, CW_active(CW_EX_SIZE-1 downto 0), FLUSH, CWregEX_1);--NEW
 			--pipeline registers
 			EX_M_WB_cw_reg: Register_generic generic map(CW_EX_SIZE) port map(CWregEX_1, Clk, Rst, '1', CWregEX);
 			rs1_r: Register_generic generic map(5) port map(RS1, Clk, Rst, '1', RS1_R_OUT);
@@ -264,16 +264,14 @@ begin
 			branch_taken <= (ISBRANCH and ZERO_RESULT) when ( ISBEQZ = '1') else
 						 	(ISBRANCH and (not ZERO_RESULT)) when ( ISBEQZ = '0') else
 						 	'0';
-
-			--mux_to_PC_2: MUX21_GENERIC port map(BJ_ADDR, NPC, branch_taken, mux_to_PC_2_to_1);
 			--BRANCH LOGIC
 
 			--BTB CHECKING
 			prediction_wrong <= branch_taken xor PREDICTION_OUT_REG2;
 
-			branch_taken2 <= prediction_wrong or Rst or ISJUMP;--NEW
+			FLUSH <= prediction_wrong or ISJUMP;--NEW
 
-			mux_to_PC_2_to_1 <= BJ_ADDR when (prediction_wrong='1' and branch_taken='1') else
+			mux_to_PC_2_to_1 <= BJ_ADDR when ((prediction_wrong='1' and branch_taken='1') or ISJUMP = '1' ) else
 								NPC_REG2_OUT when (prediction_wrong='1' and branch_taken='0') else
 								NPC;
 			--BTB CHECKING
@@ -290,15 +288,11 @@ begin
 
 			--pipeline registers
 			M_WB_cw_reg: Register_generic generic map(CW_M_SIZE) port map(CWregEX(CW_M_SIZE-1 downto 0), Clk, Rst, '1', CWregMW);
-			---------------zero_fd: fd port map(ZERO_RESULT, Clk, Rst, EN_EM, ZERO_REG_OUT);
-			-----------------BJ_ADDR_reg: Register_generic port map(BJ_ADDR, Clk, Rst, EN_EM, BJ_ADDR_OUT);
 			alu_reg1: Register_generic port map (ALU_OUT, Clk, Rst, EN_EM, ALU_OUT_REG1);
 			me: Register_generic port map (MUX_FW2_OUT, Clk, Rst, EN_EM, ME_OUT);
 			RD_reg1: Register_generic generic map(5) port map (RD, Clk, Rst, EN_EM, RD_OUT_REG1);
 			JAL_SEL_fd1: fd port map(JAL_SEL, Clk, Rst, EN_EM, JAL_SEL_OUT1);
 			NPC_reg3: Register_generic port map(NPC_REG2_OUT, Clk, Rst, EN_EM, NPC_REG3_OUT);
-
-			Rst_with_branch_taken2: fd port map(branch_taken2, Clk, Rst,'1', branch_taken1);
 
 	--MEMORY
 

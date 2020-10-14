@@ -18,7 +18,7 @@ architecture beh of BTB is
 	type rf_pred is array(0 to 2**mem_size-1) of std_logic;
 
 	signal pc_mem, target_mem: rf;
-	signal predict_mem: rf_pred;
+	signal predict_mem, dirty_bit: rf_pred;
 	signal INDEX_FETCH, INDEX_EXE: integer;
 
 begin
@@ -33,7 +33,7 @@ begin
 			if (rst = '1') then
 				predict_taken <= '0';
 				target_out <= (others => 'Z');
-			elsif ( pc_mem(INDEX_FETCH) = PC_from_fetch ) then
+			elsif ( pc_mem(INDEX_FETCH) = PC_from_fetch and dirty_bit(INDEX_FETCH) = '1' ) then
 				predict_taken <= predict_mem(INDEX_FETCH);
 				target_out <= target_mem(INDEX_FETCH);
 			else
@@ -50,11 +50,13 @@ begin
 				pc_mem <= (others => (others => 'Z'));
 				target_mem <= (others => (others => 'Z'));
 				predict_mem <= (others => 'Z');
+				dirty_bit <= (others => '0');
 			elsif (ISBRANCH = '1') then
 				if ( PC_from_exe /= pc_mem(INDEX_EXE) ) then
 					pc_mem(INDEX_EXE) <= PC_from_exe;
 					target_mem(INDEX_EXE) <= target_to_save;
 					predict_mem(INDEX_EXE) <= '0';
+					dirty_bit(INDEX_EXE) <= '1';
 				end if;
 
 				if ( branch_was_taken /= predict_mem(INDEX_EXE) ) then
