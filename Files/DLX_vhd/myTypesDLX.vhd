@@ -19,6 +19,9 @@ package myTypes is
 	constant MICROCODE_MEM_DEPTH: integer := 64;
 	constant MICROCODE_MEM_SIZE: integer := 20;
 	constant CW_SIZE: integer := 21;
+	constant CW_EX_SIZE: natural := 18;
+	constant CW_MEM_SIZE: natural := 9;
+	constant CW_WB_SIZE: natural := 3;
 	-- Control unit input sizes
 	constant OP_CODE_SIZE : integer :=  6;                                              -- OPCODE field size
 	constant FUNC_SIZE    : integer :=  11;                                             -- FUNC field size
@@ -92,7 +95,7 @@ package myTypes is
 	constant BNEZ : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=   "000101";
 
 	constant NOP : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=   "010101";
-
+	constant NOP_instruction: std_logic_vector(BUS_WIDTH-1 downto 0) := "010101" & "00" & X"000000";
 	--ALU OPERATION
 end myTypes;
 

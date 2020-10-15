@@ -4,20 +4,17 @@ use WORK.myTypes.all;
 
 entity HAZARD_DETECTION_UNIT is
 	port ( RS1_DEC, RS2_DEC, RD_EX: in std_logic_vector(4 downto 0);
-		   MEMRD_EX, NOP: in std_logic;
+		   MEMRD_EX: in std_logic;
 		   PC_EN, IR_EN, MUX_SEL: out std_logic
 		 );
 end entity HAZARD_DETECTION_UNIT;
 
 architecture Beh of HAZARD_DETECTION_UNIT is
 begin
-	process(RS1_DEC, RS2_DEC, RD_EX, MEMRD_EX, NOP)
+	process(RS1_DEC, RS2_DEC, RD_EX, MEMRD_EX)
 	begin
-		if ( NOP = '1' ) then
-			PC_EN <= '1';
-			IR_EN <= '1';
-			MUX_SEL <= '1';
-		elsif ( MEMRD_EX = '1' and (RS1_DEC = RD_EX or RS2_DEC = RD_EX) ) then
+
+		if ( MEMRD_EX = '1' and (RS1_DEC = RD_EX or RS2_DEC = RD_EX) ) then
 			PC_EN <= '0';
 			IR_EN <= '0';
 			MUX_SEL <= '1';

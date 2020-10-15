@@ -66,7 +66,7 @@ architecture beh of CONTROL_UNIT is
 									"10100101100000000001",--JR		18
 									"10101101100000001011",--JALR	19
 									"10100001000000001011",--SLLI	20
-									"00100001000000001001",--NOP	21
+									"00000000000000000000",--NOP	21 --00100001000000001001
 									"10100001000000001011",--SRLI	22
 									"10100001000000001011",--SRAI	23
 									"10100001000000001011",--SEQI	24
@@ -290,6 +290,9 @@ begin
 					nextSE_CTRL <= '0';
 				when LHI =>
 					nextALU_CTRL <= alu_LHI;
+					nextSE_CTRL <= '0';
+				when NOP =>
+					nextALU_CTRL <= alu_DEFAULT;
 					nextSE_CTRL <= '0';
 				when others =>
 					nextALU_CTRL <= alu_ADD;  -- default operation for ADDI | J | JAL | BNEZ | BEQZ | LHU | LB | LBU | LH | LW | SW  and other store and load instructions
