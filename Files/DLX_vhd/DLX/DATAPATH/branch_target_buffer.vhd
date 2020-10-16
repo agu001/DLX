@@ -13,18 +13,22 @@ use work.myTypes.all;
 
 architecture beh of BTB is
 
-	constant mem_size: integer := 5;
-	type rf is array(0 to 2**mem_size-1) of std_logic_vector(BUS_WIDTH-1 downto 0);
-	type rf_pred is array(0 to 2**mem_size-1) of std_logic;
-
+	constant BIT_ADDRESS_BTB: integer := 5;
+	type rf is array(0 to 2**BIT_ADDRESS_BTB-1) of std_logic_vector(BUS_WIDTH-1 downto 0);
+	--type rf_pred is array(0 to 2**BIT_ADDRESS_BTB-1) of std_logic_vector(1 downto 0);
+	type rf_pred is array(0 to 2**BIT_ADDRESS_BTB-1) of std_logic;
 	signal pc_mem, target_mem: rf;
-	signal predict_mem, dirty_bit: rf_pred;
+	signal predict_mem: rf_pred;
+	signal dirty_bit: std_logic_vector(0 to 2**BIT_ADDRESS_BTB-1);
 	signal INDEX_FETCH, INDEX_EXE: integer;
+
+	--signal prediction_temp: std_logic;
 
 begin
 
-	INDEX_FETCH <= to_integer(unsigned(PC_from_fetch(mem_size-1 downto 2)));
-	INDEX_EXE <= to_integer(unsigned(PC_from_exe(mem_size-1 downto 2)));
+	INDEX_FETCH <= to_integer(unsigned(PC_from_fetch(BIT_ADDRESS_BTB-1 downto 2)));
+	INDEX_EXE <= to_integer(unsigned(PC_from_exe(BIT_ADDRESS_BTB-1 downto 2)));
+
 
 	fetch_stage:
 	process(clk, PC_from_fetch)
@@ -65,6 +69,8 @@ begin
 			end if;
 		end if;
 	end process;
+
+
 
 
 end beh;

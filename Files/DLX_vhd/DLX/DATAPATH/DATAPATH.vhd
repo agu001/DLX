@@ -137,19 +137,33 @@ architecture Struct of DATAPATH is
 			);
 	end component NPC_LOGIC;
 
+	component branch_result is
+		port( isbranch, zero_result, isbeqz: in std_logic;
+			  branch_taken: out std_logic
+			);
+	end component branch_result;
+
+	component OR2 is
+		port(	A, B: 	in std_logic;
+				C:		out std_logic
+			);
+	end component OR2;
+
+	component XOR2 is
+		port(	A, B: 	in std_logic;
+				C:		out std_logic
+			);
+	end component XOR2;
+
 	--*****SIGNALS*****
 
-	--TO DECLARE:	OUT_REG_OUT
 	signal CW_active: std_logic_vector(CW_SIZE-1 downto 0);
-	signal RFOUT1, RFOUT2, MEM_ALU_SEL_WB, DATA_WRITE_WB_to_RF, DATA_WRITE_to_FU, A_OUT, B_OUT, S2_OUT, ALU_OUT_EX, ALU_OUT_MEM, ALU_OUT_WB, MEMORY_OUT, MEMORY_OUT_WB, DATA_WRITE_TO_MEM: std_logic_vector(BUS_WIDTH-1 downto 0);
+	signal RFOUT1, RFOUT2, MEM_ALU_SEL_WB, DATA_WRITE_WB_to_RF, DATA_WRITE_to_FU, A_OUT, B_OUT, S2_OUT, ALU_OUT_EX, ALU_OUT_MEM, ALU_OUT_WB: std_logic_vector(BUS_WIDTH-1 downto 0);
 	signal PC_OUT, NPC, IR_DEC, IMM32, IMM32_OUT, REL_ADDR, PC_IN, PC_IN_1, BJ_ADDR, NPC_DEC, NPC_EX, NPC_MEM, NPC_WB, mux_to_PC_2_to_1, mux_to_ir: std_logic_vector(BUS_WIDTH-1 downto 0);
- 	-----------------BJ_ADDR_OUT
-	signal IN1_OUT, MUX_FW1_OUT, MUX_FW2_OUT, FU_OUT_S1, FU_OUT_S2: std_logic_vector(BUS_WIDTH-1 downto 0);
+	signal IN1_OUT, MUX_FW1_OUT, MUX_FW2_OUT, FU_OUT_S1, FU_OUT_S2, MEMORY_OUT, MEMORY_OUT_WB, DATA_WRITE_TO_MEM: std_logic_vector(BUS_WIDTH-1 downto 0);
 
 	signal RF1, RF2, EN_DEC, S1, S2, EN_EX, EN_WB, ISJUMP, ISBRANCH, ISBEQZ, RM, WM, EN_MEM, S3, WF1, SE_CTRL, SE_CTRL_EX, I0_R1_SEL, JAL_SEL, MSIZE1, MSIZE0, SE_CTRL2, ISJR: std_logic;
-	signal ZERO_RESULT: std_logic;
-	-----------signal ZERO_REG_OUT: std_logic;
-	signal branch_taken, branch_taken1, FLUSH, FU_CTRL1, FU_CTRL2, HDU_PC_EN, HDU_IR_EN, HDU_MUX_SEL, JAL_MEM, JAL_WB, WF1_to_FU: std_logic;
+	signal branch_taken, branch_taken1, FLUSH, FU_CTRL1, FU_CTRL2, HDU_PC_EN, HDU_IR_EN, HDU_MUX_SEL, JAL_MEM, JAL_WB, WF1_to_FU, ZERO_RESULT: std_logic;
 
 	signal RS1, RS2, RD_EX, RD_MEM, RD_WB, RD_to_FU, RS1_EX, RS2_EX: std_logic_vector(4 downto 0);
 	signal RD_RTYPE_DEC, RD_ITYPE_DEC, RD_SEL_EX: std_logic_vector(4 downto 0);
@@ -158,7 +172,7 @@ architecture Struct of DATAPATH is
 	signal aluCTRLint: integer;
 	signal aluCTRLbits1, aluCTRLbits2: std_logic_vector(4 downto 0);
 
-	signal CW_EX, CW_EX_1, zero_s: std_logic_vector(CW_EX_SIZE-1 downto 0);
+	signal CW_EX, CW_EX_1: std_logic_vector(CW_EX_SIZE-1 downto 0);
 	signal CW_MEM: std_logic_vector(CW_MEM_SIZE-1 downto 0);
 	signal CW_WB: std_logic_vector(CW_WB_SIZE-1 downto 0);
 
@@ -167,11 +181,9 @@ architecture Struct of DATAPATH is
 	--BTB signal
 	signal BIT_PREDICTION, prediction_wrong,BIT_PRED_DEC, BIT_PRED_EXE: std_logic;
 	signal BTB_ADDRESS, IR_IN: std_logic_vector(BUS_WIDTH-1 downto 0);
-	--signal NOP_instruction: std_logic_vector(BUS_WIDTH-1 downto 0);
-
 
 begin
-	--RF1,	RF2,	EN_DEC,	   I0_R1_SEL,	JAL_SEL, ISJR, SE_CTRL,		S2,		EN_EX,	ISJUMP,	ISBRANCH,	BEQZ,	RM,	WM,	MSIZE1,	MSIZE0,	SE_CTRL2,	EN_MEM,	S3,	WF1, EN_WBB
+	--RF1, RF2,	EN_DEC, I0_R1_SEL, JAL_SEL, ISJR, SE_CTRL, S2, EN_EX, ISJUMP, ISBRANCH,	BEQZ, RM, WM, MSIZE1, MSIZE0, SE_CTRL2,	EN_MEM,	S3,	WF1, EN_WBB
 	--***********  CONTROL SIGNALS  ***********
 	-- FETCH STAGE
 
@@ -187,8 +199,6 @@ begin
 			I0_R1_SEL  <= CW_EX(CW_EX_SIZE-1);
 			JAL_SEL  <= CW_EX(CW_EX_SIZE-2);
 			ISJR <= CW_EX(CW_EX_SIZE-3);
-			--SE_CTRL <= CW_EX(10);
-			----------------SE_CTRL <= CW_active(CW_SIZE-7);
 			S2 <= CW_EX(CW_EX_SIZE-5);
 			EN_EX <= CW_EX(CW_EX_SIZE-6);
 			ISJUMP <= CW_EX(CW_EX_SIZE-7);
@@ -218,7 +228,7 @@ begin
 			--Compute NPC given a defined PC
 			adder_NPC: P4_adder generic map (BUS_WIDTH) port map(PC_OUT, X"00000004", '0',  NPC, open);
 			--In case of loading a NOP instruction
-			mux_ir_fetch: MUX21_GENERIC generic map(BUS_WIDTH) port map (NOP_instruction, iram_in, FLUSH, IR_IN); --NEW
+			mux_ir_fetch: MUX21_GENERIC generic map(BUS_WIDTH) port map (NOP_instruction, iram_in, FLUSH, IR_IN);
 
 			--pipeline registers
 			IR_reg: Register_generic port map(IR_IN, Clk, Rst, HDU_IR_EN, IR_DEC);
@@ -235,7 +245,7 @@ begin
 			IMM26 <= IR_DEC(25 downto 0);
 			--For stalling due to RAW hazard
 			hdu: HAZARD_DETECTION_UNIT port map(RS1, RS2, RS2_EX, CW_EX(8), HDU_PC_EN, HDU_IR_EN, HDU_MUX_SEL);
-			mux_cw_hdu: MUX21_GENERIC generic map(CW_SIZE) port map ("000000000000000000000", CW_from_CU, HDU_MUX_SEL, CW_active);
+			mux_cw_hdu: MUX21_GENERIC generic map(CW_SIZE) port map (ZERO_CW_SIZE, CW_from_CU, HDU_MUX_SEL, CW_active);
 			--Register file
 			RF: register_file port map (Clk, Rst, EN_DEC, '1', '1', WF1, RD_WB, RS1, RS2, DATA_WRITE_WB_to_RF, RFOUT1, RFOUT2);
 
@@ -243,8 +253,7 @@ begin
 			B: Register_generic port map (RFOUT2, Clk, Rst, EN_DEC, B_OUT);
 			imm_sign_ext: immediate_ext port map(SE_CTRL, CW_active(CW_SIZE-5), IMM26, IMM32);
 			--Flush new EX stage
-			zero_s <= (others => '0');--NEW
-			mux_CW_EX: MUX21_GENERIC generic map(CW_EX_SIZE) port map (zero_s, CW_active(CW_EX_SIZE-1 downto 0), FLUSH, CW_EX_1);--NEW
+			mux_CW_EX: MUX21_GENERIC generic map(CW_EX_SIZE) port map (ZERO_CW_EX_SIZE, CW_active(CW_EX_SIZE-1 downto 0), FLUSH, CW_EX_1);
 
 			--pipeline registers
 			EX_M_WB_cw_reg: Register_generic generic map(CW_EX_SIZE) port map(CW_EX_1, Clk, Rst, '1', CW_EX);
@@ -264,13 +273,14 @@ begin
 			adder_REL_ADDR: P4_adder generic map (BUS_WIDTH) port map(NPC_EX, IMM32_OUT, '0', REL_ADDR, open);
 			addr_to_jump: MUX21_GENERIC port map(MUX_FW1_OUT, REL_ADDR, ISJR, BJ_ADDR);
 			op1_is_zero: zero_detector port map(MUX_FW1_OUT, ZERO_RESULT);
+
 			--BRANCH LOGIC
-			branch_taken <= (ISBRANCH and ZERO_RESULT) when ( ISBEQZ = '1') else
-						 	(ISBRANCH and (not ZERO_RESULT)) when ( ISBEQZ = '0') else
-						 	'0';
+			branch_evaluation: branch_result port map(ISBRANCH, ZERO_RESULT, ISBEQZ, branch_taken);
+
+
 			--BTB CHECKING
-			prediction_wrong <= branch_taken xor BIT_PRED_EXE;
-			FLUSH <= prediction_wrong or ISJUMP;--NEW
+			xor_logic: XOR2 port map(branch_taken, BIT_PRED_EXE, prediction_wrong);
+			or_logic: OR2 port map(prediction_wrong, ISJUMP, FLUSH);
 
 			mux_fw1: MUX21_GENERIC port map ( FU_OUT_S1, A_OUT, FU_CTRL1, MUX_FW1_OUT);
 			mux_fw2: MUX21_GENERIC port map ( FU_OUT_S2, B_OUT, FU_CTRL2, MUX_FW2_OUT);
@@ -279,7 +289,7 @@ begin
 			alu_block: ALU port map (MUX_FW1_OUT, S2_OUT, SE_CTRL_EX, aluCTRL, ALU_OUT_EX);
 
 			RD_type_mux: MUX21_GENERIC generic map(5) port map (RD_RTYPE_DEC, RD_ITYPE_DEC, I0_R1_SEL, RD_SEL_EX);
-			mux_jal:  MUX21_GENERIC generic map(5) port map ("11111", RD_SEL_EX, JAL_SEL, RD_EX);
+			mux_jal:  MUX21_GENERIC generic map(5) port map (RD31, RD_SEL_EX, JAL_SEL, RD_EX);
 
 			--pipeline registers
 			M_WB_cw_reg: Register_generic generic map(CW_MEM_SIZE) port map(CW_EX(CW_MEM_SIZE-1 downto 0), Clk, Rst, '1', CW_MEM);

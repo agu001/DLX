@@ -16,7 +16,7 @@ putone:
 addi r1,r0,1
 
 end:
-ret
+jr r31
 nop
 
 product:
@@ -35,7 +35,7 @@ seq r6,r2,r3    ; is i = n?
 beqz r6,loop    ; if no loop, otherwise, end
 nop
 sw 0(r7),r1
-ret
+jr r31
 nop
 
 begin:

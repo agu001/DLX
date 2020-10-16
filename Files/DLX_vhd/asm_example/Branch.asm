@@ -1,4 +1,3 @@
-
 addi r1, r0, 2
 xor r2, r2, r2
 

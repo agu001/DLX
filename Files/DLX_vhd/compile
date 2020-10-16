@@ -57,6 +57,7 @@ vcom ./DLX/DATAPATH/immediate_ext.vhd
 vcom ./DLX/DATAPATH/dmemory_ext.vhd
 vcom ./DLX/DATAPATH/forwarding_unit.vhd
 vcom ./DLX/DATAPATH/branch_target_buffer.vhd
+vcom ./DLX/DATAPATH/branch_result.vhd
 vcom ./DLX/DATAPATH/npc_unit.vhd
 vcom ./DLX/DATAPATH/DATAPATH.vhd
 vcom ./DLX/CONTROL_UNIT.vhd

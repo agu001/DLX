@@ -12,7 +12,7 @@ end ND2;
 architecture ARCH1 of ND2 is
 
 begin
-	Y <= not( A and B) after NDDELAY; --
+	Y <= not( A and B) after NDDELAY;
 
 end ARCH1;
 

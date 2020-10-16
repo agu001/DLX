@@ -7,6 +7,8 @@ package myTypes is
 	constant NDDELAY : time := 0.01 ns;
 	constant XORDELAY: time := 0.01 ns;
 	constant FDDELAY:  time := 0.01 ns;
+	constant RFDELAY: time := 0.2 ns;
+	constant SEDELAY: time := 0.3 ns; --sign extension
 	--constant FASDELAY : time := 0.1 ns;
 	--constant FACDELAY : time := 0.1 ns;
 	------------constant tp_mux : time := 0.5 ns	;!!!!!!!!!!!!
@@ -22,10 +24,13 @@ package myTypes is
 	constant CW_EX_SIZE: natural := 18;
 	constant CW_MEM_SIZE: natural := 9;
 	constant CW_WB_SIZE: natural := 3;
+	constant ZERO_CW_EX_SIZE: std_logic_vector(CW_EX_SIZE-1 downto 0) := (others => '0');
+	constant ZERO_CW_SIZE: std_logic_vector(CW_SIZE-1 downto 0) := (others => '0');
+	constant BIT_ADDRESS_BTB: integer := 5;
 	-- Control unit input sizes
 	constant OP_CODE_SIZE : integer :=  6;                                              -- OPCODE field size
 	constant FUNC_SIZE    : integer :=  11;                                             -- FUNC field size
-
+	constant RD31		  : std_logic_vector(4 downto 0) := "11111";
 	-- R-Type instruction -> FUNC field
 	constant funcADD : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "00000100000";    -- ADD RS1,RS2,RD
 	constant funcSUB : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "00000100010";    -- SUB RS1,RS2,RD
