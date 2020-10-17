@@ -15,12 +15,12 @@ architecture beh of BTB is
 
 	constant BIT_ADDRESS_BTB: integer := 5;
 	type rf_target is array(0 to 2**BIT_ADDRESS_BTB-1) of std_logic_vector(BUS_WIDTH-1 downto 0);
-	--type rf_pc is array(0 to 2**BIT_ADDRESS_BTB-1) of std_logic_vector(BUS_WIDTH-3 downto 0);
+	type rf_pc is array(0 to 2**BIT_ADDRESS_BTB-1) of std_logic_vector(BUS_WIDTH-8 downto 0);
 	type rf_pred is array(0 to 2**BIT_ADDRESS_BTB-1) of std_logic_vector(1 downto 0);
 	--type rf_pred is array(0 to 2**BIT_ADDRESS_BTB-1) of std_logic;
 
 
-	--signal pc_mem: rf_pc;
+	signal pc_mem: rf_pc;
 	signal target_mem: rf_target;
 	signal predict_mem: rf_pred;
 	signal dirty_bit: std_logic_vector(0 to 2**BIT_ADDRESS_BTB-1);
@@ -30,8 +30,8 @@ architecture beh of BTB is
 
 begin
 
-	INDEX_FETCH <= to_integer(unsigned(PC_from_fetch(BIT_ADDRESS_BTB-1 downto 2)));
-	INDEX_EXE <= to_integer(unsigned(PC_from_exe(BIT_ADDRESS_BTB-1 downto 2)));
+	INDEX_FETCH <= to_integer(unsigned(PC_from_fetch(BIT_ADDRESS_BTB+2-1 downto 2)));
+	INDEX_EXE <= to_integer(unsigned(PC_from_exe(BIT_ADDRESS_BTB+2-1 downto 2)));
 
 
 	fetch_stage:
@@ -41,7 +41,7 @@ begin
 			predict_taken <= '0';
 			target_out <= (others => 'Z');
 		elsif (clk = '0' and clk'event) then
-			if ( dirty_bit(INDEX_FETCH) = '1' ) then
+			if ( pc_mem(INDEX_FETCH) = PC_from_fetch(BUS_WIDTH-1 downto 7) and dirty_bit(INDEX_FETCH) = '1' ) then
 				if (predict_mem(INDEX_FETCH) = "00" or predict_mem(INDEX_FETCH) = "01") then
 					predict_taken <= '0';
 				else
@@ -64,7 +64,8 @@ begin
 			dirty_bit <= (others => '0');
 		elsif (clk = '0' and clk'event) then
 			if (ISBRANCH = '1') then
-				if ( target_mem(INDEX_EXE) /= target_to_save or dirty_bit(INDEX_EXE) = '0') then
+				if ( PC_from_exe(BUS_WIDTH-1 downto 7) /= pc_mem(INDEX_EXE)) then
+					pc_mem(INDEX_EXE) <= PC_from_exe(BUS_WIDTH-1 downto 7);
 					target_mem(INDEX_EXE) <= target_to_save;
 					predict_mem(INDEX_EXE) <= "00";
 					dirty_bit(INDEX_EXE) <= '1';
