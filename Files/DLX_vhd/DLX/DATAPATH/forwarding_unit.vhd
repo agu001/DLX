@@ -18,8 +18,6 @@ architecture beh of FORWARDING_UNIT is
 
 begin
 
-	--F_OUT <= 	F_ALU_MEM WHEN (((RS1 = RD_MEM) OR (RS2 = RD_MEM)) and WF_MEM='1') ELSE
-	--			F_ALU_WB  WHEN (((RS1 = RD_WB) OR (RS2 = RD_WB)) and WF_WB='1');
 
 	F_OUT_S1 <=	F_ALU_EX 	WHEN ((RS1 = RD_EX) and WF_EX='1') ELSE
 				F_ALU_MEM  	WHEN ((RS1 = RD_MEM) and WF_MEM='1') ELSE

@@ -118,8 +118,8 @@ architecture beh of CONTROL_UNIT is
   	signal nextSE_CTRL : std_logic;
 
 begin
-		--RF1,	RF2,	EN_DEC,	I0_R1_SEL,	JAL_SEL, ISJR,	SE_CTRL, S2,	EN_EX,	ISJUMP,	ISBRANCH,	BEQZ,	RM,	WM,	MSIZE1,	MSIZE0,	SE_CTRL2,	EN_MEM,	S3,	WF1, EN_WB
-		--0,	1,  	2,		3,			4,	      5,			 6,		7,		8,		9,			10,		11,	12,	13, 	14,		15,			16,		17,	 18,	19
+		--RF1, RF2,	EN_DEC, I0_R1_SEL, JAL_SEL, ISJR, SE_CTRL, S2, EN_EX, ISJUMP, ISBRANCH,	BEQZ, RM, WM, MSIZE1, MSIZE0, SE_CTRL2,	EN_MEM,	S3,	WF1, EN_WB
+		--0,   1,  	2,		3,		   4,	    5,	 (outside) 6,  7,	  8,	  9,		10,	  11, 12, 13, 	  14,	  15,		16,		17,	18,	 19
 
 	  	cw_from_mem <= cw_mem( to_integer( unsigned(OPCODE) ) );
 		-- FETCH STAGE OUTPUTS

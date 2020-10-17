@@ -43,7 +43,7 @@ begin  -- IRam_Bhe
     variable tmp_data_u : std_logic_vector(NBIT-1 downto 0);
   begin  -- process FILL_MEM_P
     if (Rst = '0') then
-      file_open(mem_fp,"./asm_example/JUMP_BRANCH_ISSUE_dump.asm.mem",READ_MODE);
+      file_open(mem_fp,"./asm_example/FATTORIALE.asm.mem",READ_MODE);
       while (not endfile(mem_fp)) loop
         readline(mem_fp,file_line);
         hread(file_line,tmp_data_u);
@@ -53,13 +53,5 @@ begin  -- IRam_Bhe
     end if;
   end process FILL_MEM_P;
 
---	RdProc: process(Addr, IRAM_mem)
---			variable index: integer := 0;
---			begin
---				if (Rst = '0') then
---					index := conv_integer(unsigned(Addr));
---					Dout <= IRAM_mem(index) after 0.3 ns;
---				end if;
---			end process;
 
 end IRam_Bhe;

@@ -31,6 +31,7 @@ begin
 				if (Clk'event and Clk='0') then
 					if (Rst = '1') then
 							Memory <= (others => (others => '0'));
+							Memory(3) <= X"FF";
 							Memory(41) <= X"EE";
 							Memory(42) <= X"EE";
 							Memory(43) <= X"EE";
