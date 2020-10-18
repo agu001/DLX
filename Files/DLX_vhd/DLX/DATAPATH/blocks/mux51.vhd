@@ -17,6 +17,14 @@ entity mux51 is
 end entity;
 
 architecture beh of mux51 is
+
+	component MUX21_GENERIC is
+		generic ( NBIT: integer );
+		Port (	in_1, in_0:	In	std_logic_vector(NBIT-1 downto 0);
+				sel:	In	std_logic;
+				y:	Out	std_logic_vector(NBIT-1 downto 0));
+	end component MUX21_GENERIC;
+
 BEGIN
 	process(sel_s, in_0, in_1, in_2, in_3, in_4)
 	begin
