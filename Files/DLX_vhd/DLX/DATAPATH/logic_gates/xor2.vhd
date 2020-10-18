@@ -10,6 +10,10 @@ entity XOR2 is
 end entity;
 
 architecture df of XOR2 is
+
+
+
+
 begin
 	C <= A xor B after XORDELAY;
 end architecture;

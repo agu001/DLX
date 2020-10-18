@@ -26,7 +26,7 @@ package myTypes is
 	constant CW_WB_SIZE: natural := 3;
 	constant ZERO_CW_EX_SIZE: std_logic_vector(CW_EX_SIZE-1 downto 0) := (others => '0');
 	constant ZERO_CW_SIZE: std_logic_vector(CW_SIZE-1 downto 0) := (others => '0');
-	constant BIT_ADDRESS_BTB: integer := 5;
+	constant BIT_ADDRESS_BTB: integer := 3;
 	-- Control unit input sizes
 	constant OP_CODE_SIZE : integer :=  6;                                              -- OPCODE field size
 	constant FUNC_SIZE    : integer :=  11;                                             -- FUNC field size

@@ -35,7 +35,5 @@ begin
 	andx2: AND2 port map (s1, Ci, s3);
 	orx1: OR2 port map (s3, s2, Co);
 
-	--S <= A xor B xor Ci after FASDELAY;
-	--Co <= (A and B) or (B and Ci) or (A and Ci) after FACDELAY;
 
 end BEHAVIORAL;

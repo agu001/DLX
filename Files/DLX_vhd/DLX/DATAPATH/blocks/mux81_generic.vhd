@@ -12,7 +12,7 @@ end mux81_generic;
 
 architecture df of mux81_generic is
 begin
-	y <= in_0 when( sel = "000" ) else
+	y <= 	  in_0 when( sel = "000" ) else
 			  in_1 when( sel = "001" ) else
 			  in_2 when( sel = "010") else
 			  in_3 when( sel = "011") else

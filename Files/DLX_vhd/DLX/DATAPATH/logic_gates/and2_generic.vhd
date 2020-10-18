@@ -9,6 +9,7 @@ entity and2_generic is
 end and2_generic;
 
 architecture df of and2_generic is
+
 begin
 	C <= A and B;
 end architecture df;

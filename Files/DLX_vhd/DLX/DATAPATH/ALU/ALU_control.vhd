@@ -27,7 +27,7 @@ begin
 		shift_16 <= '0';
 		ctrl_mux_out <= "00";
 		comparator_ctrl <= "000";
-		logic_op <= "100"; --logic_op(2) -> AND, logic_op(1) -> OR, logic_op(0) -> XOR
+		logic_op <= "000"; --logic_op(2) -> AND, logic_op(1) -> OR, logic_op(0) -> XOR
 		adder_comp_sel <= '0';
 		SUB <= '0';
 		case ALU_OP is
@@ -44,13 +44,13 @@ begin
 				ctrl_mux_out <= "11";
 			when alu_AND	=>
 				ctrl_mux_out <= "10";
-				logic_op <= "100";
+				logic_op <= "001";
 			when alu_OR	=>
 				ctrl_mux_out <= "10";
-				logic_op <= "010";
+				logic_op <= "111";
 			when alu_XOR	=>
 				ctrl_mux_out <= "10";
-				logic_op <= "001";
+				logic_op <= "110";
 			when alu_SGE | alu_SGEU	=>
 				comparator_ctrl <= "101";
 				adder_comp_sel <= '0';

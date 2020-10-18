@@ -2,14 +2,13 @@ vcom myTypesDLX.vhd
 
 vcom ./DLX/DATAPATH/logic_gates/iv.vhd
 vcom ./DLX/DATAPATH/logic_gates/nd2.vhd
+vcom ./DLX/DATAPATH/logic_gates/nd3.vhd
+vcom ./DLX/DATAPATH/logic_gates/nd4.vhd
 vcom ./DLX/DATAPATH/logic_gates/xor2.vhd
 vcom ./DLX/DATAPATH/logic_gates/or2.vhd
 vcom ./DLX/DATAPATH/logic_gates/and2.vhd
 vcom ./DLX/DATAPATH/logic_gates/buffer_generic.vhd
 vcom ./DLX/DATAPATH/logic_gates/buffer1.vhd
-vcom ./DLX/DATAPATH/logic_gates/and2_generic.vhd
-vcom ./DLX/DATAPATH/logic_gates/xor2_generic.vhd
-vcom ./DLX/DATAPATH/logic_gates/or2_generic.vhd
 
 vcom ./DLX/DATAPATH/blocks/fa.vhd
 vcom ./DLX/DATAPATH/blocks/fd.vhd
@@ -44,7 +43,8 @@ vcom ./DLX/DATAPATH/ALU/T2_shifter/T2_shifter.vhd
 
 vcom ./DLX/DATAPATH/ALU/ALU_package.vhd
 
-vcom ./DLX/DATAPATH/ALU/logic_unit/logic_unit.vhd
+vcom ./DLX/DATAPATH/ALU/logic_unit/T2_logic_block.vhd
+vcom ./DLX/DATAPATH/ALU/logic_unit/T2_logic.vhd
 
 vcom ./DLX/DATAPATH/ALU/ALU_datapath.vhd
 vcom ./DLX/DATAPATH/ALU/ALU_control.vhd
@@ -52,7 +52,7 @@ vcom ./DLX/DATAPATH/ALU/ALU.vhd
 vcom ./DLX/DATAPATH/ALU/tb_ALU.vhd
 
 vcom ./DLX/DATAPATH/register_file.vhd
-vcom ./DLX/DATAPATH/hazard_detection_unit.vhd
+vcom ./DLX/DATAPATH/hazard_detection_unit_struct.vhd
 vcom ./DLX/DATAPATH/immediate_ext.vhd
 vcom ./DLX/DATAPATH/dmemory_ext.vhd
 vcom ./DLX/DATAPATH/forwarding_unit.vhd

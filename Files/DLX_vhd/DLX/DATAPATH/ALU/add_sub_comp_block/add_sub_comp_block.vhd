@@ -9,7 +9,7 @@ entity ADD_SUB_COMP_BLOCK is
 				B:	in	std_logic_vector(NBIT-1 downto 0);
 				SUB, SIGN:	in	std_logic;
 				RES :	out	std_logic_vector(NBIT-1 downto 0);
-				Cout, e, ne, lt, le, gt, ge:	out std_logic);
+				Cout, e, ne, lt, le, gt, ge: out std_logic);
 end entity;
 
 architecture arch of ADD_SUB_COMP_BLOCK is
@@ -19,7 +19,7 @@ architecture arch of ADD_SUB_COMP_BLOCK is
 					B:	in	std_logic_vector(NBIT-1 downto 0);
 					SUB:	in	std_logic;
 					RES:	out	std_logic_vector(NBIT-1 downto 0);
-					Cout, e, ne, lt, le, gt, ge:	out std_logic);
+					Cout: out std_logic);
 		end component;
 
 		component comparator is

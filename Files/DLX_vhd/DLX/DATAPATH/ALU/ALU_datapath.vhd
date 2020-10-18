@@ -32,12 +32,12 @@ architecture Struct of ALU_datapath is
 							Cout, e, ne, lt, le, gt, ge:	out	std_logic);
 		end component;
 
-		component logic_unit is
+		component T2_logic is
 			generic (NBIT: integer);
 		  	port(	logic_op: IN std_logic_vector(2 downto 0);
 					DATA1, DATA2: IN std_logic_vector(NBIT-1 downto 0);
 					Y: OUT std_logic_vector(NBIT-1 downto 0));
-		end component logic_unit;
+		end component T2_logic;
 
 		component boothmul is
 			generic (NBIT: integer);
@@ -90,7 +90,7 @@ begin
 		add_comp_slct: mux21_generic generic map(BUS_WIDTH) port map(adder_out, comparator_out32, adder_comp_sel, adder_comp_out);
 
 		--logic
-		logic: logic_unit generic map (BUS_WIDTH) port map (logic_op, DATA1, DATA2, logic_out);
+		logic: T2_logic generic map (BUS_WIDTH) port map (logic_op, DATA1, DATA2, logic_out);
 
 		--multiplier
 		MULT: boothmul generic map (BUS_WIDTH) port map(DATA1, DATA2, mult_out);

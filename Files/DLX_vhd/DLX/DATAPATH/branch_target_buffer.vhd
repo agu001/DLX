@@ -13,9 +13,9 @@ use work.myTypes.all;
 
 architecture beh of BTB is
 
-	constant BIT_ADDRESS_BTB: integer := 5;
+	--constant BIT_ADDRESS_BTB: integer := 5;
 	type rf_target is array(0 to 2**BIT_ADDRESS_BTB-1) of std_logic_vector(BUS_WIDTH-1 downto 0);
-	type rf_pc is array(0 to 2**BIT_ADDRESS_BTB-1) of std_logic_vector(BUS_WIDTH-8 downto 0);
+	type rf_pc is array(0 to 2**BIT_ADDRESS_BTB-1) of std_logic_vector(BUS_WIDTH-1-2-BIT_ADDRESS_BTB downto 0);
 	type rf_pred is array(0 to 2**BIT_ADDRESS_BTB-1) of std_logic_vector(1 downto 0);
 	--type rf_pred is array(0 to 2**BIT_ADDRESS_BTB-1) of std_logic;
 
@@ -41,7 +41,7 @@ begin
 			predict_taken <= '0';
 			target_out <= (others => 'Z');
 		elsif (clk = '0' and clk'event) then
-			if ( pc_mem(INDEX_FETCH) = PC_from_fetch(BUS_WIDTH-1 downto 7) and dirty_bit(INDEX_FETCH) = '1' ) then
+			if ( pc_mem(INDEX_FETCH) = PC_from_fetch(BUS_WIDTH-1 downto BIT_ADDRESS_BTB+2) and dirty_bit(INDEX_FETCH) = '1' ) then
 				if (predict_mem(INDEX_FETCH) = "00" or predict_mem(INDEX_FETCH) = "01") then
 					predict_taken <= '0';
 				else
@@ -59,13 +59,14 @@ begin
 		variable predict: integer;
 	begin
 		if(rst = '1') then
-			target_mem <= (others => (others => 'Z'));
-			predict_mem <= (others => (others => 'Z'));
+			--target_mem <= (others => (others => 'Z'));
+			--predict_mem <= (others => (others => 'Z'));
+			--pc_mem <= (others => (others => 'Z'));
 			dirty_bit <= (others => '0');
 		elsif (clk = '0' and clk'event) then
 			if (ISBRANCH = '1') then
-				if ( PC_from_exe(BUS_WIDTH-1 downto 7) /= pc_mem(INDEX_EXE)) then
-					pc_mem(INDEX_EXE) <= PC_from_exe(BUS_WIDTH-1 downto 7);
+				if ( PC_from_exe(BUS_WIDTH-1 downto BIT_ADDRESS_BTB+2) /= pc_mem(INDEX_EXE)) then
+					pc_mem(INDEX_EXE) <= PC_from_exe(BUS_WIDTH-1 downto BIT_ADDRESS_BTB+2);
 					target_mem(INDEX_EXE) <= target_to_save;
 					predict_mem(INDEX_EXE) <= "00";
 					dirty_bit(INDEX_EXE) <= '1';
