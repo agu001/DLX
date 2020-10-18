@@ -32,6 +32,7 @@ vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/P4_adder/P4_adder.vhd
 vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_block/add_sub_block.vhd
 vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/comparator/zero_detector.vhd
 vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/comparator/comparator.vhd
+vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/comparator/comparator_generic.vhd
 vcom ./DLX/DATAPATH/ALU/add_sub_comp_block/add_sub_comp_block.vhd
 
 vcom ./DLX/DATAPATH/ALU/Booth_multiplier/twoscomplement.vhd
