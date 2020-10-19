@@ -89,7 +89,7 @@ if ($srcfile =~ /^(.*)\.dlx$/) {
 # Floating-point instructions
   "addf"  => "f,0x00",
   "subf"  => "f,0x01",
-  "multf" => "r,0x00", #it was f, 0x02
+  "multf" => "f,0x02",
   "divf"  => "f,0x03",
   "addd"  => "f,0x04",
   "subd"  => "f,0x05",
@@ -101,7 +101,7 @@ if ($srcfile =~ /^(.*)\.dlx$/) {
   "cvtd2i" => "fd,0x0b",
   "cvti2f" => "fd,0x0c",
   "cvti2d" => "fd,0x0d",
-  "mult"  => "f,0x0e",
+  "mult"  => "r,0x0e", #it was f
   "div"   => "f,0x0f",
   "eqf"   => "f2,0x10",
   "nef"   => "f2,0x11",
