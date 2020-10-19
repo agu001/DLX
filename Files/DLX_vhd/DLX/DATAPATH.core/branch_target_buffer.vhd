@@ -26,7 +26,6 @@ architecture beh of BTB is
 	signal dirty_bit: std_logic_vector(0 to 2**BIT_ADDRESS_BTB-1);
 	signal INDEX_FETCH, INDEX_EXE: integer;
 
-	--signal prediction_temp: std_logic;
 
 begin
 
@@ -59,9 +58,6 @@ begin
 		variable predict: integer;
 	begin
 		if(rst = '1') then
-			--target_mem <= (others => (others => 'Z'));
-			--predict_mem <= (others => (others => 'Z'));
-			--pc_mem <= (others => (others => 'Z'));
 			dirty_bit <= (others => '0');
 		elsif (clk = '0' and clk'event) then
 			if (ISBRANCH = '1') then

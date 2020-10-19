@@ -28,8 +28,10 @@ architecture IRam_Bhe of IRAM is
 
 begin  -- IRam_Bhe
 
+	--We divided the PC by 4 to access correctly to the memory
 	AddrShifted <= "00" & Addr(NBIT-1 downto 2);
 	Dout_temp <= conv_std_logic_vector(IRAM_mem(conv_integer(unsigned(AddrShifted))),NBIT);
+	--We forward a NOP instruction when EOF is encountered or reset is enabled
 	Dout <= Dout_temp when (Dout_temp /= X"80000000") else
 			X"54000000";
   -- purpose: This process is in charge of filling the Instruction RAM with the firmware

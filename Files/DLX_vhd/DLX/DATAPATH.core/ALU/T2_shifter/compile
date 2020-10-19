@@ -1,5 +1,0 @@
-vcom mux21_generic.vhd
-vcom mux41_generic.vhd
-vcom mux81_generic.vhd
-vcom T2_shifter.vhd
-vcom tb_T2_shifter.vhd

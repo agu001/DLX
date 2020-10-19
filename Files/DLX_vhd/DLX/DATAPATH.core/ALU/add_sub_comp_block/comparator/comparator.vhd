@@ -49,31 +49,24 @@ begin
 	zd: zero_detector generic map (NBIT) port map (SUM, Z);
 
 	e <= Z;
+	ne <= Z_n;
 
-	--ne <= not Z;
-	ivx1: IV port map (Z, ne);
 
-	--opp_signs <= A(NBIT-1) XOR B(NBIT-1);
 	xorx1: XOR2 port map (A(NBIT-1), B(NBIT-1), opp_signs);
 
-	--opp_signs2 <= opp_signs AND S;
 	andx1: AND2 port map (opp_signs, S, opp_signs2);
 
 	ivx2: IV port map (Cout, Cout_n);
 	ivx3: IV port map (Z, Z_n);
 
-	--le <= (not Cout or Z) XOR opp_signs2;
 	orx1: OR2 port map (Cout_n, Z, le_u);
 	xorx2: XOR2 port map (le_u, opp_signs2, le);
 
-	--lt <= (not Cout) XOR opp_signs2;
 	xorx3: XOR2 port map(Cout_n, opp_signs2, lt);
 
-	--gt <= (Cout and not Z) XOR opp_signs2;
 	andx2: AND2 port map (Cout, Z_n, gt_u);
 	xorx4: XOR2 port map (gt_u, opp_signs2, gt);
 
-	--ge <= (Cout) XOR opp_signs2;
 	xorx5: XOR2 port map (Cout, opp_signs2, ge);
 
 end struct;

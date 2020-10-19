@@ -31,19 +31,6 @@ begin
 				if (Clk'event and Clk='0') then
 					if (Rst = '1') then
 							Memory <= (others => (others => '0'));
-							Memory(3) <= X"FF";
-							Memory(41) <= X"EE";
-							Memory(42) <= X"EE";
-							Memory(43) <= X"EE";
-							Memory(44) <= X"EE";
-							Memory(45) <= X"EE";
-							Memory(46) <= X"EE";
-							Memory(47) <= X"EE";
-							Memory(48) <= X"EE";
-							Memory(49) <= X"EE";
-							Memory(50) <= X"EE";
-							Memory(51) <= X"EE";
-							Memory(52) <= X"EE";
 					elsif (En = '1' and (int_A >= 0 and int_A <=DEPTH ) ) then
 						if (WM = '1') then
 

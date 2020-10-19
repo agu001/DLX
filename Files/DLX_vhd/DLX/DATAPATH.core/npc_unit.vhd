@@ -13,13 +13,6 @@ end NPC_LOGIC;
 
 architecture DataFlow of NPC_LOGIC is
 
-	component mux21_generic is
-		generic (	NBIT: integer := BUS_WIDTH);
-		Port (	in_1, in_0:	In	std_logic_vector(NBIT-1 downto 0);
-				sel:	In	std_logic;
-				y:	Out	std_logic_vector(NBIT-1 downto 0));
-	end component mux21_generic;
-
 begin
 
 		PC_ADDRESS <= 	BJ_ADDR 	when( ( P_WRONG='1' and B_TAKEN='1' ) or ISJUMP='1') else

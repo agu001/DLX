@@ -42,7 +42,7 @@ use WORK.alu_package.all;
     end entity;
 
 architecture beh of CONTROL_UNIT is
-	type mem_array is array (integer range 0 to MICROCODE_MEM_DEPTH - 1) of std_logic_vector(MICROCODE_MEM_SIZE - 1 downto 0);
+	type mem_array is array (integer range 0 to CU_MEM_DEPTH - 1) of std_logic_vector(CU_MEM_SIZE - 1 downto 0);
   							--RF1,	RF2,	EN_DEC,	I0_R1_SEL,	JAL_SEL, ISJR,	S2,		EN_EX,	ISJUMP,	ISBRANCH,	BEQZ,	RM,	WM,	MSIZE1,	MSIZE0,	SE_CTRL2,	EN_MEM,	S3,	WF1, EN_WB
 							--0,	1,  	2,		3,			4,	      5,	6,		7,		8,		9,			10,		11,	12,	13, 	14,		15,			16,		17,	 18,	19
 	signal cw_mem : mem_array := (  "11110011000000001011",--RTYPE	0
@@ -111,7 +111,7 @@ architecture beh of CONTROL_UNIT is
 									"00000000000000000000"
 									);
 
-	signal cw_from_mem: std_logic_vector(MICROCODE_MEM_SIZE-1 downto 0);
+	signal cw_from_mem: std_logic_vector(CU_MEM_SIZE-1 downto 0);
 	signal outCW: std_logic_vector(CW_SIZE-1 downto 0);
 
   	signal nextALU_CTRL : ALU_OP_type;
@@ -156,11 +156,12 @@ begin
 					outCW <= (others => '0');
 					ALU_CTRL <= alu_DEFAULT;
 				elsif Clk'event and Clk = '0' then  -- falling clock edge
-					outCW <= cw_from_mem(MICROCODE_MEM_SIZE-1 downto MICROCODE_MEM_SIZE-6) & nextSE_CTRL & cw_from_mem(MICROCODE_MEM_SIZE-7 downto 0);
+					--We included the SE_CTRL in the outgoing control word
+					outCW <= cw_from_mem(CU_MEM_SIZE-1 downto CU_MEM_SIZE-6) & nextSE_CTRL & cw_from_mem(CU_MEM_SIZE-7 downto 0);
 					ALU_CTRL <= nextALU_CTRL;
 				end if;
 		end process CW_PIPE;
-
+		--SE_CTRL to notice if the operands are signed and for computing their relative extensions
 		ALU_SE_CTRL : process (OPCODE, FUNC)
 		begin
 			case OPCODE is

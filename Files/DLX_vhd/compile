@@ -50,7 +50,6 @@ vcom ./DLX/DATAPATH.core/ALU/logic_unit/T2_logic.vhd
 vcom ./DLX/DATAPATH.core/ALU/ALU_datapath.vhd
 vcom ./DLX/DATAPATH.core/ALU/ALU_control.vhd
 vcom ./DLX/DATAPATH.core/ALU/ALU.vhd
-vcom ./DLX/DATAPATH.core/ALU/tb_ALU.vhd
 
 vcom ./DLX/DATAPATH.core/register_file.vhd
 vcom ./DLX/DATAPATH.core/hazard_detection_unit_struct.vhd

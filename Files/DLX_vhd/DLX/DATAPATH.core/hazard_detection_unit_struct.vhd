@@ -39,6 +39,8 @@ architecture Beh of HAZARD_DETECTION_UNIT is
 
 begin
 
+	--Comparators work on multiple of 4, so two 8-bit comparators are instantiated
+
 	tempRS1 <= "000" & RS1_DEC;
 	tempRS2 <= "000" & RS2_DEC;
 	tempRD <= "000" & RD_EX;

@@ -26,7 +26,8 @@ architecture BEH of register_file is
 	signal REGISTERS : REG_ARRAY;
 
 begin
-
+	--Asynchronous both reset and read, synchronous write on the faling edge
+	--R0 can't be written to
 	process(CLK, RESET)
 	begin
 

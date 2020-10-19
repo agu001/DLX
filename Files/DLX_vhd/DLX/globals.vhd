@@ -6,20 +6,16 @@ package myTypes is
 	constant IVDELAY : time := 0.01 ns;
 	constant NDDELAY : time := 0.01 ns;
 	constant XORDELAY: time := 0.01 ns;
-	constant FDDELAY:  time := 0.01 ns;
-	constant RFDELAY: time := 0.2 ns;
+	constant FDDELAY:  time := 0.01 ns; --flip flop D
+	constant RFDELAY: time := 0.2 ns; --register file
 	constant SEDELAY: time := 0.3 ns; --sign extension
-	--constant FASDELAY : time := 0.1 ns;
-	--constant FACDELAY : time := 0.1 ns;
-	------------constant tp_mux : time := 0.5 ns	;!!!!!!!!!!!!
-	constant NBIT_PER_BLOCK : integer := 4;
-	--constant NBIT: integer := 32;
+	constant NBIT_PER_BLOCK : integer := 4;  --used in the P4adder
 	----------------------------------
 	constant BUS_WIDTH: natural := 32;
 	constant DRAM_DEPTH: natural := 512;
 
-	constant MICROCODE_MEM_DEPTH: integer := 64;
-	constant MICROCODE_MEM_SIZE: integer := 20;
+	constant CU_MEM_DEPTH: integer := 64;
+	constant CU_MEM_SIZE: integer := 20;
 	constant CW_SIZE: integer := 21;
 	constant CW_EX_SIZE: natural := 18;
 	constant CW_MEM_SIZE: natural := 9;
@@ -32,8 +28,8 @@ package myTypes is
 	constant FUNC_SIZE    : integer :=  11;                                             -- FUNC field size
 	constant RD31		  : std_logic_vector(4 downto 0) := "11111";
 	-- R-Type instruction -> FUNC field
-	constant funcADD : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "00000100000";    -- ADD RS1,RS2,RD
-	constant funcSUB : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "00000100010";    -- SUB RS1,RS2,RD
+	constant funcADD : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "00000100000";
+	constant funcSUB : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "00000100010";
 	constant funcSUBU : std_logic_vector(FUNC_SIZE - 1 downto 0) :=  "00000100011";
 	constant funcAND : std_logic_vector(FUNC_SIZE - 1 downto 0) := "00000100100";
 	constant funcOR : std_logic_vector(FUNC_SIZE - 1 downto 0) := "00000100101";
@@ -58,7 +54,7 @@ package myTypes is
 	constant DEFAULT_OP : std_logic_vector(FUNC_SIZE-1 downto 0) :=  "00000000000";
 
 	-- R-Type instruction -> OPCODE field
-	constant RTYPE : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=  "000000";          -- for ADD, SUB, AND, OR register-to-register operation
+	constant RTYPE : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=  "000000";
 
 	-- I-Type instruction -> OPCODE field
 	constant ADDI : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=   "001000";
@@ -101,6 +97,5 @@ package myTypes is
 
 	constant NOP : std_logic_vector(OP_CODE_SIZE - 1 downto 0) :=   "010101";
 	constant NOP_instruction: std_logic_vector(BUS_WIDTH-1 downto 0) := "010101" & "00" & X"000000";
-	--ALU OPERATION
 end myTypes;
 
