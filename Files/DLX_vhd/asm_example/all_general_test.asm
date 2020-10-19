@@ -35,7 +35,6 @@ sw 52(r3), r1
 jal labjal
 addi r31, r0, labjr2
 jalr r31
-lh r3, 50(r0)
 labjal:
 seq r13,r1,r4
 seqi r29,r20,#1
@@ -51,10 +50,16 @@ slt r5,r7,r8
 slti r9,r10,#30
 sltu r17,r13,r14
 sltui r5,r7,#13
+addi r27, r0, #10
+
 srai r25,r26,#10
 subu r13,r2,r4
 subui r5,r18,#4
 or r5, r3, r4
 sleu r13,r2,r9
 sleui r22,r30,#30
+sra r25, r26, r27 ;new
+lhu r1, #10 ;new
+sh 10(r3), r2 ;new
+lh r3, 50(r0)
 j l1

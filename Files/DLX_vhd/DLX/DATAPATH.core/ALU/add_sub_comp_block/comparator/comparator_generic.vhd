@@ -42,10 +42,10 @@ begin
 	or_gen:		for j in 0 to NUM_LEVEL-1 generate
 					inner:  for i in 0 to ((NBIT/(2*(j+1)))-1) generate
 								C_s_xor:if ( j = 0) generate
-											or_s_xor_j_i: OR2 port map(xor_out(2*i), xor_out(2*i+1), mx(0)(2*i));
+											or_s_xor_j_i: OR2 port map(xor_out(2*i), xor_out(2*i+1), mx(0)(i));
 										end generate;
 								Cmux: 	if ( j /= 0) generate
-											or_mux_j_i: OR2 port map(mx(j-1)(2*i), mx(j-1)(2*i+1), mx(j)(2*i));
+											or_mux_j_i: OR2 port map(mx(j-1)(2*i), mx(j-1)(2*i+1), mx(j)(i));
 										end generate;
 							end generate;
 				end generate;

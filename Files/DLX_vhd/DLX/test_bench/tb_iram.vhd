@@ -2,7 +2,6 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.std_logic_arith.all;
-use work.myTypes.all;
 
 entity iram_test is
 end iram_test;
@@ -29,7 +28,7 @@ begin
 	dut: IRAM port map(Rst, Addr, Dout);
 
 	Rst <= '1', '0' after 1 ns;
-	
+
 	CONTROL: process
         begin
 
@@ -39,6 +38,6 @@ begin
 		wait for 1.5 ns;
 		Addr <= X"00000004";
         wait;
-        end process;	
+        end process;
 
 end test;

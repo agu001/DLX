@@ -9,7 +9,7 @@ add wave -noupdate -format Literal /tb/dut/cpu/dp/branch_predict/target_out
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/pc_in
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/pc_out
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/npc
-add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/iram_addr
+add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/iram_addr
 add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/iram_in
 add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/ir_dec
 add wave -noupdate -format Logic /tb/dut/cpu/dp/hdu_mux_sel
@@ -37,8 +37,8 @@ add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/imm32_out
 add wave -noupdate -format Literal -radix hexadecimal /tb/dut/cpu/dp/bj_addr
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/s2_out
 add wave -noupdate -format Literal /tb/dut/cpu/dp/aluctrl
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/alu_out_ex
 add wave -noupdate -format Logic /tb/dut/cpu/dp/zero_result
-add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/me_out
 add wave -noupdate -format Literal -radix decimal /tb/dut/cpu/dp/dram_addr
 add wave -noupdate -format Literal /tb/dut/dram_size
 add wave -noupdate -format Logic /tb/dut/clk
@@ -75,9 +75,19 @@ add wave -noupdate -format Literal /tb/dut/cpu/dp/branch_predict/predict_mem
 add wave -noupdate -format Logic /tb/dut/cpu/dp/branch_predict/rst
 add wave -noupdate -format Literal /tb/dut/cpu/dp/branch_predict/target_mem
 add wave -noupdate -format Literal /tb/dut/cpu/dp/branch_predict/target_to_save
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/alu_block/datapath/add_sub_comp/a
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/alu_block/datapath/add_sub_comp/b
+add wave -noupdate -format Logic /tb/dut/cpu/dp/alu_block/datapath/add_sub_comp/sign
+add wave -noupdate -format Logic /tb/dut/cpu/dp/alu_block/datapath/add_sub_comp/sub
+add wave -noupdate -format Logic -label le /tb/dut/cpu/dp/alu_block/datapath/add_sub_comp/le
+add wave -noupdate -format Logic -label cout /tb/dut/cpu/dp/alu_block/datapath/add_sub_comp/comp/cout
+add wave -noupdate -format Logic -label z /tb/dut/cpu/dp/alu_block/datapath/add_sub_comp/comp/z
+add wave -noupdate -format Literal -radix unsigned /tb/dut/cpu/dp/alu_block/datapath/add_sub_comp/comp/sum
+add wave -noupdate -format Literal /tb/dut/cpu/dp/alu_block/datapath/add_sub_comp/comp/zd/a
+add wave -noupdate -format Literal /tb/dut/cpu/dp/alu_block/datapath/add_sub_comp/comp/zd/data_zero
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {63930 ps} 0}
-configure wave -namecolwidth 267
+WaveRestoreCursors {{Cursor 1} {20890 ps} 0}
+configure wave -namecolwidth 140
 configure wave -valuecolwidth 124
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
@@ -91,4 +101,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {710 ps} {23920 ps}
+WaveRestoreZoom {17730 ps} {44370 ps}

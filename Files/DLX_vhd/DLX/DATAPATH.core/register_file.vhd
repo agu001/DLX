@@ -33,20 +33,6 @@ begin
 		if(CLK = '0' AND CLK'event) then
 			if(RESET ='1') then
 				REGISTERS <= (others => ( others =>'0')) after RFDELAY;
-				REGISTERS(2) <= std_logic_vector(to_unsigned(10, DATABIT)) after RFDELAY;
-				REGISTERS(3) <= std_logic_vector(to_unsigned(10, DATABIT)) after RFDELAY;
-				REGISTERS(5) <= std_logic_vector(to_unsigned(10, DATABIT)) after RFDELAY;
-				REGISTERS(7) <= std_logic_vector(to_unsigned(10, DATABIT)) after RFDELAY;
-				REGISTERS(8) <= std_logic_vector(to_unsigned(16, DATABIT)) after RFDELAY;
-				REGISTERS(9) <= std_logic_vector(to_unsigned(10, DATABIT)) after RFDELAY;
-				REGISTERS(10) <= std_logic_vector(to_unsigned(10, DATABIT)) after RFDELAY;
-				REGISTERS(12) <= std_logic_vector(to_unsigned(10, DATABIT)) after RFDELAY;
-				REGISTERS(13) <= std_logic_vector(to_unsigned(10, DATABIT)) after RFDELAY;
-				REGISTERS(14) <= std_logic_vector(to_unsigned(10, DATABIT)) after RFDELAY;
-				REGISTERS(15) <= std_logic_vector(to_unsigned(10, DATABIT)) after RFDELAY;
-				REGISTERS(18) <= std_logic_vector(to_unsigned(10, DATABIT)) after RFDELAY;
-				REGISTERS(20) <= std_logic_vector(to_unsigned(10, DATABIT)) after RFDELAY;
-				REGISTERS(30) <= std_logic_vector(to_unsigned(10, DATABIT)) after RFDELAY;
 			elsif( ENABLE = '1') then
 				if (WR = '1' and ADD_WR /="00000") then
 					REGISTERS(to_integer(unsigned(ADD_WR))) <= DATAIN after RFDELAY;

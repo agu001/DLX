@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.ALL;
 use ieee.numeric_std.ALL;
-use WORK.myTypes.all;
+use work.myTypes.all;
 
 entity DRAM is
 		generic (	DEPTH: natural;
