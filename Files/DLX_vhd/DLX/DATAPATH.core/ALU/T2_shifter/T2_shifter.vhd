@@ -66,7 +66,6 @@ begin
     MR(0) <= msbs7 & dataIn;
     ML(0) <= dataIn & zeros7;
 
-    --SECOND STAGE--
     sh_by8_generate:
     for i in 0 to 3 generate
         sh_by8_mux_MX: mux21_generic generic map (BUS_WIDTH+7) port map (ML(i), MR(i), sel_1s, M(i));
@@ -76,6 +75,7 @@ begin
         end generate innerIf;
     end generate sh_by8_generate;
 
+	--SECOND STAGE--
     stage2_mux: mux41_generic generic map (BUS_WIDTH+7) port map (M(0), M(1), M(2), M(3), sel_2s, SH_BY8_BUF);
 
     --THIRD STAGE--

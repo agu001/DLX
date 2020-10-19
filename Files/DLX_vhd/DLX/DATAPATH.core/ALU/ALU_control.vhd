@@ -23,13 +23,13 @@ begin
 	P_ALU: process (ALU_OP)
 	-- complete all the requested functions
 	begin
-		l_r <= '0';
-		shift_16 <= '0';
-		ctrl_mux_out <= "00";
-		comparator_ctrl <= "000";
-		logic_op <= "000"; --logic_op(2) -> AND, logic_op(1) -> OR, logic_op(0) -> XOR
-		adder_comp_sel <= '0';
-		SUB <= '0';
+		l_r <= '0';	-- 1 shift left, 0 shift right
+		shift_16 <= '0'; --used for lhi instruction
+		ctrl_mux_out <= "00"; --used for selecting the alu output
+		comparator_ctrl <= "000"; --used for selecting the desired bit computed by the comparator
+		logic_op <= "000"; --001 for AND, 111 for OR, 110 for XOR
+		adder_comp_sel <= '0'; --1 adder output, 0 comparator output
+		SUB <= '0';--1 used to compute sub operation, 0 for addition
 		case ALU_OP is
 			when alu_DEFAULT	=>
 			when alu_ADD | alu_ADDU	=>

@@ -159,11 +159,11 @@ architecture Struct of DATAPATH is
 
 	signal CW_active: std_logic_vector(CW_SIZE-1 downto 0);
 	signal RFOUT1, RFOUT2, MEM_ALU_SEL_WB, DATA_WRITE_WB_to_RF, DATA_WRITE_to_FU, A_OUT, B_OUT, S2_OUT, ALU_OUT_EX, ALU_OUT_MEM, ALU_OUT_WB: std_logic_vector(BUS_WIDTH-1 downto 0);
-	signal PC_OUT, NPC, IR_DEC, IMM32, IMM32_OUT, REL_ADDR, PC_IN, PC_IN_1, BJ_ADDR, NPC_DEC, NPC_EX, NPC_MEM, NPC_WB, mux_to_PC_2_to_1, mux_to_ir: std_logic_vector(BUS_WIDTH-1 downto 0);
+	signal PC_OUT, NPC, IR_DEC, IMM32, IMM32_OUT, REL_ADDR, PC_IN, PC_IN_1, BJ_ADDR, NPC_DEC, NPC_EX, NPC_MEM, NPC_WB: std_logic_vector(BUS_WIDTH-1 downto 0);
 	signal IN1_OUT, MUX_FW1_OUT, MUX_FW2_OUT, FU_OUT_S1, FU_OUT_S2, MEMORY_OUT, MEMORY_OUT_WB, DATA_WRITE_TO_MEM: std_logic_vector(BUS_WIDTH-1 downto 0);
 
 	signal RF1, RF2, EN_DEC, S1, S2, EN_EX, EN_WB, ISJUMP, ISBRANCH, ISBEQZ, RM, WM, EN_MEM, S3, WF1, SE_CTRL, SE_CTRL_EX, I0_R1_SEL, JAL_SEL, MSIZE1, MSIZE0, SE_CTRL2, ISJR: std_logic;
-	signal branch_taken, branch_taken1, FLUSH, FU_CTRL1, FU_CTRL2, HDU_PC_EN, HDU_IR_EN, HDU_MUX_SEL, JAL_MEM, JAL_WB, WF1_to_FU, ZERO_RESULT: std_logic;
+	signal branch_taken, FLUSH, FU_CTRL1, FU_CTRL2, HDU_PC_EN, HDU_IR_EN, HDU_MUX_SEL, JAL_MEM, JAL_WB, WF1_to_FU, ZERO_RESULT: std_logic;
 
 	signal RS1, RS2, RD_EX, RD_MEM, RD_WB, RD_to_FU, RS1_EX, RS2_EX: std_logic_vector(4 downto 0);
 	signal RD_RTYPE_DEC, RD_ITYPE_DEC, RD_SEL_EX: std_logic_vector(4 downto 0);
