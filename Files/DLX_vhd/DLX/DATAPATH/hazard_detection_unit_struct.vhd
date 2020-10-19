@@ -11,14 +11,12 @@ end entity HAZARD_DETECTION_UNIT;
 
 architecture Beh of HAZARD_DETECTION_UNIT is
 
-	component ADD_SUB_COMP_BLOCK is
-			generic (	NBIT:	integer);
-			port (	A:	in	std_logic_vector(NBIT-1 downto 0);
-					B:	in	std_logic_vector(NBIT-1 downto 0);
-					SUB, SIGN:	in	std_logic;
-					RES :	out	std_logic_vector(NBIT-1 downto 0);
-					Cout, e, ne, lt, le, gt, ge: out std_logic);
-	end component ADD_SUB_COMP_BLOCK;
+	component comparator_generic is
+		generic (NBIT: integer);
+		port ( A, B: in std_logic_vector(NBIT-1 downto 0);
+				  Z: out std_logic
+				);
+	end component comparator_generic;
 
 	component ND3 is
 		Port (	A, B, C: In	std_logic;
@@ -44,8 +42,8 @@ begin
 	tempRS1 <= "000" & RS1_DEC;
 	tempRS2 <= "000" & RS2_DEC;
 	tempRD <= "000" & RD_EX;
-	compare_RS1: ADD_SUB_COMP_BLOCK generic map(8) port map(tempRS1, tempRD, '1', '0', open, open, compare1_out, open, open, open, open, open);
-	compare_RS2: ADD_SUB_COMP_BLOCK generic map(8) port map(tempRS2, tempRD, '1', '0', open, open, compare2_out, open, open, open, open, open);
+	compare_RS1: comparator_generic generic map(8) port map(tempRS1, tempRD, compare1_out);
+	compare_RS2: comparator_generic generic map(8) port map(tempRS2, tempRD, compare2_out);
 	and_mem: AND2 port map(MEMRD_EX, '1', and_out);
 
 
@@ -58,17 +56,4 @@ begin
 	PC_EN <= iv_n_out;
 	IR_EN <= iv_n_out;
 
-
-	--process(RS1_DEC, RS2_DEC, RD_EX, MEMRD_EX)
-	--begin
-	--	if ( MEMRD_EX = '1' and (RS1_DEC = RD_EX or RS2_DEC = RD_EX) ) then
-	--		PC_EN <= '0';
-	---		IR_EN <= '0';
-	--		MUX_SEL <= '1';
-	--	else
-	---		PC_EN <= '1';
-	--		IR_EN <= '1';
-	--		MUX_SEL <= '0';
-	--	end if;
-	--end process;
 end Beh;

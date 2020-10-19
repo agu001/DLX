@@ -27,9 +27,4 @@ begin
 	mux2_comp: MUX21_GENERIC generic map(NBIT) port map(in_3, in_2, sel(0), mux2_out);
 	mux3_comp: MUX21_GENERIC generic map(NBIT) port map(mux2_out, mux1_out, sel(1), y);
 
-	--y <=       in_0 when( sel = "00" ) else
-	--		  in_1 when( sel = "01" ) else
-	--		  in_2 when( sel = "10") else
-	--		  in_3 when( sel = "11") else
-	--		  (others => '0');
 end df;

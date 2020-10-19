@@ -20,7 +20,6 @@ architecture df of mux21 is
 				Y:	Out	std_logic);
 	end component;
 
-	--signal y1, y2: std_logic_vector(NBIT-1 downto 0);
 	signal sb, y1, y2: std_logic;
 
 begin
@@ -30,9 +29,6 @@ begin
 	UND2 : ND2 Port Map ( in_0, sb, y2);
 	UND3 : ND2 Port Map ( y1, y2, y);
 
-	--y <= in_1 when( sel = '1' ) else
-	--	 in_0 when( sel = '0' ) else
-	--	 'U';
 
 end df;
 
